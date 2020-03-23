@@ -4,8 +4,6 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
 
-
-
 const DATA = [
     {
         title: 'Current Orders',
@@ -34,6 +32,7 @@ export default class Purchase extends Component {
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
+                        marginTop:10
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
@@ -88,7 +87,11 @@ export default class Purchase extends Component {
                 alignSelf: 'center', 
                 // backgroundColor: 'pink',
                 overflow:'hidden'
-            }}>
+            }}
+            onPress={() =>{
+                this.props.navigation.navigate('DetailerLocation')
+            }}
+            >
                 <View style={{flexDirection:'row'}}>
                 <Image style={{height:120,
                 width:'40%',}}

@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
-
-
-
-// const DATA = [
-//     {
-//         title: 'Current Orders',
-//         data: ['Pizza', 'Burger', 'Risotto'],
-//     },
-//     // {
-//     //     title: 'Past Orders',
-//     //     data: ['Pizza', 'Burger', 'Risotto'],
-//     // },
-
-// ];
 export default class Purchase extends Component {
     constructor(props) {
         super(props)
@@ -30,6 +16,7 @@ export default class Purchase extends Component {
             }]
         }
     }
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -43,7 +30,8 @@ export default class Purchase extends Component {
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center',
+                             justifyContent: 'center',
                             position: 'absolute', left: 5
 
 
@@ -129,7 +117,7 @@ export default class Purchase extends Component {
 
                 </Image>
                 <View  style={{marginLeft:15,marginTop:20}}>
-                <Text style={{fontSize:17,
+               <Text style={{fontSize:17,
                     fontWeight:'700'}}>
                         Product name
                     </Text>
@@ -141,6 +129,8 @@ export default class Purchase extends Component {
         )
     }
 }
+
+
 
 
 

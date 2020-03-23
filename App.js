@@ -31,7 +31,9 @@ import MyCars from './Screen/MyCars'
 import Settings from './Screen/Settings'
 import ServiceDetail from './Screen/ServiceDetail'
 import DetailerList from './Screen/DetailerList';
-import ChangePassword from './Screen/ChangePassword'
+import ChangePassword from './Screen/ChangePassword';
+import DetailerLocation from './Screen/DetailerLocation';
+import NotificationDetail from './Screen/NotificationDetail'
 
 
 
@@ -98,7 +100,9 @@ const Tabnavigation =createBottomTabNavigator({
     Settings :{ screen : Settings},
   ServiceDetail:{screen :ServiceDetail},
   DetailerList:{screen:DetailerList},
-  ChangePassword :{screen :ChangePassword}
+  ChangePassword :{screen :ChangePassword},
+  DetailerLocation :{screen:DetailerLocation},
+  NotificationDetail:{screen :NotificationDetail}
     
   },
     {

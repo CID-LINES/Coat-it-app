@@ -17,7 +17,7 @@ export default class Settings extends Component {
                         height: 40, width: '95%',
                         justifyContent: 'center',
                         flexDirection:'row',
-                        alignSelf: 'center',
+                        alignSelf: 'center',marginTop:10
                     }}> 
                         <TouchableOpacity style={{
                             height: 35, width: 35,

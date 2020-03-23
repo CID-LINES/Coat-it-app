@@ -35,6 +35,10 @@ target 'kenotekcarapp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+
   target 'kenotekcarappTests' do
     inherit! :search_paths
     # Pods for testing

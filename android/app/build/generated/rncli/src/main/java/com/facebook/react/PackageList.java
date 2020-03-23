@@ -20,6 +20,8 @@ import org.reactnative.maskedview.RNCMaskedViewPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-image-picker
 import com.imagepicker.ImagePickerPackage;
+// react-native-maps
+import com.airbnb.android.react.maps.MapsPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -74,6 +76,7 @@ public class PackageList {
       new RNCMaskedViewPackage(),
       new RNGestureHandlerPackage(),
       new ImagePickerPackage(),
+      new MapsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage()

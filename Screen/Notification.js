@@ -68,6 +68,8 @@ export default class Notification extends Component {
             flexDirection:'row',
             marginBottom:10
            
+            }} onPress={() =>{
+                this.props.navigation.navigate('NotificationDetail')
             }}>
                 <Image style={{height:60,width:60,
                // marginLeft:10,

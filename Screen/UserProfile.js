@@ -144,6 +144,21 @@ export default class Login extends Component {
                                         color: 'white'
                                     }}>Share</Text>
                                 </TouchableOpacity>
+                                <TouchableOpacity style={{
+                                    height: 40, width: '60%',
+                                    marginTop: 10,
+                                    alignItems: "center", justifyContent: 'center',
+                                    borderRadius: 10, alignSelf: 'center',
+                                    backgroundColor: APP_LIGHT
+                                }}
+                                    onPr={() => {
+                                        //this.onShare()
+                                    }}>
+                                    <Text style={{
+                                        fontSize: 18, fontWeight: '700',
+                                        color: 'white'
+                                    }}>Logout</Text>
+                                </TouchableOpacity>
 
                             </View>
 
