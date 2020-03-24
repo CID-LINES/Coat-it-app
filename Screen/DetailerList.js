@@ -11,15 +11,15 @@ const DATA = [
     },
     {
         title: 'Past Orders',
-       
+
     },
 
 ];
-export default class Purchase extends Component {
+export default class DetailerList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+
         }
     }
     render() {
@@ -32,7 +32,7 @@ export default class Purchase extends Component {
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
-                        marginTop:10
+                        marginTop: 10
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
@@ -61,14 +61,14 @@ export default class Purchase extends Component {
                         </View>
                     </View>
                     {/* <ScrollView style={{ flex: 1 }}> */}
-                        <View style={{ flex: 1 }}>
+                    <View style={{ flex: 1 }}>
 
-                            <FlatList style={{marginTop:20}}
+                        <FlatList style={{ marginTop: 20 }}
                             data={DATA}
-                            renderItem={({item})=>(
+                            renderItem={({ item }) => (
                                 this.DetailerList(item)
                             )}></FlatList>
-                        </View>
+                    </View>
                     {/* </ScrollView> */}
                 </KeyboardAvoidingView>
 
@@ -76,38 +76,42 @@ export default class Purchase extends Component {
         );
     }
 
-   DetailerList = (item) => {
+    DetailerList = (item) => {
         return (
             <TouchableOpacity style={{
                 height: 120,
                 marginTop: 5,
-                marginBottom:5,
-                width: '95%', 
-                borderRadius:10,borderColor:APP_BLUE,borderWidth:1,
-                alignSelf: 'center', 
+                marginBottom: 5,
+                width: '95%',
+                borderRadius: 10, borderColor: APP_BLUE, borderWidth: 1,
+                alignSelf: 'center',
                 // backgroundColor: 'pink',
-                overflow:'hidden'
+                overflow: 'hidden'
             }}
-            onPress={() =>{
-                this.props.navigation.navigate('DetailerLocation')
-            }}
+                onPress={() => {
+                    this.props.navigation.navigate('Payment')
+                }}
             >
-                <View style={{flexDirection:'row'}}>
-                <Image style={{height:120,
-                width:'40%',}}
-            resizeMode='cover'
-                source={require('../assets/placeholder.jpg')}>
+                <View style={{ flexDirection: 'row' }}>
+                    <Image style={{
+                        height: 120,
+                        width: '40%',
+                    }}
+                        resizeMode='cover'
+                        source={require('../assets/placeholder.jpg')}>
 
-                </Image>
-                <View  style={{marginLeft:15,marginTop:20}}>
-                <Text style={{fontSize:17,
-                    fontWeight:'700'}}>
-                    Jaspreet Singh
+                    </Image>
+                    <View style={{ marginLeft: 15, marginTop: 20 }}>
+                        <Text style={{
+                            fontSize: 17,
+                            fontWeight: '700'
+                        }}>
+                            Jaspreet Singh
                     </Text>
-                    <Text style={{marginTop:10}}>Sirhind</Text>
+                        <Text style={{ marginTop: 10 }}>Sirhind</Text>
 
-                    <Text style={{marginTop:10}}>10 km</Text>
-                </View>
+                        <Text style={{ marginTop: 10 }}>10 km</Text>
+                    </View>
                 </View>
 
             </TouchableOpacity>

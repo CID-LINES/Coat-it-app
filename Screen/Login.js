@@ -29,7 +29,7 @@ export default class Login extends Component {
                                     width: 200, alignSelf: 'center',
                                     marginTop: 20
                                 }}
-                                resizeMode='cover'
+                                    resizeMode='cover'
                                     source={require('../assets/car-logo.png')}>
 
                                 </Image>
@@ -46,9 +46,9 @@ export default class Login extends Component {
 
                                     marginTop: 5,
                                     borderColor: 'gray',
-                                     borderWidth: 1,
+                                    borderWidth: 1,
                                     borderRadius: 10,
-                                     padding: 5
+                                    padding: 5
                                 }}
                                     value={this.state.email}
                                     onChangeText={(value) => this.setState({ email: value })}
@@ -82,7 +82,7 @@ export default class Login extends Component {
                                 backgroundColor: APP_BLUE,
                                 marginTop: 15, alignSelf: 'center',
                                 shadowColor: 'gray',
-                                shadowOpacity: 0.5, 
+                                shadowOpacity: 0.5,
                                 shadowRadius: 1,
                                 shadowOffset: { width: 2, height: 1 },
                                 borderRadius: 25, alignItems: 'center', justifyContent: 'center'

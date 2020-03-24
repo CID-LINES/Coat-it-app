@@ -4,7 +4,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
 
 
-export default class Login extends Component {
+export default class ChangePassword extends Component {
     constructor(props) {
         super(props)
         this.state = {

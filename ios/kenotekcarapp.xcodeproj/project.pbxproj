@@ -14,12 +14,31 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1FEDDD9CC37C9386EC937442 /* libPods-kenotekcarapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4835B55EFF52C24E1BB1C8DF /* libPods-kenotekcarapp.a */; };
 		2A7C87179BE6CEBCB49F5716 /* libPods-kenotekcarappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */; };
-		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* kenotekcarappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kenotekcarappTests.m */; };
 		373482922C9F5286BF752AA7 /* libPods-kenotekcarapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EC91CFD2C63DB408EFE46B /* libPods-kenotekcarapp-tvOS.a */; };
-		81090A5924288E6900D93885 /* AirGoogleMaps in Resources */ = {isa = PBXBuildFile; fileRef = 81090A5824288E6900D93885 /* AirGoogleMaps */; };
+		8151C5F6242A076E00299D7B /* libReact-RCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5F5242A076E00299D7B /* libReact-RCTLinking.a */; };
+		8151C5F9242A0AEE00299D7B /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5F8242A0AEE00299D7B /* libDoubleConversion.a */; };
+		8151C5FB242A0AEE00299D7B /* libFBReactNativeSpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FA242A0AEE00299D7B /* libFBReactNativeSpec.a */; };
+		8151C5FD242A0AEE00299D7B /* libFolly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FC242A0AEE00299D7B /* libFolly.a */; };
+		8151C5FF242A0AEE00299D7B /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FE242A0AEE00299D7B /* libglog.a */; };
+		8151C619242A0AEE00299D7B /* libreact-native-safe-area-context.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C618242A0AEE00299D7B /* libreact-native-safe-area-context.a */; };
+		8151C61B242A0AEE00299D7B /* libReact-RCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61A242A0AEE00299D7B /* libReact-RCTActionSheet.a */; };
+		8151C61D242A0AEE00299D7B /* libReact-RCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61C242A0AEE00299D7B /* libReact-RCTAnimation.a */; };
+		8151C61F242A0AEE00299D7B /* libReact-RCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61E242A0AEE00299D7B /* libReact-RCTBlob.a */; };
+		8151C621242A0AEE00299D7B /* libReact-RCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C620242A0AEE00299D7B /* libReact-RCTImage.a */; };
+		8151C623242A0AEE00299D7B /* libReact-RCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C622242A0AEE00299D7B /* libReact-RCTNetwork.a */; };
+		8151C625242A0AEE00299D7B /* libReact-RCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C624242A0AEE00299D7B /* libReact-RCTSettings.a */; };
+		8151C627242A0AEE00299D7B /* libReact-RCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C626242A0AEE00299D7B /* libReact-RCTText.a */; };
+		8151C629242A0AEE00299D7B /* libReact-RCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C628242A0AEE00299D7B /* libReact-RCTVibration.a */; };
+		8151C62B242A0AEE00299D7B /* libReactCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C62A242A0AEE00299D7B /* libReactCommon.a */; };
+		8151C62D242A0AEE00299D7B /* libRNCMaskedView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C62C242A0AEE00299D7B /* libRNCMaskedView.a */; };
+		8151C62F242A0AEE00299D7B /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C62E242A0AEE00299D7B /* libRNGestureHandler.a */; };
+		8151C631242A0AEE00299D7B /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C630242A0AEE00299D7B /* libRNReanimated.a */; };
+		8151C633242A0AEE00299D7B /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C632242A0AEE00299D7B /* libRNScreens.a */; };
+		8151C635242A0AEE00299D7B /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C634242A0AEE00299D7B /* libYoga.a */; };
+		8169A8DA2429F42400B2F9AA /* libreact-native-maps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8169A8D92429F42400B2F9AA /* libreact-native-maps.a */; };
 		F9D16E8193ABC2849644FB67 /* libPods-kenotekcarapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED3B21D6800E392B2A88A67 /* libPods-kenotekcarapp-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +78,38 @@
 		3D730C414503BD7DC8E6DCC6 /* Pods-kenotekcarapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOS/Pods-kenotekcarapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4835B55EFF52C24E1BB1C8DF /* libPods-kenotekcarapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73890F53E127419837A91CBF /* Pods-kenotekcarapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp/Pods-kenotekcarapp.release.xcconfig"; sourceTree = "<group>"; };
-		81090A5824288E6900D93885 /* AirGoogleMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AirGoogleMaps; sourceTree = "<group>"; };
 		81090A5C24288FE700D93885 /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C5F5242A076E00299D7B /* libReact-RCTLinking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTLinking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C5F8242A0AEE00299D7B /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C5FA242A0AEE00299D7B /* libFBReactNativeSpec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBReactNativeSpec.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C5FC242A0AEE00299D7B /* libFolly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFolly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C5FE242A0AEE00299D7B /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C600242A0AEE00299D7B /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C608242A0AEE00299D7B /* libRCTTypeSafety.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTTypeSafety.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C60A242A0AEE00299D7B /* libReact-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C60C242A0AEE00299D7B /* libReact-CoreModules.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-CoreModules.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C60E242A0AEE00299D7B /* libReact-cxxreact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-cxxreact.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C610242A0AEE00299D7B /* libReact-jsi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C612242A0AEE00299D7B /* libReact-jsiexecutor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsiexecutor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C614242A0AEE00299D7B /* libReact-jsinspector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsinspector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C616242A0AEE00299D7B /* libreact-native-image-picker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-image-picker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C618242A0AEE00299D7B /* libreact-native-safe-area-context.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-safe-area-context.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C61A242A0AEE00299D7B /* libReact-RCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTActionSheet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C61C242A0AEE00299D7B /* libReact-RCTAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTAnimation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C61E242A0AEE00299D7B /* libReact-RCTBlob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTBlob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C620242A0AEE00299D7B /* libReact-RCTImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C622242A0AEE00299D7B /* libReact-RCTNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C624242A0AEE00299D7B /* libReact-RCTSettings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTSettings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C626242A0AEE00299D7B /* libReact-RCTText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTText.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C628242A0AEE00299D7B /* libReact-RCTVibration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTVibration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C62A242A0AEE00299D7B /* libReactCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C62C242A0AEE00299D7B /* libRNCMaskedView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNCMaskedView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C62E242A0AEE00299D7B /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C630242A0AEE00299D7B /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReanimated.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C632242A0AEE00299D7B /* libRNScreens.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151C634242A0AEE00299D7B /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8169A8D72429F41B00B2F9AA /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8169A8D92429F42400B2F9AA /* libreact-native-maps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-maps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED3B21D6800E392B2A88A67 /* libPods-kenotekcarapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E10E1210515951E7EB711B1 /* Pods-kenotekcarapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOS/Pods-kenotekcarapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +134,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8151C5F9242A0AEE00299D7B /* libDoubleConversion.a in Frameworks */,
+				8151C5FB242A0AEE00299D7B /* libFBReactNativeSpec.a in Frameworks */,
+				8151C5FD242A0AEE00299D7B /* libFolly.a in Frameworks */,
+				8151C5FF242A0AEE00299D7B /* libglog.a in Frameworks */,
+				8151C619242A0AEE00299D7B /* libreact-native-safe-area-context.a in Frameworks */,
+				8151C61B242A0AEE00299D7B /* libReact-RCTActionSheet.a in Frameworks */,
+				8151C61D242A0AEE00299D7B /* libReact-RCTAnimation.a in Frameworks */,
+				8151C61F242A0AEE00299D7B /* libReact-RCTBlob.a in Frameworks */,
+				8151C621242A0AEE00299D7B /* libReact-RCTImage.a in Frameworks */,
+				8151C623242A0AEE00299D7B /* libReact-RCTNetwork.a in Frameworks */,
+				8151C625242A0AEE00299D7B /* libReact-RCTSettings.a in Frameworks */,
+				8151C627242A0AEE00299D7B /* libReact-RCTText.a in Frameworks */,
+				8151C629242A0AEE00299D7B /* libReact-RCTVibration.a in Frameworks */,
+				8151C62B242A0AEE00299D7B /* libReactCommon.a in Frameworks */,
+				8151C62D242A0AEE00299D7B /* libRNCMaskedView.a in Frameworks */,
+				8151C62F242A0AEE00299D7B /* libRNGestureHandler.a in Frameworks */,
+				8151C631242A0AEE00299D7B /* libRNReanimated.a in Frameworks */,
+				8151C633242A0AEE00299D7B /* libRNScreens.a in Frameworks */,
+				8151C635242A0AEE00299D7B /* libYoga.a in Frameworks */,
+				8151C5F6242A076E00299D7B /* libReact-RCTLinking.a in Frameworks */,
+				8169A8DA2429F42400B2F9AA /* libreact-native-maps.a in Frameworks */,
 				1FEDDD9CC37C9386EC937442 /* libPods-kenotekcarapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +212,37 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8151C5F8242A0AEE00299D7B /* libDoubleConversion.a */,
+				8151C5FA242A0AEE00299D7B /* libFBReactNativeSpec.a */,
+				8151C5FC242A0AEE00299D7B /* libFolly.a */,
+				8151C5FE242A0AEE00299D7B /* libglog.a */,
+				8151C600242A0AEE00299D7B /* libGoogle-Maps-iOS-Utils.a */,
+				8151C608242A0AEE00299D7B /* libRCTTypeSafety.a */,
+				8151C60A242A0AEE00299D7B /* libReact-Core.a */,
+				8151C60C242A0AEE00299D7B /* libReact-CoreModules.a */,
+				8151C60E242A0AEE00299D7B /* libReact-cxxreact.a */,
+				8151C610242A0AEE00299D7B /* libReact-jsi.a */,
+				8151C612242A0AEE00299D7B /* libReact-jsiexecutor.a */,
+				8151C614242A0AEE00299D7B /* libReact-jsinspector.a */,
+				8151C616242A0AEE00299D7B /* libreact-native-image-picker.a */,
+				8151C618242A0AEE00299D7B /* libreact-native-safe-area-context.a */,
+				8151C61A242A0AEE00299D7B /* libReact-RCTActionSheet.a */,
+				8151C61C242A0AEE00299D7B /* libReact-RCTAnimation.a */,
+				8151C61E242A0AEE00299D7B /* libReact-RCTBlob.a */,
+				8151C620242A0AEE00299D7B /* libReact-RCTImage.a */,
+				8151C622242A0AEE00299D7B /* libReact-RCTNetwork.a */,
+				8151C624242A0AEE00299D7B /* libReact-RCTSettings.a */,
+				8151C626242A0AEE00299D7B /* libReact-RCTText.a */,
+				8151C628242A0AEE00299D7B /* libReact-RCTVibration.a */,
+				8151C62A242A0AEE00299D7B /* libReactCommon.a */,
+				8151C62C242A0AEE00299D7B /* libRNCMaskedView.a */,
+				8151C62E242A0AEE00299D7B /* libRNGestureHandler.a */,
+				8151C630242A0AEE00299D7B /* libRNReanimated.a */,
+				8151C632242A0AEE00299D7B /* libRNScreens.a */,
+				8151C634242A0AEE00299D7B /* libYoga.a */,
+				8151C5F5242A076E00299D7B /* libReact-RCTLinking.a */,
+				8169A8D92429F42400B2F9AA /* libreact-native-maps.a */,
+				8169A8D72429F41B00B2F9AA /* libGoogle-Maps-iOS-Utils.a */,
 				81090A5C24288FE700D93885 /* libGoogle-Maps-iOS-Utils.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
@@ -163,7 +264,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				81090A5824288E6900D93885 /* AirGoogleMaps */,
 				13B07FAE1A68108700A75B9A /* kenotekcarapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* kenotekcarappTests */,
@@ -234,7 +334,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				724BA467405EEBE54173C006 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,7 +444,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81090A5924288E6900D93885 /* AirGoogleMaps in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -417,24 +515,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		724BA467405EEBE54173C006 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kenotekcarapp/Pods-kenotekcarapp-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kenotekcarapp/Pods-kenotekcarapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89CB62C9B9914B51140C7A3D /* [CP] Check Pods Manifest.lock */ = {
@@ -566,7 +646,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
-				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,8 +737,36 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = SCLEQ5T4CN;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Maps-iOS-Utils\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCMaskedView\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNReanimated\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-image-picker\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-maps\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
 				INFOPLIST_FILE = kenotekcarapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -681,8 +788,36 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SCLEQ5T4CN;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Maps-iOS-Utils\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCMaskedView\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNReanimated\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-image-picker\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-maps\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
 				INFOPLIST_FILE = kenotekcarapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

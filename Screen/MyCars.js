@@ -98,7 +98,7 @@ export default class MyCars extends Component {
     }
     MyCars = (item) => {
         return (
-            <View style={{
+            <TouchableOpacity style={{
                 height: 120,
                 marginTop: 5,
                 marginBottom: 5,
@@ -107,7 +107,11 @@ export default class MyCars extends Component {
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'
-            }}>
+            }}
+            onPress={() =>{
+                this.props.navigation.navigate('EditCarDetail')
+            }}
+            >
                 <View style={{ flexDirection: 'row' }}>
                     <Image style={{
                         height: 120,
@@ -128,7 +132,7 @@ export default class MyCars extends Component {
                     </View>
                 </View>
 
-            </View>
+            </TouchableOpacity>
         )
     }
 }

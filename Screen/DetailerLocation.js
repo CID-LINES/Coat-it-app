@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
-import MapView, { Polyline, Marker } from 'react-native-maps';
+ import MapView, { Polyline, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 
-export default class Login extends Component {
+export default class DetailLocation extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,7 +23,8 @@ export default class Login extends Component {
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    alignItems: 'center',backgroundColor:'#ffffff'
+                    alignItems: 'center',
+                    backgroundColor:'#ffffff'
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,
@@ -46,14 +47,17 @@ export default class Login extends Component {
                         alignItems: 'center', justifyContent: 'center',
 
                     }}>
-                        <Text style={{
+                        {/* <Text style={{
                             fontSize: 18, fontWeight: '700',
                             color: APP_BLUE
-                        }}>Detailer Location</Text>
+                        }}>Detailer Location</Text> */}
                     </View>
                 </View>
                 <View style={{ flex: 1 }}>
                     <MapView
+                    //provider={PROVIDER_GOOGLE}
+                    showsUserLocation={true}
+                    showsMyLocationButton={true}
                         initialRegion={{
                             latitude: 31.0497,
                             longitude: 74.8346,
@@ -90,6 +94,5 @@ export default class Login extends Component {
     }
    
 }
-
 
 

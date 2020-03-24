@@ -50,6 +50,38 @@ export default class CarDetail extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
+                 <View style={{
+                        height: 40, width: '95%',
+                        justifyContent: 'center',
+                        flexDirection:'row',
+                        alignSelf: 'center',
+                    }}>
+                        <TouchableOpacity style={{
+                            height: 35, width: 35,
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            position: 'absolute', left: 5
+
+                        }}
+                            onPress={() => {
+                                this.props.navigation.goBack()
+                            }}>
+                            <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                                resizeMode='contain'
+                                source={require('../assets/back.png')}></Image>
+
+                        </TouchableOpacity>
+                        <View style={{
+                            height: 35,
+                            alignItems: 'center', justifyContent: 'center',
+
+                        }}>
+                            <Text style={{
+                                fontSize: 18, fontWeight: '700',
+                                color: APP_BLUE
+                            }}>Car Detail</Text>
+                        </View>
+                    </View>
                 <KeyboardAvoidingView style={{flex:1}}
                 behavior='padding' enabled>
                 <ScrollView style={{flex:1}}>

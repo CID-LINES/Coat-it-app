@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
 import { APP_BLUE, APP_LIGHT } from '../Component/colors'
+import { StackActions, NavigationActions } from 'react-navigation';
 //import { Platform } from 'react-native';
 //import Share from 'react-native-share';
 
-export default class Login extends Component {
+export default class UserProfile extends Component {
 
     constructor(props) {
         super(props)
@@ -44,8 +45,8 @@ export default class Login extends Component {
                                     backgroundColor: 'gray',
                                     borderRadius: 75,
                                     alignSelf: 'center',
-
-                                    justifyContent: 'center', overflow: 'hidden'
+                                    justifyContent: 'center',
+                                     overflow: 'hidden'
                                 }}>
                                     <Image style={{ height: 120, width: 120 }}
                                         resizeMode='cover'
@@ -59,7 +60,7 @@ export default class Login extends Component {
                                 <Text style={{
                                     fontSize: 16,
                                     fontWeight: '900'
-                                }}>Manpreet.singh716@gamil.com</Text>
+                                }}>Manpreet.singh716@gmail.com</Text>
                             </View>
 
 
@@ -104,7 +105,7 @@ export default class Login extends Component {
                                     backgroundColor: APP_LIGHT
                                 }}
                                     onPress={() => {
-                                        this.props.navigation.navigate('Settings')
+                                        //this.props.navigation.navigate('Settings')
                                     }}>
                                     <Text style={{
                                         fontSize: 18, fontWeight: '700',
@@ -130,9 +131,11 @@ export default class Login extends Component {
                                 </TouchableOpacity>
 
                                 <TouchableOpacity style={{
-                                    height: 40, width: '60%',
+                                    height: 40,
+                                     width: '60%',
                                     marginTop: 10,
-                                    alignItems: "center", justifyContent: 'center',
+                                    alignItems: "center",
+                                     justifyContent: 'center',
                                     borderRadius: 10, alignSelf: 'center',
                                     backgroundColor: APP_LIGHT
                                 }}
@@ -151,9 +154,35 @@ export default class Login extends Component {
                                     borderRadius: 10, alignSelf: 'center',
                                     backgroundColor: APP_LIGHT
                                 }}
-                                    onPr={() => {
-                                        //this.onShare()
-                                    }}>
+                                    // onPress={() => {
+                                    //     this.props.navigation.navigate('Login')
+                                    // }}
+                                    onPress={() => {
+                                        Alert.alert(
+                                            'Logout',
+                                            'Are you sure you want to logout?',
+                                            [
+                                                {
+                                                    text: 'Logout', onPress: () => {
+                                                        //this.save('user_id', '')
+                                                         this.props.navigation.navigate('Login')
+    
+                                                    //     const resetAction = StackActions.reset({
+                                                    //         index: 0,
+                                                    //         key: null,
+                                                    //         actions: [NavigationActions.navigate({ routeName: 'SignUp' })],
+                                                    //     });
+                                                    //     this.props.navigation.dispatch(resetAction);
+                                                    }
+                                                },
+                                                {
+                                                    text: 'Cancel',
+                                                    style: 'cancel',
+                                                }],
+                                            { cancelable: false },
+                                        );
+                                    }}
+                                    >
                                     <Text style={{
                                         fontSize: 18, fontWeight: '700',
                                         color: 'white'
