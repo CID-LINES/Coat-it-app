@@ -34,9 +34,9 @@ export default class Home extends Component {
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1 }}>
                         <View style={{
-                            height: 50,
-                           
-                            width: "95%", alignSelf: 'center',
+                            height: 50, 
+                            width: "95%", 
+                            alignSelf: 'center',
                             justifyContent: 'center', alignItems: 'center'
                         }}>
                             <Text style={{

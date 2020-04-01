@@ -175,7 +175,7 @@ export default class EditCarDetail extends Component {
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', alignItems: 'center',
-                                justifyContent: 'center',
+                                justifyContent: 'center',marginBottom:10,
                                 backgroundColor: APP_BLUE, borderRadius: 25
                             }}
                                 onPress={() => {

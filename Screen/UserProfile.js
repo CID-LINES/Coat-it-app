@@ -139,7 +139,7 @@ export default class UserProfile extends Component {
                                     borderRadius: 10, alignSelf: 'center',
                                     backgroundColor: APP_LIGHT
                                 }}
-                                    onPr={() => {
+                                    onPress={() => {
                                         //this.onShare()
                                     }}>
                                     <Text style={{
@@ -149,7 +149,7 @@ export default class UserProfile extends Component {
                                 </TouchableOpacity>
                                 <TouchableOpacity style={{
                                     height: 40, width: '60%',
-                                    marginTop: 10,
+                                    marginTop: 10,marginBottom:10,
                                     alignItems: "center", justifyContent: 'center',
                                     borderRadius: 10, alignSelf: 'center',
                                     backgroundColor: APP_LIGHT
@@ -202,6 +202,4 @@ export default class UserProfile extends Component {
 
 
 }
-
-
 

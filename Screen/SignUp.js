@@ -166,7 +166,7 @@ export default class SignUp extends Component {
                                 backgroundColor: APP_BLUE,
                                 marginTop: 20, alignSelf: 'center',
                                 borderRadius: 25,
-
+                                marginBottom:10,
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}

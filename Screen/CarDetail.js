@@ -60,7 +60,8 @@ export default class CarDetail extends Component {
                             height: 35, width: 35,
                             alignItems: 'center', 
                             justifyContent: 'center',
-                            position: 'absolute', left: 5
+                            position: 'absolute',
+                             left: 5
 
                         }}
                             onPress={() => {
@@ -73,7 +74,8 @@ export default class CarDetail extends Component {
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center', 
+                            justifyContent: 'center',
 
                         }}>
                             <Text style={{
@@ -96,14 +98,15 @@ export default class CarDetail extends Component {
                             backgroundColor:'gray',
                             borderRadius:60,
                             alignSelf:'center',
-                            
                             justifyContent:'center',overflow:'hidden'}}
                             onPress={() => {
                                 this.chooseFile()
                             }}>
                             <Image style={{height:120,width:120}}
                             resizeMode='cover'
-                            source={this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}></Image>
+                            source={this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}>
+
+                            </Image>
                             </TouchableOpacity>
                         </View>
                         <View style={{width:'100%'}}>
@@ -116,7 +119,9 @@ export default class CarDetail extends Component {
                         <View style={{height:1,width:'80%',
                         alignSelf:'center',
                         backgroundColor:'gray'}}></View>
-                        <Text style={{marginLeft:35,fontWeight:'800',marginTop:20}}>Model Name</Text>
+                        <Text style={{marginLeft:35,
+                            fontWeight:'800',
+                            marginTop:20}}>Model Name</Text>
                             <TextInput style={{height:40,width:'80%',
                                 padding:5,
                         alignSelf:'center'}}
@@ -147,9 +152,13 @@ export default class CarDetail extends Component {
                         backgroundColor:'gray'}}></View>
 
                         </View>
-                        <TouchableOpacity style={{height:50,width:'60%',
-                        marginTop:20,alignSelf:'center',alignItems:'center',
+                        <TouchableOpacity style={{height:50,
+                        width:'60%',
+                        marginTop:20,
+                        alignSelf:'center',
+                        alignItems:'center',
                         justifyContent:'center',
+                        marginBottom:10,
                     backgroundColor:APP_BLUE,borderRadius:25}}
                     onPress={() => {
                         this.props.navigation.navigate('Home')

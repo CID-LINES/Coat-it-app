@@ -48,7 +48,7 @@
   <component name="ProjectId" id="1ZO9yiv2YZzB88v7pesWeIOxnLg" />
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_28" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-24T07:07:28.228Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-25T04:31:55.735Z" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -68,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.android [signingReport]">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />

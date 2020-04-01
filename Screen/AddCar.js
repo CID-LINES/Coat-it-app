@@ -60,7 +60,8 @@ export default class AddCar extends Component {
                         alignSelf: 'center',
                     }}>
                         <TouchableOpacity style={{
-                            height: 35, width: 35,
+                            height: 35,
+                             width: 35,
                             alignItems: 'center', 
                             justifyContent: 'center',
                             position: 'absolute', left: 5
@@ -76,13 +77,14 @@ export default class AddCar extends Component {
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center',
+                             justifyContent: 'center',
 
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
                                 color: APP_BLUE
-                            }}>My Cars</Text>
+                            }}>My Car</Text>
                         </View>
                     </View>
                 <ScrollView style={{flex:1}}>
@@ -102,12 +104,17 @@ export default class AddCar extends Component {
                            onPress={() =>this.chooseFile()}>
                             <Image style={{height:120,width:120}}
                             resizeMode='cover'
-                            source={this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}></Image>
+                            source={this.state.filePath == '' ? 
+                            require('../assets/placeholder.jpg'): this.state.filePath}>
+                                
+                            </Image>
                             </TouchableOpacity>
                         </View>
                         <View style={{width:'100%'}}>
-                            <Text style={{marginLeft:35,fontWeight:'800'}}>Car Name</Text>
-                            <TextInput style={{height:40,width:'80%',
+                            <Text style={{marginLeft:35,
+                                fontWeight:'800'}}>Car Name</Text>
+                            <TextInput style={{height:40,
+                            width:'80%',
                                 padding:5,
                         alignSelf:'center'}}
                         //placeholderTextColor='black'
@@ -115,16 +122,22 @@ export default class AddCar extends Component {
                         <View style={{height:1,width:'80%',
                         alignSelf:'center',
                         backgroundColor:'gray'}}></View>
-                        <Text style={{marginLeft:35,fontWeight:'800',marginTop:20}}>Car Color</Text>
-                            <TextInput style={{height:40,width:'80%',
+                        <Text style={{marginLeft:35,
+                            fontWeight:'800',
+                            marginTop:20}}>Car Color</Text>
+                            <TextInput style={{height:40,
+                            width:'80%',
                                 padding:5,
                         alignSelf:'center'}}
                         //placeholderTextColor='black'
                         placeholder='Car Color'></TextInput>
-                        <View style={{height:1,width:'80%',
+                        <View style={{height:1,
+                        width:'80%',
                         alignSelf:'center',
                         backgroundColor:'gray'}}></View>
-                        <Text style={{marginLeft:35,fontWeight:'800',marginTop:20}}>Vehicle No.</Text>
+                        <Text style={{marginLeft:35,
+                        fontWeight:'800',
+                        marginTop:20}}>Vehicle No.</Text>
                             <TextInput style={{height:40,width:'80%',
                                 padding:5,
                         alignSelf:'center'}}
@@ -146,7 +159,7 @@ export default class AddCar extends Component {
                         </View>
                         <TouchableOpacity style={{height:50,width:'60%',
                         marginTop:20,alignSelf:'center',alignItems:'center',
-                        justifyContent:'center',
+                        justifyContent:'center',marginBottom:10,
                     backgroundColor:APP_BLUE,borderRadius:25}}
                     
                     onPress={() =>{

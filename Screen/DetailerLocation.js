@@ -12,7 +12,8 @@ export default class DetailLocation extends Component {
             email: '',
             Password: '',
             femail: '',
-            shift: false
+            shift: false,
+          
         }
     }
     render() {
@@ -24,7 +25,7 @@ export default class DetailLocation extends Component {
                     flexDirection: 'row',
                     alignSelf: 'center',
                     alignItems: 'center',
-                    backgroundColor:'#ffffff'
+                    backgroundColor:'transparent'
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,
@@ -37,14 +38,17 @@ export default class DetailLocation extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                        <Image style={{ height: 25, 
+                        width: 25, 
+                        tintColor: APP_BLUE }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
-                        alignItems: 'center', justifyContent: 'center',
+                        alignItems: 'center',
+                         justifyContent: 'center',
 
                     }}>
                         {/* <Text style={{
@@ -76,12 +80,17 @@ export default class DetailLocation extends Component {
                     
                     strokeWidth={5}
                    ></Polyline>
-                   <Marker coordinate={{
+                   
+                   <Marker
+                    coordinate={{
                        latitude:31.1061,longitude:74.9839,
-                       latitude: 31.0497, longitude: 74.8346
+                       
                    }}
                // onPress={alert('helos')}
                   ></Marker>
+                  <Marker coordinate={{latitude: 31.0497, longitude: 74.8346}}>
+
+                  </Marker>
                     </MapView>
 
 
