@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage } from 'react-native';
 import { APP_BLUE } from '../Component/colors'
+import{ApiCall, ApiCallWithImage} from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
 export default class SignUp extends Component {
     constructor() {
@@ -11,7 +12,8 @@ export default class SignUp extends Component {
             phone: '',
             firstname: '',
             lastname: '',
-            filePath:''
+            filePath:'',
+            isLoading:false
         }
     }
 
@@ -42,13 +44,106 @@ export default class SignUp extends Component {
                 this.setState({
                     filePath: source,
                 });
-               
-
-                // You can also display the image using data:
-                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
             }
         });
     };
+
+
+    componentDidMount(){
+        AsyncStorage.getItem('user_id',(error,item)=>{
+            if(item!=null&&item!=''){
+                this.props.navigation.push('Home')
+            }
+        })
+    }
+
+    async save(key, value) {
+
+        try {
+            await AsyncStorage.setItem(key, value);
+
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
+        }
+    }
+
+  SignUp = () => {
+        this.setState({
+            isLoading: true
+        })
+        ApiCall('signup',
+            {
+                'email': this.state.email,
+                'password': this.state.password,
+                'first_name': this.state.firstname,
+                'last_name': this.state.lastname,
+                'phone_no': this.state.phone,
+                'avatar':this.state.filePath
+            },
+            (data) => {
+          // console.log(JSON.stringify(data.data.response))
+                if (!data.error) {
+                    if (data.data.response.Status == true) { 
+                        this.save('user_id',data.data.response.id+'')
+                        this.props.navigation.replace('CarDetail') 
+                           // alert('helo')
+                    }
+                    else {
+                        alert(data.data.message)
+                    }
+                } else {
+                    alert('Somthing went wrong')
+                }
+                this.setState({
+                    isLoading: false
+                })
+                // alert(JSON.stringify(data))
+                //nsole.log(data)
+            })
+    }
+
+
+//    SignUp = () => {
+//         this.setState({
+//             isLoading: true
+//         })
+//         let body = new FormData();
+//         var photo = {
+//             uri: this.state.filePath.uri,
+//             type: 'image/jpeg',
+//             name: 'photo.jpg',
+//         };
+//         // alert(this.state.brewery_id)
+//         body.append('avatar', photo);
+//         body.append('email', this.state.email)
+//         body.append('password', this.state.password)
+//         body.append('first_name', this.state.firstname)
+//         body.append('last_name', this.state.lastname,)
+//         body.append('phone_no', this.state.phone)
+        
+//         //alert(JSON.stringify(photo))
+//         ApiCallWithImage('signup',
+//             body,
+//             (data) => {
+//                 //alert(JSON.stringify(data))
+//                 if (!data.error) {
+//                     if (data.data.Status == 'true') {
+                       
+//                         alert('data save suceesfullty')
+//                     }
+//                     else {
+//                         alert(data.data.message)
+//                     }
+//                 } else {
+//                     alert('Somthing went wrong')
+//                 }
+//                 this.setState({
+//                     isLoading: false
+//                 })
+
+//             })
+//     }
 
 
 
@@ -56,7 +151,7 @@ export default class SignUp extends Component {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                    behavior='padding' enabled ={Platform.OS='ios'}> 
                     <ScrollView style={{ flex: 1 }}>
 
                         <View style={{ flex: 1 }}>
@@ -73,9 +168,15 @@ export default class SignUp extends Component {
                                     height: 120,
                                     width: 120,
                                     borderRadius: 60,
+                                    // maxHeight:100
                                     //alignSelf: 'center', 
                                 }}
-                                    source={this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}>
+                                resizeMethod='resize'
+                               
+                               // width={100}
+                                    source={ cache="force-cache",
+                                    
+                                        this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}>
 
                                 </Image>
                                 </TouchableOpacity>
@@ -128,6 +229,7 @@ export default class SignUp extends Component {
                                     borderRadius: 10, padding: 5
                                 }}
                                     value={this.state.email}
+                                    
                                     onChangeText={(value) => { this.setState({ email: value }) }}
                                     placeholder='Email'
                                     placeholderTextColor='gray'></TextInput>
@@ -155,6 +257,7 @@ export default class SignUp extends Component {
                                     borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
+                                secureTextEntry={true}
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Password'
@@ -164,27 +267,88 @@ export default class SignUp extends Component {
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 backgroundColor: APP_BLUE,
-                                marginTop: 20, alignSelf: 'center',
-                                borderRadius: 25,
-                                marginBottom:10,
+                                marginTop: 20, 
+                                alignSelf: 'center',
+                                borderRadius: 10,
+                               // marginBottom:10,
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('Login')
+                                    //this.props.navigation.navigate('Login')
+                                    this.signup()
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
                                     color: 'white'
                                 }}>Submit</Text>
+                                
+
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{
+                                height: 50, width: '60%',
+                               // backgroundColor: APP_BLUE,
+                                marginTop: 10,
+                                 alignSelf: 'center',
+                                borderRadius: 10,
+                                marginBottom:10,
+                                borderColor:APP_BLUE,
+                                borderWidth:2,
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                                onPress={() => {
+                                    this.props.navigation.navigate('Login')
+                               
+                                }}>
+                                <Text style={{
+                                    fontSize: 18, fontWeight: '700',
+                                    color: APP_BLUE
+                                }}>Login</Text>
+                                
 
                             </TouchableOpacity>
                         </View>
 
                     </ScrollView>
                 </KeyboardAvoidingView>
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_BLUE}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
+
             </SafeAreaView>
         );
+    }
+    signup=()=>{
+        if(this.state.firstname == '')
+        {
+            alert('Please enter the first name')
+        }else if(this.state.lastname== ''){
+            alert('Please enter the last name')
+        }else if(this.state.email == ''){
+            alert('Please enter the email')
+        }else if(this.state.password==''){
+            alert('Please enter the password')
+        }else if(this.state.phone == ''){
+            alert('Please enter the phone number')
+        }else{
+            this.SignUp()
+        }
     }
 }
 

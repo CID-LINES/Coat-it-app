@@ -1353,6 +1353,14 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
+drawable assets_back
+drawable assets_caricon
+drawable assets_carlogo
+drawable assets_notificationicon
+drawable assets_placeholder
+drawable assets_plusicon
+drawable assets_profileicon
+drawable assets_serviceicon
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -1411,6 +1419,8 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon
+drawable node_modules_reactnavigationstack_lib_module_vendor_views_assets_backiconmask
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1910,6 +1920,7 @@ raw amu_poly_style_boolean_numeric
 raw amu_unknwown_folder
 raw amu_unsupported
 raw amu_visibility_ground_overlay
+raw app
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

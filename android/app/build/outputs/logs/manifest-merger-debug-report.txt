@@ -12,14 +12,14 @@ MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/Coatit/node_mod
 MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/1a4de62dc0c1b7c7496a518bc0a0b748/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/81ac283d05e08f28d4161112b3369d5f/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/50fb8a3a5dd7becd5323090a64e9f6b4/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/2612be86db51ba7bbd711acc900fd640/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/854b0f9bd53e98e10a664d12f5fef16e/AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/ae9bf235cf4c31c65e5c19b97d1b90f4/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7d5c4e9f9a114e6287c606f2a7b99a61/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/41f7f61b65137f632447b170d65694e6/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a198c251434bdad5ad97a900f216c8e2/AndroidManifest.xml:2:1-9:12
@@ -102,8 +102,8 @@ MERGED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.
 MERGED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.xml:8:5-29:19
 MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
 MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/1a4de62dc0c1b7c7496a518bc0a0b748/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/1a4de62dc0c1b7c7496a518bc0a0b748/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/81ac283d05e08f28d4161112b3369d5f/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/81ac283d05e08f28d4161112b3369d5f/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/854b0f9bd53e98e10a664d12f5fef16e/AndroidManifest.xml:30:5-36:19
@@ -112,8 +112,8 @@ MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.g
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/ae9bf235cf4c31c65e5c19b97d1b90f4/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:7:5-11:19
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/fc2de4bc78b510a0bb3558e41a8a146b/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/fc2de4bc78b510a0bb3558e41a8a146b/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/b2a450c5075b1b391110445593807a97/AndroidManifest.xml:7:5-20
@@ -200,8 +200,8 @@ MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/Coatit/nod
 MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] /Users/ios/Desktop/Work/Coatit/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/1a4de62dc0c1b7c7496a518bc0a0b748/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/1a4de62dc0c1b7c7496a518bc0a0b748/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/81ac283d05e08f28d4161112b3369d5f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/81ac283d05e08f28d4161112b3369d5f/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/50fb8a3a5dd7becd5323090a64e9f6b4/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/50fb8a3a5dd7becd5323090a64e9f6b4/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/AndroidManifest.xml:20:5-44
@@ -214,8 +214,8 @@ MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.g
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/ae9bf235cf4c31c65e5c19b97d1b90f4/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:20:5-44
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:5:5-43
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7d5c4e9f9a114e6287c606f2a7b99a61/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7d5c4e9f9a114e6287c606f2a7b99a61/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/41f7f61b65137f632447b170d65694e6/AndroidManifest.xml:5:5-7:41
@@ -345,10 +345,10 @@ ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/35cbe9ffcc06f6f4438822b18bdbd88e/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:8:9-10:69
+ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:8:9-10:69
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/33c009a9f8fb2881eaa1c262390a7257/AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/33c009a9f8fb2881eaa1c262390a7257/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:10:13-66
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:10:13-66
 	android:name
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/95ba7bbf04023e6d8cd5d5a76b746654/AndroidManifest.xml:9:13-58
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ca522fd2f3f891ff08010f46ba24bb98/AndroidManifest.xml:9:13-58

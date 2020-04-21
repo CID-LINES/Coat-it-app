@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
+import { ApiCall ,CallApi} from '../Component/ApiClient';
 
 
 
@@ -12,14 +13,120 @@ export default class Login extends Component {
             email: '',
             Password: '',
             femail: '',
-            shift: false
+            shift: false,
+            user_id: ''
         }
     }
+
+
+    componentDidMount() {
+        this.get('user_id')
+        // AsyncStorage.getItem('user_id',(error,item)=>{
+        //     if(item!=null&&item!=''){
+        //         this.props.navigation.push('')
+        //     }
+        // })
+    }
+
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            // alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                })
+            }
+        } catch (error) {
+
+        }
+    }
+
+
+
+    async save(key, value) {
+
+        try {
+            await AsyncStorage.setItem(key, value);
+
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
+        }
+    }
+    LoginApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        ApiCall('login',
+            {
+                'email': this.state.email,
+                'password': this.state.Password,
+
+            },
+            (data) => {
+                console.log(JSON.stringify(data))
+                if (!data.error) {
+                    if (data.data.response.status == true) {
+                        this.save('access_token', data.data.response.access_token)
+                        this.props.navigation.replace('Home')
+                        // alert('helo')
+                    }
+                    else {
+                        alert(data.data.message)
+                    }
+                } else {
+                    alert('Somthing went wrong')
+                }
+                this.setState({
+                    isLoading: false
+                })
+                // alert(JSON.stringify(data))
+                //nsole.log(data)
+            })
+    }
+
+    forgetApi = () => {
+        this.setState({
+            isLoading: true
+        })
+       ApiCall('forgot_password/email',
+            {
+                'email': this.state.femail
+
+            },
+            (data) => {
+                console.log(JSON.stringify(data))
+                if (!data.error) {
+                    if (data.data.response.Status == true) {
+                        alert('link send succesfully')
+                        this.setState({
+                            isshow:!this.state.isshow
+                        })
+                        // this.props.navigation.replace('Home') 
+                        // alert('helo')
+                    }
+                    else {
+                        alert(data.data.response.message)
+                    }
+                } else {
+                    alert('Somthing went wrong')
+                }
+                this.setState({
+                    isLoading: false
+                })
+                // alert(JSON.stringify(data))
+                //nsole.log(data)
+            })
+    }
+
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                    behavior='padding' enabled={Platform.OS == 'ios'}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
 
@@ -64,6 +171,7 @@ export default class Login extends Component {
                                     borderRadius: 10, padding: 5
                                 }}
                                     value={this.state.Password}
+                                    secureTextEntry={true}
                                     onChangeText={(value) => this.setState({ Password: value })}
                                     placeholder='Password'
                                     placeholderTextColor='gray'></TextInput>
@@ -88,7 +196,8 @@ export default class Login extends Component {
                                 borderRadius: 25, alignItems: 'center', justifyContent: 'center'
                             }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('CarDetail')
+                                    // this.props.navigation.navigate('CarDetail')
+                                    this.Login()
                                 }}>
                                 <Text style={{ fontSize: 18, fontWeight: '700', color: 'white' }}>Login</Text>
 
@@ -149,7 +258,11 @@ export default class Login extends Component {
                                         shadowColor: 'gray',
                                         shadowOpacity: 1, shadowRadius: 1,
                                         shadowOffset: { width: 2, height: 1 }
-                                    }}>
+                                    }}
+                                        onPress={() => {
+                                            this.forgetApi()
+                                        }}
+                                    >
                                         <Text style={{ fontWeight: '800', color: 'white' }}>Ok</Text>
                                     </TouchableOpacity>
 
@@ -175,8 +288,50 @@ export default class Login extends Component {
                         </View>
                     </View>}
 
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_BLUE}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
+
             </SafeAreaView>
         );
+    }
+    Login = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!reg.test(this.state.email)) {
+            alert('Please enter valid email')
+        } else if (this.state.email == '') {
+            alert('Please enter the email')
+        } else if (this.state.Password == '') {
+            alert('Please enter the password')
+        } else {
+            this.LoginApi()
+        }
+    }
+    forget = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!reg.test(this.state.femail)) {
+            alert('Please enter valid email')
+        } else if (this.state.femail == '') {
+            alert('Please enter the email')
+        }
+        else {
+            this.forgetApi()
+        }
     }
 }
 

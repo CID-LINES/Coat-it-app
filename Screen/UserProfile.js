@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, Share, AsyncStorage } from 'react-native';
 import { APP_BLUE, APP_LIGHT } from '../Component/colors'
 import { StackActions, NavigationActions } from 'react-navigation';
 //import { Platform } from 'react-native';
@@ -13,6 +13,21 @@ export default class UserProfile extends Component {
 
         }
     }
+
+
+    async save(key, value) {
+
+        try {
+            await AsyncStorage.setItem(key, value);
+
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
+        }
+    }
+
+    
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -140,7 +155,7 @@ export default class UserProfile extends Component {
                                     backgroundColor: APP_LIGHT
                                 }}
                                     onPress={() => {
-                                        //this.onShare()
+                                        Share.share({message:'this is my app'})
                                     }}>
                                     <Text style={{
                                         fontSize: 18, fontWeight: '700',
@@ -164,15 +179,15 @@ export default class UserProfile extends Component {
                                             [
                                                 {
                                                     text: 'Logout', onPress: () => {
-                                                        //this.save('user_id', '')
-                                                         this.props.navigation.navigate('Login')
+                                                        this.save('user_id', '')
+                                                         //this.props.navigation.navigate('Login')
     
-                                                    //     const resetAction = StackActions.reset({
-                                                    //         index: 0,
-                                                    //         key: null,
-                                                    //         actions: [NavigationActions.navigate({ routeName: 'SignUp' })],
-                                                    //     });
-                                                    //     this.props.navigation.dispatch(resetAction);
+                                                        const resetAction = StackActions.reset({
+                                                            index: 0,
+                                                            key: null,
+                                                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                                                        });
+                                                        this.props.navigation.dispatch(resetAction);
                                                     }
                                                 },
                                                 {
