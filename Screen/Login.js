@@ -21,18 +21,18 @@ export default class Login extends Component {
 
     componentDidMount() {
         this.get('user_id')
-        // AsyncStorage.getItem('user_id',(error,item)=>{
-        //     if(item!=null&&item!=''){
-        //         this.props.navigation.push('')
-        //     }
-        // })
+        AsyncStorage.getItem('user_id',(error,item)=>{
+            if(item!=null&&item!=''){
+                this.props.navigation.push('Home')
+            }
+        })
     }
 
 
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            // alert(value)
+            //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -69,12 +69,14 @@ export default class Login extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                        this.save('access_token', data.data.response.access_token)
+                        
                         this.props.navigation.replace('Home')
+                        this.save('access_token', data.data.response.access_token)
+                        this.save('user_id', data.data.response.id+'')
                         // alert('helo')
                     }
                     else {
-                        alert(data.data.message)
+                        alert(data.data.response.message)
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -91,7 +93,7 @@ export default class Login extends Component {
         this.setState({
             isLoading: true
         })
-       ApiCall('forgot_password/email',
+       CallApi('forgot_password/email',
             {
                 'email': this.state.femail
 

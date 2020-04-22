@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 
@@ -7,7 +7,8 @@ export default class EditCarDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            filePath: ''
+            filePath: '',
+            user_id:''
         }
     }
 
@@ -15,9 +16,7 @@ export default class EditCarDetail extends Component {
     chooseFile = () => {
         var options = {
             title: 'Select Image',
-            // customButtons: [
-            //     { name: 'customOptionKey', title: 'Choose Photo from Custom Option' },
-            // ],
+           
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -40,12 +39,81 @@ export default class EditCarDetail extends Component {
                 });
 
 
-                // You can also display the image using data:
-                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+               
             }
         });
     };
 
+    componentDidMount() {
+
+        this.get('user_id')
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                   // this.userDetaildApi()
+                })
+            }
+        } catch (error) {
+
+        }
+    }
+
+    carDetailApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        let body = new FormData();
+        var photo = {
+            uri: this.state.filePath.uri,
+            type: 'image/jpeg',
+            name: 'photo.jpg',
+        };
+        // alert(this.state.brewery_id)
+        body.append('image', photo);
+        body.append('brand_name', this.state.Companyname)
+        body.append('model_name', this.state.Modelname)
+        body.append('vehicle_no', this.state.Vehicleno)
+        body.append('manufacture_year', this.state.yearofmanufacture)
+        // body.append('phone_no', this.state.phone)
+
+        fetch('http://3.137.41.50/coatit/public/api/updatedetails/'+this.state.user_id,
+
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'multipart/form-data',
+                    //  'Content-Type': 'application/json'
+                },
+                body: body
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson.response)
+                if (responseJson.response.status == true) {  
+                    this.props.navigation.replace('Home')
+                    this.save('car_id',responseJson.response.carDetails.id +'')
+                    alert(responseJson.response.message)
+                }
+                this.setState({
+                    isLoading: false
+
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+    }
 
     render() {
         return (

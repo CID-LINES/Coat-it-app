@@ -68,82 +68,57 @@ export default class SignUp extends Component {
         }
     }
 
-  SignUp = () => {
+
+   SignUp = () => {
         this.setState({
             isLoading: true
         })
-        ApiCall('signup',
-            {
-                'email': this.state.email,
-                'password': this.state.password,
-                'first_name': this.state.firstname,
-                'last_name': this.state.lastname,
-                'phone_no': this.state.phone,
-                'avatar':this.state.filePath
+        let body = new FormData();
+        var photo = {
+            uri: this.state.filePath.uri,
+            type: 'image/jpeg',
+            name: 'photo.jpg',
+        };
+        // alert(this.state.brewery_id)
+        body.append('avatar', photo);
+        body.append('email', this.state.email)
+        body.append('password', this.state.password)
+        body.append('first_name', this.state.firstname)
+        body.append('last_name', this.state.lastname,)
+        body.append('phone_no', this.state.phone)
+
+        fetch('http://3.137.41.50/coatit/public/api/auth/signup', 
+     
+        {
+            method: 'POST',
+            headers: {
+             Accept: 'application/json', 
+                'Content-Type': 'multipart/form-data',
+               //  'Content-Type': 'application/json'
             },
-            (data) => {
-          // console.log(JSON.stringify(data.data.response))
-                if (!data.error) {
-                    if (data.data.response.Status == true) { 
-                        this.save('user_id',data.data.response.id+'')
-                        this.props.navigation.replace('CarDetail') 
-                           // alert('helo')
-                    }
-                    else {
-                        alert(data.data.message)
-                    }
-                } else {
-                    alert('Somthing went wrong')
-                }
-                this.setState({
-                    isLoading: false
-                })
-                // alert(JSON.stringify(data))
-                //nsole.log(data)
+            body:body
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+               console.log(responseJson.response)
+               if(responseJson.response.Status == true){
+                this.save('user_id',responseJson.response.id+'')
+                this.props.navigation.replace('CarDetail') 
+
+               }
+              this.setState({
+                  isLoading:false
+
+              })
             })
+            .catch((error) => {
+                 console.error(error);
+               //  alert(error)
+               //  callback({ data: error });
+               //callback({error: true, data: error});
+            });
     }
-
-
-//    SignUp = () => {
-//         this.setState({
-//             isLoading: true
-//         })
-//         let body = new FormData();
-//         var photo = {
-//             uri: this.state.filePath.uri,
-//             type: 'image/jpeg',
-//             name: 'photo.jpg',
-//         };
-//         // alert(this.state.brewery_id)
-//         body.append('avatar', photo);
-//         body.append('email', this.state.email)
-//         body.append('password', this.state.password)
-//         body.append('first_name', this.state.firstname)
-//         body.append('last_name', this.state.lastname,)
-//         body.append('phone_no', this.state.phone)
-        
-//         //alert(JSON.stringify(photo))
-//         ApiCallWithImage('signup',
-//             body,
-//             (data) => {
-//                 //alert(JSON.stringify(data))
-//                 if (!data.error) {
-//                     if (data.data.Status == 'true') {
-                       
-//                         alert('data save suceesfullty')
-//                     }
-//                     else {
-//                         alert(data.data.message)
-//                     }
-//                 } else {
-//                     alert('Somthing went wrong')
-//                 }
-//                 this.setState({
-//                     isLoading: false
-//                 })
-
-//             })
-//     }
+    
 
 
 
@@ -172,11 +147,9 @@ export default class SignUp extends Component {
                                     //alignSelf: 'center', 
                                 }}
                                 resizeMethod='resize'
-                               
-                               // width={100}
-                                    source={ cache="force-cache",
-                                    
-                                        this.state.filePath == '' ? require('../assets/placeholder.jpg'): this.state.filePath}>
+                                    source={this.state.filePath == '' ? 
+                                    require('../assets/placeholder.jpg'): 
+                                    this.state.filePath}>
 
                                 </Image>
                                 </TouchableOpacity>
@@ -197,7 +170,7 @@ export default class SignUp extends Component {
                                     padding: 5
                                 }}
                                     value={this.state.firstname}
-                                    onChangeText={(value) => { this.setState({ firstname: value }) }}
+                                    onChangeText={(value) => {this.setState({ firstname: value }) }}
                                     placeholder='First Name'
                                     placeholderTextColor='gray'></TextInput>
                                 <Text style={{

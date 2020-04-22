@@ -80,10 +80,12 @@ export default class ChangePassword extends Component {
                     alignSelf: 'center',
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
+                        height: 35, 
+                        width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', left: 5
+                        position: 'absolute', 
+                        left: 5
 
                     }}
                         onPress={() => {

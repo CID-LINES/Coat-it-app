@@ -52,7 +52,7 @@ export const ApiCall = (method, parms, callback) => {
 
  export const ApiCallWithImage = (method, parms, callback) => {
     console.log(parms)
-     var url = 'http://c9e19d23.ngrok.io/api/auth/' + method;
+     var url = 'http://3.137.41.50/coatit/public/api/' + method;
      fetch(url, {
          method: 'POST',
          headers: {
@@ -76,14 +76,15 @@ export const ApiCall = (method, parms, callback) => {
          });
  }
 
-
+ 
  export const CallGetApi = (method, callback) => {
-     var url = 'http://3.12.64.95:3000/api/v1/' + method;
+     var url = 'http://3.137.41.50/coatit/public/api/' + method;
      fetch(url, {
          method: 'GET',
          headers: {
              Accept: 'application/json',
              'Content-Type': 'application/json',
+            
             //  'Content-type':'multipart/form-data'
          }
      })
