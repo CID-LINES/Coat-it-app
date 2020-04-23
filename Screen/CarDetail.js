@@ -12,7 +12,8 @@ export default class CarDetail extends Component {
             Companyname: '',
             Modelname: '',
             Vehicleno: '',
-            yearofmanufacture: ''
+            yearofmanufacture: '',
+            user_id:''
         }
     }
 
@@ -29,6 +30,9 @@ export default class CarDetail extends Component {
                 quality: 20
 
             },
+            maxWidth: 300,
+            maxHeight: 300,
+            quality: 0.5
         };
 
         ImagePicker.showImagePicker(options, response => {
@@ -55,7 +59,26 @@ export default class CarDetail extends Component {
         });
     };
 
+    componentDidMount() {
 
+        this.get('user_id')
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+           // alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                   // this.MycarApi()
+                })
+            }
+        } catch (error) {
+
+        }
+    }
     async save(key, value) {
 
         try {
@@ -82,7 +105,7 @@ export default class CarDetail extends Component {
         body.append('model_name', this.state.Modelname)
         body.append('vehicle_no', this.state.Vehicleno)
         body.append('manufacture_year', this.state.yearofmanufacture)
-        // body.append('phone_no', this.state.phone)
+        body.append('user_id', ""+this.state.user_id)
 
         fetch('http://3.137.41.50/coatit/public/api/storedetails',
 
@@ -100,7 +123,7 @@ export default class CarDetail extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {  
                     this.props.navigation.replace('Home')
-                    this.save('car_id',responseJson.response.carDetails.id +'')
+                    // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -118,41 +141,7 @@ export default class CarDetail extends Component {
 
 
 
-    // carDetailApi = () => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
-    //    CallApi('storedetails',
-    //         {
-    //             'brand_name':this.state.Companyname,
-    //             'model_name':this.state.Modelname,
-    //             'vehicle_no':this.state.Vehicleno,
-    //             'manufacture_year':this.state.yearofmanufacture,
-    //             'image':this.state.filePath
-
-    //         },
-    //         (data) => {
-    //        console.log(JSON.stringify(data.data.response))
-    //             if (!data.error) {
-    //                 if (data.data.response.status == true) { 
-
-    //                     this.props.navigation.replace('Home')
-    //                     alert(data.data.response.message)
-    //                 }
-    //                 else {
-    //                     alert(data.data.response.message)
-    //                 }
-    //             } else {
-    //                 alert('Somthing went wrong')
-    //             }
-    //             this.setState({
-    //                 isLoading: false
-    //             })
-    //             // alert(JSON.stringify(data))
-    //             //nsole.log(data)
-    //         })
-    // }
-
+   
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -227,6 +216,7 @@ export default class CarDetail extends Component {
                                 }}
                                     placeholderTextColor='gray'
                                     value={this.state.Companyname}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
                                     placeholder='Name'></TextInput>
                                 <View style={{
@@ -245,6 +235,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center'
                                 }}
                                     placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
                                     value={this.state.Modelname}
                                     onChangeText={(value) => this.setState({ Modelname: value })}
                                     placeholder='Model Name'>
@@ -265,6 +256,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center'
                                 }}
                                     placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
                                     placeholder='Vehicle No.'></TextInput>
@@ -283,6 +275,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center'
                                 }}
                                     placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
                                     value={this.state.yearofmanufacture}
                                     onChangeText={(value) => this.setState({ yearofmanufacture: value })}
                                     placeholder='Manufacture year'></TextInput>

@@ -162,6 +162,7 @@ export default class Login extends Component {
                                     value={this.state.email}
                                     onChangeText={(value) => this.setState({ email: value })}
                                     placeholder='Email'
+                                    keyboardType='ascii-capable'
                                     placeholderTextColor='gray'></TextInput>
 
                                 <Text style={{ width: '75%', marginTop: 10 }}>Password</Text>
@@ -174,6 +175,7 @@ export default class Login extends Component {
                                 }}
                                     value={this.state.Password}
                                     secureTextEntry={true}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Password: value })}
                                     placeholder='Password'
                                     placeholderTextColor='gray'></TextInput>
@@ -243,35 +245,44 @@ export default class Login extends Component {
                                 }}
                                     value={this.state.femail}
                                     onChangeText={(value) => this.setState({ femail: value })}
+                                    keyboardType='ascii-capable'
                                     placeholder='Email'
                                     placeholderTextColor='gray'>
                                 </TextInput>
                                 <View style={{
                                     flexDirection: 'row',
-                                    width: '80%', justifyContent: 'space-between',
+                                    width: '80%', 
+                                    justifyContent: 'space-between',
                                     marginTop: 10
                                 }}>
 
                                     <TouchableOpacity style={{
                                         height: 40,
-                                        width: 80, backgroundColor: APP_BLUE,
-                                        borderRadius: 10, justifyContent: 'center',
+                                        width: 80, 
+                                        backgroundColor: APP_BLUE,
+                                        borderRadius: 10,
+                                        justifyContent:'center',
                                         alignItems: 'center',
                                         shadowColor: 'gray',
-                                        shadowOpacity: 1, shadowRadius: 1,
+                                        shadowOpacity: 1, 
+                                        shadowRadius: 1,
                                         shadowOffset: { width: 2, height: 1 }
                                     }}
                                         onPress={() => {
                                             this.forgetApi()
                                         }}
                                     >
-                                        <Text style={{ fontWeight: '800', color: 'white' }}>Ok</Text>
+                                        <Text style={{fontWeight: '800', 
+                                        color: 'white'}}>Ok</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity style={{
                                         height: 40,
-                                        width: 100, backgroundColor: APP_BLUE, borderRadius: 10,
-                                        justifyContent: 'center', alignItems: 'center',
+                                        width: 100, 
+                                        backgroundColor: APP_BLUE,
+                                        borderRadius: 10,
+                                        justifyContent: 'center', 
+                                        alignItems: 'center',
                                         shadowColor: 'gray',
                                         shadowOpacity: 1, shadowRadius: 1,
                                         shadowOffset: { width: 2, height: 1 }

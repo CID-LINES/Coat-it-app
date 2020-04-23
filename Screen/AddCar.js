@@ -14,7 +14,8 @@ export default class AddCar extends Component {
             vehicle_no: '',
             manufacture_year: '',
             image: '',
-            isLoading: false
+            isLoading: false,
+            user_id:''
 
         }
     }
@@ -23,6 +24,7 @@ export default class AddCar extends Component {
 
     chooseFile = () => {
         var options = {
+        
             title: 'Select Image',
             // customButtons: [
             //     { name: 'customOptionKey', title: 'Choose Photo from Custom Option' },
@@ -31,6 +33,10 @@ export default class AddCar extends Component {
                 skipBackup: true,
                 path: 'images',
             },
+            maxWidth: 300,
+            maxHeight: 300,
+            quality: 0.5
+            
         };
         ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
@@ -67,9 +73,29 @@ export default class AddCar extends Component {
             //   console.log("Error saving data" + error);
         }
     }
+    componentDidMount() {
+
+        this.get('user_id')
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                    //this.MycarApi()
+                })
+            }
+        } catch (error) {
+
+        }
+    }
     addCarApi = () => {
         this.setState({
-            isLoading: false
+            isLoading: true
         })
         let body = new FormData();
         var photo = {
@@ -83,7 +109,7 @@ export default class AddCar extends Component {
         body.append('model_name', this.state.model_name)
         body.append('vehicle_no', this.state.vehicle_no)
         body.append('manufacture_year', this.state.manufacture_year)
-        // body.append('phone_no', this.state.phone)
+         body.append('user_id', ''+this.state.user_id)
 
         fetch('http://3.137.41.50/coatit/public/api/storedetails',
 
@@ -102,7 +128,7 @@ export default class AddCar extends Component {
                 if (responseJson.response.status == true) {
 
                     this.props.navigation.replace('MyCars')
-                    this.save(responseJson.response.id+'')
+                   // this.save(responseJson.response.id+'')
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -191,6 +217,7 @@ export default class AddCar extends Component {
                                 }}
                                     placeholderTextColor='gray'
                                     value={this.state.brand_name}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ brand_name: value })}
                                     placeholder='Name'></TextInput>
                                 <View style={{
@@ -210,6 +237,7 @@ export default class AddCar extends Component {
                                 }}
                                     placeholderTextColor='gray'
                                     value={this.state.model_name}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ model_name: value })}
                                     placeholder='Model Name'>
 
@@ -230,6 +258,7 @@ export default class AddCar extends Component {
                                 }}
                                     placeholderTextColor='gray'
                                     value={this.state.vehicle_no}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ vehicle_no: value })}
                                     placeholder='Vehicle No.'></TextInput>
                                 <View style={{
@@ -248,6 +277,7 @@ export default class AddCar extends Component {
                                 }}
                                     placeholderTextColor='gray'
                                     value={this.state.manufacture_year}
+                                    keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ manufacture_year: value })}
                                     placeholder='Manufacture year'></TextInput>
                                 <View style={{

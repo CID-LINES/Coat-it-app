@@ -24,7 +24,7 @@ export default class MyCars extends Component {
         this.state = {
             access_token: '',
             car: '',
-            car_id: ''
+            user_id: ''
         }
     }
 
@@ -32,16 +32,16 @@ export default class MyCars extends Component {
 
     componentDidMount() {
 
-        this.get('car_id')
+        this.get('user_id')
     }
 
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            alert(value)
+           // alert(value)
             if (value != null && value != '') {
                 this.setState({
-                    car_id: value
+                    user_id: value
                 }, () => {
                     this.MycarApi()
                 })
@@ -58,7 +58,7 @@ export default class MyCars extends Component {
         })
 
       
-        fetch('http://3.137.41.50/coatit/public/api/cardetails/'+this.state.car_id, 
+        fetch('http://3.137.41.50/coatit/public/api/cardetails/'+this.state.user_id, 
         {
             method: 'GET',
             headers: {
@@ -68,13 +68,13 @@ export default class MyCars extends Component {
         })
             .then((response) => response.json())
             .then((responseJson) => {
-            console.log(JSON.stringify(responseJson.response.carDetails))
+            console.log(JSON.stringify(responseJson.response))
               if(responseJson.response.status == true){
                   this.setState({
-                      car: responseJson.response.carDetails
+                      car:responseJson.response.carDetails
                   })
-                //alert('helo')
-              }
+                
+             }
             this.setState({
                 isLoading:false
             })
@@ -131,7 +131,7 @@ export default class MyCars extends Component {
                     <View style={{ flex: 1 }}>
 
                         <FlatList style={{ flex: 1, marginTop: 10 }}
-                            data={DATA}
+                            data={this.state.car}
                             renderItem={({ item, index }) => (
                                 this.MyCars(item, index)
                             )}>
@@ -183,6 +183,15 @@ export default class MyCars extends Component {
         );
     }
     MyCars = (item) => {
+        var data={
+            brand_name:item.brand_name,
+            model_name:item.model_name,
+            vehicle_no:item.vehicle_no,
+            manufacture_year:item.manufacture_year,
+            image:item.image,
+            id:item.id
+            
+        }
         return (
             <TouchableOpacity style={{
                 height: 120,
@@ -195,26 +204,36 @@ export default class MyCars extends Component {
                 overflow: 'hidden'
             }}
                 onPress={() => {
-                    this.props.navigation.navigate('EditCarDetail')
+                    this.props.navigation.navigate('EditCarDetail',{
+                        data:data
+                    })
                 }}
             >
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{ flexDirection:'row'}}>
                     <Image style={{
                         height: 120,
                         width: '40%',
                     }}
                         resizeMode='cover'
-                        source={require('../assets/car-icon.jpg')}>
+                        source={item.image == null?
+                            require('../assets/placeholder.jpg'):
+                            {uri:item.image}}>
 
                     </Image>
-                    <View style={{ marginLeft: 15, marginTop: 20 }}>
+                    <View style={{ marginLeft: 15, marginTop: 10 }}>
                         <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
                         }}>
-                            {item.title}
+                            {item.brand_name}
                         </Text>
-                        <Text style={{ marginTop: 10 }}>20/03/2020</Text>
+                        <Text style={{
+                            fontSize: 16,
+                            fontWeight: '700',marginTop:5
+                        }}>
+                            {item.vehicle_no}
+                        </Text>
+                    <Text style={{ marginTop: 10 }}>{item.manufacture_year}</Text>
                     </View>
                 </View>
 

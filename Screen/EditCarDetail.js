@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 
@@ -7,9 +7,15 @@ export default class EditCarDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            filePath: '',
-            user_id:''
+            filePath: props.navigation.state.params.data.image,
+            user_id:props.navigation.state.params.data.id,
+            brand_name: props.navigation.state.params.data.brand_name,
+            model_name:props.navigation.state.params.data.model_name,
+            vehicle_no:props.navigation.state.params.data.vehicle_no,
+            manufacture_year:props.navigation.state.params.data.manufacture_year,
+            data:props.navigation.state.params.data
         }
+        //alert(JSON.stringify(this.state.data))
     }
 
 
@@ -21,6 +27,9 @@ export default class EditCarDetail extends Component {
                 skipBackup: true,
                 path: 'images',
             },
+            maxWidth: 300,
+            maxHeight: 300,
+            quality: 0.5
         };
         ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
@@ -44,28 +53,28 @@ export default class EditCarDetail extends Component {
         });
     };
 
-    componentDidMount() {
+    // componentDidMount() {
 
-        this.get('user_id')
-    }
+    //     this.get('user_id')
+    // }
 
-    async get(key) {
-        try {
-            const value = await AsyncStorage.getItem(key);
-            alert(value)
-            if (value != null && value != '') {
-                this.setState({
-                    user_id: value
-                }, () => {
-                   // this.userDetaildApi()
-                })
-            }
-        } catch (error) {
+    // async get(key) {
+    //     try {
+    //         const value = await AsyncStorage.getItem(key);
+    //        // alert(value)
+    //         if (value != null && value != '') {
+    //             this.setState({
+    //                 user_id: value
+    //             }, () => {
+    //                // this.userDetaildApi()
+    //             })
+    //         }
+    //     } catch (error) {
 
-        }
-    }
+    //     }
+    // }
 
-    carDetailApi = () => {
+    editDetailApi = () => {
         this.setState({
             isLoading: true
         })
@@ -77,10 +86,10 @@ export default class EditCarDetail extends Component {
         };
         // alert(this.state.brewery_id)
         body.append('image', photo);
-        body.append('brand_name', this.state.Companyname)
-        body.append('model_name', this.state.Modelname)
-        body.append('vehicle_no', this.state.Vehicleno)
-        body.append('manufacture_year', this.state.yearofmanufacture)
+        body.append('brand_name', this.state.brand_name)
+        body.append('model_name', this.state.model_name)
+        body.append('vehicle_no', this.state.vehicle_no)
+        body.append('manufacture_year', this.state.manufacture_year)
         // body.append('phone_no', this.state.phone)
 
         fetch('http://3.137.41.50/coatit/public/api/updatedetails/'+this.state.user_id,
@@ -98,8 +107,8 @@ export default class EditCarDetail extends Component {
             .then((responseJson) => {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {  
-                    this.props.navigation.replace('Home')
-                    this.save('car_id',responseJson.response.carDetails.id +'')
+                    this.props.navigation.replace('MyCars')
+                   // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -165,7 +174,7 @@ export default class EditCarDetail extends Component {
                                 <TouchableOpacity style={{
                                     height: 120,
                                     width: 120,
-                                    backgroundColor: 'gray',
+                                   // backgroundColor: 'gray',
                                     borderRadius: 60,
                                     alignSelf: 'center',
 
@@ -176,7 +185,7 @@ export default class EditCarDetail extends Component {
                                     }}>
                                     <Image style={{ height: 120, width: 120 }}
                                         resizeMode='cover'
-                                        source={this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}></Image>
+                                        source={this.state.filePath == '' ? require('../assets/placeholder.jpg') :{uri:this.state.filePath} }></Image>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '100%' }}>
@@ -186,7 +195,11 @@ export default class EditCarDetail extends Component {
                                     padding: 5,
                                     alignSelf: 'center'
                                 }}
-                                    //placeholderTextColor='black'
+                                    placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
+                                    value={this.state.brand_name}
+                                    onChangeText={(value)=>this.setState({brand_name:value})}
+                                    keyboardType='ascii-capable'
                                     placeholder='Name'></TextInput>
                                 <View style={{
                                     height: 1, width: '80%',
@@ -199,7 +212,11 @@ export default class EditCarDetail extends Component {
                                     padding: 5,
                                     alignSelf: 'center'
                                 }}
-                                    //placeholderTextColor='black'
+                                    placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
+                                    value={this.state.model_name}
+                                    onChangeText={(value)=>this.setState({model_name:value})}
+                                    keyboardType='ascii-capable'
                                     placeholder='Model Name'></TextInput>
                                 <View style={{
                                     height: 1, width: '80%',
@@ -215,7 +232,11 @@ export default class EditCarDetail extends Component {
                                     padding: 5,
                                     alignSelf: 'center'
                                 }}
-                                    //placeholderTextColor='black'
+                                    placeholderTextColor='gray'
+                                    keyboardType='ascii-capable'
+                                    value={this.state.vehicle_no}
+                                    onChangeText={(value)=>this.setState({vehicle_no:value})}
+                                    keyboardType='ascii-capable'
                                     placeholder='Vehicle No.'></TextInput>
                                 <View style={{
                                     height: 1, width: '80%',
@@ -231,7 +252,11 @@ export default class EditCarDetail extends Component {
                                     padding: 5,
                                     alignSelf: 'center'
                                 }}
-                                    //placeholderTextColor='black'
+                                    placeholderTextColor='gray'
+                                    value={this.state.manufacture_year}
+                                    keyboardType='ascii-capable'
+                                    onChangeText={(value)=>this.setState({manufacture_year:value})}
+                                    keyboardType='ascii-capable'
                                     placeholder='Manufacture year'></TextInput>
                                 <View style={{
                                     height: 1, width: '80%',
@@ -247,7 +272,7 @@ export default class EditCarDetail extends Component {
                                 backgroundColor: APP_BLUE, borderRadius: 25
                             }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('Home')
+                                    this.EditCarDetail()
                                 }}>
                                 <Text style={{
                                     fontWeight: '700', color: 'white',
@@ -257,9 +282,41 @@ export default class EditCarDetail extends Component {
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_BLUE}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
             </SafeAreaView>
         );
     }
+    EditCarDetail=()=>{
+        if (this.state.brand_name == '') {
+            alert('Please enter the company name')
+        } else if (this.state.model_name == '') {
+            alert("Please enter the model name")
+        } else if (this.state.vehicle_no == '') {
+            alert('Please enter the vehicle number')
+        } else if (this.state.manufacture_year == '') {
+            alert('Please enter the manufacture date')
+        } else {
+            this.editDetailApi()
+        }
+    }
+    
 }
 
 

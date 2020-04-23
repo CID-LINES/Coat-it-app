@@ -11,7 +11,7 @@ export default class UserProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: ''
+            data:''
         }
     }
 
@@ -70,10 +70,10 @@ export default class UserProfile extends Component {
             })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(JSON.stringify(responseJson.response.userProfile))
+                console.log(JSON.stringify(responseJson.response))
                 if (responseJson.response.status == true) {
                     this.setState({
-                        data: responseJson.response.userProfile
+                        data:responseJson.response.userProfile
                     })
                     // alert('helo')
                 }

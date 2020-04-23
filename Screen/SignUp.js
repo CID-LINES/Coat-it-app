@@ -28,6 +28,9 @@ export default class SignUp extends Component {
                 skipBackup: true,
                 path: 'images',
             },
+            maxWidth: 300,
+            maxHeight: 300,
+            quality: 0.5
         };
         ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
@@ -171,6 +174,7 @@ export default class SignUp extends Component {
                                 }}
                                     value={this.state.firstname}
                                     onChangeText={(value) => {this.setState({ firstname: value }) }}
+                                    keyboardType='ascii-capable'
                                     placeholder='First Name'
                                     placeholderTextColor='gray'></TextInput>
                                 <Text style={{
@@ -184,6 +188,7 @@ export default class SignUp extends Component {
                                     borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
+                                keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Last Name'
@@ -201,9 +206,9 @@ export default class SignUp extends Component {
                                     borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
-                                    value={this.state.email}
-                                    
-                                    onChangeText={(value) => { this.setState({ email: value }) }}
+                                    value={this.state.email}  
+                                    onChangeText={(value) => { this.setState({ email: value })}}
+                                    keyboardType='ascii-capable'
                                     placeholder='Email'
                                     placeholderTextColor='gray'></TextInput>
 
@@ -217,7 +222,9 @@ export default class SignUp extends Component {
                                     borderRadius: 10, padding: 5
                                 }}
                                     value={this.state.phone}
-                                    onChangeText={(value) => { this.setState({ phone: value }) }}
+                                    onChangeText={(value) => { this.setState({ phone: value })}}
+                                    keyboardType='number-pad'
+                                    returnKeyType='done'
                                     placeholder='Phone no.'
                                     placeholderTextColor='gray'></TextInput>
 
@@ -231,6 +238,7 @@ export default class SignUp extends Component {
                                     borderRadius: 10, padding: 5
                                 }}
                                 secureTextEntry={true}
+                                keyboardType='ascii-capable'
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Password'
