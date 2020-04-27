@@ -1,4 +1,4 @@
-#Mon Apr 13 22:03:01 IST 2020
-base.0=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/dexMerger/debug/0
-renamed.0=classes.dex
+#Mon Apr 27 16:40:26 IST 2020
+base.0=/Users/ios/Desktop/Work/Coatit3/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
+renamed.0=classes.dex

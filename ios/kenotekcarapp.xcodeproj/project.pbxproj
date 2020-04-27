@@ -24,7 +24,6 @@
 		8151C5FD242A0AEE00299D7B /* libFolly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FC242A0AEE00299D7B /* libFolly.a */; };
 		8151C5FF242A0AEE00299D7B /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FE242A0AEE00299D7B /* libglog.a */; };
 		8151C619242A0AEE00299D7B /* libreact-native-safe-area-context.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C618242A0AEE00299D7B /* libreact-native-safe-area-context.a */; };
-		8151C61B242A0AEE00299D7B /* libReact-RCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61A242A0AEE00299D7B /* libReact-RCTActionSheet.a */; };
 		8151C61D242A0AEE00299D7B /* libReact-RCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61C242A0AEE00299D7B /* libReact-RCTAnimation.a */; };
 		8151C61F242A0AEE00299D7B /* libReact-RCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C61E242A0AEE00299D7B /* libReact-RCTBlob.a */; };
 		8151C621242A0AEE00299D7B /* libReact-RCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C620242A0AEE00299D7B /* libReact-RCTImage.a */; };
@@ -139,7 +138,6 @@
 				8151C5FD242A0AEE00299D7B /* libFolly.a in Frameworks */,
 				8151C5FF242A0AEE00299D7B /* libglog.a in Frameworks */,
 				8151C619242A0AEE00299D7B /* libreact-native-safe-area-context.a in Frameworks */,
-				8151C61B242A0AEE00299D7B /* libReact-RCTActionSheet.a in Frameworks */,
 				8151C61D242A0AEE00299D7B /* libReact-RCTAnimation.a in Frameworks */,
 				8151C61F242A0AEE00299D7B /* libReact-RCTBlob.a in Frameworks */,
 				8151C621242A0AEE00299D7B /* libReact-RCTImage.a in Frameworks */,

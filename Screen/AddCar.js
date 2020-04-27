@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors';
 import ImagePicker from 'react-native-image-picker';
 import { ApiCallWithImage } from '../Component/ApiClient';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 export default class AddCar extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ export default class AddCar extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            alert(value)
+            //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -127,7 +128,13 @@ export default class AddCar extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {
 
-                    this.props.navigation.replace('MyCars')
+                    // const resetAction = StackActions.reset({
+                    //     index: 0,
+                    //     key: null,
+                    //     actions: [NavigationActions.navigate({ routeName: 'MyCars' })],
+                    // });
+                    // this.props.navigation.dispatch(resetAction);
+                     this.props.navigation.navigate('MyCars')
                    // this.save(responseJson.response.id+'')
                     alert(responseJson.response.message)
                 }
@@ -147,8 +154,8 @@ export default class AddCar extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                {/* <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior='padding' enabled> */}
                     <View style={{
                         height: 40, width: '95%',
                         justifyContent: 'center',
@@ -292,7 +299,7 @@ export default class AddCar extends Component {
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', alignItems: 'center',
                                 justifyContent: 'center', marginBottom: 10,
-                                backgroundColor: APP_BLUE, borderRadius: 25
+                                backgroundColor: APP_BLUE, borderRadius: 10
                             }}
 
                                 onPress={() => {
@@ -306,7 +313,7 @@ export default class AddCar extends Component {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                </KeyboardAvoidingView>
+                {/* </KeyboardAvoidingView> */}
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

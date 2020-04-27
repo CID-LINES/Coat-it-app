@@ -31,7 +31,10 @@ export default class MyCars extends Component {
 
 
     componentDidMount() {
-
+        this.load()
+        this.props.navigation.addListener('willFocus', this.load)
+    }
+    load = () => {
         this.get('user_id')
     }
 

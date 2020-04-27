@@ -127,10 +127,10 @@ export default class Login extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled={Platform.OS == 'ios'}>
-                    <ScrollView style={{ flex: 1 }}>
-                        <View style={{ flex: 1 }}>
+               {/* <KeyboardAvoidingView 
+                    behavior='padding' enabled={Platform.OS = 'ios'}> */}
+                    <ScrollView >
+                        <View >
 
                             <View style={{ height: 250, width: '100%', justifyContent: 'center' }}>
                                 <Image style={{
@@ -197,20 +197,21 @@ export default class Login extends Component {
                                 shadowOpacity: 0.5,
                                 shadowRadius: 1,
                                 shadowOffset: { width: 2, height: 1 },
-                                borderRadius: 25, alignItems: 'center', justifyContent: 'center'
+                                borderRadius: 10, alignItems: 'center', justifyContent: 'center'
                             }}
                                 onPress={() => {
                                     // this.props.navigation.navigate('CarDetail')
                                     this.Login()
                                 }}>
-                                <Text style={{ fontSize: 18, fontWeight: '700', color: 'white' }}>Login</Text>
+                                <Text style={{ fontSize: 18, 
+                                    fontWeight: '700', color: 'white' }}>Login</Text>
 
                             </TouchableOpacity>
 
                         </View>
 
                     </ScrollView>
-                </KeyboardAvoidingView>
+                {/* </KeyboardAvoidingView> */}
                 {this.state.isshow &&
                     <View style={{
                         position: 'absolute', top: 0,

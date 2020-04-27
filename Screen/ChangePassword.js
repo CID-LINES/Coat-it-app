@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Platform } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { ApiCall, CallApi } from '../Component/ApiClient';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 
 
@@ -15,20 +16,20 @@ export default class ChangePassword extends Component {
             NewPassword: '',
 
             shift: false,
-            access_token: ''
+            user_id: ''
         }
     }
     componentDidMount() {
-        this.get('access_token')
+        this.get('user_id')
     }
 
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            //alert(value)
+           // alert(value)
             if (value != null && value != '') {
                 this.setState({
-                    access_token: value
+                    user_id: value
                 })
             }
         } catch (error) {
@@ -36,27 +37,44 @@ export default class ChangePassword extends Component {
         }
     }
 
+    async save(key, value) {
+
+        try {
+            await AsyncStorage.setItem(key, value);
+
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
+        }
+    }
+
     changePasswordApi = () => {
         this.setState({
             isLoading: true
         })
-        CallApi('reset_password',
+        CallApi('changePassword/'+this.state.user_id,
             {
-                'email': this.state.email,
-                'token':this.state.access_token,
-                'password':this.state.Oldpassword,
-                'password_confirmation':this.state.NewPassword
+              
+                'old_password':this.state.Oldpassword,
+                'new_password':this.state.NewPassword
 
             },
             (data) => {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.Status == true) {
-                        alert('link send succesfully')
+                        this.save('user_id','')
+
+                        const resetAction = StackActions.reset({
+                            index: 0,
+                            key: null,
+                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                        });
+                        this.props.navigation.dispatch(resetAction);
                         //this.props.navigation.navigate('Login')
                     }
                     else {
-                        alert(data.data.response.message)
+                        alert('Please enter correct password')
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -107,8 +125,8 @@ export default class ChangePassword extends Component {
                             }}>My Cars</Text> */}
                     </View>
                 </View>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                {/* <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior='padding' enabled={Platform.OS='ios'}> */}
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
 
@@ -129,21 +147,6 @@ export default class ChangePassword extends Component {
                                 alignItems: 'center'
                             }}>
 
-                                <Text style={{ width: '75%',  }}>Email</Text>
-                                <TextInput style={{
-                                    height: 45, width: '80%',
-
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
-                                    borderRadius: 10,
-                                    padding: 5
-                                }}
-                                    value={this.state.email}
-                                    onChangeText={(value) => this.setState({email: value })}
-                                    placeholder='email'
-                                   
-                                    placeholderTextColor='gray'></TextInput>
 
                                 <Text style={{ width: '75%', marginTop: 10 }}>Old Password</Text>
                                 <TextInput style={{
@@ -185,7 +188,7 @@ export default class ChangePassword extends Component {
                                 shadowOpacity: 0.5,
                                 shadowRadius: 1,
                                 shadowOffset: { width: 2, height: 1 },
-                                borderRadius: 25, alignItems: 'center',
+                                borderRadius: 10, alignItems: 'center',
                                 justifyContent: 'center'
                             }}
                                 onPress={() => {
@@ -198,7 +201,7 @@ export default class ChangePassword extends Component {
                         </View>
 
                     </ScrollView>
-                </KeyboardAvoidingView>
+                {/* </KeyboardAvoidingView> */}
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
@@ -223,12 +226,7 @@ export default class ChangePassword extends Component {
     }
     ChangePassword=()=>{
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (!reg.test(this.state.email)) {
-            alert('Please enter valid email')
-        }else if(this.state.email==''){
-            alert('Please enter the email')
-        }
-        else if(this.state.Oldpassword == ''){
+       if(this.state.Oldpassword == ''){
             alert('Plaese enter old password')
         }else if(this.state.NewPassword == ''){
             alert('Plaese enter new password')

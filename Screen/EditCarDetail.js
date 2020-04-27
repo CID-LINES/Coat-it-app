@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 export default class EditCarDetail extends Component {
     constructor(props) {
@@ -44,7 +45,7 @@ export default class EditCarDetail extends Component {
             } else {
                 let source = response;
                 this.setState({
-                    filePath: source,
+                    filePath: source.uri,
                 });
 
 
@@ -80,11 +81,11 @@ export default class EditCarDetail extends Component {
         })
         let body = new FormData();
         var photo = {
-            uri: this.state.filePath.uri,
+            uri: this.state.filePath,
             type: 'image/jpeg',
             name: 'photo.jpg',
         };
-        // alert(this.state.brewery_id)
+         //alert(this.state.brewery_id)
         body.append('image', photo);
         body.append('brand_name', this.state.brand_name)
         body.append('model_name', this.state.model_name)
@@ -100,14 +101,23 @@ export default class EditCarDetail extends Component {
                     Accept: 'application/json',
                     'Content-Type': 'multipart/form-data',
                     //  'Content-Type': 'application/json'
-                },
+                }, 
                 body: body
             })
+           
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson.response)
+               
                 if (responseJson.response.status == true) {  
-                    this.props.navigation.replace('MyCars')
+                    console.log(responseJson.response)
+                    // const resetAction = StackActions.reset({
+                    //     index: 0,
+                    //     key: null,
+                    //     actions: [NavigationActions.navigate({ routeName: 'MyCars' })],
+                    // });
+                    // this.props.navigation.dispatch(resetAction);
+                
+                    this.props.navigation.navigate('MyCars')
                    // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert(responseJson.response.message)
                 }
@@ -162,8 +172,8 @@ export default class EditCarDetail extends Component {
                         }}>Car Detail</Text>
                     </View>
                 </View>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                {/* <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior='padding' enabled> */}
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -185,7 +195,7 @@ export default class EditCarDetail extends Component {
                                     }}>
                                     <Image style={{ height: 120, width: 120 }}
                                         resizeMode='cover'
-                                        source={this.state.filePath == '' ? require('../assets/placeholder.jpg') :{uri:this.state.filePath} }></Image>
+                                        source={{uri:this.state.filePath}}></Image>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '100%' }}>
@@ -269,7 +279,7 @@ export default class EditCarDetail extends Component {
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', alignItems: 'center',
                                 justifyContent: 'center',marginBottom:10,
-                                backgroundColor: APP_BLUE, borderRadius: 25
+                                backgroundColor: APP_BLUE, borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.EditCarDetail()
@@ -281,7 +291,7 @@ export default class EditCarDetail extends Component {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                </KeyboardAvoidingView>
+                {/* </KeyboardAvoidingView> */}
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
