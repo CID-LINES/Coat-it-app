@@ -31,6 +31,10 @@ export default class UserProfile extends Component {
 
 
     componentDidMount() {
+        this.load()
+        this.props.navigation.addListener('willFocus', this.load)
+    }
+    load = () => {
 
         this.get('user_id')
     }
@@ -186,7 +190,9 @@ export default class UserProfile extends Component {
                                     backgroundColor: APP_LIGHT
                                 }}
                                     onPress={() => {
-                                        //this.props.navigation.navigate('Settings')
+                                        this.props.navigation.navigate('Settings',{
+                                            data:this.state.data
+                                        })
                                     }}>
                                     <Text style={{
                                         fontSize: 18, fontWeight: '700',

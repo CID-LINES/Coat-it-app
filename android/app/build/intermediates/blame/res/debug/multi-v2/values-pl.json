@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ios/Desktop/Work/Coatit3/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
+            "outputFile": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
                     "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aa216e865f0dfa8751278e88fc8b90db/res/values-pl/values-pl.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/634a59385d4bb196e2ddc34e4abaeda7/res/values-pl/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/33c009a9f8fb2881eaa1c262390a7257/res/values-pl/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

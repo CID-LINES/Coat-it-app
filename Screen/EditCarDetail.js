@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
 export default class EditCarDetail extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ export default class EditCarDetail extends Component {
             manufacture_year:props.navigation.state.params.data.manufacture_year,
             data:props.navigation.state.params.data
         }
-        //alert(JSON.stringify(this.state.data))
+      //  console.log(JSON.stringify(this.state.data))
     }
 
 
@@ -54,27 +54,7 @@ export default class EditCarDetail extends Component {
         });
     };
 
-    // componentDidMount() {
-
-    //     this.get('user_id')
-    // }
-
-    // async get(key) {
-    //     try {
-    //         const value = await AsyncStorage.getItem(key);
-    //        // alert(value)
-    //         if (value != null && value != '') {
-    //             this.setState({
-    //                 user_id: value
-    //             }, () => {
-    //                // this.userDetaildApi()
-    //             })
-    //         }
-    //     } catch (error) {
-
-    //     }
-    // }
-
+    
     editDetailApi = () => {
         this.setState({
             isLoading: true
@@ -110,15 +90,12 @@ export default class EditCarDetail extends Component {
                
                 if (responseJson.response.status == true) {  
                     console.log(responseJson.response)
-                    // const resetAction = StackActions.reset({
-                    //     index: 0,
-                    //     key: null,
-                    //     actions: [NavigationActions.navigate({ routeName: 'MyCars' })],
-                    // });
-                    // this.props.navigation.dispatch(resetAction);
-                
-                    this.props.navigation.navigate('MyCars')
-                   // this.save('car_id',responseJson.response.carDetails.id +'')
+
+                    this.props.navigation.dispatch(
+                        NavigationActions.navigate({ routeName: "MyCars" })
+                       );
+                    //this.props.navigation.push('MyCars')
+               
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -172,8 +149,9 @@ export default class EditCarDetail extends Component {
                         }}>Car Detail</Text>
                     </View>
                 </View>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled> */}
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS === 'ios'?'padding': null} 
+                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -291,7 +269,7 @@ export default class EditCarDetail extends Component {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

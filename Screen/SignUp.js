@@ -3,7 +3,6 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_BLUE } from '../Component/colors'
 import{ApiCall, ApiCallWithImage} from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
-import { StackActions, NavigationActions } from 'react-navigation';
 export default class SignUp extends Component {
     constructor() {
         super()
@@ -107,15 +106,7 @@ export default class SignUp extends Component {
                console.log(responseJson.response)
                if(responseJson.response.Status == true){
                 this.save('user_id',responseJson.response.id+'')
-
-                const resetAction = StackActions.reset({
-                    index: 0,
-                    key: null,
-                    actions: [NavigationActions.navigate({ routeName: 'CarDetail' })],
-                });
-                this.props.navigation.dispatch(resetAction);
-                alert(responseJson.response.message)
-                //this.props.navigation.replace('CarDetail') 
+                this.props.navigation.replace('CarDetail') 
 
                }
               this.setState({
@@ -137,8 +128,9 @@ export default class SignUp extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled ={Platform.OS='ios'}>  */}
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS === 'ios'?'padding': null} 
+                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
 
                         <View style={{ flex: 1 }}>
@@ -301,7 +293,7 @@ export default class SignUp extends Component {
                         </View>
 
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

@@ -6,8 +6,9 @@ export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
         this.state={
-                        
+           data:props.navigation.state.params.plan
         }
+       //alert(JSON.stringify(this.state.data))
     }
     render() {
         return (
@@ -58,7 +59,7 @@ export default class ServiceDeatil extends Component {
                         <TouchableOpacity style={{
                             height: 150,
                             width: 150,
-                            backgroundColor: 'gray',
+                         
                             borderRadius: 75,
                             alignSelf: 'center',
 
@@ -66,7 +67,10 @@ export default class ServiceDeatil extends Component {
                         }}>
                             <Image style={{ height: 150, width: 150 }}
                                 resizeMode='cover'
-                                source={require('../assets/placeholder.jpg')}>
+                                source={ this.state.data.image == null ? 
+                                    require('../assets/placeholder.jpg'):
+                                    {uri:this.state.data.image}
+                                   }>
 
                             </Image>
                         </TouchableOpacity>
@@ -81,7 +85,7 @@ export default class ServiceDeatil extends Component {
                         }}>Title:- <Text style={{
                             fontSize: 15,
                             fontWeight: '400'
-                        }}>Plan 1 </Text></Text>
+                        }}>{this.state.data.title}</Text></Text>
                         <Text style={{
                             fontSize: 17,
 
@@ -89,9 +93,11 @@ export default class ServiceDeatil extends Component {
                             fontWeight: '800'
                         }}
                             numberOfLines={4}>
-                            Description:-<Text style={{ fontSize: 15, fontWeight: '400' }}>Lorem Ipsum is
+                            Description:- <Text style={{ fontSize: 15, fontWeight: '400' }}>
+                                 {this.state.data.description}
+                                {/* Lorem Ipsum is
                             simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's
+                            Lorem Ipsum has been the industry's */}
                             </Text> </Text>
                     </View>
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, ActivityIndicator, AsyncStorage, Platform } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors';
 import ImagePicker from 'react-native-image-picker';
 import { ApiCallWithImage } from '../Component/ApiClient';
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
 export default class AddCar extends Component {
     constructor(props) {
@@ -127,14 +127,10 @@ export default class AddCar extends Component {
             .then((responseJson) => {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {
-
-                    // const resetAction = StackActions.reset({
-                    //     index: 0,
-                    //     key: null,
-                    //     actions: [NavigationActions.navigate({ routeName: 'MyCars' })],
-                    // });
-                    // this.props.navigation.dispatch(resetAction);
-                     this.props.navigation.navigate('MyCars')
+                    this.props.navigation.dispatch(
+                        NavigationActions.navigate({ routeName: "MyCars" })
+                       );
+                    //this.props.navigation.replace('MyCars')
                    // this.save(responseJson.response.id+'')
                     alert(responseJson.response.message)
                 }
@@ -154,8 +150,9 @@ export default class AddCar extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled> */}
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS === 'ios'?'padding': null} 
+                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
                     <View style={{
                         height: 40, width: '95%',
                         justifyContent: 'center',
@@ -313,7 +310,7 @@ export default class AddCar extends Component {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

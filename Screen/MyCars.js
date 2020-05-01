@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
+import { NavigationActions } from 'react-navigation';
 
 
 const DATA = [
@@ -192,8 +193,7 @@ export default class MyCars extends Component {
             vehicle_no:item.vehicle_no,
             manufacture_year:item.manufacture_year,
             image:item.image,
-            id:item.id
-            
+            id:item.id     
         }
         return (
             <TouchableOpacity style={{
@@ -207,6 +207,14 @@ export default class MyCars extends Component {
                 overflow: 'hidden'
             }}
                 onPress={() => {
+
+                    // this.props.navigation.dispatch(
+                    //     NavigationActions.navigate({ routeName: "EditCarDetail"
+                    //     },{
+                    //         data:data
+                    //     })
+
+                    //    );
                     this.props.navigation.navigate('EditCarDetail',{
                         data:data
                     })

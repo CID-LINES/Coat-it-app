@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Platform } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { ApiCall, CallApi } from '../Component/ApiClient';
-import { NavigationActions, StackActions } from 'react-navigation';
 
 
 
@@ -64,14 +63,7 @@ export default class ChangePassword extends Component {
                 if (!data.error) {
                     if (data.data.response.Status == true) {
                         this.save('user_id','')
-
-                        const resetAction = StackActions.reset({
-                            index: 0,
-                            key: null,
-                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
-                        });
-                        this.props.navigation.dispatch(resetAction);
-                        //this.props.navigation.navigate('Login')
+                        this.props.navigation.navigate('Login')
                     }
                     else {
                         alert('Please enter correct password')
@@ -125,8 +117,9 @@ export default class ChangePassword extends Component {
                             }}>My Cars</Text> */}
                     </View>
                 </View>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled={Platform.OS='ios'}> */}
+                <KeyboardAvoidingView 
+                    behavior={Platform.OS== 'ios' ? 'padding' : null} 
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
 
@@ -201,7 +194,7 @@ export default class ChangePassword extends Component {
                         </View>
 
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

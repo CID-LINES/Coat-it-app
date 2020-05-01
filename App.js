@@ -93,7 +93,7 @@ const Tabnavigation =createBottomTabNavigator({
 })
   const LoginNavigator = createStackNavigator({
     Signup: { screen: Signup },
-    Login:{screen :Login },
+    Login:{screen :Login }, 
     CarDetail : {screen : CarDetail},
     Home: {screen: Tabnavigation},
     AddCar :{screen :AddCar},
@@ -115,7 +115,7 @@ const Tabnavigation =createBottomTabNavigator({
       }
     }
   );
-
+ 
   
 
 

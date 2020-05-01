@@ -1,53 +1,144 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, ActivityIndicator, AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
 export default class Purchase extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            order_id: props.navigation.getParam('order_id', ''),
             orders: [{
                 title: 'Current Purchase',
-                data: ['Pizza', 'Burger', 'Risotto']
+                data: ['p','q','s']
             },
             {
                 title: 'Past Purchase',
-                data: ['Pizza', 'Burger', 'Risotto'],
-            }]
+                data: ['p','q','s'],
+            }],
+           
         }
     }
 
+    componentDidMount() {
+
+        this.get('user_id')
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+             //alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                    //this.PurchaseApi()
+                })
+            }
+        } catch (error) {
+
+        }
+    }
+
+    PurchaseApi = () => {
+        this.setState({
+            isLoading: true
+        })
+
+
+        fetch('http://3.137.41.50/coatit/public/api/mypurchase/' + this.state.user_id,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+
+                    //  'Content-type':'multipart/form-data'
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson.response))
+                if (responseJson.response.status == true) {
+                    // this.setState({
+                    //     data: responseJson.response.service_details
+                    // })
+                    var orders = this.state.orders
+                    var _ordres=[]
+                    for(var i=0; i<responseJson.response.service_details.length;i++)
+                    {
+                        var   isAlreadyExist = false
+                        var _index = -1
+                        for(var j=0; j <_ordres.length; j++){
+                            if(_orders[j] == responseJson.response.service_details[i])
+                            isAlreadyExist=true
+                            _index=j
+                        }
+                    }
+                        if(isAlreadyExist&& _index!=-1){
+                            _ordres[_index].items.push(responseJson.response.service_details[i])
+
+                        }
+                    else{
+                        _ordres.push({
+                            // image:responseJson.response.service_details[i].image,
+                            //product_name:responseJson.response.service_details[i].product_name,
+                            // createdAt:responseJson.response.service_details[i].created_at
+                        })
+                    }
+                   
+                }
+                orders[i].data = _ordres
+                this.setState({
+                    orders:orders
+                })
+
+                this.setState({
+                    isLoading: false
+                })
+
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+
+    }
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                {/* <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior='padding' enabled> */}
                     <View style={{
-                        height: 40, width: '95%',
+                        height: 40,
+                        width: '95%',
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
                     }}>
                         <TouchableOpacity style={{
-                            height: 35, width: 35,
+                            height: 35, 
+                            width: 35,
                             alignItems: 'center',
                              justifyContent: 'center',
-                            position: 'absolute', left: 5
-
-
+                            position: 'absolute',
+                             left: 5
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
                             <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
                                 resizeMode='contain'
-                                source={require('../assets/back.png')}></Image>
+                                source={require('../assets/back.png')}>       
+                                </Image>
 
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
-
+                            alignItems: 'center', 
+                            justifyContent: 'center',
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
@@ -90,14 +181,32 @@ export default class Purchase extends Component {
                             >
                             </SectionList>
                         </View>
+                        {this.state.isLoading &&
+                        <View style={{
+                            position: 'absolute',
+                            backgroundColor: '#000000aa',
+                            top: 0,
+                            bottom: 0, left: 0, right: 0,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <ActivityIndicator
+                                animating={this.state.isLoading}
+                                size='large'
+
+                                color={APP_BLUE}
+                            ></ActivityIndicator>
+
+                        </View>
+                    }
                     {/* </ScrollView> */}
-                </KeyboardAvoidingView>
+                {/* </KeyboardAvoidingView> */}
 
             </SafeAreaView>
         );
     }
 
-    MyPurchase = () => {
+    MyPurchase = (item) => {
         return (
             <View style={{
                 height: 120,
@@ -113,7 +222,9 @@ export default class Purchase extends Component {
                 <Image style={{height:120,
                 width:'40%',}}
             resizeMode='cover'
-                source={require('../assets/placeholder.jpg')}>
+                source={item.image ==  null ?
+                    require('../assets/placeholder.jpg'):
+                    {uri:item.image}}>
 
                 </Image>
                 <View  style={{marginLeft:15,marginTop:20}}>

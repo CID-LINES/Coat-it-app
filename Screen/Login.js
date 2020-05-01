@@ -70,9 +70,10 @@ export default class Login extends Component {
                 if (!data.error) {
                     if (data.data.response.status == true) {
                         
-                        this.props.navigation.replace('Home')
+                       
                         this.save('access_token', data.data.response.access_token)
                         this.save('user_id', data.data.response.id+'')
+                        this.props.navigation.push('Home')
                         // alert('helo')
                     }
                     else {
@@ -127,8 +128,9 @@ export default class Login extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-               {/* <KeyboardAvoidingView 
-                    behavior='padding' enabled={Platform.OS = 'ios'}> */}
+               <KeyboardAvoidingView 
+                    behavior={Platform.OS== 'ios'?'padding':null} 
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView >
                         <View >
 
@@ -188,10 +190,30 @@ export default class Login extends Component {
                                 }}>
                                 <Text style={{ alignSelf: 'flex-end', fontSize: 16 }}>Forget Password</Text>
                             </TouchableOpacity>
-
+                                <View style={{flexDirection:'row',justifyContent:'space-between',
+                            width:'80%',alignSelf:'center'}}> 
                             <TouchableOpacity style={{
-                                height: 50, width: '60%',
+                                height: 50, width: '40%',
                                 backgroundColor: APP_BLUE,
+                                marginTop: 15, alignSelf: 'center',
+                                shadowColor: 'gray',
+                                shadowOpacity: 0.5,
+                                shadowRadius: 1,
+                                shadowOffset: { width: 2, height: 1 },
+                                borderRadius: 10, alignItems: 'center', justifyContent: 'center'
+                            }}
+                                onPress={() => {
+                                     this.props.navigation.navigate('Signup')
+                                    
+                                }}>
+                                <Text style={{ fontSize: 18, 
+                                    fontWeight: '700', color: 'white' }}>Sign up</Text>
+
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{
+                                height: 50, width: '40%',
+                                backgroundColor:APP_BLUE,
+                              
                                 marginTop: 15, alignSelf: 'center',
                                 shadowColor: 'gray',
                                 shadowOpacity: 0.5,
@@ -206,12 +228,14 @@ export default class Login extends Component {
                                 <Text style={{ fontSize: 18, 
                                     fontWeight: '700', color: 'white' }}>Login</Text>
 
-                            </TouchableOpacity>
+                            </TouchableOpacity> 
+                        
+                             </View>
 
                         </View>
 
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isshow &&
                     <View style={{
                         position: 'absolute', top: 0,

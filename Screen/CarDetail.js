@@ -3,7 +3,6 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { CallApi } from '../Component/ApiClient';
-import { NavigationActions, StackActions } from 'react-navigation';
 
 export default class CarDetail extends Component {
     constructor(props) {
@@ -122,17 +121,9 @@ export default class CarDetail extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson.response)
-                if (responseJson.response.status == true) { 
-                    
-                    
-                    const resetAction = StackActions.reset({
-                        index: 0,
-                        key: null,
-                        actions: [NavigationActions.navigate({ routeName: 'Home' })],
-                    });
-                    this.props.navigation.dispatch(resetAction);
-                   // this.props.navigation.replace('Home')
-                 
+                if (responseJson.response.status == true) {  
+                    this.props.navigation.replace('Home')
+                    // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -188,8 +179,9 @@ export default class CarDetail extends Component {
                         }}>Car Detail</Text>
                     </View>
                 </View>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled> */}
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS === 'ios'?'padding': null} 
+                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -316,7 +308,7 @@ export default class CarDetail extends Component {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                {/* </KeyboardAvoidingView> */}
+                </KeyboardAvoidingView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
