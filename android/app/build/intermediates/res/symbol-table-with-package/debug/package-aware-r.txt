@@ -1357,6 +1357,7 @@ drawable assets_back
 drawable assets_caricon
 drawable assets_carlogo
 drawable assets_notificationicon
+drawable assets_pencil
 drawable assets_placeholder
 drawable assets_plusicon
 drawable assets_profileicon

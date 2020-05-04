@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, ActivityIndicator, AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
+import Moment from 'react-moment';
+import moment from 'moment';
 
 export default class Purchase extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            order_id: props.navigation.getParam('order_id', ''),
+           
             orders: [{
                 title: 'Current Purchase',
-                data: ['p','q','s']
+                data: []
             },
             {
                 title: 'Past Purchase',
-                data: ['p','q','s'],
+                data: [],
             }],
-           
+           user_id:''
         }
     }
 
@@ -32,7 +34,7 @@ export default class Purchase extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                    //this.PurchaseApi()
+                    this.PurchaseApi()
                 })
             }
         } catch (error) {
@@ -46,7 +48,7 @@ export default class Purchase extends Component {
         })
 
 
-        fetch('http://3.137.41.50/coatit/public/api/mypurchase/' + this.state.user_id,
+        fetch('http://3.137.41.50/coatit/public/api/purchase/order/dhiraj76' ,
             {
                 method: 'GET',
                 headers: {
@@ -60,39 +62,17 @@ export default class Purchase extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson.response))
                 if (responseJson.response.status == true) {
-                    // this.setState({
-                    //     data: responseJson.response.service_details
-                    // })
-                    var orders = this.state.orders
-                    var _ordres=[]
-                    for(var i=0; i<responseJson.response.service_details.length;i++)
-                    {
-                        var   isAlreadyExist = false
-                        var _index = -1
-                        for(var j=0; j <_ordres.length; j++){
-                            if(_orders[j] == responseJson.response.service_details[i])
-                            isAlreadyExist=true
-                            _index=j
-                        }
-                    }
-                        if(isAlreadyExist&& _index!=-1){
-                            _ordres[_index].items.push(responseJson.response.service_details[i])
-
-                        }
-                    else{
-                        _ordres.push({
-                            // image:responseJson.response.service_details[i].image,
-                            //product_name:responseJson.response.service_details[i].product_name,
-                            // createdAt:responseJson.response.service_details[i].created_at
-                        })
-                    }
                    
+                    var order = this.state.orders
+                    order[0].data = responseJson.response.current_purchase
+                    order[1].data= responseJson.response.past_purchase
+                  
+                    this.setState({
+                        orders:order
+                    })
+                    
+                  
                 }
-                orders[i].data = _ordres
-                this.setState({
-                    orders:orders
-                })
-
                 this.setState({
                     isLoading: false
                 })
@@ -230,9 +210,13 @@ export default class Purchase extends Component {
                 <View  style={{marginLeft:15,marginTop:20}}>
                <Text style={{fontSize:17,
                     fontWeight:'700'}}>
-                        Product name
+                        {/* Product name */}
+                        {item.product_name}
                     </Text>
-                    <Text style={{marginTop:10}}>20/03/2020</Text>
+                    <Text style={{marginTop:10}}>
+                        {moment.utc(item.created_at).local().format('DD-MM-YYYY hh:mm a')}
+                        {/* 20/03/2020 */}
+                    </Text>
                 </View>
                 </View>
 

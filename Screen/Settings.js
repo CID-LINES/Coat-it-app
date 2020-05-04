@@ -173,19 +173,22 @@ export default class Settings extends Component {
                             <View style={{ height: 150,
                                  width: '100%', justifyContent: 'center' }}>
                                 <TouchableOpacity style={{
-                                    height: 120,
-                                    width: 120,
-                                    borderRadius: 60,
+                                    height: 130,
+                                    width: 130,
+                                    borderRadius: 65,
+                                    borderColor:APP_BLUE,
+                                    borderWidth:3,
                                     alignSelf: 'center',
+                                    overflow:'hidden'
                                 }}
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
 
                                     <Image style={{
-                                        height: 120,
-                                        width: 120,
-                                        borderRadius: 60,
+                                        height: 130,
+                                        width: 130,
+                                        borderRadius: 65,
                                         // maxHeight:100
                                         //alignSelf: 'center', 
                                     }}

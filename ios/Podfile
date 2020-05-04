@@ -34,8 +34,8 @@ target 'kenotekcarapp' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-#  pod 'GoogleMaps'
-# pod 'Google-Maps-iOS-Utils' ,:git => 'https://github.com/googlemaps/google-maps-ios-utils'
+ pod 'GoogleMaps'
+ pod 'Google-Maps-iOS-Utils' ,:git => 'https://github.com/googlemaps/google-maps-ios-utils'
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 

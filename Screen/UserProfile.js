@@ -122,15 +122,17 @@ export default class UserProfile extends Component {
                                 // backgroundColor:'pink'
                             }}>
                                 <View style={{
-                                    height: 120,
-                                    width: 120,
+                                    height: 130,
+                                    width: 130,
                                     //backgroundColor: 'gray',
-                                    borderRadius: 75,
+                                    borderRadius: 65,
+                                    borderColor:APP_BLUE,
+                                    borderWidth:3,
                                     alignSelf: 'center',
                                     justifyContent: 'center',
                                     overflow: 'hidden'
                                 }}>
-                                    <Image style={{ height: 120, width: 120 }}
+                                    <Image style={{ height: 130, width: 130 }}
                                         resizeMode='cover'
                                         source={this.state.data.avatar == null?
                                             require('../assets/placeholder.jpg')

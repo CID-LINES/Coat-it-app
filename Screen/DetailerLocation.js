@@ -13,9 +13,24 @@ export default class DetailLocation extends Component {
             Password: '',
             femail: '',
             shift: false,
+            location:null
           
         }
     }
+
+    // findCoordinates = () => {
+	// 	navigator.geolocation.getCurrentPosition(
+	// 		position => {
+	// 			const location = JSON.stringify(position);
+
+	// 			this.setState({ location });
+	// 		},
+	// 		error => Alert.alert(error.message),
+	// 		{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+	// 	);
+    // };
+    
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -59,7 +74,7 @@ export default class DetailLocation extends Component {
                 </View>
                 <View style={{ flex: 1 }}>
                     <MapView
-                    //provider={PROVIDER_GOOGLE}
+                    provider={PROVIDER_GOOGLE}
                     showsUserLocation={true}
                     showsMyLocationButton={true}
                         initialRegion={{
@@ -70,14 +85,13 @@ export default class DetailLocation extends Component {
                         }}
                         
                         mapType='standard'
-                        style={{ flex: 1, width: '100%' }}
+                        style={{ flex: 1, width: '100%'}}
                     >
                     <Polyline coordinates={[
                         { latitude: 31.1061, longitude:  74.9839},
                         { latitude: 31.0497, longitude: 74.8346 },
                     ]}
                     strokeColor={APP_BLUE}
-                    
                     strokeWidth={5}
                    ></Polyline>
                    
@@ -86,7 +100,7 @@ export default class DetailLocation extends Component {
                        latitude:31.1061,longitude:74.9839,
                        
                    }}
-               // onPress={alert('helos')}
+                //onPress={this.findCoordinates()}
                   ></Marker>
                   <Marker coordinate={{latitude: 31.0497, longitude: 74.8346}}>
 

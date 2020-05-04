@@ -172,7 +172,7 @@ export default class Home extends Component {
                     overflow: 'hidden',
                     marginRight: 5,
                     borderColor: APP_BLUE,
-                    borderWidth: 1
+                    borderWidth: 3
                 }} >
                     <Image style={{
                         height: 75,
