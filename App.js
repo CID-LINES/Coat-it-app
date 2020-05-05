@@ -25,7 +25,7 @@ import Home from './Screen/Home'
 import AddCar from './Screen/AddCar'
 import Notification from './Screen/Notification'
 import UserProfile from './Screen/UserProfile'
-import { APP_BLUE, APP_LIGHT } from "./Component/colors";
+import { APP_BLUE, APP_LIGHT, APP_YELLOW } from "./Component/colors";
 import Purchase from './Screen/Purchase'
 import MyCars from './Screen/MyCars'
 import Settings from './Screen/Settings'
@@ -36,6 +36,8 @@ import DetailerLocation from './Screen/DetailerLocation';
 import NotificationDetail from './Screen/NotificationDetail';
 import EditCarDetail from './Screen/EditCarDetail'
 import Payment from './Screen/Payment'
+import PurchaseDetail from './Screen/PurchaseDetail'
+import PastPurchaseDetail from './Screen/PastPurchaseDetail'
 
 
 
@@ -80,13 +82,13 @@ const Tabnavigation =createBottomTabNavigator({
 },{
   tabBarOptions: {
     showIcon: true,
-    //inactiveTintColor:'white',
-    activeTintColor: APP_BLUE,
+    inactiveTintColor:'white',
+    activeTintColor: '#3f51B5',
 
     style: {height:45,
 
       // justifyContent:'center',
-      //backgroundColor: APP_LIGHT,
+      backgroundColor: APP_YELLOW,
     }
   }
 
@@ -94,6 +96,7 @@ const Tabnavigation =createBottomTabNavigator({
   const LoginNavigator = createStackNavigator({
     Signup: { screen: Signup },
     Login:{screen :Login }, 
+   
     CarDetail : {screen : CarDetail},
     Home: {screen: Tabnavigation},
     AddCar :{screen :AddCar},
@@ -106,7 +109,9 @@ const Tabnavigation =createBottomTabNavigator({
   DetailerLocation :{screen:DetailerLocation},
   NotificationDetail:{screen :NotificationDetail},
   EditCarDetail:{screen :EditCarDetail},
-  Payment:{screen :Payment}
+  Payment:{screen :Payment},
+  PurchaseDetail:{screen:PurchaseDetail},
+  PastPurchaseDetail:{screen:PastPurchaseDetail}
     
   },
     {

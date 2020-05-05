@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import { APP_BLUE } from '../Component/colors'
+import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
 const DATA=[
@@ -36,11 +36,11 @@ export default class Notification extends Component {
                             <View style={{
                                 alignSelf: 'center',
                                 alignItems: 'center', justifyContent: 'center',
-                                height: 50, width: '100%'
+                                height: 30, width: '100%'
                             }}>
                                 <Text style={{fontSize:18,
                                 fontWeight:'bold',
-                                color:APP_BLUE}}>Notification</Text>
+                                color:APP_YELLOW}}>Notification</Text>
                             </View>
 
 
@@ -96,9 +96,9 @@ export default class Notification extends Component {
                     </View>
                  
             </TouchableOpacity>
-            <View style={{height:1,width:'100%',
+            <View style={{height:2,width:'100%',
             marginBottom:5,
-        backgroundColor:'gray'}}></View>
+        backgroundColor:APP_YELLOW}}></View>
             </View>
            
         )

@@ -42,7 +42,7 @@ export default class MyCars extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-           // alert(value)
+            // alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -61,36 +61,36 @@ export default class MyCars extends Component {
             isLoading: true
         })
 
-      
-        fetch('http://3.137.41.50/coatit/public/api/cardetails/'+this.state.user_id, 
-        {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            }
-        })
+
+        fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
             .then((response) => response.json())
             .then((responseJson) => {
-            console.log(JSON.stringify(responseJson.response))
-              if(responseJson.response.status == true){
-                  this.setState({
-                      car:responseJson.response.carDetails
-                  })
-                
-             }
-            this.setState({
-                isLoading:false
-            })
-              
+                console.log(JSON.stringify(responseJson.response))
+                if (responseJson.response.status == true) {
+                    this.setState({
+                        car: responseJson.response.carDetails
+                    })
+
+                }
+                this.setState({
+                    isLoading: false
+                })
+
             })
             .catch((error) => {
-                 console.error(error);
-               //  alert(error)
-               //  callback({ data: error });
-               //callback({error: true, data: error});
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
             });
-       
+
     }
 
 
@@ -115,19 +115,20 @@ export default class MyCars extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
 
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_BLUE
+                                color: APP_YELLOW
                             }}>My Cars</Text>
                         </View>
                     </View>
@@ -144,7 +145,7 @@ export default class MyCars extends Component {
                         <TouchableOpacity style={{
                             height: 60, width: 60,
                             borderRadius: 30,
-                            backgroundColor: APP_BLUE,
+                            backgroundColor: APP_YELLOW,
                             alignItems: 'center', justifyContent: 'center',
                             position: 'absolute',
                             alignContent: 'flex-end',
@@ -187,13 +188,13 @@ export default class MyCars extends Component {
         );
     }
     MyCars = (item) => {
-        var data={
-            brand_name:item.brand_name,
-            model_name:item.model_name,
-            vehicle_no:item.vehicle_no,
-            manufacture_year:item.manufacture_year,
-            image:item.image,
-            id:item.id     
+        var data = {
+            brand_name: item.brand_name,
+            model_name: item.model_name,
+            vehicle_no: item.vehicle_no,
+            manufacture_year: item.manufacture_year,
+            image: item.image,
+            id: item.id
         }
         return (
             <TouchableOpacity style={{
@@ -201,34 +202,27 @@ export default class MyCars extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_BLUE, borderWidth: 1,
+                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 1,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'
             }}
                 onPress={() => {
 
-                    // this.props.navigation.dispatch(
-                    //     NavigationActions.navigate({ routeName: "EditCarDetail"
-                    //     },{
-                    //         data:data
-                    //     })
-
-                    //    );
-                    this.props.navigation.navigate('EditCarDetail',{
-                        data:data
+                    this.props.navigation.navigate('EditCarDetail', {
+                        data: data
                     })
                 }}
             >
-                <View style={{ flexDirection:'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                     <Image style={{
                         height: 120,
                         width: '40%',
                     }}
                         resizeMode='cover'
-                        source={item.image == null?
-                            require('../assets/placeholder.jpg'):
-                            {uri:item.image}}>
+                        source={item.image == null ?
+                            require('../assets/placeholder.jpg') :
+                            { uri: item.image }}>
 
                     </Image>
                     <View style={{ marginLeft: 15, marginTop: 10 }}>
@@ -240,11 +234,11 @@ export default class MyCars extends Component {
                         </Text>
                         <Text style={{
                             fontSize: 16,
-                            fontWeight: '700',marginTop:5
+                            fontWeight: '700', marginTop: 5
                         }}>
                             {item.vehicle_no}
                         </Text>
-                    <Text style={{ marginTop: 10 }}>{item.manufacture_year}</Text>
+                        <Text style={{ marginTop: 10 }}>{item.manufacture_year}</Text>
                     </View>
                 </View>
 

@@ -25,7 +25,7 @@ export default class ChangePassword extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-           // alert(value)
+            // alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -51,18 +51,18 @@ export default class ChangePassword extends Component {
         this.setState({
             isLoading: true
         })
-        CallApi('changePassword/'+this.state.user_id,
+        CallApi('changePassword/' + this.state.user_id,
             {
-              
-                'old_password':this.state.Oldpassword,
-                'new_password':this.state.NewPassword
+
+                'old_password': this.state.Oldpassword,
+                'new_password': this.state.NewPassword
 
             },
             (data) => {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.Status == true) {
-                        this.save('user_id','')
+                        this.save('user_id', '')
                         this.props.navigation.navigate('Login')
                     }
                     else {
@@ -81,7 +81,7 @@ export default class ChangePassword extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
 
                 <View style={{
                     height: 40, width: '95%',
@@ -90,18 +90,18 @@ export default class ChangePassword extends Component {
                     alignSelf: 'center',
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, 
+                        height: 35,
                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', 
+                        position: 'absolute',
                         left: 5
 
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -117,13 +117,16 @@ export default class ChangePassword extends Component {
                             }}>My Cars</Text> */}
                     </View>
                 </View>
-                <KeyboardAvoidingView 
-                    behavior={Platform.OS== 'ios' ? 'padding' : null} 
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS == 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
 
-                            <View style={{ height: 200, width: '100%', justifyContent: 'center' }}>
+                            <View style={{
+                                height: 200, width: '100%',
+                                justifyContent: 'center'
+                            }}>
                                 <Image style={{
                                     height: 200,
                                     width: 200, alignSelf: 'center',
@@ -141,28 +144,35 @@ export default class ChangePassword extends Component {
                             }}>
 
 
-                                <Text style={{ width: '75%', marginTop: 10 }}>Old Password</Text>
+                                <Text style={{
+                                    width: '75%',
+                                    marginTop: 10
+                                }}>Old Password</Text>
                                 <TextInput style={{
-                                    height: 45, width: '80%',
+                                    height: 40, width: '80%',
 
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                    marginTop: 2,
+                                    // borderColor: 'gray',
+                                    // borderWidth: 1,
                                     borderRadius: 10,
                                     padding: 5
                                 }}
                                     value={this.state.Oldpassword}
-                                    onChangeText={(value) => this.setState({Oldpassword: value })}
+                                    onChangeText={(value) => this.setState({ Oldpassword: value })}
                                     placeholder='Old Password'
                                     secureTextEntry={true}
                                     placeholderTextColor='gray'></TextInput>
+                                <View style={{
+                                    height: 1, width: '80%',
+                                    backgroundColor: 'gray'
+                                }}></View>
 
                                 <Text style={{ width: '75%', marginTop: 10 }}>New Password</Text>
                                 <TextInput style={{
-                                    height: 45,
+                                    height: 40,
                                     width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray', borderWidth: 1,
+                                    marginTop: 2,
+                                    // borderColor: 'gray', borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
                                     value={this.state.NewPassword}
@@ -170,11 +180,17 @@ export default class ChangePassword extends Component {
                                     placeholder=' New Password'
                                     secureTextEntry={true}
                                     placeholderTextColor='gray'></TextInput>
+
+                                <View style={{
+                                    height: 1, width: '80%',
+                                    backgroundColor: 'gray'
+                                }}></View>
+
                             </View>
 
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
-                                backgroundColor: APP_BLUE,
+                                backgroundColor: APP_YELLOW,
                                 marginTop: 15,
                                 alignSelf: 'center',
                                 shadowColor: 'gray',
@@ -217,13 +233,13 @@ export default class ChangePassword extends Component {
             </SafeAreaView>
         );
     }
-    ChangePassword=()=>{
+    ChangePassword = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-       if(this.state.Oldpassword == ''){
+        if (this.state.Oldpassword == '') {
             alert('Plaese enter old password')
-        }else if(this.state.NewPassword == ''){
+        } else if (this.state.NewPassword == '') {
             alert('Plaese enter new password')
-        }else{
+        } else {
             this.changePasswordApi()
         }
     }

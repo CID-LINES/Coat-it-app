@@ -13,29 +13,44 @@ export default class DetailLocation extends Component {
             Password: '',
             femail: '',
             shift: false,
-            location:null
+            location:null,
+            coords:[]
           
         }
     }
 
-    // findCoordinates = () => {
-	// 	navigator.geolocation.getCurrentPosition(
-	// 		position => {
-	// 			const location = JSON.stringify(position);
-
-	// 			this.setState({ location });
-	// 		},
-	// 		error => Alert.alert(error.message),
-	// 		{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-	// 	);
-    // };
+    // componentDidMount(){
+    //     this.getDirections()
+    // }
+    // async getDirections(startLoc, destinationLoc) {
     
+    //     try {
+    //         const startLoc ="31.1061,74.9839 "
+    //      const destinationLoc="31.0497,74.8346 "
+    //         let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
+    //         let respJson = await resp.json();
+    //         //alert(JSON.stringify(respJson))
+    //         let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
+    //         let coords = points.map((point, index) => {
+               
+    //             return  {
+    //                 latitude : point[0],
+    //                 longitude : point[1]
+    //             }
+    //         })
+    //         this.setState({coords: coords})
+    //         return coords
+    //     } catch(error) {
+    //         return error
+    //     }
+    // }
 
+    
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={{
-                    height: 40, width: '100%',
+                    height: 30, width: '100%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
@@ -87,8 +102,9 @@ export default class DetailLocation extends Component {
                         mapType='standard'
                         style={{ flex: 1, width: '100%'}}
                     >
-                    <Polyline coordinates={[
-                        { latitude: 31.1061, longitude:  74.9839},
+                    <Polyline 
+                    coordinates={[
+                         { latitude: 31.1061, longitude:  74.9839},
                         { latitude: 31.0497, longitude: 74.8346 },
                     ]}
                     strokeColor={APP_BLUE}

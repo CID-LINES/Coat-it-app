@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 export default class Settings extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class Settings extends Component {
             lastname: props.navigation.state.params.data.last_name,
             filePath: props.navigation.state.params.data.avatar,
             isLoading: false,
-            user_id:''
+            user_id: ''
         }
         //console.log(JSON.stringify(this.state.data))
     }
@@ -53,81 +53,92 @@ export default class Settings extends Component {
         });
     };
 
-    componentDidMount() {
-        this.load()
-        this.props.navigation.addListener('willFocus', this.load)
-    }
-    load = () => {
-        this.get('user_id')
-    }
 
-    async get(key) {
+    async save(key, value) {
+
         try {
-            const value = await AsyncStorage.getItem(key);
-            //alert(value)
-            if (value != null && value != '') {
-                this.setState({
-                    user_id: value
-                }, () => {
-                    //this.MycarApi()
-                })
-            }
-        } catch (error) {
+            await AsyncStorage.setItem(key, value);
 
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
         }
     }
 
+    // componentDidMount() {
+    //     this.load()
+    //     this.props.navigation.addListener('willFocus', this.load)
+    // }
+    // load = () => {
+    //     this.get('user_id')
+    // }
 
-    updateProfile = () => {
-        this.setState({
-            isLoading: true
-        })
-        let body = new FormData();
-        var photo = {
-            uri: this.state.filePath,
-            type: 'image/jpeg',
-            name: 'photo.jpg',
-        };
-        // alert(this.state.brewery_id)
-        body.append('avatar', photo);
-        body.append('first_name', this.state.firstname)
-        body.append('last_name', this.state.lastname,)
-        body.append('phone_no', this.state.phone)
+    // async get(key) {
+    //     try {
+    //         const value = await AsyncStorage.getItem(key);
+    //         //alert(value)
+    //         if (value != null && value != '') {
+    //             this.setState({
+    //                 user_id: value
+    //             }, () => {
+    //                 //this.MycarApi()
+    //             })
+    //         }
+    //     } catch (error) {
 
-        fetch('http://3.137.41.50/coatit/public/api/updateProfile/'  + '' +this.state.user_id, 
-     
-        {
-            method: 'POST',
-            headers: {
-             Accept: 'application/json', 
-                'Content-Type': 'multipart/form-data',
-               //  'Content-Type': 'application/json'
-            },
-            body:body
-        })
-            .then((response) => response.json())
-            .then((responseJson) => {
-               console.log(responseJson.response)
-               if(responseJson.response.Status == true)
-               {
-                this.props.navigation.dispatch(
-                    NavigationActions.navigate({ routeName: "Home" })
-                   );
-                   alert('Update profile successful')
+    //     }
+    // }
 
-               }
-              this.setState({
-                  isLoading:false
 
-              })
-            })
-            .catch((error) => {
-                 console.error(error);
-               //  alert(error)
-               //  callback({ data: error });
-               //callback({error: true, data: error});
-            });
-    }
+    // updateProfile = () => {
+    //     this.setState({
+    //         isLoading: true
+    //     })
+    //     let body = new FormData();
+    //     var photo = {
+    //         uri: this.state.filePath,
+    //         type: 'image/jpeg',
+    //         name: 'photo.jpg',
+    //     };
+    //     // alert(this.state.brewery_id)
+    //     body.append('avatar', photo);
+    //     body.append('first_name', this.state.firstname)
+    //     body.append('last_name', this.state.lastname)
+    //     body.append('phone_no', this.state.phone)
+
+    //     fetch('http://3.137.41.50/coatit/public/api/updateProfile/' + '' + this.state.user_id,
+
+    //         {
+    //             method: 'POST',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'multipart/form-data',
+    //                 //  'Content-Type': 'application/json'
+    //             },
+    //             body: body
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(responseJson.response)
+    //             if (responseJson.response.Status == true) {
+    //                 this.props.navigation.dispatch(
+    //                     NavigationActions.navigate({ routeName: "Home" })
+    //                 );
+    //                 alert('Update profile successful')
+
+    //             }
+    //             this.setState({
+    //                 isLoading: false
+
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
+    // }
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -148,7 +159,7 @@ export default class Settings extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -160,11 +171,71 @@ export default class Settings extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_BLUE
+                            color: APP_YELLOW
                         }}>Settings</Text>
                     </View>
                 </View>
-                <KeyboardAvoidingView style={{ flex: 1 }}
+
+                <TouchableOpacity style={{
+                    height: 40, width: '60%',
+                    marginTop: 20,
+                    alignItems: "center", justifyContent: 'center',
+                    borderRadius: 10, alignSelf: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    onPress={() => {
+
+                        this.props.navigation.navigate('ChangePassword')
+                    }}>
+                    <Text style={{
+                        fontSize: 18, fontWeight: '700',
+                        color: 'white'
+                    }}>Chnage Password</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity style={{
+                    height: 40, width: '60%',
+                    marginTop: 10, marginBottom: 10,
+                    alignItems: "center", justifyContent: 'center',
+                    borderRadius: 10, alignSelf: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    // onPress={() => {
+                    //     this.props.navigation.navigate('Login')
+                    // }}
+                    onPress={() => {
+                        Alert.alert(
+                            'Logout',
+                            'Are you sure you want to logout?',
+                            [
+                                {
+                                    text: 'Logout', onPress: () => {
+                                        this.save('user_id', '')
+                                        //this.props.navigation.navigate('Login')
+
+                                        const resetAction = StackActions.reset({
+                                            index: 0,
+                                            key: null,
+                                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                                        });
+                                        this.props.navigation.dispatch(resetAction);
+                                    }
+                                },
+                                {
+                                    text: 'Cancel',
+                                    style: 'cancel',
+                                }],
+                            { cancelable: false },
+                        );
+                    }}
+                >
+                    <Text style={{
+                        fontSize: 18, fontWeight: '700',
+                        color: 'white'
+                    }}>Logout</Text>
+                </TouchableOpacity>
+                {/* <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
@@ -254,23 +325,7 @@ export default class Settings extends Component {
                                     placeholderTextColor='gray'>
 
                                 </TextInput>
-                                {/* <Text style={{
-                                    width: '75%',
-                                    marginTop: 10,
-                                    fontWeight:'700'
-                                }}>Email</Text>
-                                <TextInput style={{
-                                    height: 45, width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
-                                    borderRadius: 10, padding: 5
-                                }}
-                                    value={this.state.email}
-                                    onChangeText={(value) => { this.setState({ email: value }) }}
-                                    keyboardType='ascii-capable'
-                                    placeholder='Email'
-                                    placeholderTextColor='gray'></TextInput> */}
+                              
 
                                 <Text style={{ width: '75%', marginTop: 10 ,
                                                fontWeight:'700'}}>Phone No.</Text>
@@ -289,21 +344,7 @@ export default class Settings extends Component {
                                     placeholder='Phone no.'
                                     placeholderTextColor='gray'></TextInput>
 
-                                {/* <Text style={{ width: '75%', marginTop: 10 }}>Password</Text>
-                                <TextInput style={{
-                                    height: 45,
-                                    width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
-                                    borderRadius: 10, padding: 5
-                                }}
-                                    secureTextEntry={true}
-                                    keyboardType='ascii-capable'
-                                    value={this.state.password}
-                                    onChangeText={(value) => { this.setState({ password: value }) }}
-                                    placeholder='Password'
-                                    placeholderTextColor='gray'></TextInput> */}
+                               
                             </View>
 
                             <TouchableOpacity style={{
@@ -330,7 +371,7 @@ export default class Settings extends Component {
 
                         </View>
                     </ScrollView>
-                </KeyboardAvoidingView>
+                </KeyboardAvoidingView> */}
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

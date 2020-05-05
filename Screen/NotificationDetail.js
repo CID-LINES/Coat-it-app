@@ -30,7 +30,7 @@ export default class NotificationDetail extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
@@ -43,7 +43,7 @@ export default class NotificationDetail extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_BLUE
+                                color: APP_YELLOW
                             }}>Notification Detail</Text>
                         </View>
                     </View>

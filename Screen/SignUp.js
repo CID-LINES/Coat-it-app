@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage } from 'react-native';
-import { APP_BLUE } from '../Component/colors'
-import{ApiCall, ApiCallWithImage} from '../Component/ApiClient'
+import { APP_BLUE, APP_YELLOW } from '../Component/colors'
+import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
 export default class SignUp extends Component {
     constructor() {
@@ -12,8 +12,8 @@ export default class SignUp extends Component {
             phone: '',
             firstname: '',
             lastname: '',
-            filePath:'',
-            isLoading:false
+            filePath: '',
+            isLoading: false
         }
     }
 
@@ -52,9 +52,9 @@ export default class SignUp extends Component {
     };
 
 
-    componentDidMount(){
-        AsyncStorage.getItem('user_id',(error,item)=>{
-            if(item!=null&&item!=''){
+    componentDidMount() {
+        AsyncStorage.getItem('user_id', (error, item) => {
+            if (item != null && item != '') {
                 this.props.navigation.push('Home')
             }
         })
@@ -72,7 +72,7 @@ export default class SignUp extends Component {
     }
 
 
-   SignUp = () => {
+    SignUp = () => {
         this.setState({
             isLoading: true
         })
@@ -87,75 +87,86 @@ export default class SignUp extends Component {
         body.append('email', this.state.email)
         body.append('password', this.state.password)
         body.append('first_name', this.state.firstname)
-        body.append('last_name', this.state.lastname,)
+        body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
 
-        fetch('http://3.137.41.50/coatit/public/api/auth/signup', 
-     
-        {
-            method: 'POST',
-            headers: {
-             Accept: 'application/json', 
-                'Content-Type': 'multipart/form-data',
-               //  'Content-Type': 'application/json'
-            },
-            body:body
-        })
+        fetch('http://3.137.41.50/coatit/public/api/auth/signup',
+
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'multipart/form-data',
+                    //  'Content-Type': 'application/json'
+                },
+                body: body
+            })
             .then((response) => response.json())
             .then((responseJson) => {
-               console.log(responseJson.response)
-               if(responseJson.response.Status == true){
-                this.save('user_id',responseJson.response.id+'')
-                this.props.navigation.replace('CarDetail') 
+                console.log(responseJson.response)
+                if (responseJson.response.Status == true) {
+                    this.save('user_id', responseJson.response.id + '')
+                    this.props.navigation.replace('CarDetail')
 
-               }
-              this.setState({
-                  isLoading:false
+                }
+                this.setState({
+                    isLoading: false
 
-              })
+                })
             })
             .catch((error) => {
-                 console.error(error);
-               //  alert(error)
-               //  callback({ data: error });
-               //callback({error: true, data: error});
+                console.error(message);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
             });
     }
-    
+
 
 
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios'?'padding': null} 
-                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
+                    behavior={Platform.OS === 'ios' ? 'padding' : null}
+                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
 
-                        <View style={{ flex: 1 }}>
-                            <View style={{ height: 210, width: '100%', justifyContent: 'center' }}>
-                                <TouchableOpacity style={{height: 120,
-                                    width: 120,
-                                    borderRadius: 60,
-                                    alignSelf: 'center',}}
-                                    onPress={() =>{
-                                        this.chooseFile()
-                                    }}>
-
-                                <Image style={{
+                        <View style={{ flex: 1,backgroundColor:'white' }}>
+                        <View style={{
+                                alignSelf: 'center',
+                                alignItems: 'center', justifyContent: 'center',
+                                height: 30, width: '100%'
+                            }}>
+                                <Text style={{fontSize:20,
+                                fontWeight:'bold',
+                                color:APP_YELLOW}}>Coat-it</Text>
+                            </View>
+                            <View style={{ height: 120, width: '100%', justifyContent: 'center' ,marginTop:10}}>
+                                <TouchableOpacity style={{
                                     height: 120,
                                     width: 120,
                                     borderRadius: 60,
-                                    // maxHeight:100
-                                    //alignSelf: 'center', 
+                                    alignSelf: 'center',
                                 }}
-                                resizeMethod='resize'
-                                    source={this.state.filePath == '' ? 
-                                    require('../assets/placeholder.jpg'): 
-                                    this.state.filePath}>
+                                    onPress={() => {
+                                        this.chooseFile()
+                                    }}>
 
-                                </Image>
+                                    <Image style={{
+                                        height: 120,
+                                        width: 120,
+                                        borderRadius: 60,
+                                        // maxHeight:100
+                                        //alignSelf: 'center', 
+                                    }}
+                                        resizeMethod='resize'
+                                        source={this.state.filePath == '' ?
+                                            require('../assets/placeholder.jpg') :
+                                            this.state.filePath}>
+
+                                    </Image>
                                 </TouchableOpacity>
                             </View>
                             <View style={{
@@ -163,96 +174,112 @@ export default class SignUp extends Component {
                                 marginTop: 20,
                                 alignItems: 'center'
                             }}>
-                                <Text style={{ width: '75%', }}>First name</Text>
+                                <Text style={{ width: '80%', fontWeight: '600', }}>First name</Text>
                                 <TextInput style={{
-                                    height: 45,
+                                    height: 40,
                                     width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                    marginTop: 2,
+                                    //borderColor: 'gray',
+                                    //borderWidth: 1,
                                     borderRadius: 10,
                                     padding: 5
                                 }}
                                     value={this.state.firstname}
-                                    onChangeText={(value) => {this.setState({ firstname: value }) }}
+                                    onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
                                     placeholderTextColor='gray'></TextInput>
+                                    <View style={{height:1,
+                                        width:'80%',backgroundColor:'gray'}}></View>
                                 <Text style={{
-                                    width: '75%',
+                                    width: '80%',
+                                    fontWeight: '600',
                                     marginTop: 10
                                 }}>Last name</Text>
                                 <TextInput style={{
-                                    height: 45, width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                    height: 40,
+                                    width: '80%',
+                                    marginTop: 2,
+                                    // borderColor: 'gray',
+                                    // borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
-                                keyboardType='ascii-capable'
+                                    keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Last Name'
                                     placeholderTextColor='gray'>
 
                                 </TextInput>
+                                <View style={{height:1,
+                                        width:'80%',backgroundColor:'gray'}}></View>
                                 <Text style={{
-                                    width: '75%',
-                                    marginTop: 10
+                                    width: '80%',
+                                    marginTop: 10,
+                                    fontWeight: '600',
                                 }}>Email</Text>
                                 <TextInput style={{
-                                    height: 45, width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                    height: 40,
+                                    width: '80%',
+                                    marginTop: 2,
+                                    // borderColor: 'gray',
+                                    // borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
-                                    value={this.state.email}  
-                                    onChangeText={(value) => { this.setState({ email: value })}}
+                                    value={this.state.email}
+                                    onChangeText={(value) => { this.setState({ email: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='Email'
                                     placeholderTextColor='gray'></TextInput>
+                                    <View style={{height:1,
+                                        width:'80%',backgroundColor:'gray'}}></View>
 
-                                <Text style={{ width: '75%', marginTop: 10 }}>Phone No.</Text>
+                                <Text style={{ width: '80%', marginTop: 10,
+                             fontWeight: '600', }}>Phone No.</Text>
                                 <TextInput style={{
-                                    height: 45,
+                                    height: 40,
                                     width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                    marginTop: 2,
+                                    // borderColor: 'gray',
+                                    // borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
                                     value={this.state.phone}
-                                    onChangeText={(value) => { this.setState({ phone: value })}}
+                                    onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Phone no.'
                                     placeholderTextColor='gray'></TextInput>
+                                    <View style={{height:1,
+                                        width:'80%',backgroundColor:'gray'}}></View>
 
-                                <Text style={{ width: '75%', marginTop: 10 }}>Password</Text>
+                                <Text style={{ width: '80%', marginTop: 10,
+                             fontWeight: '600', }}>Password</Text>
                                 <TextInput style={{
-                                    height: 45,
-                                    width: '80%',
-                                    marginTop: 5,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
+                                     height: 40,
+                                     width: '80%',
+                                     marginTop: 2,
+                                    // borderColor: 'gray',
+                                    // borderWidth: 1,
                                     borderRadius: 10, padding: 5
                                 }}
-                                secureTextEntry={true}
-                                keyboardType='ascii-capable'
+                                    secureTextEntry={true}
+                                    keyboardType='ascii-capable'
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Password'
                                     placeholderTextColor='gray'></TextInput>
+                                    <View style={{height:1,
+                                        width:'80%',backgroundColor:'gray'}}></View>
                             </View>
 
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
-                                backgroundColor: APP_BLUE,
-                                marginTop: 20, 
+                                backgroundColor: APP_YELLOW,
+                                marginTop: 20,
                                 alignSelf: 'center',
                                 borderRadius: 10,
-                               // marginBottom:10,
+                                // marginBottom:10,
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}
@@ -264,17 +291,17 @@ export default class SignUp extends Component {
                                     fontSize: 18, fontWeight: '700',
                                     color: 'white'
                                 }}>Submit</Text>
-                                
+
 
                             </TouchableOpacity>
-                            <TouchableOpacity style={{
+                            {/* <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                // backgroundColor: APP_BLUE,
                                 marginTop: 10,
                                  alignSelf: 'center',
                                 borderRadius: 10,
                                 marginBottom:10,
-                                borderColor:APP_BLUE,
+                                borderColor:APP_YELLOW,
                                 borderWidth:2,
                                 alignItems: 'center',
                                 justifyContent: 'center'
@@ -285,11 +312,27 @@ export default class SignUp extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
-                                    color: APP_BLUE
+                                    color: APP_YELLOW
                                 }}>Login</Text>
                                 
 
+                            </TouchableOpacity> */}
+
+                            <TouchableOpacity onPress={() => {
+                                this.props.navigation.navigate('Login')
+                            }}>
+                                <Text
+                                    style={{
+                                        alignSelf: 'center', marginTop: 5,
+                                        color: 'gray', marginBottom: 70,
+                                        marginTop: 10
+                                    }}>
+                                    Already have an account ?<Text style={{
+                                        alignSelf: 'center', color: APP_YELLOW,
+                                        fontWeight: '700'
+                                    }}> Login here</Text></Text>
                             </TouchableOpacity>
+
                         </View>
 
                     </ScrollView>
@@ -307,7 +350,7 @@ export default class SignUp extends Component {
                             animating={this.state.isLoading}
                             size='large'
 
-                            color={APP_BLUE}
+                            color={APP_YELLOW}
                         ></ActivityIndicator>
 
                     </View>
@@ -316,19 +359,22 @@ export default class SignUp extends Component {
             </SafeAreaView>
         );
     }
-    signup=()=>{
-        if(this.state.firstname == '')
-        {
+    signup = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (this.state.firstname == '') {
             alert('Please enter the first name')
-        }else if(this.state.lastname== ''){
+        } else if (this.state.lastname == '') {
             alert('Please enter the last name')
-        }else if(this.state.email == ''){
+        } else if (!reg.test(this.state.email)) {
+            alert('Please enter the valid email')
+        }
+        else if (this.state.email == '') {
             alert('Please enter the email')
-        }else if(this.state.password==''){
+        } else if (this.state.password == '') {
             alert('Please enter the password')
-        }else if(this.state.phone == ''){
+        } else if (this.state.phone == '') {
             alert('Please enter the phone number')
-        }else{
+        } else {
             this.SignUp()
         }
     }

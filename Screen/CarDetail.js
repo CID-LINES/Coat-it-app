@@ -144,15 +144,17 @@ export default class CarDetail extends Component {
    
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
+                    backgroundColor:'white'
                 }}>
-                    <TouchableOpacity style={{
-                        height: 35, width: 35,
+                    {/* <TouchableOpacity style={{
+                        height: 35,
+                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
@@ -162,11 +164,11 @@ export default class CarDetail extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <View style={{
                         height: 35,
                         alignItems: 'center',
@@ -175,7 +177,7 @@ export default class CarDetail extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_BLUE
+                            color: APP_YELLOW
                         }}>Car Detail</Text>
                     </View>
                 </View>
@@ -209,7 +211,7 @@ export default class CarDetail extends Component {
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '100%' }}>
-                                <Text style={{ marginLeft: 35, fontWeight: '800' }}>Brand/Company Name</Text>
+                                <Text style={{ marginLeft: 35, fontWeight: '600', }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -227,7 +229,7 @@ export default class CarDetail extends Component {
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
-                                    fontWeight: '800',
+                                    fontWeight: '600',
                                     marginTop: 20
                                 }}>Model Name</Text>
                                 <TextInput style={{
@@ -248,7 +250,7 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '800',
+                                    marginLeft: 35,  fontWeight: '600',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -267,7 +269,7 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '800',
+                                    marginLeft: 35,  fontWeight: '600',
                                     marginTop: 20
                                 }}>Year of Manufacture</Text>
                                 <TextInput style={{
@@ -295,7 +297,7 @@ export default class CarDetail extends Component {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 marginBottom: 10,
-                                backgroundColor: APP_BLUE, 
+                                backgroundColor: APP_YELLOW, 
                                 borderRadius: 10
                             }}
                                 onPress={() => {

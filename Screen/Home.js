@@ -94,25 +94,25 @@ export default class Home extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1 }}>
                         <View style={{
-                            height: 50,
+                            height: 30,
                             width: "95%",
                             alignSelf: 'center',
                             justifyContent: 'center', alignItems: 'center'
                         }}>
                             <Text style={{
                                 fontWeight: '800',
-                                fontSize: 18, color: APP_BLUE
+                                fontSize: 18, color: APP_YELLOW
                             }}>
-                                MembershipPlan
+                                Service Plan
                             </Text>
                         </View>
                         <FlatList style={{ marginTop: 20 }}
 
-                            numColumns={2}
+                           // numColumns={2}
                             data={this.state.data}
                             renderItem={({ item }) => (
                                 this.MembershipPlan(item)
@@ -153,10 +153,10 @@ export default class Home extends Component {
         return (
 
             <TouchableOpacity style={{
-                // height: 150,
-                width: '50%',
+                 height: 130,
+                width: '95%',
                 //backgroundColor:'pink',
-                //alignSelf:'center',
+                alignSelf:'center',
                 justifyContent: 'center'
             }} onPress={() => {
                 
@@ -167,32 +167,32 @@ export default class Home extends Component {
                 <View style={{
                     flex: 1,
                     marginLeft: 5,
-                    marginBottom: 20,
+                    marginBottom: 10,
                     borderRadius: 10,
                     overflow: 'hidden',
                     marginRight: 5,
-                    borderColor: APP_BLUE,
+                    flexDirection:'row',
+                    borderColor: APP_YELLOW,
                     borderWidth: 3
                 }} >
                     <Image style={{
-                        height: 75,
-                        width: '100%'
+                       // height: 75,
+                        width: '50%'
                     }}
                         resizeMode='cover'
                         source={item.image == null ? 
                             require('../assets/car-icon.jpg'):
                             {uri:item.image}}></Image>
 
-
+                            <View style={{marginLeft:20,
+                            marginTop:20
+                            }}>
+                    <Text 
+                 >{item.title}</Text>
                     <Text style={{
-                        marginLeft: 10,
-                        marginTop: 10
-                    }}>{item.title}</Text>
-                    <Text style={{
-                        marginLeft: 10,
-                        marginTop: 10, marginBottom: 10
-                    }}
+                        marginTop:10}}
                         numberOfLines={2}>{item.description}</Text>
+                        </View>
 
                 </View>
 

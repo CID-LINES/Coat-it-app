@@ -69,9 +69,7 @@ export default class Purchase extends Component {
                   
                     this.setState({
                         orders:order
-                    })
-                    
-                  
+                    }) 
                 }
                 this.setState({
                     isLoading: false
@@ -186,9 +184,9 @@ export default class Purchase extends Component {
         );
     }
 
-    MyPurchase = (item) => {
+    MyPurchase = (item,section) => {
         return (
-            <View style={{
+            <TouchableOpacity style={{
                 height: 120,
                 marginTop: 5,
                 marginBottom:5,
@@ -197,7 +195,19 @@ export default class Purchase extends Component {
                 alignSelf: 'center', 
                 // backgroundColor: 'pink',
                 overflow:'hidden'
-            }}>
+            }}
+            onPress={()=> {
+                // if(section.title == 'Current Purchase'){
+                //     this.props.navigation.push('PurchaseDetail',{
+                //         data:item
+                //     })
+                // }else{
+                //     this.props.navigation.push('PastPurchaseDetail',{
+                //         data:item
+                //     })
+                // }
+            }
+              }>
                 <View style={{flexDirection:'row'}}>
                 <Image style={{height:120,
                 width:'40%',}}
@@ -220,7 +230,7 @@ export default class Purchase extends Component {
                 </View>
                 </View>
 
-            </View>
+            </TouchableOpacity>
         )
     }
 }

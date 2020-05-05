@@ -133,7 +133,7 @@ export default class EditCarDetail extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -145,7 +145,7 @@ export default class EditCarDetail extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_BLUE
+                            color: APP_YELLOW
                         }}>Car Detail</Text>
                     </View>
                 </View>
@@ -155,7 +155,7 @@ export default class EditCarDetail extends Component {
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: 250,
+                                height: 150,
                                 width: '100%', justifyContent: 'center',
                                 // backgroundColor:'pink'
                             }}>
@@ -176,8 +176,8 @@ export default class EditCarDetail extends Component {
                                         source={{uri:this.state.filePath}}></Image>
                                 </TouchableOpacity>
                             </View>
-                            <View style={{ width: '100%' }}>
-                                <Text style={{ marginLeft: 35, fontWeight: '800' }}>Brand/Company Name</Text>
+                            <View style={{ width: '100%' ,marginTop:10}}>
+                                <Text style={{ marginLeft: 35, fontWeight: '600',}}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -194,7 +194,9 @@ export default class EditCarDetail extends Component {
                                     alignSelf: 'center',
                                     backgroundColor: 'gray'
                                 }}></View>
-                                <Text style={{ marginLeft: 35, fontWeight: '800', marginTop: 20 }}>Model Name</Text>
+                                <Text style={{ marginLeft: 35,
+                                     fontWeight: '600',
+                                      marginTop: 20 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -212,7 +214,7 @@ export default class EditCarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '800',
+                                    marginLeft: 35,  fontWeight: '600',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -232,7 +234,7 @@ export default class EditCarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '800',
+                                    marginLeft: 35, fontWeight: '600',
                                     marginTop: 20
                                 }}>Year of Manufacture</Text>
                                 <TextInput style={{
@@ -257,7 +259,7 @@ export default class EditCarDetail extends Component {
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', alignItems: 'center',
                                 justifyContent: 'center',marginBottom:10,
-                                backgroundColor: APP_BLUE, borderRadius: 10
+                                backgroundColor: APP_YELLOW, borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.EditCarDetail()

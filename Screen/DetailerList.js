@@ -44,7 +44,7 @@ export default class DetailerList extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
@@ -56,7 +56,7 @@ export default class DetailerList extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_BLUE
+                                color: APP_YELLOW
                             }}>Detailer List</Text>
                         </View>
                     </View>
@@ -83,13 +83,13 @@ export default class DetailerList extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_BLUE, borderWidth: 1,
+                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 1,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'
             }}
                 onPress={() => {
-                    this.props.navigation.navigate('Payment')
+                    //this.props.navigation.navigate('Payment')
                 }}
             >
                 <View style={{ flexDirection: 'row' }}>
@@ -110,7 +110,7 @@ export default class DetailerList extends Component {
                     </Text>
                         <Text style={{ marginTop: 10 }}>Sirhind</Text>
 
-                        <Text style={{ marginTop: 10 }}>10 km</Text>
+                        {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
                     </View>
                 </View>
 

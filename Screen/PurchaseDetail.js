@@ -6,13 +6,13 @@ export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
         this.state={
-           data:props.navigation.state.params.plan
+          // data:props.navigation.state.params.plan
         }
        //alert(JSON.stringify(this.state.data))
     }
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+            <SafeAreaView style={{ flex: 1 }}>
 
                 <View style={{
                     height: 40, width: '95%',
@@ -30,7 +30,7 @@ export default class ServiceDeatil extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                        <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -43,12 +43,12 @@ export default class ServiceDeatil extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_YELLOW
+                            color: APP_BLUE
                         }}>Sevice Detail</Text>
                     </View>
                 </View>
 
-                <View style={{ flex: 1,backgroundColor:'white' }}
+                <View style={{ flex: 1 }}
                 >
 
                     <View style={{
@@ -67,9 +67,10 @@ export default class ServiceDeatil extends Component {
                         }}>
                             <Image style={{ height: 150, width: 150 }}
                                 resizeMode='cover'
-                                source={ this.state.data.image == null ? 
-                                    require('../assets/placeholder.jpg'):
-                                    {uri:this.state.data.image}
+                                source={
+                                    //  this.state.data.image == null ? 
+                                    require('../assets/placeholder.jpg')
+                                    // {uri:this.state.data.image}
                                    }>
 
                             </Image>
@@ -85,7 +86,9 @@ export default class ServiceDeatil extends Component {
                         }}>Title:- <Text style={{
                             fontSize: 15,
                             fontWeight: '400'
-                        }}>{this.state.data.title}</Text></Text>
+                        }}>
+                            {this.state.data.product_name}
+                        </Text></Text>
                         <Text style={{
                             fontSize: 17,
 
@@ -94,28 +97,26 @@ export default class ServiceDeatil extends Component {
                         }}
                             numberOfLines={4}>
                             Description:- <Text style={{ fontSize: 15, fontWeight: '400' }}>
-                                 {this.state.data.description}
-                                {/* Lorem Ipsum is
-                            simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's */}
+                                 {/* {this.state.data.description} */}
+                             
                             </Text> </Text>
                     </View>
 
-                    <TouchableOpacity style={{
-                        height: 45, width: '60%',
+                    {/* <TouchableOpacity style={{
+                        height: 40, width: '50%',
                         alignSelf: 'center', alignItems: 'center',
                         justifyContent: 'center', marginTop: 20,
-                        borderRadius: 10,
-                        backgroundColor: APP_YELLOW
+                        borderRadius: 20,
+                        backgroundColor: APP_BLUE
                     }}
                         onPress={() => {
-                            this.props.navigation.navigate('Payment')
+                            this.props.navigation.navigate('DetailerList')
                         }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '800',
 
                             color: 'white'
-                        }}>Buy</Text></TouchableOpacity>
+                        }}>Buy</Text></TouchableOpacity> */}
 
                 </View>
 
