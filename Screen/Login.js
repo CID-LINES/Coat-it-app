@@ -368,11 +368,12 @@ export default class Login extends Component {
     }
     Login = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (!reg.test(this.state.email)) {
-            alert('Please enter valid email')
-        } else if (this.state.email == '') {
+        if (this.state.email == '') {
             alert('Please enter the email')
-        } else if (this.state.Password == '') {
+        }  else if (!reg.test(this.state.email)) {
+            alert('Please enter valid email')
+        }
+        else if (this.state.Password == '') {
             alert('Please enter the password')
         } else {
             this.LoginApi()

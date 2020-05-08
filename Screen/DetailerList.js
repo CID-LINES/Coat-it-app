@@ -83,7 +83,7 @@ export default class DetailerList extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 1,
+                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 2,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'

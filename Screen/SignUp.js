@@ -365,12 +365,13 @@ export default class SignUp extends Component {
             alert('Please enter the first name')
         } else if (this.state.lastname == '') {
             alert('Please enter the last name')
+        } 
+        else if (this.state.email == '') {
+            alert('Please enter the email')
         } else if (!reg.test(this.state.email)) {
             alert('Please enter the valid email')
         }
-        else if (this.state.email == '') {
-            alert('Please enter the email')
-        } else if (this.state.password == '') {
+        else if (this.state.password == '') {
             alert('Please enter the password')
         } else if (this.state.phone == '') {
             alert('Please enter the phone number')

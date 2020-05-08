@@ -178,7 +178,7 @@ export default class MyCars extends Component {
                             animating={this.state.isLoading}
                             size='large'
 
-                            color={APP_BLUE}
+                            color={APP_YELLOW}
                         ></ActivityIndicator>
 
                     </View>
@@ -202,7 +202,7 @@ export default class MyCars extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 1,
+                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 2,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'

@@ -160,6 +160,7 @@ export default class ChangePassword extends Component {
                                     value={this.state.Oldpassword}
                                     onChangeText={(value) => this.setState({ Oldpassword: value })}
                                     placeholder='Old Password'
+                                    keyboardType='ascii-capable'
                                     secureTextEntry={true}
                                     placeholderTextColor='gray'></TextInput>
                                 <View style={{
@@ -178,6 +179,7 @@ export default class ChangePassword extends Component {
                                     value={this.state.NewPassword}
                                     onChangeText={(value) => this.setState({ NewPassword: value })}
                                     placeholder=' New Password'
+                                    keyboardType='ascii-capable'
                                     secureTextEntry={true}
                                     placeholderTextColor='gray'></TextInput>
 

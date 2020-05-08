@@ -21,7 +21,6 @@ export default class UserProfile extends Component {
         this.props.navigation.addListener('willFocus', this.load)
     }
     load = () => {
-
         this.get('user_id')
     }
 
@@ -86,6 +85,7 @@ export default class UserProfile extends Component {
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior='padding' enabled>
+                        <View>
                     <View style={{
                         height: 40,
 
@@ -98,6 +98,24 @@ export default class UserProfile extends Component {
                         }}>
                             User Profile
                             </Text>
+                    </View>
+                    <TouchableOpacity style={{
+                        height: 35, width: 35,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute', right: 10
+
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('EditProfile',{
+                                data:this.state.data
+                            })
+                        }}>
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            resizeMode='contain'
+                            source={require('../assets/edit-detail.png')}></Image>
+
+                    </TouchableOpacity>
                     </View>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
@@ -342,7 +360,7 @@ export default class UserProfile extends Component {
                     animating={this.state.isLoading}
                     size='large'
 
-                    color={APP_BLUE}
+                    color={APP_YELLOW}
                 ></ActivityIndicator>
 
             </View>
