@@ -397,7 +397,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = XMHX66FKD7;
+						DevelopmentTeam = PZS9WYSGB5;
 						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -733,10 +733,12 @@
 			baseConfigurationReference = 3220E1FE6F5FE690FC63D2AD /* Pods-kenotekcarapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = XMHX66FKD7;
+				DEVELOPMENT_TEAM = PZS9WYSGB5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -778,9 +780,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.goequipme.live;
+				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
 				PRODUCT_NAME = kenotekcarapp;
-				PROVISIONING_PROFILE_SPECIFIER = "GoEquipMe Dev Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -790,9 +792,10 @@
 			baseConfigurationReference = 73890F53E127419837A91CBF /* Pods-kenotekcarapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XMHX66FKD7;
+				DEVELOPMENT_TEAM = PZS9WYSGB5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -834,9 +837,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.goequipme.live;
+				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
 				PRODUCT_NAME = kenotekcarapp;
-				PROVISIONING_PROFILE_SPECIFIER = "GoEquipMe Dev Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

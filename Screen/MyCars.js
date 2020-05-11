@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
@@ -25,7 +25,10 @@ export default class MyCars extends Component {
         this.state = {
             access_token: '',
             car: '',
-            user_id: ''
+            user_id: '',
+
+            id: '',
+
         }
     }
 
@@ -37,6 +40,7 @@ export default class MyCars extends Component {
     }
     load = () => {
         this.get('user_id')
+
     }
 
     async get(key) {
@@ -56,13 +60,14 @@ export default class MyCars extends Component {
     }
 
 
+
     MycarApi = () => {
         this.setState({
             isLoading: true
         })
 
 
-        fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id,
+        fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id+'',
             {
                 method: 'GET',
                 headers: {
@@ -74,10 +79,49 @@ export default class MyCars extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson.response))
                 if (responseJson.response.status == true) {
+                    // this.save('car_id',responseJson.response.carDetails.id +'' )
                     this.setState({
-                        car: responseJson.response.carDetails
+                        car: responseJson.response.carDetails,
                     })
 
+                }
+                this.setState({
+                    isLoading: false
+                })
+
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+
+    }
+
+    DeletecarApi = (id,index) => {
+        this.setState({
+            isLoading: true
+        })
+     
+        fetch('http://3.137.41.50/coatit/public/api/delete_car/' + ""+id,
+            {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+                    var item = this.state.car
+                    item.splice(index, 1)
+                    this.setState({
+                        car: item
+                    })
+                    alert(responseJson.response.message)
                 }
                 this.setState({
                     isLoading: false
@@ -106,18 +150,20 @@ export default class MyCars extends Component {
                         alignSelf: 'center',
                     }}>
                         <TouchableOpacity style={{
-                            height: 35, width: 35,
+                            height: 35, 
+                            width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            position: 'absolute', left: 5
-
+                            position: 'absolute',
+                            left: 5
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
                             <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
-                                source={require('../assets/back.png')}></Image>
+                                source={require('../assets/back.png')}>
+                                </Image>
 
                         </TouchableOpacity>
                         <View style={{
@@ -187,7 +233,7 @@ export default class MyCars extends Component {
             </SafeAreaView>
         );
     }
-    MyCars = (item) => {
+    MyCars = (item, index) => {
         var data = {
             brand_name: item.brand_name,
             model_name: item.model_name,
@@ -196,6 +242,7 @@ export default class MyCars extends Component {
             image: item.image,
             id: item.id
         }
+
         return (
             <TouchableOpacity style={{
                 height: 120,
@@ -234,11 +281,44 @@ export default class MyCars extends Component {
                         </Text>
                         <Text style={{
                             fontSize: 16,
-                            fontWeight: '700', marginTop: 5
+                            fontWeight: '700',
+                            marginTop: 5
                         }}>
                             {item.vehicle_no}
                         </Text>
-                        <Text style={{ marginTop: 10 }}>{item.manufacture_year}</Text>
+                        <Text style={{ marginTop: 5 }}>{item.manufacture_year}</Text>
+                        <TouchableOpacity style={{
+                            height: 30,
+                            width: 30,
+                            marginTop: 5,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                            onPress={() => {
+                                Alert.alert(
+                                    'Remove item',
+                                    'Are you sure you want to remove this car?',
+                                    [
+                                        {
+                                            text: 'Remove', onPress: () => {
+                                                this.DeletecarApi(item.id, index)
+                                            }
+                                        },
+                                        {
+                                            text: 'Cancel',
+                                            style: 'cancel',
+                                        }],
+                                    { cancelable: false },
+                                );
+                            }} >
+                            <Image style={{
+                                height: 24,
+                                width: 24,
+                                tintColor: 'gray'
+                            }}
+                                source={require('../assets/delete-icon.png')}></Image>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
 
