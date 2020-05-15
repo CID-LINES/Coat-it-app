@@ -1,15 +1,97 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
 export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
         this.state={
+            user_id:'',
            data:props.navigation.state.params.plan
         }
-       //alert(JSON.stringify(this.state.data))
+      // console.log(JSON.stringify(this.state.data))
     }
+
+
+    componentDidMount() {
+        this.load()
+        this.props.navigation.addListener('willFocus', this.load)
+    }
+    load = () => {
+        this.get('user_id')
+
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            // alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                     //this.DetailerListApi()
+                })
+            }
+        } catch (error) {
+
+        }
+    }
+
+   
+    BuyPlanApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        let body = new FormData();
+        var photo = {
+            uri: this.state.data.image,
+            type: 'image/jpeg',
+            name: 'photo.jpg',
+        };
+        // alert(this.state.brewery_id)
+        body.append('image', photo);
+        body.append('title', this.state.data.title)
+        body.append('description', this.state.data.description)
+        body.append('user_id', ''+this.state.user_id)
+        body.append('plan_id', ''+this.state.data.id)
+      
+
+        fetch('http://3.137.41.50/coatit/public/api/add_plan',
+
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'multipart/form-data',
+                    //  'Content-Type': 'application/json'
+                },
+                body: body
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson.response)
+                if (responseJson.response.status == true) {
+                    
+                    this.props.navigation.goBack()
+
+                }
+                this.setState({
+                    isLoading: false
+
+                })
+            })
+            .catch((error) => {
+                console.error(message);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+    }
+
+
+
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
@@ -109,7 +191,8 @@ export default class ServiceDeatil extends Component {
                         backgroundColor: APP_YELLOW
                     }}
                         onPress={() => {
-                            this.props.navigation.navigate('Payment')
+                            this.BuyPlanApi()
+                           // this.props.navigation.navigate('Payment')
                         }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '800',
@@ -119,6 +202,24 @@ export default class ServiceDeatil extends Component {
 
                 </View>
 
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
             </SafeAreaView>
         );
     }

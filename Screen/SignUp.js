@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage, StatusBar } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
@@ -128,6 +128,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+                <StatusBar barStyle="dark-content" />
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>

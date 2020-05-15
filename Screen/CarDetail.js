@@ -308,6 +308,26 @@ export default class CarDetail extends Component {
                                     fontSize: 18
                                 }}>Submit</Text>
                             </TouchableOpacity>
+                            <TouchableOpacity style={{
+                                height: 50,
+                                width: '60%',
+                                
+                                alignSelf: 'center',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginBottom: 10,
+                               borderColor:APP_YELLOW,
+                               borderWidth:3,
+                                borderRadius: 10
+                            }}
+                                onPress={() => {
+                                   this.props.navigation.navigate('Home')
+                                }}>
+                                <Text style={{
+                                    fontWeight: '700', color: APP_YELLOW,
+                                    fontSize: 18
+                                }}>Skip</Text>
+                            </TouchableOpacity>
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>

@@ -58,7 +58,7 @@ export default class Purchase extends Component {
         //   alert(JSON.stringify(token))
           
         //   console.log(token)
-          this.UpdatebalanceApi(token)
+          //this.UpdatebalanceApi(token)
         } catch (error) {
             alert(error)
           this.setState({ error, loading: false})

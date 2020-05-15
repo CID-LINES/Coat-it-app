@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -19,9 +19,73 @@ export default class DetailerList extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            user_id: '',
+            DATA:[]
+        }
+    }
+
+
+    componentDidMount() {
+        this.load()
+        this.props.navigation.addListener('willFocus', this.load)
+    }
+    load = () => {
+        this.get('user_id')
+
+    }
+
+    async get(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            // alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    user_id: value
+                }, () => {
+                     //this.DetailerListApi()
+                })
+            }
+        } catch (error) {
 
         }
     }
+    DetailerListApi = () => {
+        this.setState({
+            isLoading: true
+        })
+
+        fetch('http://3.137.41.50/coatit/public/api/detailer_list/' + "" + this.state.user_id,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+
+
+                }
+                this.setState({
+                    isLoading: false
+                })
+
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+
+    }
+
+
+
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>

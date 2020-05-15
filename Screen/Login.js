@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar } from 'react-native';
 import { APP_YELLOW, APP_BLUE } from '../Component/colors'
 import { ApiCall ,CallApi} from '../Component/ApiClient';
 
@@ -128,11 +128,12 @@ export default class Login extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
-               <KeyboardAvoidingView 
+                  <StatusBar barStyle="dark-content" />
+               <KeyboardAvoidingView style={{flex:1}}
                     behavior={Platform.OS== 'ios'?'padding':null} 
                     keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
-                    <ScrollView >
-                        <View >
+                    <ScrollView style={{flex:1}}>
+                        <View style={{flex:1}}>
                         <View style={{
                                 alignSelf: 'center',
                                 alignItems: 'center', justifyContent: 'center',

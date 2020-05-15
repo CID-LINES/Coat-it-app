@@ -249,7 +249,7 @@ export default class MyCars extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 2,
+                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 3,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'
@@ -257,11 +257,12 @@ export default class MyCars extends Component {
                 onPress={() => {
 
                     this.props.navigation.navigate('EditCarDetail', {
-                        data: data
+                        data: item
                     })
                 }}
             >
                 <View style={{ flexDirection: 'row' }}>
+                   
                     <Image style={{
                         height: 120,
                         width: '40%',
@@ -272,12 +273,13 @@ export default class MyCars extends Component {
                             { uri: item.image }}>
 
                     </Image>
-                    <View style={{ marginLeft: 15, marginTop: 10 }}>
+           
+                    <View style={{ marginLeft:20, marginTop: 10 }}>
                         <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
                         }}>
-                            {item.brand_name}
+                            {item.brand_name} {item.model_name}
                         </Text>
                         <Text style={{
                             fontSize: 16,

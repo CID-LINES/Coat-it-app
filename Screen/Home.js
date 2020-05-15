@@ -161,7 +161,7 @@ export default class Home extends Component {
             }} onPress={() => {
                 
                 this.props.navigation.navigate('ServiceDetail',{
-                  plan:plan
+                  plan:item
                 })
             }}>
                 <View style={{
