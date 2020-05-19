@@ -245,7 +245,7 @@ export default class MyCars extends Component {
 
         return (
             <TouchableOpacity style={{
-                height: 120,
+               // height: 120,
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
@@ -264,7 +264,7 @@ export default class MyCars extends Component {
                 <View style={{ flexDirection: 'row' }}>
                    
                     <Image style={{
-                        height: 120,
+                        //height: 120,
                         width: '40%',
                     }}
                         resizeMode='cover'
@@ -293,6 +293,7 @@ export default class MyCars extends Component {
                             height: 30,
                             width: 30,
                             marginTop: 5,
+                            marginBottom:5,
                             alignItems: 'center',
                             justifyContent: 'center',
                         }}

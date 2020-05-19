@@ -109,6 +109,7 @@ export default class SignUp extends Component {
                     this.props.navigation.replace('CarDetail')
 
                 }
+                alert(responseJson.response.message)
                 this.setState({
                     isLoading: false
 

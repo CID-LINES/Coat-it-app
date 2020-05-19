@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -47,7 +47,7 @@ export default class DetailerList extends Component {
         } catch (error) {
         }
     }
-    DetailerListApi = () => {
+   DetailerListApi = () => {
         this.setState({
             isLoading: true
         })
@@ -82,8 +82,41 @@ export default class DetailerList extends Component {
 
     }
 
-
-
+    // DeleteDetailerApi = (id,index) => {
+    //     this.setState({
+    //         isLoading: true
+    //     })
+     
+    //     fetch('http://3.137.41.50/coatit/public/api/detailer/remove/' + ""+id,
+    //         {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             }
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(JSON.stringify(responseJson))
+    //             if (responseJson.response.status == true) {
+    //                 var item = this.state.DATA
+    //                 item.splice(index, 1)
+    //                 this.setState({
+    //                     DATA: item
+    //                 })
+    //                 alert(responseJson.response.message)
+    //             }
+    //             this.setState({
+    //                 isLoading: false
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
+    // }
 
     render() {
         return (
@@ -99,22 +132,24 @@ export default class DetailerList extends Component {
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
-                            alignItems: 'center', justifyContent: 'center',
-                            position: 'absolute', left: 5
-
-
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            left: 5
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
                             <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
-                                source={require('../assets/back.png')}></Image>
+                                source={require('../assets/back.png')}>
+                                </Image>
 
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
 
                         }}>
                             <Text style={{
@@ -128,8 +163,8 @@ export default class DetailerList extends Component {
 
                         <FlatList style={{ marginTop: 20 }}
                             data={this.state.DATA}
-                            renderItem={({ item }) => (
-                                this.DetailerList(item)
+                            renderItem={({ item ,index}) => (
+                                this.DetailerList(item,index)
                             )}></FlatList>
                     </View>
                     {/* </ScrollView> */}
@@ -157,7 +192,7 @@ export default class DetailerList extends Component {
         );
     }
 
-    DetailerList = (item) => {
+    DetailerList = (item,index) => {
         return (
             <TouchableOpacity style={{
                 height: 120,
@@ -195,6 +230,38 @@ export default class DetailerList extends Component {
                     <Text style={{ marginTop: 10 }}>{item.car_name}</Text>
 
                         {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
+                        {/* <TouchableOpacity style={{
+                            height: 30,
+                            width: 30,
+                            marginTop: 5,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                            onPress={() => {
+                                Alert.alert(
+                                    'Remove item',
+                                    'Are you sure you want to remove this car?',
+                                    [
+                                        {
+                                            text: 'Remove', onPress: () => {
+                                                this.DeleteDetailerApi(item.id, index)
+                                            }
+                                        },
+                                        {
+                                            text: 'Cancel',
+                                            style: 'cancel',
+                                        }],
+                                    { cancelable: false },
+                                );
+                            }} >
+                            <Image style={{
+                                height: 24,
+                                width: 24,
+                                tintColor: 'gray'
+                            }}
+                                source={require('../assets/delete-icon.png')}></Image>
+                        </TouchableOpacity> */}
+
                     </View>
                 </View>
 
