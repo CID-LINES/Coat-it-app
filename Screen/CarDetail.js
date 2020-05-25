@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView,
+     TouchableOpacity, 
+     KeyboardAvoidingView, 
+     ActivityIndicator,
+      AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { CallApi } from '../Component/ApiClient';
+//import YearPicker from "react-year-picker";
 
 export default class CarDetail extends Component {
     constructor(props) {
@@ -193,7 +198,7 @@ export default class CarDetail extends Component {
                             }}>
                                 <TouchableOpacity style={{
                                     height: 120,
-                                    width: 120,
+                                    width: '95%',
                                     backgroundColor: 'gray',
                                     borderRadius: 60,
                                     alignSelf: 'center',
@@ -202,7 +207,7 @@ export default class CarDetail extends Component {
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-                                    <Image style={{ height: 120, width: 120 }}
+                                    <Image style={{ height: 120, width: '95%' }}
                                         resizeMode='cover'
                                         source={cache = "force-cache",
                                             this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}>

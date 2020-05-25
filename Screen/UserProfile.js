@@ -122,7 +122,8 @@ export default class UserProfile extends Component {
                             <View style={{
                                 height: 150,
                                 marginTop: 5,
-                                width: '100%', justifyContent: 'center',
+                                width: '100%', 
+                                justifyContent: 'center',
                                 // backgroundColor:'pink'
                             }}>
                                 <View style={{
@@ -164,9 +165,11 @@ export default class UserProfile extends Component {
                                     <Text style={{fontWeight:'700',
                                     marginLeft:15,
                                 fontSize:17,
-                                color:APP_YELLOW}}>Customer id:- </Text>
+                                color:APP_YELLOW}}>Customer id </Text>
                                 <Text style={{marginLeft:30,
-                                fontSize:16,fontWeight:'500',marginRight:15}}>
+                                fontSize:16,
+                                fontWeight:'500',
+                                marginRight:15}}>
                                     {this.state.data.customer_id}
                                   </Text>
                                 </View>
@@ -177,7 +180,7 @@ export default class UserProfile extends Component {
                                 }}>
                                     <Text style={{fontWeight:'700',
                                     marginLeft:15,
-                                fontSize:17,color:APP_YELLOW}}>Name:- </Text>
+                                fontSize:17,color:APP_YELLOW}}>Name </Text>
                                 <Text style={{marginLeft:80,
                                 fontSize:16,fontWeight:'500',marginRight:15}}>
                                     {this.state.data.first_name} {this.state.data.last_name}
@@ -188,19 +191,19 @@ export default class UserProfile extends Component {
                             }}>
                                     <Text style={{fontWeight:'700',
                                     marginLeft:15,
-                                fontSize:17,color:APP_YELLOW}}>Email:- </Text>
+                                fontSize:17,color:APP_YELLOW}}>Email </Text>
                                 <Text style={{marginLeft:82,
                                 fontSize:16,fontWeight:'500',marginRight:15,}}>
                                     {this.state.data.email}
                                   </Text>
                                 </View>
-                                <View style={{flexDirection:'row',marginTop:10,
-                                
+                                <View style={{flexDirection:'row',
+                                marginTop:10,                               
                             marginBottom:10,
                             // width:'60%',justifyContent:'space-between'
                             }}>
                                     <Text style={{fontWeight:'700',marginLeft:15,
-                                fontSize:17,color:APP_YELLOW}}>Phone no:- </Text>
+                                fontSize:17,color:APP_YELLOW}}>Phone no </Text>
                                 <Text style={{marginLeft:50,marginRight:15,
                                 fontSize:16,fontWeight:'500'}}>
                                     {this.state.data.phone_no}

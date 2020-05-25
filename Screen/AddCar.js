@@ -16,7 +16,7 @@ export default class AddCar extends Component {
             manufacture_year: '',
             image: '',
             isLoading: false,
-            user_id:''
+            user_id: ''
 
         }
     }
@@ -25,7 +25,7 @@ export default class AddCar extends Component {
 
     chooseFile = () => {
         var options = {
-        
+
             title: 'Select Image',
             // customButtons: [
             //     { name: 'customOptionKey', title: 'Choose Photo from Custom Option' },
@@ -37,7 +37,7 @@ export default class AddCar extends Component {
             maxWidth: 300,
             maxHeight: 300,
             quality: 0.5
-            
+
         };
         ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
@@ -110,7 +110,7 @@ export default class AddCar extends Component {
         body.append('model_name', this.state.model_name)
         body.append('vehicle_no', this.state.vehicle_no)
         body.append('manufacture_year', this.state.manufacture_year)
-         body.append('user_id', ''+this.state.user_id)
+        body.append('user_id', '' + this.state.user_id)
 
         fetch('http://3.137.41.50/coatit/public/api/storedetails',
 
@@ -129,9 +129,9 @@ export default class AddCar extends Component {
                 if (responseJson.response.status == true) {
                     this.props.navigation.dispatch(
                         NavigationActions.navigate({ routeName: "MyCars" })
-                       );
+                    );
                     //this.props.navigation.replace('MyCars')
-                   // this.save(responseJson.response.id+'')
+                    // this.save(responseJson.response.id+'')
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -151,8 +151,8 @@ export default class AddCar extends Component {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios'?'padding': null} 
-                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
+                    behavior={Platform.OS === 'ios' ? 'padding' : null}
+                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <View style={{
                         height: 40, width: '95%',
                         justifyContent: 'center',
@@ -184,27 +184,29 @@ export default class AddCar extends Component {
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
                                 color: APP_YELLOW
-                            }}>Car Detail</Text>
+                            }}>Add Car</Text>
                         </View>
                     </View>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
                                 height: 150,
-                                width: '100%', justifyContent: 'center',
+                                width: '100%',
+                                marginTop:10,
+                                justifyContent: 'center',
+                                alignItems: 'center'
                                 // backgroundColor:'pink'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 120,
-                                    width: 120,
-                                    backgroundColor: 'gray',
-                                    borderRadius: 75,
+                                    height: 150,
+                                    width: '95%',
+                                    borderRadius: 10,
                                     alignSelf: 'center',
-
-                                    justifyContent: 'center', overflow: 'hidden'
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
                                 }}
                                     onPress={() => this.chooseFile()}>
-                                    <Image style={{ height: 120, width: 120 }}
+                                    <Image style={{ height: 150, width: '95%', borderRadius: 10 }}
                                         resizeMode='cover'
                                         source={this.state.filePath == '' ?
                                             require('../assets/placeholder.jpg') : this.state.filePath}>
@@ -212,8 +214,8 @@ export default class AddCar extends Component {
                                     </Image>
                                 </TouchableOpacity>
                             </View>
-                            <View style={{ width: '100%',marginTop:10 }}>
-                                <Text style={{ marginLeft: 35,  fontWeight: '600', }}>Brand/Company Name</Text>
+                            <View style={{ width: '100%', marginTop: 20 }}>
+                                <Text style={{ marginLeft: 35, fontWeight: '600', }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -271,7 +273,7 @@ export default class AddCar extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35,  fontWeight: '600',
+                                    marginLeft: 35, fontWeight: '600',
                                     marginTop: 20
                                 }}>Year of Manufacture</Text>
                                 <TextInput style={{

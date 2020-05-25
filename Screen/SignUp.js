@@ -91,7 +91,6 @@ export default class SignUp extends Component {
         body.append('phone_no', this.state.phone)
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
-
             {
                 method: 'POST',
                 headers: {
@@ -128,28 +127,38 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <StatusBar barStyle="dark-content" />
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
-
-                        <View style={{ flex: 1,backgroundColor:'white' }}>
-                        <View style={{
+                        <View style={{ flex: 1, backgroundColor: 'white' }}>
+                            <View style={{
                                 alignSelf: 'center',
                                 alignItems: 'center', justifyContent: 'center',
                                 height: 30, width: '100%'
                             }}>
-                                <Text style={{fontSize:20,
-                                fontWeight:'bold',
-                                color:APP_YELLOW}}>Coat-it</Text>
+                                <Text style={{
+                                    fontSize: 20,
+                                    fontWeight: 'bold',
+                                    color: APP_YELLOW
+                                }}>Kenotek Coat IT</Text>
                             </View>
-                            <View style={{ height: 120, width: '100%', justifyContent: 'center' ,marginTop:10}}>
+                            <View style={{
+                                height: 150,
+
+                                width: '100%',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                marginTop: 10
+                            }}>
                                 <TouchableOpacity style={{
-                                    height: 120,
-                                    width: 120,
+                                    height: 150,
+                                    width: '98%',
                                     borderRadius: 60,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                     alignSelf: 'center',
                                 }}
                                     onPress={() => {
@@ -157,14 +166,13 @@ export default class SignUp extends Component {
                                     }}>
 
                                     <Image style={{
-                                        height: 120,
-                                        width: 120,
-                                        borderRadius: 60,
+                                        height: 150,
+                                        width: '98%',
+                                        borderRadius: 10,
                                         // maxHeight:100
                                         //alignSelf: 'center', 
                                     }}
-                                        resizeMethod='resize'
-                                        source={this.state.filePath == '' ?
+                                        resizeMode='cover' source={this.state.filePath == '' ?
                                             require('../assets/placeholder.jpg') :
                                             this.state.filePath}>
 
@@ -191,8 +199,10 @@ export default class SignUp extends Component {
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
                                     placeholderTextColor='gray'></TextInput>
-                                    <View style={{height:1,
-                                        width:'80%',backgroundColor:'gray'}}></View>
+                                <View style={{
+                                    height: 1,
+                                    width: '80%', backgroundColor: 'gray'
+                                }}></View>
                                 <Text style={{
                                     width: '80%',
                                     fontWeight: '600',
@@ -213,8 +223,10 @@ export default class SignUp extends Component {
                                     placeholderTextColor='gray'>
 
                                 </TextInput>
-                                <View style={{height:1,
-                                        width:'80%',backgroundColor:'gray'}}></View>
+                                <View style={{
+                                    height: 1,
+                                    width: '80%', backgroundColor: 'gray'
+                                }}></View>
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
@@ -233,11 +245,15 @@ export default class SignUp extends Component {
                                     keyboardType='ascii-capable'
                                     placeholder='Email'
                                     placeholderTextColor='gray'></TextInput>
-                                    <View style={{height:1,
-                                        width:'80%',backgroundColor:'gray'}}></View>
+                                <View style={{
+                                    height: 1,
+                                    width: '80%', backgroundColor: 'gray'
+                                }}></View>
 
-                                <Text style={{ width: '80%', marginTop: 10,
-                             fontWeight: '600', }}>Phone No.</Text>
+                                <Text style={{
+                                    width: '80%', marginTop: 10,
+                                    fontWeight: '600',
+                                }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
@@ -252,15 +268,19 @@ export default class SignUp extends Component {
                                     returnKeyType='done'
                                     placeholder='Phone no.'
                                     placeholderTextColor='gray'></TextInput>
-                                    <View style={{height:1,
-                                        width:'80%',backgroundColor:'gray'}}></View>
+                                <View style={{
+                                    height: 1,
+                                    width: '80%', backgroundColor: 'gray'
+                                }}></View>
 
-                                <Text style={{ width: '80%', marginTop: 10,
-                             fontWeight: '600', }}>Password</Text>
+                                <Text style={{
+                                    width: '80%', marginTop: 10,
+                                    fontWeight: '600',
+                                }}>Password</Text>
                                 <TextInput style={{
-                                     height: 40,
-                                     width: '80%',
-                                     marginTop: 2,
+                                    height: 40,
+                                    width: '80%',
+                                    marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     borderRadius: 10, padding: 5
@@ -271,8 +291,10 @@ export default class SignUp extends Component {
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Password'
                                     placeholderTextColor='gray'></TextInput>
-                                    <View style={{height:1,
-                                        width:'80%',backgroundColor:'gray'}}></View>
+                                <View style={{
+                                    height: 1,
+                                    width: '80%', backgroundColor: 'gray'
+                                }}></View>
                             </View>
 
                             <TouchableOpacity style={{
@@ -367,7 +389,7 @@ export default class SignUp extends Component {
             alert('Please enter the first name')
         } else if (this.state.lastname == '') {
             alert('Please enter the last name')
-        } 
+        }
         else if (this.state.email == '') {
             alert('Please enter the email')
         } else if (!reg.test(this.state.email)) {

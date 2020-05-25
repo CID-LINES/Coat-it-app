@@ -90,7 +90,6 @@ export default class EditCarDetail extends Component {
                
                 if (responseJson.response.status == true) {  
                     console.log(responseJson.response)
-
                     this.props.navigation.dispatch(
                         NavigationActions.navigate({ routeName: "MyCars" })
                        );
@@ -156,22 +155,25 @@ export default class EditCarDetail extends Component {
                         <View style={{ flex: 1 }}>
                             <View style={{
                                 height: 150,
-                                width: '100%', justifyContent: 'center',
+                                width: '100%', 
+                                justifyContent: 'center',
                                 // backgroundColor:'pink'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 120,
-                                    width: 120,
+                                    height: 150,
+                                    width: '98%',
                                    // backgroundColor: 'gray',
-                                    borderRadius: 60,
+                                    borderRadius: 10,
                                     alignSelf: 'center',
-
-                                    justifyContent: 'center', overflow: 'hidden'
+                                    alignItems:'center',
+                                    justifyContent: 'center', 
+                                    overflow: 'hidden'
                                 }}
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-                                    <Image style={{ height: 120, width: 120 }}
+                                    <Image style={{ height: 150, width: '98%',
+                                    borderRadius:10 }}
                                         resizeMode='cover'
                                         source={{uri:this.state.filePath}}></Image>
                                 </TouchableOpacity>

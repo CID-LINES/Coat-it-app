@@ -103,15 +103,16 @@ export default class Login extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.Status == true) {
-                        alert('link send succesfully')
+                        alert(data.data.response.message)
                         this.setState({
                             isshow:!this.state.isshow
                         })
                         // this.props.navigation.replace('Home') 
                         // alert('helo')
                     }
+                  
                     else {
-                        alert(data.data.response.message)
+                       alert()
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -141,7 +142,7 @@ export default class Login extends Component {
                             }}>
                                 <Text style={{fontSize:20,
                                 fontWeight:'bold',
-                                color:APP_YELLOW}}>Coat-it</Text>
+                                color:APP_YELLOW}}>Kenotek Coat IT</Text>
                             </View>
                             <View style={{ height: 200, width: '100%', justifyContent: 'center' }}>
                                 <Image style={{

@@ -184,16 +184,13 @@ export default class Settings extends Component {
                     backgroundColor: APP_YELLOW
                 }}
                     onPress={() => {
-
                         this.props.navigation.navigate('ChangePassword')
                     }}>
                     <Text style={{
                         fontSize: 18, fontWeight: '700',
                         color: 'white'
-                    }}>Chnage Password</Text>
+                    }}>Change Password</Text>
                 </TouchableOpacity>
-
-
                 <TouchableOpacity style={{
                     height: 40, width: '60%',
                     marginTop: 10, marginBottom: 10,
