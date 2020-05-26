@@ -111,10 +111,11 @@ export default class ChangePassword extends Component {
                         alignItems: 'center', justifyContent: 'center',
 
                     }}>
-                        {/* <Text style={{
+                        <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_BLUE
-                            }}>My Cars</Text> */}
+                                color: APP_YELLOW
+                            }}>Kenotek Coat IT
+                            </Text>
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}

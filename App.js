@@ -45,9 +45,9 @@ import EditProfile from './Screen/EditProfile'
 const Tabnavigation =createBottomTabNavigator({
   Services: {screen: Home,
     navigationOptions: {
-      tabBarLabel: ' ',
+      tabBarLabel: 'Service',
       tabBarIcon: ({ tintColor }) => (
-        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10}}
+        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
           source={require('./assets/service-icon.png')}
           resizeMode={"contain"}>
 
@@ -57,9 +57,9 @@ const Tabnavigation =createBottomTabNavigator({
   },
   Notification:{screen: Notification,
     navigationOptions: {
-    tabBarLabel: ' ',
+    tabBarLabel: 'Notification',
     tabBarIcon: ({ tintColor }) => (
-      <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10}}
+      <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
         source={require('./assets/notification-icon.png')}
         resizeMode={"contain"}>
 
@@ -68,9 +68,9 @@ const Tabnavigation =createBottomTabNavigator({
   }},
   Profile:{screen: UserProfile,
     navigationOptions: {
-      tabBarLabel: ' ',
+      tabBarLabel: 'User Profile',
       tabBarIcon: ({ tintColor }) => (
-        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10}}
+        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
           source={require('./assets/profile-icon.png')}
           resizeMode={"contain"}>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert, RefreshControl } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -20,7 +20,8 @@ export default class DetailerList extends Component {
         super(props)
         this.state = {
             user_id: '',
-            DATA: []
+            DATA: [],
+            isFetching:false
         }
     }
 
@@ -69,7 +70,8 @@ export default class DetailerList extends Component {
                         })
                 }
                 this.setState({
-                    isLoading: false
+                    isLoading: false,
+                    isFetching:false
                 })
 
             })
@@ -82,42 +84,9 @@ export default class DetailerList extends Component {
 
     }
 
-    // DeleteDetailerApi = (id,index) => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
-     
-    //     fetch('http://3.137.41.50/coatit/public/api/detailer/remove/' + ""+id,
-    //         {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson))
-    //             if (responseJson.response.status == true) {
-    //                 var item = this.state.DATA
-    //                 item.splice(index, 1)
-    //                 this.setState({
-    //                     DATA: item
-    //                 })
-    //                 alert(responseJson.response.message)
-    //             }
-    //             this.setState({
-    //                 isLoading: false
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
-
+    onRefresh=()=>{
+        this.setState({isFetching:true} ,function(){this.DetailerListApi()})
+    }
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -162,6 +131,10 @@ export default class DetailerList extends Component {
                     <View style={{ flex: 1 }}>
 
                         <FlatList style={{ marginTop: 20 }}
+                        refreshControl={<RefreshControl 
+                            refreshing={this.state.isFetching}
+                            onRefresh={this.onRefresh}>
+                            </RefreshControl>}
                             data={this.state.DATA}
                             renderItem={({ item ,index}) => (
                                 this.DetailerList(item,index)

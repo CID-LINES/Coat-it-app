@@ -103,7 +103,7 @@ export default class Login extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.Status == true) {
-                        alert(data.data.response.message)
+                        alert('A link with password reset instructions has been sent on entered email address. Please follow the instructions to reset the link')
                         this.setState({
                             isshow:!this.state.isshow
                         })
@@ -112,7 +112,7 @@ export default class Login extends Component {
                     }
                   
                     else {
-                       alert()
+                       alert('Please enter a valid email address ')
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -130,10 +130,7 @@ export default class Login extends Component {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
                   <StatusBar barStyle="dark-content" />
-               <KeyboardAvoidingView style={{flex:1}}
-                    behavior={Platform.OS== 'ios'?'padding':null} 
-                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
-                    <ScrollView style={{flex:1}}>
+              
                         <View style={{flex:1}}>
                         <View style={{
                                 alignSelf: 'center',
@@ -144,9 +141,15 @@ export default class Login extends Component {
                                 fontWeight:'bold',
                                 color:APP_YELLOW}}>Kenotek Coat IT</Text>
                             </View>
-                            <View style={{ height: 200, width: '100%', justifyContent: 'center' }}>
+                            <KeyboardAvoidingView style={{flex:1}}
+                    behavior={Platform.OS== 'ios'?'padding':null} 
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
+                    <ScrollView style={{flex:1}}>
+                            <View style={{ height: 250, width: '100%', 
+                            justifyContent: 'center' ,
+                            marginTop:30}}>
                                 <Image style={{
-                                    height: 200,
+                                    height: 250,
                                     width: 200, alignSelf: 'center',
                                     marginTop: 20
                                 }}
@@ -155,13 +158,14 @@ export default class Login extends Component {
 
                                 </Image>
                             </View>
-
+                         
                             <View style={{
                                 width: '100%', marginTop: 20,
                                 alignItems: 'center'
                             }}>
 
-                                <Text style={{ width: '78%', marginTop: 10 }}>Email</Text>
+                                <Text style={{ width: '78%', 
+                                marginTop: 10 }}>Email</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
 
@@ -245,11 +249,11 @@ export default class Login extends Component {
                             </TouchableOpacity> 
                         
                              </View>
-
+                             </ScrollView>
+                </KeyboardAvoidingView>
                         </View>
 
-                    </ScrollView>
-                </KeyboardAvoidingView>
+                  
                 {this.state.isshow &&
                     <View style={{
                         position: 'absolute', top: 0,
@@ -373,7 +377,7 @@ export default class Login extends Component {
         if (this.state.email == '') {
             alert('Please enter the email')
         }  else if (!reg.test(this.state.email)) {
-            alert('Please enter valid email')
+            alert('Please enter a valid email address')
         }
         else if (this.state.Password == '') {
             alert('Please enter the password')

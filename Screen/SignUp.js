@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
+
 export default class SignUp extends Component {
     constructor() {
         super()
@@ -77,11 +78,13 @@ export default class SignUp extends Component {
             isLoading: true
         })
         let body = new FormData();
+        if(this.state.filePath.uri){
         var photo = {
             uri: this.state.filePath.uri,
             type: 'image/jpeg',
             name: 'photo.jpg',
         };
+    }
         // alert(this.state.brewery_id)
         body.append('avatar', photo);
         body.append('email', this.state.email)
@@ -106,9 +109,10 @@ export default class SignUp extends Component {
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
                     this.props.navigation.replace('CarDetail')
-
+                    
                 }
-                alert(responseJson.response.message)
+            
+                
                 this.setState({
                     isLoading: false
 
@@ -129,10 +133,7 @@ export default class SignUp extends Component {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <StatusBar barStyle="dark-content" />
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
-                    <ScrollView style={{ flex: 1 }}>
+              
                         <View style={{ flex: 1, backgroundColor: 'white' }}>
                             <View style={{
                                 alignSelf: 'center',
@@ -145,8 +146,12 @@ export default class SignUp extends Component {
                                     color: APP_YELLOW
                                 }}>Kenotek Coat IT</Text>
                             </View>
+                            <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior={Platform.OS === 'ios' ? 'padding' : null}
+                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                    <ScrollView style={{ flex: 1 }}>
                             <View style={{
-                                height: 150,
+                                height: 180,
 
                                 width: '100%',
                                 justifyContent: 'center',
@@ -154,8 +159,8 @@ export default class SignUp extends Component {
                                 marginTop: 10
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 150,
-                                    width: '98%',
+                                    height: 180,
+                                    width: '95%',
                                     borderRadius: 60,
                                     justifyContent: 'center',
                                     alignItems: 'center',
@@ -166,8 +171,8 @@ export default class SignUp extends Component {
                                     }}>
 
                                     <Image style={{
-                                        height: 150,
-                                        width: '98%',
+                                        height: 180,
+                                        width: '95%',
                                         borderRadius: 10,
                                         // maxHeight:100
                                         //alignSelf: 'center', 
@@ -178,6 +183,16 @@ export default class SignUp extends Component {
 
                                     </Image>
                                 </TouchableOpacity>
+                                <View style={{height:40,width:40,
+                              
+                                alignItems:'center',justifyContent:'center',
+                                position:'absolute',bottom:5,
+                                right:28}}>
+                                    <Image style={{height:30,width:30,
+                                    tintColor:'black'}}
+                                    
+                                    source={require('../assets/camera.png')}></Image>
+                                </View>
                             </View>
                             <View style={{
                                 width: '100%',
@@ -348,7 +363,7 @@ export default class SignUp extends Component {
                                 <Text
                                     style={{
                                         alignSelf: 'center', marginTop: 5,
-                                        color: 'gray', marginBottom: 70,
+                                        color: 'gray', marginBottom: 15,
                                         marginTop: 10
                                     }}>
                                     Already have an account ?<Text style={{
@@ -356,11 +371,11 @@ export default class SignUp extends Component {
                                         fontWeight: '700'
                                     }}> Login here</Text></Text>
                             </TouchableOpacity>
-
+                            </ScrollView>
+                </KeyboardAvoidingView>
                         </View>
 
-                    </ScrollView>
-                </KeyboardAvoidingView>
+                 
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

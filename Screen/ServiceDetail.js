@@ -126,7 +126,7 @@ export default class ServiceDeatil extends Component {
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
                             color: APP_YELLOW
-                        }}>Sevice Detail</Text>
+                        }}>{this.state.data.title}</Text>
                     </View>
                 </View>
 
@@ -136,18 +136,20 @@ export default class ServiceDeatil extends Component {
                     <View style={{
                         height: 250,
                         width: '100%', justifyContent: 'center',
+                        alignItems:'center'
                         // backgroundColor:'pink'
                     }}>
                         <TouchableOpacity style={{
-                            height: 150,
-                            width: 150,
+                            height: 180,
+                            width: '95%',
                          
-                            borderRadius: 75,
+                            borderRadius: 10,
                             alignSelf: 'center',
 
-                            justifyContent: 'center', overflow: 'hidden'
+                            justifyContent: 'center',
+                             overflow: 'hidden'
                         }}>
-                            <Image style={{ height: 150, width: 150 }}
+                            <Image style={{ height: 180, flex:1 }}
                                 resizeMode='cover'
                                 source={ this.state.data.image == null ? 
                                     require('../assets/placeholder.jpg'):
@@ -163,26 +165,23 @@ export default class ServiceDeatil extends Component {
                     }}>
                         <Text style={{
                             fontSize: 17,
-                            fontWeight: '800'
-                        }}>Title:- <Text style={{
-                            fontSize: 15,
-                            fontWeight: '400'
-                        }}>{this.state.data.title}</Text></Text>
+                            fontWeight:'bold'
+                         
+                        }}>
+                       {this.state.data.title}</Text>
                         <Text style={{
                             fontSize: 17,
 
                             marginTop: 10, textAlign: 'justify',
-                            fontWeight: '800'
+                           
                         }}
                             numberOfLines={4}>
-                            Description:- <Text style={{ fontSize: 15, fontWeight: '400' }}>
+                            
                                  {this.state.data.description}
-                                {/* Lorem Ipsum is
-                            simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's */}
-                            </Text> </Text>
+                             
+                            </Text>
                     </View>
-
+{/* 
                     <TouchableOpacity style={{
                         height: 45, width: '60%',
                         alignSelf: 'center', alignItems: 'center',
@@ -198,7 +197,7 @@ export default class ServiceDeatil extends Component {
                             fontSize: 18, fontWeight: '800',
 
                             color: 'white'
-                        }}>Buy</Text></TouchableOpacity>
+                        }}>Buy</Text></TouchableOpacity> */}
 
                 </View>
 

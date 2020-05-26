@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
@@ -28,6 +28,7 @@ export default class MyCars extends Component {
             user_id: '',
 
             id: '',
+            isFetching:false
 
         }
     }
@@ -86,7 +87,8 @@ export default class MyCars extends Component {
 
                 }
                 this.setState({
-                    isLoading: false
+                    isLoading: false,
+                    isFetching:false
                 })
 
             })
@@ -136,15 +138,17 @@ export default class MyCars extends Component {
             });
 
     }
-
+    onRefresh=()=> {
+        this.setState({ isFetching: true }, function() { this.MycarApi() });    
+     }
 
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                
                     <View style={{
-                        height: 40, width: '95%',
+                        height: 40, 
+                        width: '95%',
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
@@ -182,6 +186,10 @@ export default class MyCars extends Component {
                     <View style={{ flex: 1 }}>
 
                         <FlatList style={{ flex: 1, marginTop: 10 }}
+                          refreshControl={<RefreshControl 
+                            refreshing={this.state.isFetching}
+                            onRefresh={this.onRefresh}>
+                            </RefreshControl>}
                             data={this.state.car}
                             renderItem={({ item, index }) => (
                                 this.MyCars(item, index)
@@ -209,7 +217,7 @@ export default class MyCars extends Component {
                     </View>
 
 
-                </KeyboardAvoidingView>
+            
 
                 {this.state.isLoading &&
                     <View style={{
@@ -234,14 +242,7 @@ export default class MyCars extends Component {
         );
     }
     MyCars = (item, index) => {
-        var data = {
-            brand_name: item.brand_name,
-            model_name: item.model_name,
-            vehicle_no: item.vehicle_no,
-            manufacture_year: item.manufacture_year,
-            image: item.image,
-            id: item.id
-        }
+      
 
         return (
             <TouchableOpacity style={{
@@ -264,8 +265,8 @@ export default class MyCars extends Component {
                 <View style={{ flexDirection: 'row' }}>
                    
                     <Image style={{
-                        //height: 120,
-                        width: '40%',
+                        height: 120,
+                        width: '50%',
                     }}
                         resizeMode='cover'
                         source={item.image == null ?
@@ -275,12 +276,12 @@ export default class MyCars extends Component {
                     </Image>
            
                     <View style={{ marginLeft:20, marginTop: 10 }}>
-                        <Text style={{
+                        {/* <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
                         }}>
                             {item.brand_name} {item.model_name}
-                        </Text>
+                        </Text> */}
                         <Text style={{
                             fontSize: 16,
                             fontWeight: '700',

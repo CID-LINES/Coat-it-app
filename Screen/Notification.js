@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
-
+import moment from 'moment';
 const DATA=[
 {
     title:'first'
@@ -18,19 +18,61 @@ export default class Notification extends Component {
     constructor() {
         super()
         this.state = {
-            email: '',
-            password: '',
-            phone: '',
-            firstname: '',
-            lastname: ''
+            data:[],
+            isFetching:false
         }
     }
+
+componentDidMount(){
+    this.NotificationApi()
+}
+    NotificationApi = () => {
+        this.setState({
+            isLoading: true
+        })
+
+
+        fetch('http://3.137.41.50/coatit/public/api/notification_list',
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson.response))
+                if (responseJson.response.status == true) {
+                    // this.save('car_id',responseJson.response.carDetails.id +'' )
+                    this.setState({
+                        data: responseJson.response.notifcations,
+                    })
+
+                }
+                this.setState({
+                    isLoading: false,
+                    isFetching:false
+                })
+
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+
+    }
+
+    onRefresh=()=> {
+        this.setState({ isFetching: true }, function() { this.NotificationApi() });    
+     }
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
-                    <ScrollView style={{ flex: 1 }}>
+               
 
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -40,20 +82,40 @@ export default class Notification extends Component {
                             }}>
                                 <Text style={{fontSize:18,
                                 fontWeight:'bold',
-                                color:APP_YELLOW}}>Notification</Text>
+                                color:APP_YELLOW}}>Notifications</Text>
                             </View>
 
 
                                     <FlatList style={{marginTop:20}}
-                                    data={DATA}
+                                      refreshControl={<RefreshControl 
+                                        refreshing={this.state.isFetching}
+                                        onRefresh={this.onRefresh}>
+                                        </RefreshControl>}
+                                    data={this.state.data}
                                     renderItem={({item}) =>(
                                         this.Notification(item)
                                     )}></FlatList>
 
                         </View>
+                        {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
 
-                    </ScrollView>
-                </KeyboardAvoidingView>
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
+                  
             </SafeAreaView>
         );
     }
@@ -66,31 +128,37 @@ export default class Notification extends Component {
             justifyContent:'center',
             alignItems:'center',
             flexDirection:'row',
-            marginBottom:10
+            marginBottom:5
            
             }} onPress={() =>{
-                this.props.navigation.navigate('NotificationDetail')
+                this.props.navigation.navigate('NotificationDetail',{
+                    data:item
+                })
             }}>
                 <Image style={{height:60,width:60,
                // marginLeft:10,
-                    borderRadius:30}}
-                    source={require('../assets/placeholder.jpg')}>
+                    borderRadius:10}}
+                    source={item.image == null ? require('../assets/placeholder.jpg'):
+                    {uri:item.image}}>
                     </Image>
-                    <View style={{width:'70%',marginLeft:10}}> 
-                  
-                    <Text style={{fontSize:17,fontWeight:'600'}}>
-                        Car Cleanner
+                    <View style={{width:'70%',marginLeft:10,}}> 
+                  <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                  <Text style={{fontSize:17,fontWeight:'600'}}>
+                       {item.title}
                     </Text>
-                    <Text style={{fontSize:16,
-                    marginTop:3,
+                    
+                  <Text style={{fontSize:16,       
                     color:'gray'}}>
-                       5 hours ago
+                   {moment(item.created_at).format('hh:mm a')}
                     </Text>
+                  </View>
+                    
                   
                     <Text style={{fontSize:17,fontWeight:'400',
-                    marginTop:3}}
+                    
+                    marginTop:5}}
                     numberOfLines={2}>
-                        This is a new product added by jaspreet singh.
+                        {item.description}
                     </Text>
                     
                     </View>

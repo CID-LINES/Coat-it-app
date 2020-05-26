@@ -142,7 +142,6 @@ export default class Settings extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
@@ -172,12 +171,11 @@ export default class Settings extends Component {
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
                             color: APP_YELLOW
-                        }}>Coat-it</Text>
+                        }}>Kenotek Coat IT
+                        </Text>
                     </View>
 
                 </View>
-
-
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
@@ -185,16 +183,17 @@ export default class Settings extends Component {
                         <View style={{ flex: 1 }}>
 
                             <View style={{
-                                height: 150,
+                                height: 180,
+                                marginTop:10,
                                 width: '100%', justifyContent: 'center'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 130,
-                                    width: 130,
-                                    borderRadius: 65,
-                                    borderColor: APP_YELLOW,
-                                    borderWidth: 3,
+                                    height: 180,
+                                    width: '95%',
+                                    borderRadius: 10,
+                                    
                                     alignSelf: 'center',
+                                   
                                     overflow: 'hidden'
                                 }}
                                     onPress={() => {
@@ -203,41 +202,47 @@ export default class Settings extends Component {
 
                                     <Image style={{
                                         height: 130,
-                                        width: 130,
-                                        borderRadius: 65,
-                                        // maxHeight:100
-                                        //alignSelf: 'center', 
+                                        flex:1,
+                                        
                                     }}
                                         resizeMethod='resize'
-                                        source={this.state.filePath == '' ?
+                                        source={this.state.filePath == null ?
                                             require('../assets/placeholder.jpg') :
                                             { uri: this.state.filePath }}>
 
                                     </Image>
                                 </TouchableOpacity>
-                                <View style={{
+                                {/* <View style={{
                                     height: 30, width: 30,
-                                    marginLeft: 100,
-                                     marginTop: -25, 
-                                    justifyContent: 'center',
-                                    alignSelf: 'center',
+                                    
+                                     marginTop: 1, 
+                                    marginRight:10,
+                                    alignSelf: 'flex-end',
                                 }}>
                                     <TouchableOpacity style={{
                                         height: 30, width: 30, alignSelf: 'center',
                                         alignItems: 'center', justifyContent: 'center'
                                     }}
-
-
                                     >
                                         <Image style={{ height: 30, width: 30 }}
                                             resizeMode='contain'
                                             source={require('../assets/pencil.png')}></Image>
-                                    </TouchableOpacity>
-                                </View>
+                                    </TouchableOpacity> */}
+                                     <View style={{
+                                    height:40,width:40,
+                              alignItems:'center',justifyContent:'center',
+                              position:'absolute',bottom:5,
+                              right:18}}>
+                                  <Image style={{height:30,width:30,
+                                  tintColor:'black'}}
+                                  
+                                  source={require('../assets/camera.png')}></Image>
+                              </View>
+                                
                             </View>
                             <View style={{
                                 width: '100%',
-                                marginTop: 10,
+                                marginTop: 20,
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '78%', fontWeight: '700' }}>First name</Text>

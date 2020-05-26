@@ -1,14 +1,62 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView,
-     TouchableOpacity, 
-     KeyboardAvoidingView, 
-     ActivityIndicator,
-      AsyncStorage } from 'react-native';
+import {
+    Text, View, SafeAreaView, Image, TextInput, ScrollView,
+    TouchableOpacity,
+    KeyboardAvoidingView,
+    StyleSheet,
+    ActivityIndicator,
+    AsyncStorage
+} from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { CallApi } from '../Component/ApiClient';
-//import YearPicker from "react-year-picker";
+import RNPickerSelect from 'react-native-picker-select';
 
+
+
+const DATA = [
+    { label: '2020', value: '2020' },
+    { label: '2019', value: '2019' },
+    { label: '2018', value: '2018' },
+    { label: '2017', value: '2017' },
+    { label: '2016', value: '2016' },
+    { label: '2015', value: '2015' },
+    { label: '2014', value: '2014' },
+    { label: '2013', value: '2013' },
+    { label: '2012', value: '2012' },
+    { label: '2011', value: '2011' },
+    { label: '2010', value: '2010' },
+    { label: '2009', value: '2009' },
+    { label: '2008', value: '2008' },
+    { label: '2007', value: '2007' },
+    { label: '2006', value: '2006' },
+    { label: '2005', value: '2005' },
+    { label: '2004', value: '2016' },
+    { label: '2003', value: '2003' },
+    { label: '2002', value: '2002' },
+    { label: '2001', value: '2001' },
+    { label: '2000', value: '2000' },
+    { label: '1999', value: '1999' },
+    { label: '1998', value: '1998' },
+    { label: '1997', value: '1997' },
+    { label: '1996', value: '1996' },
+    { label: '1995', value: '1995' },
+    { label: '1994', value: '1994' },
+    { label: '1993', value: '1993' },
+    { label: '1992', value: '1992' },
+    { label: '1991', value: '1991' },
+    { label: '1990', value: '1990' },
+    { label: '1989', value: '1989' },
+    { label: '1988', value: '1988' },
+    { label: '1987', value: '1987' },
+    { label: '1986', value: '1986' },
+    { label: '1985', value: '1985' },
+    { label: '1984', value: '1984' },
+    { label: '1983', value: '1983' },
+    { label: '1982', value: '1982' },
+    { label: '1981', value: '1981' },
+    { label: '1980', value: '1980' },
+];
 export default class CarDetail extends Component {
     constructor(props) {
         super(props)
@@ -17,8 +65,8 @@ export default class CarDetail extends Component {
             Companyname: '',
             Modelname: '',
             Vehicleno: '',
-            yearofmanufacture: '',
-            user_id:''
+            manufacture_year: '',
+            user_id: ''
         }
     }
 
@@ -72,12 +120,12 @@ export default class CarDetail extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-           // alert(value)
+            // alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
                 }, () => {
-                   // this.MycarApi()
+                    // this.MycarApi()
                 })
             }
         } catch (error) {
@@ -99,18 +147,20 @@ export default class CarDetail extends Component {
             isLoading: true
         })
         let body = new FormData();
+        if(this.state.filePath.uri){
         var photo = {
             uri: this.state.filePath.uri,
             type: 'image/jpeg',
             name: 'photo.jpg',
         };
+    }
         // alert(this.state.brewery_id)
         body.append('image', photo);
         body.append('brand_name', this.state.Companyname)
         body.append('model_name', this.state.Modelname)
         body.append('vehicle_no', this.state.Vehicleno)
-        body.append('manufacture_year', this.state.yearofmanufacture)
-        body.append('user_id', ""+this.state.user_id)
+        body.append('manufacture_year', this.state.manufacture_year)
+        body.append('user_id', "" + this.state.user_id)
 
         fetch('http://3.137.41.50/coatit/public/api/storedetails',
 
@@ -126,10 +176,10 @@ export default class CarDetail extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson.response)
-                if (responseJson.response.status == true) {  
+                if (responseJson.response.status == true) {
                     this.props.navigation.replace('Home')
                     // this.save('car_id',responseJson.response.carDetails.id +'')
-                    alert(responseJson.response.message)
+                    alert('The details of the car has been saved')
                 }
                 this.setState({
                     isLoading: false
@@ -146,16 +196,16 @@ export default class CarDetail extends Component {
 
 
 
-   
+
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    backgroundColor:'white'
+                    backgroundColor: 'white'
                 }}>
                     {/* <TouchableOpacity style={{
                         height: 35,
@@ -187,35 +237,51 @@ export default class CarDetail extends Component {
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios'?'padding': null} 
-                    keyboardVerticalOffset={Platform.OS === 'ios'? 0 : 0}>
+                    behavior={Platform.OS === 'ios' ? 'padding' : null}
+                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: 200,
-                                width: '100%', justifyContent: 'center',
+                                height: 180,
+                                width: '100%',
+                                justifyContent: 'center',
+                                alignItems: 'center'
                                 // backgroundColor:'pink'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 120,
+                                    height: 180,
                                     width: '95%',
-                                    backgroundColor: 'gray',
-                                    borderRadius: 60,
+
+                                    borderRadius: 10,
                                     alignSelf: 'center',
-                                    justifyContent: 'center', overflow: 'hidden'
+                                    justifyContent: 'center',
+                                    overflow: 'hidden'
                                 }}
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-                                    <Image style={{ height: 120, width: '95%' }}
+                                    <Image style={{ height: 180, width: '100%' }}
                                         resizeMode='cover'
                                         source={cache = "force-cache",
                                             this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}>
 
                                     </Image>
                                 </TouchableOpacity>
+                                <View style={{
+                                    height: 40, width: 40,
+                                    alignItems: 'center', justifyContent: 'center',
+                                    position: 'absolute', bottom: 5,
+                                    right: 18
+                                }}>
+                                    <Image style={{
+                                        height: 30, width: 30,
+                                        tintColor: 'black'
+                                    }}
+
+                                        source={require('../assets/camera.png')}></Image>
+                                </View>
                             </View>
-                            <View style={{ width: '100%' }}>
+                            <View style={{ width: '100%', marginTop: 10 }}>
                                 <Text style={{ marginLeft: 35, fontWeight: '600', }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -255,7 +321,7 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35,  fontWeight: '600',
+                                    marginLeft: 35, fontWeight: '600',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -274,10 +340,47 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35,  fontWeight: '600',
+                                    marginLeft: 35, fontWeight: '600',
                                     marginTop: 20
                                 }}>Year of Manufacture</Text>
-                                <TextInput style={{
+
+                                <View style={{
+                                    marginTop: 5,
+                                    fontSize: 16,
+                                    width: '80%',
+                                    alignSelf: 'center',
+                                    padding: 5,
+                                    // paddingVertical: 12,
+                                    height: 40,
+                                    justifyContent: 'center',
+
+
+
+                                    // paddingRight: 30, // to ensure the text is never behind the icon
+                                }}>
+                                    <RNPickerSelect
+                                        style={{
+                                            ...pickerSelectStyles,
+                                            iconContainer: {
+                                                top: 10,
+                                                right: 12,
+                                            },
+                                        }}
+                                        placeholder={{
+                                            label: 'Manufacture Year',
+                                            color: 'gray'
+                                        }}
+
+                                        items={DATA}
+                                        onValueChange={(value) => {
+                                            this.setState({
+                                                manufacture_year: value,
+                                            });
+                                        }}
+                                        value={this.state.manufacture_year}
+                                    />
+                                </View>
+                                {/* <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
                                     alignSelf: 'center'
@@ -286,7 +389,7 @@ export default class CarDetail extends Component {
                                     keyboardType='ascii-capable'
                                     value={this.state.yearofmanufacture}
                                     onChangeText={(value) => this.setState({ yearofmanufacture: value })}
-                                    placeholder='Manufacture year'></TextInput>
+                                    placeholder='Manufacture year'></TextInput> */}
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
@@ -302,7 +405,7 @@ export default class CarDetail extends Component {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 marginBottom: 10,
-                                backgroundColor: APP_YELLOW, 
+                                backgroundColor: APP_YELLOW,
                                 borderRadius: 10
                             }}
                                 onPress={() => {
@@ -316,17 +419,17 @@ export default class CarDetail extends Component {
                             <TouchableOpacity style={{
                                 height: 50,
                                 width: '60%',
-                                
+
                                 alignSelf: 'center',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 marginBottom: 10,
-                               borderColor:APP_YELLOW,
-                               borderWidth:3,
+                                borderColor: APP_YELLOW,
+                                borderWidth: 3,
                                 borderRadius: 10
                             }}
                                 onPress={() => {
-                                   this.props.navigation.navigate('Home')
+                                    this.props.navigation.navigate('Home')
                                 }}>
                                 <Text style={{
                                     fontWeight: '700', color: APP_YELLOW,
@@ -364,13 +467,37 @@ export default class CarDetail extends Component {
             alert("Please enter the model name")
         } else if (this.state.Vehicleno == '') {
             alert('Please enter the vehicle number')
-        } else if (this.state.yearofmanufacture == '') {
+        } else if (this.state.manufacture_year == '') {
             alert('Please enter the manufacture date')
         } else {
             this.carDetailApi()
         }
     }
+
 }
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+        // marginTop: 10,
+        fontSize: 16,
+        // paddingVertical: 12,
+        // paddingHorizontal: 7,
+        // borderWidth: 1,
+        // borderColor: colors.APPCOLOR,
+        // borderRadius: 4,
+        color: 'black',
+        // paddingRight: 30, // to ensure the text is never behind the icon
+    },
+    inputAndroid: {
+        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 1,
+        borderColor: APP_YELLOW,
+        borderRadius: 4,
+        color: 'black',
+        paddingRight: 30, // to ensure the text is never behind the icon
+    },
+})
 
 
 

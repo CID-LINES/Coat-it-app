@@ -95,7 +95,7 @@ export default class Home extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
-                <ScrollView style={{ flex: 1 }}>
+            
                     <View style={{ flex: 1 }}>
                         <View style={{
                             height: 30,
@@ -121,7 +121,7 @@ export default class Home extends Component {
                         </FlatList>
                     </View>
                   
-                </ScrollView>
+         
                 {this.state.isLoading &&
                         <View style={{
                             position: 'absolute',
@@ -145,15 +145,11 @@ export default class Home extends Component {
         );
     }
     MembershipPlan = (item) => {
-        var plan ={
-            title:item.title,
-            description:item.description,
-            image:item.image
-            }
+       
         return (
 
             <TouchableOpacity style={{
-                 height: 130,
+                // height: 130,
                 width: '95%',
                 //backgroundColor:'pink',
                 alignSelf:'center',
@@ -165,7 +161,7 @@ export default class Home extends Component {
                 })
             }}>
                 <View style={{
-                    flex: 1,
+                    width:'100%',
                     marginLeft: 5,
                     marginBottom: 10,
                     borderRadius: 10,
@@ -176,8 +172,8 @@ export default class Home extends Component {
                     borderWidth: 3
                 }} >
                     <Image style={{
-                       // height: 75,
-                        width: '50%'
+                        height: 150,
+                        width: '40%'
                     }}
                         resizeMode='cover'
                         source={item.image == null ? 
@@ -187,11 +183,14 @@ export default class Home extends Component {
                             <View style={{marginLeft:20,
                             marginTop:20
                             }}>
-                    <Text 
+                    <Text style={{fontSize:17,fontWeight:'bold'}}
                  >{item.title}</Text>
+                
                     <Text style={{
-                        marginTop:10}}
-                        numberOfLines={2}>{item.description}</Text>
+                        marginTop:10,marginBottom:10}}
+                        numberOfLines={0}>{item.description}</Text>
+
+
                         </View>
 
                 </View>

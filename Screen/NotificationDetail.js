@@ -6,8 +6,9 @@ export default class NotificationDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            data:props.navigation.state.params.data
         }
+        console.log(JSON.stringify(this.state.data))
     }
     render() {
         return (
@@ -37,52 +38,53 @@ export default class NotificationDetail extends Component {
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', 
-                            justifyContent: 'center',
+                            alignItems:'center', 
+                            justifyContent:'center',
 
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
                                 color: APP_YELLOW
-                            }}>Notification Detail</Text>
+                            }}>Notifications</Text>
                         </View>
                     </View>
             
-                <View style={{flex:1}}
-                >
-                 
+                <View style={{flex:1}}>
                    <View style={{height:250,
-                        width:'100%',justifyContent:'center',
+                        width:'100%',
+                        justifyContent:'center',
+                        alignItems:'center'
                         // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
-                                height:150,
-                            width:150,
-                            backgroundColor:'gray',
-                            borderRadius:75,
+                                height:180,
+                            width:'95%',
+                           
+                            borderRadius:10,
                             alignSelf:'center',
                             
                             justifyContent:'center',overflow:'hidden'}}>
-                            <Image style={{height:150,width:150}}
+                            <Image style={{height:180,flex:1}}
                             resizeMode='cover'
-                            source={require('../assets/placeholder.jpg')}></Image>
+                            source={this.state.data.image == null? 
+                            require('../assets/placeholder.jpg'):
+                                {uri:this.state.data.image}}></Image>
                             </TouchableOpacity>
                         </View>
                                 <View style={{
                                 marginLeft:10,marginRight:10,
                                 width:'90%',alignSelf:'center'}}>
                         <Text style={{fontSize:17,
-                            fontWeight:'bold'}}>Title:- <Text style={{fontSize:15,
-                            fontWeight:'400'}}>Car Polishing Cream</Text></Text>
+                        fontWeight:'bold'
+                            }}>
+                            {this.state.data.title}</Text>
                             <Text style={{fontSize:17,
                             
                             marginTop:10,textAlign:'justify',
-                            fontWeight:'bold'}}
+                           }}
                             numberOfLines={4}>
-                                Description:-<Text style={{fontSize:15,fontWeight:'400'}}>Lorem Ipsum is 
-                            simply dummy text of the printing and typesetting industry.
-                             Lorem Ipsum has been the industry's 
-                            </Text> </Text>
+                              {this.state.data.description}
+                             </Text>
                         </View>
 
                         {/* <TouchableOpacity style={{height:40,width:'50%',

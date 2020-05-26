@@ -11,7 +11,8 @@ export default class UserProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: ''
+            data: '',
+            isShow:false
         }
     }
 
@@ -137,12 +138,18 @@ export default class UserProfile extends Component {
                                     justifyContent: 'center',
                                     overflow: 'hidden'
                                 }}>
+                                    <TouchableOpacity onPress={() =>{
+                                        this.setState({
+                                            isShow:true
+                                        })
+                                    }}>
                                     <Image style={{ height: 130, width: 130 }}
                                         resizeMode='cover'
                                         source={this.state.data.avatar == null ?
                                             require('../assets/placeholder.jpg')
                                             : { uri: this.state.data.avatar }
                                         }></Image>
+                                        </TouchableOpacity>
                                 </View>
                             </View>
                             <View style={{
@@ -349,6 +356,37 @@ export default class UserProfile extends Component {
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
+
+                {
+            this.state.isShow &&
+            <TouchableOpacity style={{
+                position: 'absolute',
+                backgroundColor: '#000000aa',
+                //backgroundColor:'black',
+                top: 0,
+                bottom: 0, left: 0, right: 0,
+                alignItems: 'center',
+                justifyContent: 'center'
+            }} onPress={()=>{
+                this.setState({
+                    isShow:false
+                })
+            }}>
+               <View style={{
+                   height:400,
+                   width:'100%'
+               }}
+              >
+                   <Image style={{flex:1,width:'100%'}}
+                   resizeMode=
+                   'cover'
+                   source={this.state.data.avatar == null ?
+                                            require('../assets/placeholder.jpg')
+                                            : { uri: this.state.data.avatar }}></Image>
+               </View>
+
+            </TouchableOpacity>
+        }
                 {
             this.state.isLoading &&
             <View style={{
