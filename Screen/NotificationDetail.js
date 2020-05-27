@@ -57,14 +57,14 @@ export default class NotificationDetail extends Component {
                         // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
-                                height:180,
+                                height:250,
                             width:'95%',
                            
                             borderRadius:10,
                             alignSelf:'center',
                             
                             justifyContent:'center',overflow:'hidden'}}>
-                            <Image style={{height:180,flex:1}}
+                            <Image style={{height:250,flex:1}}
                             resizeMode='cover'
                             source={this.state.data.image == null? 
                             require('../assets/placeholder.jpg'):
@@ -72,6 +72,7 @@ export default class NotificationDetail extends Component {
                             </TouchableOpacity>
                         </View>
                                 <View style={{
+                                    marginTop:10,
                                 marginLeft:10,marginRight:10,
                                 width:'90%',alignSelf:'center'}}>
                         <Text style={{fontSize:17,
@@ -82,7 +83,7 @@ export default class NotificationDetail extends Component {
                             
                             marginTop:10,textAlign:'justify',
                            }}
-                            numberOfLines={4}>
+                            numberOfLines={0}>
                               {this.state.data.description}
                              </Text>
                         </View>

@@ -126,7 +126,7 @@ componentDidMount(){
             <TouchableOpacity style={{
             width:'100%',alignSelf:'center',
             justifyContent:'center',
-            alignItems:'center',
+            //alignItems:'center',
             flexDirection:'row',
             marginBottom:5
            
@@ -135,17 +135,24 @@ componentDidMount(){
                     data:item
                 })
             }}>
+                <View style={{height:60,width:60,
+                borderColor:APP_YELLOW,borderWidth:1,
+                borderRadius:10,overflow:'hidden'}}>
                 <Image style={{height:60,width:60,
                // marginLeft:10,
-                    borderRadius:10}}
+                   resizeMode:'cover'
+                }}
                     source={item.image == null ? require('../assets/placeholder.jpg'):
                     {uri:item.image}}>
                     </Image>
+                    </View>
                     <View style={{width:'70%',marginLeft:10,}}> 
                   <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                      <View>
                   <Text style={{fontSize:17,fontWeight:'600'}}>
                        {item.title}
                     </Text>
+                    </View>
                     
                   <Text style={{fontSize:16,       
                     color:'gray'}}>
@@ -157,7 +164,7 @@ componentDidMount(){
                     <Text style={{fontSize:17,fontWeight:'400',
                     
                     marginTop:5}}
-                    numberOfLines={2}>
+                    numberOfLines={0}>
                         {item.description}
                     </Text>
                     

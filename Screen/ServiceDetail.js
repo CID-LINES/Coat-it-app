@@ -5,11 +5,11 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
-        this.state={
-            user_id:'',
-           data:props.navigation.state.params.plan
+        this.state = {
+            user_id: '',
+            data: props.navigation.state.params.plan
         }
-      // console.log(JSON.stringify(this.state.data))
+        // console.log(JSON.stringify(this.state.data))
     }
 
 
@@ -30,7 +30,7 @@ export default class ServiceDeatil extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                     //this.DetailerListApi()
+                    //this.DetailerListApi()
                 })
             }
         } catch (error) {
@@ -38,7 +38,7 @@ export default class ServiceDeatil extends Component {
         }
     }
 
-   
+
     BuyPlanApi = () => {
         this.setState({
             isLoading: true
@@ -53,9 +53,9 @@ export default class ServiceDeatil extends Component {
         body.append('image', photo);
         body.append('title', this.state.data.title)
         body.append('description', this.state.data.description)
-        body.append('user_id', ''+this.state.user_id)
-        body.append('plan_id', ''+this.state.data.id)
-      
+        body.append('user_id', '' + this.state.user_id)
+        body.append('plan_id', '' + this.state.data.id)
+
 
         fetch('http://3.137.41.50/coatit/public/api/add_plan',
 
@@ -72,7 +72,7 @@ export default class ServiceDeatil extends Component {
             .then((responseJson) => {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {
-                    
+
                     this.props.navigation.goBack()
 
                 }
@@ -94,7 +94,7 @@ export default class ServiceDeatil extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
                 <View style={{
                     height: 40, width: '95%',
@@ -118,70 +118,73 @@ export default class ServiceDeatil extends Component {
 
                     </TouchableOpacity>
                     <View style={{
-                        height: 35,
+                        height: 35, width: '80%',
                         alignItems: 'center',
-                         justifyContent: 'center',
+                        justifyContent: 'center',
+                        marginLeft: 15
 
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_YELLOW
-                        }}>{this.state.data.title}</Text>
+                            color: APP_YELLOW,
+
+                        }}
+                            numberOfLines={0}>{this.state.data.name}</Text>
                     </View>
                 </View>
+                <ScrollView style={{ flex: 1 }}>
+                    <View style={{ flex: 1, backgroundColor: 'white' }}
+                    >
 
-                <View style={{ flex: 1,backgroundColor:'white' }}
-                >
-
-                    <View style={{
-                        height: 250,
-                        width: '100%', justifyContent: 'center',
-                        alignItems:'center'
-                        // backgroundColor:'pink'
-                    }}>
-                        <TouchableOpacity style={{
-                            height: 180,
-                            width: '95%',
-                         
-                            borderRadius: 10,
-                            alignSelf: 'center',
-
-                            justifyContent: 'center',
-                             overflow: 'hidden'
+                        <View style={{
+                            height: 250,
+                            width: '100%', justifyContent: 'center',
+                            alignItems: 'center'
+                            // backgroundColor:'pink'
                         }}>
-                            <Image style={{ height: 180, flex:1 }}
-                                resizeMode='cover'
-                                source={ this.state.data.image == null ? 
-                                    require('../assets/placeholder.jpg'):
-                                    {uri:this.state.data.image}
-                                   }>
+                            <TouchableOpacity style={{
+                                height: 200,
+                                width: '95%',
 
-                            </Image>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{
-                        marginLeft: 10, marginRight: 10,
-                        width: '90%', alignSelf: 'center'
-                    }}>
-                        <Text style={{
-                            fontSize: 17,
-                            fontWeight:'bold'
-                         
+                                borderRadius: 10,
+                                alignSelf: 'center',
+
+                                justifyContent: 'center',
+                                overflow: 'hidden'
+                            }}>
+                                <Image style={{ height: 200, flex: 1 }}
+                                    resizeMode='cover'
+                                    source={this.state.data.image == null ?
+                                        require('../assets/placeholder.jpg') :
+                                        { uri: this.state.data.image }
+                                    }>
+
+                                </Image>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{
+                            marginLeft: 10, marginRight: 10,
+                            width: '90%', alignSelf: 'center'
                         }}>
-                       {this.state.data.title}</Text>
-                        <Text style={{
-                            fontSize: 17,
+                            <Text style={{
+                                fontSize: 17,
+                                fontWeight: 'bold'
 
-                            marginTop: 10, textAlign: 'justify',
-                           
-                        }}
-                            numberOfLines={4}>
-                            
-                                 {this.state.data.description}
-                             
+                            }}>
+                                {this.state.data.title}</Text>
+                            <Text style={{
+                                fontSize: 17,
+                                marginBottom: 10,
+                                marginTop: 10, textAlign: 'justify',
+
+                            }}
+                                numberOfLines={0}>
+
+                                {this.state.data.description}
+
                             </Text>
-                    </View>
-{/* 
+                        </View>
+                        {/* 
                     <TouchableOpacity style={{
                         height: 45, width: '60%',
                         alignSelf: 'center', alignItems: 'center',
@@ -199,8 +202,8 @@ export default class ServiceDeatil extends Component {
                             color: 'white'
                         }}>Buy</Text></TouchableOpacity> */}
 
-                </View>
-
+                    </View>
+                </ScrollView>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',

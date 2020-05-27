@@ -27,7 +27,7 @@ export default class Home extends Component {
         this.state = {
             data: ''
         }
-        
+
     }
 
 
@@ -39,7 +39,7 @@ export default class Home extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-             //alert(value)
+            //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -59,7 +59,7 @@ export default class Home extends Component {
         })
 
 
-        fetch('http://3.137.41.50/coatit/public/api/plan/display', 
+        fetch('http://3.137.41.50/coatit/public/api/plan/display',
             {
                 method: 'GET',
                 headers: {
@@ -94,112 +94,121 @@ export default class Home extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
-            
-                    <View style={{ flex: 1 }}>
-                        <View style={{
-                            height: 30,
-                            width: "95%",
-                            alignSelf: 'center',
-                            justifyContent: 'center', alignItems: 'center'
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+
+                <View style={{ flex: 1 }}>
+                    <View style={{
+                        height: 30,
+                        width: "95%",
+                        alignSelf: 'center',
+                        justifyContent: 'center', alignItems: 'center'
+                    }}>
+                        <Text style={{
+                            fontWeight: '800',
+                            fontSize: 18, color: APP_YELLOW
                         }}>
-                            <Text style={{
-                                fontWeight: '800',
-                                fontSize: 18, color: APP_YELLOW
-                            }}>
-                                Service Plan
+                            Service Plan
                             </Text>
-                        </View>
-                        <FlatList style={{ marginTop: 20 }}
-
-                           // numColumns={2}
-                            data={this.state.data}
-                            renderItem={({ item }) => (
-                                this.MembershipPlan(item)
-                            )}>
-
-                        </FlatList>
                     </View>
-                  
-         
+                    <FlatList style={{ marginTop: 20 }}
+
+                        // numColumns={2}
+                        data={this.state.data}
+                        renderItem={({ item }) => (
+                            this.MembershipPlan(item)
+                        )}>
+
+                    </FlatList>
+                </View>
+
+
                 {this.state.isLoading &&
-                        <View style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
-                            top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <ActivityIndicator
-                                animating={this.state.isLoading}
-                                size='large'
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
 
-                                color={APP_YELLOW}
-                            ></ActivityIndicator>
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
 
-                        </View>
-                    }
+                    </View>
+                }
 
             </SafeAreaView>
         );
     }
     MembershipPlan = (item) => {
-       
+
         return (
 
             <TouchableOpacity style={{
-                // height: 130,
+                   
                 width: '95%',
-                //backgroundColor:'pink',
-                alignSelf:'center',
-                justifyContent: 'center'
+                alignSelf: 'center',
+                borderColor: APP_YELLOW,
+                borderWidth: 3,
+                borderRadius: 10,
+                marginBottom: 10,
+                overflow: 'hidden'
             }} onPress={() => {
-                
-                this.props.navigation.navigate('ServiceDetail',{
-                  plan:item
+
+                this.props.navigation.navigate('ServiceDetail', {
+                    plan: item
                 })
             }}>
                 <View style={{
-                    width:'100%',
-                    marginLeft: 5,
-                    marginBottom: 10,
-                    borderRadius: 10,
-                    overflow: 'hidden',
-                    marginRight: 5,
-                    flexDirection:'row',
-                    borderColor: APP_YELLOW,
-                    borderWidth: 3
+                    height: 150,
+                    width: '100%'
                 }} >
                     <Image style={{
                         height: 150,
-                        width: '40%'
+                        width: '100%'
                     }}
                         resizeMode='cover'
-                        source={item.image == null ? 
-                            require('../assets/car-icon.jpg'):
-                            {uri:item.image}}></Image>
-
-                            <View style={{marginLeft:20,
-                            marginTop:20
-                            }}>
-                    <Text style={{fontSize:17,fontWeight:'bold'}}
-                 >{item.title}</Text>
-                
-                    <Text style={{
-                        marginTop:10,marginBottom:10}}
-                        numberOfLines={0}>{item.description}</Text>
-
-
-                        </View>
+                        source={item.image == null ?
+                            require('../assets/car-icon.jpg') :
+                            { uri: item.image }}></Image>
+                </View>
+                <View style={{
+                    width:'95%',
+                    marginTop: 10,
+                     marginLeft: 10,
+                }}>
+                        <Text style={{ fontSize: 17, fontWeight: 'bold' }}
+                    >{item.name}</Text>
+                    <Text style={{ fontSize: 16 ,marginTop:5}}
+                    >{item.title}</Text>
 
                 </View>
+                <TouchableOpacity style={{
+                    height: 30,
+                    width: '30%',
+                    marginTop:5,
+                    borderRadius: 5,
+                    marginBottom: 10,
+                    alignSelf: 'flex-end',
+                    marginRight: 10,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                onPress={() => {
 
-
-
+                    this.props.navigation.navigate('ServiceDetail', {
+                        plan: item
+                    })
+                }}>
+                    <Text style={{ color: 'white',
+                fontWeight:'700' }}>View details</Text>
+                </TouchableOpacity>
             </TouchableOpacity>
-
-
         )
     }
 }
