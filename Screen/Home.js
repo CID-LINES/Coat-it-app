@@ -148,8 +148,7 @@ export default class Home extends Component {
 
         return (
 
-            <TouchableOpacity style={{
-                   
+            <TouchableOpacity style={{     
                 width: '95%',
                 alignSelf: 'center',
                 borderColor: APP_YELLOW,

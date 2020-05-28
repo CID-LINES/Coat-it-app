@@ -48,6 +48,10 @@ export default class DetailerList extends Component {
         } catch (error) {
         }
     }
+
+
+   
+
    DetailerListApi = () => {
         this.setState({
             isLoading: true
@@ -154,7 +158,6 @@ export default class DetailerList extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 
@@ -168,77 +171,92 @@ export default class DetailerList extends Component {
     DetailerList = (item,index) => {
         return (
             <TouchableOpacity style={{
-                height: 120,
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 2,
+                borderRadius: 10,
+                flexDirection: 'row',
+                borderColor: APP_YELLOW,
+                borderWidth: 2,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
-                overflow: 'hidden'
+                overflow: 'hidden' 
             }}
-                onPress={() => {
-                    //this.props.navigation.navigate('Payment')
-                }}
             >
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{
+                height:120,
+                    width: '40%'
+                }}>
                     <Image style={{
                         height: 120,
-                        width: '40%',
+                       // flex: 1,
+                        width: '100%',
                     }}
                         resizeMode='cover'
-                        source={item.avatar==null ?
-                            require('../assets/placeholder.jpg'):
-                            {uri:item.avatar}
-                            }>
+                        source={item.avatar == null ?
+                            require('../assets/placeholder.jpg')
+                            : { uri: item.avatar }}>
 
                     </Image>
-                    <View style={{ marginLeft: 15, marginTop: 20 }}>
-                        <Text style={{
-                            fontSize: 17,
-                            fontWeight: '700'
-                        }}>
-                           {item.first_name}
+                </View>
+                <View style={{
+                    marginLeft: 15,
+                     marginTop: 5,
+                    width: '55%'
+                }}>
+                    <Text style={{fontSize:17,
+                    fontWeight:'800'}}
+                    numberOfLines={2}>
+                        {item.first_name}
                     </Text>
-                    <Text style={{ marginTop: 10 }}>{item.car_name}</Text>
-
-                        {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
-                        {/* <TouchableOpacity style={{
-                            height: 30,
-                            width: 30,
-                            marginTop: 5,
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                   
+                    <TouchableOpacity style={{
+                       // height: 30,
+                        marginTop:10,
+                        width: '80%',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flexDirection: 'row'
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('Purchase',{
+                                plan:item.service,
+                                car:item.car_name
+                            })
+                        }}>
+                            <View style={{width:'95%'}}>
+                    <Text numberOfLines={0}>{item.service}</Text>
+                        </View>
+                        <Image style={{
+                            height: 15,
+                            width: 15,
+                            tintColor: APP_YELLOW
                         }}
-                            onPress={() => {
-                                Alert.alert(
-                                    'Remove item',
-                                    'Are you sure you want to remove this car?',
-                                    [
-                                        {
-                                            text: 'Remove', onPress: () => {
-                                                this.DeleteDetailerApi(item.id, index)
-                                            }
-                                        },
-                                        {
-                                            text: 'Cancel',
-                                            style: 'cancel',
-                                        }],
-                                    { cancelable: false },
-                                );
-                            }} >
-                            <Image style={{
-                                height: 24,
-                                width: 24,
-                                tintColor: 'gray'
-                            }}
-                                source={require('../assets/delete-icon.png')}></Image>
-                        </TouchableOpacity> */}
+                            source={require('../assets/info.png')}
+                            resizeMode='contain'>     
+                            </Image>
+                    </TouchableOpacity>
+                    <Text style={{
+                        marginTop: 5,
+                    }}
+                        numberOfLines={0}>
+                      {item.car_name}
+                    </Text>
 
-                    </View>
+                    {/* <Text style={{marginTop:5}}>
+                                {moment(item.date_of_service).format('DD-MMMM-YYYY')}</Text> */}
+                    {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
+
+
+                   
                 </View>
 
+
+
+
+
             </TouchableOpacity>
+            
         )
     }
 }

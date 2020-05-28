@@ -1,54 +1,31 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
-import Moment from 'react-moment';
-import moment from 'moment';
 
-export default class Purchase extends Component {
+export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           
-            orders: [{
-                title: 'Current Purchase',
-                data: []
-            },
-            {
-                title: 'Past Purchase',
-                data: [],
-            }],
-           user_id:''
+            user_id: '',
+            data: props.navigation.state.params.plan,
+            serviceplan:'',
+            car:props.navigation.state.params.car,
+            cardetail:"",
+            isHide:false
         }
+        console.log(JSON.stringify(this.state.car))
     }
 
-    componentDidMount() {
-
-        this.get('user_id')
-    }
-
-    async get(key) {
-        try {
-            const value = await AsyncStorage.getItem(key);
-             //alert(value)
-            if (value != null && value != '') {
-                this.setState({
-                    user_id: value
-                }, () => {
-                    this.PurchaseApi()
-                })
-            }
-        } catch (error) {
-
-        }
-    }
-
-    PurchaseApi = () => {
+componentDidMount(){
+    this.PlanApi()
+}
+    PlanApi = () => {
         this.setState({
             isLoading: true
+
         })
 
-
-        fetch('http://3.137.41.50/coatit/public/api/purchase/order/dhiraj76' ,
+        fetch('http://3.137.41.50/coatit/public/api/plan/display/' +this.state.data,
             {
                 method: 'GET',
                 headers: {
@@ -60,19 +37,17 @@ export default class Purchase extends Component {
             })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(JSON.stringify(responseJson.response))
+                console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
-                   
-                    var order = this.state.orders
-                    order[0].data = responseJson.response.current_purchase
-                    order[1].data= responseJson.response.past_purchase
-                  
                     this.setState({
-                        orders:order
-                    }) 
+                        serviceplan: responseJson.response.data,
+                        isHide: true
+                    })
+                    
                 }
                 this.setState({
-                    isLoading: false
+                    isLoading: false,
+                    isFetching: false
                 })
 
             })
@@ -84,158 +59,287 @@ export default class Purchase extends Component {
             });
 
     }
+  
+    CarDetailApi = (car_name, index) => {
+        this.setState({
+            isLoading: true
+
+        })
+
+        fetch('http://3.137.41.50/coatit/public/api/cardetail/' + this.state.car,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+
+                    //  'Content-type':'multipart/form-data'
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+                    this.setState({
+                        cardetail: responseJson.response.carDetails,
+                        isShow: true
+                    })
+                    // // alert('helo')
+                }
+                this.setState({
+                    isLoading: false,
+                    isFetching: false
+                })
+
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+
+    }
+
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled> */}
-                    <View style={{
-                        height: 40,
-                        width: '95%',
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                        alignSelf: 'center',
-                    }}>
-                        <TouchableOpacity style={{
-                            height: 35, 
-                            width: 35,
-                            alignItems: 'center',
-                             justifyContent: 'center',
-                            position: 'absolute',
-                             left: 5
-                        }}
-                            onPress={() => {
-                                this.props.navigation.goBack()
-                            }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_BLUE }}
-                                resizeMode='contain'
-                                source={require('../assets/back.png')}>       
-                                </Image>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
-                        </TouchableOpacity>
+                <View style={{
+                    height: 40, width: '95%',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    alignSelf: 'center', marginTop: 10
+                }}>
+                    <TouchableOpacity style={{
+                        height: 35, width: 35,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute', left: 5
+
+                    }}
+                        onPress={() => {
+                            this.props.navigation.goBack()
+                        }}>
+                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            resizeMode='contain'
+                            source={require('../assets/back.png')}></Image>
+
+                    </TouchableOpacity>
+                    <View style={{
+                        height: 35, width: '80%',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginLeft: 15
+
+                    }}>
+                        <Text style={{
+                            fontSize: 18, fontWeight: '700',
+                            color: APP_YELLOW,
+
+                        }}
+                            numberOfLines={0}>{this.state.serviceplan.name}</Text>
+                    </View>
+                </View>
+                <ScrollView style={{ flex: 1 }}>
+                    <View style={{ flex: 1, backgroundColor: 'white' }}
+                    >
+
                         <View style={{
-                            height: 35,
-                            alignItems: 'center', 
-                            justifyContent: 'center',
+                            height: 250,
+                            width: '100%', justifyContent: 'center',
+                            alignItems: 'center'
+                            // backgroundColor:'pink'
+                        }}>
+                            <TouchableOpacity style={{
+                                height: 200,
+                                width: '95%',
+
+                                borderRadius: 10,
+                                alignSelf: 'center',
+
+                                justifyContent: 'center',
+                                overflow: 'hidden'
+                            }}>
+                                <Image style={{ height: 200, flex: 1 }}
+                                    resizeMode='cover'
+                                    source={this.state.serviceplan.image == null ?
+                                        require('../assets/placeholder.jpg') :
+                                        { uri: this.state.serviceplan.image }
+                                    }>
+
+                                </Image>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{
+                            marginLeft: 10, marginRight: 10,
+                            width: '90%', alignSelf: 'center'
                         }}>
                             <Text style={{
-                                fontSize: 18, fontWeight: '700',
-                                color: APP_BLUE
-                            }}>My Purchase</Text>
-                        </View>
-                    </View>
-                    {/* <ScrollView style={{ flex: 1 }}> */}
-                        <View style={{ flex: 1 }}>
+                                fontSize: 17,
+                                fontWeight: 'bold'
 
-                            <SectionList
+                            }}>
+                                {this.state.serviceplan.title}</Text>
+                            <Text style={{
+                                fontSize: 17,
+                                marginBottom: 10,
+                                marginTop: 10, textAlign: 'justify',
 
-                                sections={this.state.orders}
-                                renderItem={({ item, index, section }) =>
-                                    this.MyPurchase(item, index, section)
-                                }
-                                keyExtractor={(item, index) => item + index}
-                                renderSectionHeader={({ section: { title } }) => (
-                                    <View style={{
-                                        backgroundColor: 'white',
-                                        //marginTop:10,
-                                        height: 40
-                                    }}>
-                                        <View style={{
-                                            height: 40,
-                                            width: '100%',
-                                            justifyContent: 'center',
-                                            backgroundColor: APP_BLUE
-                                        }}>
-                                            <Text style={{
-                                                fontSize: 18,
-                                                marginLeft: 10,
-                                                color: 'white',
-                                                fontWeight: 'bold'
-                                            }}>{title}</Text>
-                                        </View>
-                                    </View>
-                                )}
-                                stickySectionHeadersEnabled={true}
-                            >
-                            </SectionList>
+                            }}
+                                numberOfLines={0}>
+
+                                {this.state.serviceplan.description}
+
+                            </Text>
                         </View>
-                        {this.state.isLoading &&
-                        <View style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
-                            top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                       
+                    <TouchableOpacity style={{
+                        height: 45, width: '60%',
+                        alignSelf: 'center', alignItems: 'center',
+                        justifyContent: 'center', marginTop: 20,
+                        borderRadius: 10,
+                        marginBottom:10,
+                        backgroundColor: APP_YELLOW
+                    }}
+                        onPress={() => {
+                            this.CarDetailApi()
+                            
                         }}>
-                            <ActivityIndicator
-                                animating={this.state.isLoading}
-                                size='large'
+                        <Text style={{
+                            fontSize: 18, fontWeight: '800',
 
-                                color={APP_BLUE}
-                            ></ActivityIndicator>
+                            color: 'white'
+                        }}>View Car</Text></TouchableOpacity>
 
-                        </View>
-                    }
-                    {/* </ScrollView> */}
-                {/* </KeyboardAvoidingView> */}
+                    </View>
+                </ScrollView>
 
+                {this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
+                        onPress={() => {
+                            this.setState({
+                                isShow: false
+                            })
+                        }}
+                    >
+                        <TouchableOpacity style={{
+                            width: '90%',
+                            borderRadius: 10,
+
+                            overflow: 'hidden',
+                            backgroundColor: 'white'
+                        }}
+                            onPress={() => {
+                                this.setState({
+                                    isShow: false
+                                })
+                            }}>
+                            <Image style={{
+                                height: 250,
+                                width: '100%'
+                            }}
+                                source={{ uri: this.state.cardetail.image }}>
+                            </Image>
+                            <View style={{
+                                marginTop: 10,
+                                width: '85%',
+                                alignSelf: 'center',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignSelf: 'center',
+                                    width: '95%',
+                                }}>
+                                    <Text style={{
+                                        fontSize: 17,
+                                        fontWeight: '800',
+                                        color: APP_YELLOW
+                                    }}>Car name</Text>
+                                    <Text style={{
+                                        fontSize: 17, marginLeft: 120
+                                    }}>{this.state.cardetail.brand_name}</Text>
+                                </View>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignSelf: 'center', marginTop: 5,
+                                    width: '95%'
+                                }}>
+                                    <Text style={{
+                                        fontSize: 17,
+                                        fontWeight: '800', color: APP_YELLOW
+                                    }}>Model name</Text>
+                                    <Text style={{
+                                        fontSize: 17, marginLeft: 95
+                                    }}>{this.state.cardetail.model_name}</Text>
+                                </View>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignSelf: 'center', marginTop: 5,
+                                    width: '95%'
+                                }}>
+                                    <Text style={{
+                                        fontSize: 17,
+                                        fontWeight: '800', color: APP_YELLOW
+                                    }}>Vehicle no.</Text>
+                                    <Text style={{
+                                        fontSize: 17, marginLeft: 105,
+                                    }}
+                                        numberOfLines={2}>
+                                        {this.state.cardetail.vehicle_no}
+                                    </Text>
+                                </View>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    marginBottom: 5,
+                                    alignSelf: 'center', marginTop: 5
+                                    , width: '95%'
+                                }}>
+                                    <Text style={{
+                                        fontSize: 17,
+                                        fontWeight: '800', color: APP_YELLOW
+                                    }}>Manufacture year</Text>
+                                    <Text style={{
+                                        fontSize: 17, marginLeft: 45
+                                    }}>{this.state.cardetail.manufacture_year}</Text>
+                                </View>
+
+
+                            </View>
+
+                        </TouchableOpacity>
+
+                    </TouchableOpacity>
+                }
+
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
             </SafeAreaView>
         );
     }
-
-    MyPurchase = (item,section) => {
-        return (
-            <TouchableOpacity style={{
-                height: 120,
-                marginTop: 5,
-                marginBottom:5,
-                width: '95%', 
-                borderRadius:10,borderColor:APP_BLUE,borderWidth:1,
-                alignSelf: 'center', 
-                // backgroundColor: 'pink',
-                overflow:'hidden'
-            }}
-            onPress={()=> {
-                // if(section.title == 'Current Purchase'){
-                //     this.props.navigation.push('PurchaseDetail',{
-                //         data:item
-                //     })
-                // }else{
-                //     this.props.navigation.push('PastPurchaseDetail',{
-                //         data:item
-                //     })
-                // }
-            }
-              }>
-                <View style={{flexDirection:'row'}}>
-                <Image style={{height:120,
-                width:'40%',}}
-            resizeMode='cover'
-                source={item.image ==  null ?
-                    require('../assets/placeholder.jpg'):
-                    {uri:item.image}}>
-
-                </Image>
-                <View  style={{marginLeft:15,marginTop:20}}>
-               <Text style={{fontSize:17,
-                    fontWeight:'700'}}>
-                        {/* Product name */}
-                        {item.product_name}
-                    </Text>
-                    <Text style={{marginTop:10}}>
-                        {moment.utc(item.created_at).local().format('DD-MM-YYYY hh:mm a')}
-                        {/* 20/03/2020 */}
-                    </Text>
-                </View>
-                </View>
-
-            </TouchableOpacity>
-        )
-    }
 }
-
-
-
-
-
