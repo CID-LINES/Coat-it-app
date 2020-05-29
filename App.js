@@ -26,7 +26,7 @@ import AddCar from './Screen/AddCar'
 import Notification from './Screen/Notification'
 import UserProfile from './Screen/UserProfile'
 import { APP_BLUE, APP_LIGHT, APP_YELLOW } from "./Component/colors";
-import Purchase from './Screen/Purchase'
+import DetailerCar from './Screen/DetailerCar'
 import MyCars from './Screen/MyCars'
 import Settings from './Screen/Settings'
 import ServiceDetail from './Screen/ServiceDetail'
@@ -100,7 +100,7 @@ const Tabnavigation =createBottomTabNavigator({
     CarDetail : {screen : CarDetail},
     Home: {screen: Tabnavigation},
     AddCar :{screen :AddCar},
-    Purchase:{screen :Purchase},
+    DetailerCar:{screen :DetailerCar},
     MyCars:{screen: MyCars},
    Settings :{ screen : Settings},
    ServiceDetail:{screen :ServiceDetail},

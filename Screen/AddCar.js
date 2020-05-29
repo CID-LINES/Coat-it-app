@@ -185,8 +185,8 @@ export default class AddCar extends Component {
                     );
                     alert('The details of the car has been saved')
                  }
-                else{
-                    alert(responseJson.response.message)
+                 else{
+                    alert('image must be requried')
                 }
                 this.setState({
                     isLoading: false

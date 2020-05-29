@@ -219,7 +219,7 @@ export default class DetailerList extends Component {
                         flexDirection: 'row'
                     }}
                         onPress={() => {
-                            this.props.navigation.navigate('Purchase',{
+                            this.props.navigation.push('DetailerCar',{
                                 plan:item.service,
                                 car:item.car_name
                             })

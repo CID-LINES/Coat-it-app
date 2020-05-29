@@ -8,24 +8,24 @@ export default class ServiceDeatil extends Component {
         this.state = {
             user_id: '',
             data: props.navigation.state.params.plan,
-            serviceplan:'',
-            car:props.navigation.state.params.car,
-            cardetail:"",
-            isHide:false
+            serviceplan: '',
+            car: props.navigation.state.params.car,
+            cardetail: "",
+            isHide: false
         }
         console.log(JSON.stringify(this.state.car))
     }
 
-componentDidMount(){
-    this.PlanApi()
-}
+    componentDidMount() {
+        this.PlanApi()
+    }
     PlanApi = () => {
         this.setState({
             isLoading: true
 
         })
 
-        fetch('http://3.137.41.50/coatit/public/api/plan/display/' +this.state.data,
+        fetch('http://3.137.41.50/coatit/public/api/plan/display/' + this.state.data,
             {
                 method: 'GET',
                 headers: {
@@ -43,7 +43,7 @@ componentDidMount(){
                         serviceplan: responseJson.response.data,
                         isHide: true
                     })
-                    
+
                 }
                 this.setState({
                     isLoading: false,
@@ -59,7 +59,7 @@ componentDidMount(){
             });
 
     }
-  
+
     CarDetailApi = (car_name, index) => {
         this.setState({
             isLoading: true
@@ -84,7 +84,10 @@ componentDidMount(){
                         cardetail: responseJson.response.carDetails,
                         isShow: true
                     })
-                    // // alert('helo')
+                }
+                else
+                {
+                    alert(responseJson.response.message)
                 }
                 this.setState({
                     isLoading: false,
@@ -106,13 +109,16 @@ componentDidMount(){
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 60,
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignSelf: 'center', marginTop: 10
+                    alignItems:'center',
+                    alignSelf: 'center',
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
+                       // height: 35,
+                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute', left: 5
@@ -121,25 +127,32 @@ componentDidMount(){
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                        <Image style={{ height: 25, 
+                        width: 25, 
+                        tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
                     </TouchableOpacity>
-                    <View style={{
-                        height: 35, width: '80%',
+                    <TouchableOpacity style={{
+                       // height: 40, 
+                        width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
 
+                    }}
+                    onPress={() => {
+                        this.props.navigation.goBack()
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
+                            fontSize: 18, 
+                            fontWeight: '700',
                             color: APP_YELLOW,
 
                         }}
                             numberOfLines={0}>{this.state.serviceplan.name}</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1, backgroundColor: 'white' }}
@@ -193,24 +206,24 @@ componentDidMount(){
 
                             </Text>
                         </View>
-                       
-                    <TouchableOpacity style={{
-                        height: 45, width: '60%',
-                        alignSelf: 'center', alignItems: 'center',
-                        justifyContent: 'center', marginTop: 20,
-                        borderRadius: 10,
-                        marginBottom:10,
-                        backgroundColor: APP_YELLOW
-                    }}
-                        onPress={() => {
-                            this.CarDetailApi()
-                            
-                        }}>
-                        <Text style={{
-                            fontSize: 18, fontWeight: '800',
 
-                            color: 'white'
-                        }}>View Car</Text></TouchableOpacity>
+                        <TouchableOpacity style={{
+                            height: 45, width: '60%',
+                            alignSelf: 'center', alignItems: 'center',
+                            justifyContent: 'center', marginTop: 20,
+                            borderRadius: 10,
+                            marginBottom: 10,
+                            backgroundColor: APP_YELLOW
+                        }}
+                            onPress={() => {
+                                this.CarDetailApi()
+
+                            }}>
+                            <Text style={{
+                                fontSize: 18, fontWeight: '800',
+
+                                color: 'white'
+                            }}>View Car</Text></TouchableOpacity>
 
                     </View>
                 </ScrollView>
@@ -333,7 +346,6 @@ componentDidMount(){
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 

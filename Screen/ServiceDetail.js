@@ -97,16 +97,21 @@ export default class ServiceDeatil extends Component {
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 60, 
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignSelf: 'center', marginTop: 10
+                    alignSelf: 'center',
+                    alignItems:'center', 
+                    
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
+                      //  height: 35, 
+                        width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', left: 5
+                        position: 'absolute', 
+                        left: 5
 
                     }}
                         onPress={() => {
@@ -117,20 +122,24 @@ export default class ServiceDeatil extends Component {
                             source={require('../assets/back.png')}></Image>
 
                     </TouchableOpacity>
-                    <View style={{
-                        height: 35, width: '80%',
+                    <TouchableOpacity style={{
+                        //height: 35, 
+                        width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
 
+                    }} onPress={() => {
+                        this.props.navigation.goBack()
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
+                            fontSize: 18, 
+                            fontWeight: '700',
                             color: APP_YELLOW,
 
                         }}
                             numberOfLines={0}>{this.state.data.name}</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1, backgroundColor: 'white' }}

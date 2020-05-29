@@ -181,6 +181,9 @@ export default class CarDetail extends Component {
                     // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert('The details of the car has been saved')
                 }
+                else{
+                    alert('image must be requried')
+                }
                 this.setState({
                     isLoading: false
 
