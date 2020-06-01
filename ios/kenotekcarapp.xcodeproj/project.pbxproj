@@ -8,16 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* kenotekcarappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kenotekcarappTests.m */; };
+		0208E45478254010ACB4F733 /* EurostileExtended.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4360DD087E7B4976B9BE62A2 /* EurostileExtended.ttf */; };
+		0E0E0709B28C4A539214D5F7 /* EuroStyle Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D294C62A28744F74AD0EC6C3 /* EuroStyle Normal.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1FEDDD9CC37C9386EC937442 /* libPods-kenotekcarapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4835B55EFF52C24E1BB1C8DF /* libPods-kenotekcarapp.a */; };
+		23C37DA70596463DB0B8BB78 /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48C0D4857B6B444A87218F07 /* VarelaRound-Regular.ttf */; };
 		2A7C87179BE6CEBCB49F5716 /* libPods-kenotekcarappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* kenotekcarappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kenotekcarappTests.m */; };
 		373482922C9F5286BF752AA7 /* libPods-kenotekcarapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EC91CFD2C63DB408EFE46B /* libPods-kenotekcarapp-tvOS.a */; };
+		7467479D0629481E95C15FF6 /* EurostileOblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 915A81079E87498AA66B59A3 /* EurostileOblique.ttf */; };
+		7F5A564AFD1F4364A77FFC34 /* EurostileBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D11017133127425895102A1A /* EurostileBold.ttf */; };
 		8151C5F6242A076E00299D7B /* libReact-RCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5F5242A076E00299D7B /* libReact-RCTLinking.a */; };
 		8151C5F9242A0AEE00299D7B /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5F8242A0AEE00299D7B /* libDoubleConversion.a */; };
 		8151C5FB242A0AEE00299D7B /* libFBReactNativeSpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C5FA242A0AEE00299D7B /* libFBReactNativeSpec.a */; };
@@ -65,7 +70,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* kenotekcarappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kenotekcarappTests.m; sourceTree = "<group>"; };
 		02EC91CFD2C63DB408EFE46B /* libPods-kenotekcarapp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarapp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* kenotekcarapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kenotekcarapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Kenotek Coat IT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kenotek Coat IT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = kenotekcarapp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = kenotekcarapp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -76,7 +81,9 @@
 		2D02E4901E0B4A5D006451C7 /* kenotekcarapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kenotekcarapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3220E1FE6F5FE690FC63D2AD /* Pods-kenotekcarapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp.debug.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp/Pods-kenotekcarapp.debug.xcconfig"; sourceTree = "<group>"; };
 		3D730C414503BD7DC8E6DCC6 /* Pods-kenotekcarapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOS/Pods-kenotekcarapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4360DD087E7B4976B9BE62A2 /* EurostileExtended.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EurostileExtended.ttf; path = ../assets/fonts/EurostileExtended.ttf; sourceTree = "<group>"; };
 		4835B55EFF52C24E1BB1C8DF /* libPods-kenotekcarapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48C0D4857B6B444A87218F07 /* VarelaRound-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "VarelaRound-Regular.ttf"; path = "../assets/fonts/VarelaRound-Regular.ttf"; sourceTree = "<group>"; };
 		73890F53E127419837A91CBF /* Pods-kenotekcarapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp/Pods-kenotekcarapp.release.xcconfig"; sourceTree = "<group>"; };
 		81090A5C24288FE700D93885 /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8151C5F5242A076E00299D7B /* libReact-RCTLinking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTLinking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,10 +118,13 @@
 		8169A8D72429F41B00B2F9AA /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8169A8D92429F42400B2F9AA /* libreact-native-maps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-maps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED3B21D6800E392B2A88A67 /* libPods-kenotekcarapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		915A81079E87498AA66B59A3 /* EurostileOblique.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EurostileOblique.ttf; path = ../assets/fonts/EurostileOblique.ttf; sourceTree = "<group>"; };
 		9E10E1210515951E7EB711B1 /* Pods-kenotekcarapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOS/Pods-kenotekcarapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F122675A8D7B82097DB1B1 /* Pods-kenotekcarapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOSTests/Pods-kenotekcarapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C75F7C973A2528EDE02B4C4C /* Pods-kenotekcarapp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarapp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-kenotekcarapp-tvOSTests/Pods-kenotekcarapp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D11017133127425895102A1A /* EurostileBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EurostileBold.ttf; path = ../assets/fonts/EurostileBold.ttf; sourceTree = "<group>"; };
+		D294C62A28744F74AD0EC6C3 /* EuroStyle Normal.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "EuroStyle Normal.ttf"; path = "../assets/fonts/EuroStyle Normal.ttf"; sourceTree = "<group>"; };
 		D65594DC68A6F91623F58579 /* Pods-kenotekcarappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarappTests.release.xcconfig"; path = "Target Support Files/Pods-kenotekcarappTests/Pods-kenotekcarappTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1A837BAB661362E36C8DD56 /* Pods-kenotekcarappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenotekcarappTests.debug.xcconfig"; path = "Target Support Files/Pods-kenotekcarappTests/Pods-kenotekcarappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -254,6 +264,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7E411CC3C0F54547AC67F762 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D11017133127425895102A1A /* EurostileBold.ttf */,
+				4360DD087E7B4976B9BE62A2 /* EurostileExtended.ttf */,
+				915A81079E87498AA66B59A3 /* EurostileOblique.ttf */,
+				D294C62A28744F74AD0EC6C3 /* EuroStyle Normal.ttf */,
+				48C0D4857B6B444A87218F07 /* VarelaRound-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +292,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				98A848E7BA2EBEC29ADF46EF /* Pods */,
+				7E411CC3C0F54547AC67F762 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -279,7 +302,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* kenotekcarapp.app */,
+				13B07F961A680F5B00A75B9A /* Kenotek Coat IT.app */,
 				00E356EE1AD99517003FC87E /* kenotekcarappTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* kenotekcarapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* kenotekcarapp-tvOSTests.xctest */,
@@ -341,7 +364,7 @@
 			);
 			name = kenotekcarapp;
 			productName = kenotekcarapp;
-			productReference = 13B07F961A680F5B00A75B9A /* kenotekcarapp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Kenotek Coat IT.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* kenotekcarapp-tvOS */ = {
@@ -446,6 +469,11 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				7F5A564AFD1F4364A77FFC34 /* EurostileBold.ttf in Resources */,
+				0208E45478254010ACB4F733 /* EurostileExtended.ttf in Resources */,
+				7467479D0629481E95C15FF6 /* EurostileOblique.ttf in Resources */,
+				0E0E0709B28C4A539214D5F7 /* EuroStyle Normal.ttf in Resources */,
+				23C37DA70596463DB0B8BB78 /* VarelaRound-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +809,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
-				PRODUCT_NAME = kenotekcarapp;
+				PRODUCT_NAME = "Kenotek Coat IT";
 				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -838,7 +866,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
-				PRODUCT_NAME = kenotekcarapp;
+				PRODUCT_NAME = "Kenotek Coat IT";
 				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

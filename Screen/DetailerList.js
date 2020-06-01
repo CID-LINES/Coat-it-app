@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert, RefreshControl } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -94,8 +94,7 @@ export default class DetailerList extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior='padding' enabled>
+                
                     <View style={{
                         height: 40, width: '95%',
                         justifyContent: 'center',
@@ -127,7 +126,7 @@ export default class DetailerList extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_YELLOW
+                                color: APP_YELLOW,fontFamily:'EuroStileBold',
                             }}>Detailer List</Text>
                         </View>
                     </View>
@@ -145,7 +144,7 @@ export default class DetailerList extends Component {
                             )}></FlatList>
                     </View>
                     {/* </ScrollView> */}
-                </KeyboardAvoidingView>
+               
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
@@ -185,7 +184,7 @@ export default class DetailerList extends Component {
             >
                 <View style={{
                 height:120,
-                    width: '40%'
+                    width: Dimensions.get('window').width/3
                 }}>
                     <Image style={{
                         height: 120,
@@ -193,7 +192,7 @@ export default class DetailerList extends Component {
                         width: '100%',
                     }}
                         resizeMode='cover'
-                        source={item.avatar == null ?
+                        source={item.avatar == null||item.avatar==0 ?
                             require('../assets/placeholder.jpg')
                             : { uri: item.avatar }}>
 
@@ -205,13 +204,13 @@ export default class DetailerList extends Component {
                     width: '55%'
                 }}>
                     <Text style={{fontSize:17,
-                    fontWeight:'800'}}
+                    fontWeight:'800',fontFamily:'EuroStileBold',}}
                     numberOfLines={2}>
                         {item.first_name}
                     </Text>
                    
                     <TouchableOpacity style={{
-                       // height: 30,
+                        height: 40,
                         marginTop:10,
                         width: '80%',
                         alignItems: 'center',
@@ -225,7 +224,8 @@ export default class DetailerList extends Component {
                             })
                         }}>
                             <View style={{width:'95%'}}>
-                    <Text numberOfLines={0}>{item.service}</Text>
+                    <Text style={{ fontFamily:'EuroStyle',
+                fontSize:17}} numberOfLines={0}>{item.service}</Text>
                         </View>
                         <Image style={{
                             height: 15,
@@ -237,7 +237,9 @@ export default class DetailerList extends Component {
                             </Image>
                     </TouchableOpacity>
                     <Text style={{
-                        marginTop: 5,
+                        marginTop: 10,
+                        fontSize:17,
+                        fontFamily:'EuroStyle',
                     }}
                         numberOfLines={0}>
                       {item.car_name}

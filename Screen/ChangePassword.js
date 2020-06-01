@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Platform } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Platform, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { ApiCall, CallApi } from '../Component/ApiClient';
 
@@ -112,8 +112,10 @@ export default class ChangePassword extends Component {
 
                     }}>
                         <Text style={{
-                                fontSize: 18, fontWeight: '700',
-                                color: APP_YELLOW
+                                fontSize: 20, 
+                                fontWeight: '700',
+                                color: APP_YELLOW,
+                                fontFamily:'EuroStileBold',
                             }}>Kenotek Coat IT
                             </Text>
                     </View>
@@ -125,22 +127,26 @@ export default class ChangePassword extends Component {
                         <View style={{ flex: 1 }}>
 
                             <View style={{
-                                height: 200, width: '100%',
+                                height: Dimensions.get('window').height/2.5,
+                                width: '80%',
+                                 alignSelf:'center',
                                 justifyContent: 'center'
                             }}>
                                 <Image style={{
-                                    height: 200,
-                                    width: 200, alignSelf: 'center',
+                                    flex:1,
+                                    width: '100%', 
+                                    alignSelf: 'center',
                                     // marginTop: 20
                                 }}
-                                    resizeMode='cover'
-                                    source={require('../assets/car-logo.png')}>
+                                    resizeMode='contain'
+                                    source={require('../assets/logo.png')}>
 
                                 </Image>
                             </View>
 
                             <View style={{
-                                width: '100%', marginTop: 20,
+                                width: '100%',
+                                 marginTop: 30,
                                 alignItems: 'center'
                             }}>
 
@@ -148,6 +154,7 @@ export default class ChangePassword extends Component {
                                 <Text style={{
                                     width: '75%',
                                     marginTop: 10
+                                    ,fontFamily:'EuroStileBold',
                                 }}>Old Password</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -169,7 +176,9 @@ export default class ChangePassword extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
 
-                                <Text style={{ width: '75%', marginTop: 10 }}>New Password</Text>
+                                <Text style={{ width: '75%',
+                                fontFamily:'EuroStileBold', 
+                                marginTop: 10 }}>New Password</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
@@ -194,19 +203,22 @@ export default class ChangePassword extends Component {
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 backgroundColor: APP_YELLOW,
-                                marginTop: 15,
+                                marginTop: 20,
                                 alignSelf: 'center',
                                 shadowColor: 'gray',
-                                shadowOpacity: 0.5,
-                                shadowRadius: 1,
-                                shadowOffset: { width: 2, height: 1 },
+                                // shadowOpacity: 0.5,
+                                // shadowRadius: 1,
+                                // shadowOffset: { width: 2, height: 1 },
                                 borderRadius: 10, alignItems: 'center',
                                 justifyContent: 'center'
                             }}
                                 onPress={() => {
                                     this.ChangePassword()
                                 }}>
-                                <Text style={{ fontSize: 18, fontWeight: '700', color: 'white' }}>Submit</Text>
+                                <Text style={{ fontSize: 20, 
+                                    fontWeight: '700', 
+                                    fontFamily:'EuroStileBold',
+                                    color: 'white' }}>Submit</Text>
 
                             </TouchableOpacity>
 

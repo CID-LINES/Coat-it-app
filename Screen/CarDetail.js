@@ -5,7 +5,8 @@ import {
     KeyboardAvoidingView,
     StyleSheet,
     ActivityIndicator,
-    AsyncStorage
+    AsyncStorage,
+    Dimensions
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
@@ -235,7 +236,8 @@ export default class CarDetail extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, fontWeight: '700',
-                            color: APP_YELLOW
+                            color: APP_YELLOW,
+                            fontFamily:'EuroStileBold'
                         }}>Car Detail</Text>
                     </View>
                 </View>
@@ -245,14 +247,14 @@ export default class CarDetail extends Component {
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: 180,
+                                height: Dimensions.get('window').height/3.5,
                                 width: '100%',
                                 justifyContent: 'center',
                                 alignItems: 'center'
                                 // backgroundColor:'pink'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 180,
+                                  flex:1,
                                     width: '95%',
 
                                     borderRadius: 10,
@@ -263,7 +265,9 @@ export default class CarDetail extends Component {
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-                                    <Image style={{ height: 180, width: '100%' }}
+                                    <Image style={{ 
+                                         flex:1, 
+                                    width: '100%' }}
                                         resizeMode='cover'
                                         source={cache = "force-cache",
                                             this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}>
@@ -285,7 +289,9 @@ export default class CarDetail extends Component {
                                 </View>
                             </View>
                             <View style={{ width: '100%', marginTop: 10 }}>
-                                <Text style={{ marginLeft: 35, fontWeight: '600', }}>Brand/Company Name</Text>
+                                <Text style={{ marginLeft: 35, 
+                                    fontWeight: '600',
+                                    fontFamily:'EuroStileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -304,7 +310,8 @@ export default class CarDetail extends Component {
                                 <Text style={{
                                     marginLeft: 35,
                                     fontWeight: '600',
-                                    marginTop: 20
+                                    marginTop: 20,
+                                    fontFamily:'EuroStileBold'
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -324,7 +331,9 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '600',
+                                    marginLeft: 35, 
+                                    fontWeight: '600',
+                                    fontFamily:'EuroStileBold',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -344,7 +353,8 @@ export default class CarDetail extends Component {
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, fontWeight: '600',
-                                    marginTop: 20
+                                    marginTop: 20,
+                                    fontFamily:'EuroStileBold',
                                 }}>Year of Manufacture</Text>
 
                                 <View style={{
@@ -415,7 +425,9 @@ export default class CarDetail extends Component {
                                     this.CarDetail()
                                 }}>
                                 <Text style={{
-                                    fontWeight: '700', color: 'white',
+                                    fontWeight: '700', 
+                                    color: 'white',
+                                    fontFamily:'EuroStileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
                             </TouchableOpacity>
@@ -435,7 +447,9 @@ export default class CarDetail extends Component {
                                     this.props.navigation.navigate('Home')
                                 }}>
                                 <Text style={{
-                                    fontWeight: '700', color: APP_YELLOW,
+                                    fontWeight: '700', 
+                                    color: APP_YELLOW,
+                                    fontFamily:'EuroStileBold',
                                     fontSize: 18
                                 }}>Skip</Text>
                             </TouchableOpacity>

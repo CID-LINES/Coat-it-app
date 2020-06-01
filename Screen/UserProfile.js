@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, Share, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, Share, AsyncStorage, ActivityIndicator, Dimensions } from 'react-native';
 import { APP_BLUE, APP_LIGHT, APP_YELLOW } from '../Component/colors'
 import { StackActions, NavigationActions } from 'react-navigation';
 import { CallGetApi } from '../Component/ApiClient';
@@ -95,7 +95,9 @@ export default class UserProfile extends Component {
                     }}>
                         <Text style={{
                             fontWeight: '800',
-                            fontSize: 18, color: APP_YELLOW
+                            fontSize: 18,
+                             color: APP_YELLOW,
+                             fontFamily:'EuroStileBold',
                         }}>
                             User Profile
                             </Text>
@@ -121,19 +123,16 @@ export default class UserProfile extends Component {
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: 150,
+                                height: Dimensions.get('window').height/3.5,
                                 marginTop: 5,
                                 width: '100%', 
                                 justifyContent: 'center',
                                 // backgroundColor:'pink'
                             }}>
                                 <View style={{
-                                    height: 130,
-                                    width: 130,
-                                    //backgroundColor: 'gray',
-                                    borderRadius: 65,
-                                    // borderColor: APP_YELLOW,
-                                    // borderWidth: 3,
+                                    height: 150,
+                                    width: 150,
+                                    borderRadius: 90,
                                     alignSelf: 'center',
                                     justifyContent: 'center',
                                     overflow: 'hidden'
@@ -143,7 +142,7 @@ export default class UserProfile extends Component {
                                             isShow:true
                                         })
                                     }}>
-                                    <Image style={{ height: 130, width: 130 }}
+                                    <Image style={{ height: 150, width: 150 }}
                                         resizeMode='cover'
                                         source={this.state.data.avatar == null ?
                                             require('../assets/placeholder.jpg')
@@ -153,9 +152,7 @@ export default class UserProfile extends Component {
                                 </View>
                             </View>
                             <View style={{
-                               // width: '85%',
                                  justifyContent: 'center',
-                                 //alignItems:'center',
                                 alignSelf: 'center', 
                                 marginTop: 20,
                                 borderColor:APP_YELLOW,
@@ -170,7 +167,7 @@ export default class UserProfile extends Component {
                                 //width:'60%',
                                 marginTop:10}}>
                                     <Text style={{fontWeight:'700',
-                                    marginLeft:15,
+                                    marginLeft:15, fontFamily:'EuroStileBold',
                                 fontSize:17,
                                 color:APP_YELLOW}}>Customer id </Text>
                                 <Text style={{marginLeft:30,
@@ -186,10 +183,10 @@ export default class UserProfile extends Component {
                                 // justifyContent:'space-between'
                                 }}>
                                     <Text style={{fontWeight:'700',
-                                    marginLeft:15,
+                                    marginLeft:15, fontFamily:'EuroStileBold',
                                 fontSize:17,color:APP_YELLOW}}>Name </Text>
                                 <Text style={{marginLeft:80,
-                                fontSize:16,fontWeight:'500',marginRight:15}}>
+                                fontSize:16,fontWeight:'500',marginRight:15, fontFamily:'EuroStileBold',}}>
                                     {this.state.data.first_name} {this.state.data.last_name}
                                   </Text>
                                 </View>
@@ -197,10 +194,12 @@ export default class UserProfile extends Component {
                             // width:'80%',justifyContent:'space-between'
                             }}>
                                     <Text style={{fontWeight:'700',
-                                    marginLeft:15,
+                                    marginLeft:15, fontFamily:'EuroStileBold',
                                 fontSize:17,color:APP_YELLOW}}>Email </Text>
                                 <Text style={{marginLeft:82,
-                                fontSize:16,fontWeight:'500',marginRight:15,}}>
+                                fontSize:16,fontWeight:'500',
+                                marginRight:15, 
+                                fontFamily:'EuroStileBold',}}>
                                     {this.state.data.email}
                                   </Text>
                                 </View>
@@ -210,9 +209,11 @@ export default class UserProfile extends Component {
                             // width:'60%',justifyContent:'space-between'
                             }}>
                                     <Text style={{fontWeight:'700',marginLeft:15,
+                                     fontFamily:'EuroStileBold',
                                 fontSize:17,color:APP_YELLOW}}>Phone no </Text>
                                 <Text style={{marginLeft:50,marginRight:15,
-                                fontSize:16,fontWeight:'500'}}>
+                                fontSize:16,fontWeight:'500',
+                                fontFamily:'EuroStileBold',}}>
                                     {this.state.data.phone_no}
                                   </Text>
                                 </View>
@@ -223,17 +224,21 @@ export default class UserProfile extends Component {
 
                         <View style={{ marginTop: 20 }}>
                             <TouchableOpacity style={{
-                                height: 40, width: '60%',
-                                alignItems: "center", justifyContent: 'center',
-                                borderRadius: 10, alignSelf: 'center',
-                                backgroundColor: APP_YELLOW
+                                height: 40, 
+                                width: '60%',
+                                alignItems: "center", 
+                                justifyContent: 'center',
+                                borderRadius: 10, 
+                                alignSelf: 'center',
+                                backgroundColor: APP_YELLOW,
+                              
                             }}
                                 onPress={() => {
                                     this.props.navigation.navigate('DetailerList')
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
-                                    color: 'white'
+                                    color: 'white', fontFamily:'EuroStileBold',
                                 }}>My Detailer</Text>
                             </TouchableOpacity>
 
@@ -242,13 +247,15 @@ export default class UserProfile extends Component {
                                 marginTop: 10,
                                 alignItems: "center", justifyContent: 'center',
                                 borderRadius: 10, alignSelf: 'center',
-                                backgroundColor: APP_YELLOW
+                                backgroundColor: APP_YELLOW,
+                               
                             }}
                                 onPress={() => {
                                     this.props.navigation.navigate('MyCars')
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
+                                    fontFamily:'EuroStileBold',
                                     color: 'white'
                                 }}>My Cars</Text>
                             </TouchableOpacity>
@@ -261,7 +268,8 @@ export default class UserProfile extends Component {
                                 justifyContent: 'center',
                                 borderRadius: 10,
                                 alignSelf: 'center',
-                                backgroundColor: APP_YELLOW
+                                backgroundColor: APP_YELLOW,
+                               
                             }}
                                 onPress={() => {
                                     this.props.navigation.navigate('Settings', {
@@ -270,7 +278,7 @@ export default class UserProfile extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
-                                    color: 'white'
+                                    color: 'white', fontFamily:'EuroStileBold',
                                 }}>Settings</Text>
                             </TouchableOpacity>
 

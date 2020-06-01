@@ -105,7 +105,9 @@ export default class Home extends Component {
                     }}>
                         <Text style={{
                             fontWeight: '800',
-                            fontSize: 18, color: APP_YELLOW
+                            fontSize: 18,
+                             color: APP_YELLOW,
+                             fontFamily:'EuroStileBold',
                         }}>
                             Service Plan
                             </Text>
@@ -163,16 +165,16 @@ export default class Home extends Component {
                 })
             }}>
                 <View style={{
-                    height: 150,
+                    height: Dimensions.get('window').height/4,
                     width: '100%'
                 }} >
                     <Image style={{
-                        height: 150,
+                       flex:1,
                         width: '100%'
                     }}
                         resizeMode='cover'
                         source={item.image == null ?
-                            require('../assets/car-icon.jpg') :
+                            require('../assets/placeholder.jpg') :
                             { uri: item.image }}></Image>
                 </View>
                 <View style={{
@@ -180,9 +182,14 @@ export default class Home extends Component {
                     marginTop: 10,
                      marginLeft: 10,
                 }}>
-                        <Text style={{ fontSize: 17, fontWeight: 'bold' }}
+                        <Text style={{ fontSize: 17,
+                         fontFamily:'EuroStileBold', 
+                         fontWeight: 'bold' }}
                     >{item.name}</Text>
-                    <Text style={{ fontSize: 16 ,marginTop:5}}
+                    <Text style={{ fontSize: 16 ,
+                     fontFamily:'EuroStyle',
+                     fontWeight:'600',
+                    marginTop:5}}
                     >{item.title}</Text>
 
                 </View>
@@ -204,7 +211,7 @@ export default class Home extends Component {
                         plan: item
                     })
                 }}>
-                    <Text style={{ color: 'white',
+                    <Text style={{ color: 'white', fontFamily:'EuroStileBold',
                 fontWeight:'700' }}>View details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>

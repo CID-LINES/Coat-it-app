@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator, Dimensions } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
@@ -81,7 +81,7 @@ componentDidMount(){
                                 height: 30, width: '100%'
                             }}>
                                 <Text style={{fontSize:18,
-                                fontWeight:'bold',
+                                fontWeight:'bold', fontFamily:'EuroStileBold',
                                 color:APP_YELLOW}}>Notifications</Text>
                             </View>
 
@@ -124,7 +124,8 @@ componentDidMount(){
         return(
             <View>
             <TouchableOpacity style={{
-            width:'100%',alignSelf:'center',
+            width:'95%',
+            alignSelf:'center',
             justifyContent:'center',
             //alignItems:'center',
             flexDirection:'row',
@@ -135,41 +136,54 @@ componentDidMount(){
                     data:item
                 })
             }}>
-                <View style={{height:60,width:60,
-                borderColor:APP_YELLOW,borderWidth:1,
-                borderRadius:10,overflow:'hidden'}}>
-                <Image style={{height:60,width:60,
+                <View style={{height:Dimensions.get('window').height/13
+                ,width:60,
+                borderColor:APP_YELLOW,
+                borderWidth:1,
+                marginLeft:10,
+                borderRadius:10,
+                overflow:'hidden'}}>
+                <Image style={{
+                    flex:1,
+                    width:60,
                // marginLeft:10,
                    resizeMode:'cover'
                 }}
-                    source={item.image == null ? require('../assets/placeholder.jpg'):
+                    source={item.image == null ? 
+                        require('../assets/placeholder.jpg'):
                     {uri:item.image}}>
                     </Image>
                     </View>
-                    <View style={{width:'70%',marginLeft:10,}}> 
-                  <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                    <View style={{width:'80%',
+                    justifyContent:'center',
+                    marginLeft:10,}}> 
+                  <View style={{flexDirection:'row',
+                  width:'70%',
+                  justifyContent:'space-between'}}>
                       <View>
-                  <Text style={{fontSize:17,fontWeight:'600'}}>
+                  <Text style={{fontSize:17,
+                    fontWeight:'600', 
+                    fontFamily:'EuroStileBold',}}>
                        {item.title}
                     </Text>
                     </View>
                     
-                  <Text style={{fontSize:16,       
-                    color:'gray'}}>
-                   {moment(item.created_at).format('hh:mm a')}
+                  <Text style={{fontSize:17,       
+                    color:'gray',
+                    marginLeft:5,
+                    fontFamily:'EuroStileBold'
+                    }}>
+                   {moment.utc(item.created_at,'HH:mm:ss').local().format('hh:mm a')}
                     </Text>
                   </View>
-                    
-                  
-                    <Text style={{fontSize:17,fontWeight:'400',
-                    
+                    <Text style={{fontSize:18,
+                    fontWeight:'600',
+                     fontFamily:'EuroStyle',
                     marginTop:5}}
                     numberOfLines={0}>
                         {item.description}
                     </Text>
-                    
                     </View>
-                 
             </TouchableOpacity>
             <View style={{height:2,width:'100%',
             marginBottom:5,

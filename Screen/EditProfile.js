@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { NavigationActions, StackActions } from 'react-navigation';
@@ -149,7 +149,8 @@ export default class Settings extends Component {
                     alignSelf: 'center',
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
+                        height: 35, 
+                        width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute', left: 5
@@ -158,7 +159,9 @@ export default class Settings extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                        <Image style={{ height: 25, 
+                        width: 25, 
+                        tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -183,12 +186,13 @@ export default class Settings extends Component {
                         <View style={{ flex: 1 }}>
 
                             <View style={{
-                                height: 180,
+                                height: Dimensions.get('window').height/3,
                                 marginTop:10,
-                                width: '100%', justifyContent: 'center'
+                                width: '100%', 
+                                justifyContent: 'center'
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 180,
+                                    flex:1,
                                     width: '95%',
                                     borderRadius: 10,
                                     
@@ -201,7 +205,7 @@ export default class Settings extends Component {
                                     }}>
 
                                     <Image style={{
-                                        height: 130,
+                                       // height: 130,
                                         flex:1,
                                         
                                     }}
@@ -234,8 +238,7 @@ export default class Settings extends Component {
                               position:'absolute',bottom:5,
                               right:18}}>
                                   <Image style={{height:30,width:30,
-                                  tintColor:'black'}}
-                                  
+                                  tintColor:'black'}}      
                                   source={require('../assets/camera.png')}></Image>
                               </View>
                                 
@@ -245,14 +248,13 @@ export default class Settings extends Component {
                                 marginTop: 20,
                                 alignItems: 'center'
                             }}>
-                                <Text style={{ width: '78%', fontWeight: '700' }}>First name</Text>
+                                <Text style={{ width: '78%',
+                                 fontWeight: '700',fontFamily:'EuroStileBold', }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    // borderRadius: 10,
+                                    
                                     padding: 5
                                 }}
                                     value={this.state.firstname}
@@ -267,6 +269,7 @@ export default class Settings extends Component {
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
+                                    fontFamily:'EuroStileBold',
                                     fontWeight: '700'
                                 }}>Last name</Text>
                                 <TextInput style={{
@@ -290,16 +293,16 @@ export default class Settings extends Component {
                                 }}></View>
 
                                 <Text style={{
-                                    width: '78%', marginTop: 10,
+                                    width: '78%',
+                                     marginTop: 10,
+                                     fontFamily:'EuroStileBold',
                                     fontWeight: '700'
                                 }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    // borderRadius: 10, 
+                                    
                                     padding: 5
                                 }}
                                     value={this.state.phone}
@@ -330,7 +333,9 @@ export default class Settings extends Component {
 
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, fontWeight: '700',
+                                    fontSize: 18, 
+                                    fontWeight: 'bold',
+                                    fontFamily:'EuroStileBold',
                                     color: 'white'
                                 }}>Submit</Text>
 

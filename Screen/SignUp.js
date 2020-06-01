@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage, StatusBar } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, ActivityIndicator, AsyncStorage, StatusBar, Dimensions } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
@@ -111,7 +111,7 @@ export default class SignUp extends Component {
                     this.props.navigation.replace('CarDetail')
                     
                 }
-            
+            alert(responseJson.response.message)
                 
                 this.setState({
                     isLoading: false
@@ -137,13 +137,15 @@ export default class SignUp extends Component {
                         <View style={{ flex: 1, backgroundColor: 'white' }}>
                             <View style={{
                                 alignSelf: 'center',
-                                alignItems: 'center', justifyContent: 'center',
+                                alignItems: 'center', 
+                                justifyContent: 'center',
                                 height: 30, width: '100%'
                             }}>
                                 <Text style={{
                                     fontSize: 20,
                                     fontWeight: 'bold',
-                                    color: APP_YELLOW
+                                    color: APP_YELLOW,
+                                    fontFamily:'EuroStileBold'
                                 }}>Kenotek Coat IT</Text>
                             </View>
                             <KeyboardAvoidingView style={{ flex: 1 }}
@@ -151,15 +153,14 @@ export default class SignUp extends Component {
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                             <View style={{
-                                height: 180,
-
+                                height: Dimensions.get('window').height/3.5,
                                 width: '100%',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 marginTop: 10
                             }}>
                                 <TouchableOpacity style={{
-                                    height: 180,
+                                    flex:1,
                                     width: '95%',
                                     borderRadius: 60,
                                     justifyContent: 'center',
@@ -171,7 +172,8 @@ export default class SignUp extends Component {
                                     }}>
 
                                     <Image style={{
-                                        height: 180,
+                                       
+                                        flex:1,
                                         width: '95%',
                                         borderRadius: 10,
                                         // maxHeight:100
@@ -184,9 +186,10 @@ export default class SignUp extends Component {
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{height:40,width:40,
-                              
-                                alignItems:'center',justifyContent:'center',
-                                position:'absolute',bottom:5,
+                                alignItems:'center',
+                                justifyContent:'center',
+                                position:'absolute',
+                                bottom:5,
                                 right:28}}>
                                     <Image style={{height:30,width:30,
                                     tintColor:'black'}}
@@ -199,7 +202,9 @@ export default class SignUp extends Component {
                                 marginTop: 20,
                                 alignItems: 'center'
                             }}>
-                                <Text style={{ width: '80%', fontWeight: '600', }}>First name</Text>
+                                <Text style={{ width: '80%',
+                                 fontWeight: '600',
+                                 fontFamily:'EuroStileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
@@ -216,12 +221,14 @@ export default class SignUp extends Component {
                                     placeholderTextColor='gray'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', 
+                                    backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
                                     fontWeight: '600',
-                                    marginTop: 10
+                                    marginTop: 10,
+                                    fontFamily:'EuroStileBold',
                                 }}>Last name</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -246,6 +253,7 @@ export default class SignUp extends Component {
                                     width: '80%',
                                     marginTop: 10,
                                     fontWeight: '600',
+                                    fontFamily:'EuroStileBold',
                                 }}>Email</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -268,6 +276,7 @@ export default class SignUp extends Component {
                                 <Text style={{
                                     width: '80%', marginTop: 10,
                                     fontWeight: '600',
+                                    fontFamily:'EuroStileBold',
                                 }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -291,6 +300,7 @@ export default class SignUp extends Component {
                                 <Text style={{
                                     width: '80%', marginTop: 10,
                                     fontWeight: '600',
+                                    fontFamily:'EuroStileBold',
                                 }}>Password</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -328,7 +338,8 @@ export default class SignUp extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, fontWeight: '700',
-                                    color: 'white'
+                                    color: 'white',
+                                    fontFamily:'EuroStileBold',
                                 }}>Submit</Text>
 
 
@@ -368,7 +379,7 @@ export default class SignUp extends Component {
                                     }}>
                                     Already have an account ?<Text style={{
                                         alignSelf: 'center', color: APP_YELLOW,
-                                        fontWeight: '700'
+                                        fontWeight: '700',fontFamily:'EuroStileBold',
                                     }}> Login here</Text></Text>
                             </TouchableOpacity>
                             </ScrollView>

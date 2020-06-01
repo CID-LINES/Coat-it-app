@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
 export default class ServiceDeatil extends Component {
@@ -127,7 +127,8 @@ export default class ServiceDeatil extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, 
+                        <Image style={{
+                             height: 25, 
                         width: 25, 
                         tintColor: APP_YELLOW }}
                             resizeMode='contain'
@@ -149,6 +150,7 @@ export default class ServiceDeatil extends Component {
                             fontSize: 18, 
                             fontWeight: '700',
                             color: APP_YELLOW,
+                            fontFamily:'EuroStileBold',
 
                         }}
                             numberOfLines={0}>{this.state.serviceplan.name}</Text>
@@ -159,45 +161,47 @@ export default class ServiceDeatil extends Component {
                     >
 
                         <View style={{
-                            height: 250,
+                            height: Dimensions.get('window').height/3,
                             width: '100%', justifyContent: 'center',
                             alignItems: 'center'
                             // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
-                                height: 200,
+                               flex:1,
                                 width: '95%',
-
                                 borderRadius: 10,
                                 alignSelf: 'center',
-
                                 justifyContent: 'center',
                                 overflow: 'hidden'
                             }}>
-                                <Image style={{ height: 200, flex: 1 }}
+                                <Image style={{  flex: 1 }}
                                     resizeMode='cover'
                                     source={this.state.serviceplan.image == null ?
                                         require('../assets/placeholder.jpg') :
                                         { uri: this.state.serviceplan.image }
                                     }>
-
                                 </Image>
                             </TouchableOpacity>
                         </View>
                         <View style={{
-                            marginLeft: 10, marginRight: 10,
-                            width: '90%', alignSelf: 'center'
+                            marginLeft: 10,
+                             marginRight: 10,
+                            width: '90%', 
+                            alignSelf: 'center'
                         }}>
                             <Text style={{
                                 fontSize: 17,
-                                fontWeight: 'bold'
+                                fontWeight: 'bold',
+                                fontFamily:'EuroStileBold',
 
                             }}>
                                 {this.state.serviceplan.title}</Text>
                             <Text style={{
-                                fontSize: 17,
+                                fontSize: 19,
                                 marginBottom: 10,
-                                marginTop: 10, textAlign: 'justify',
+                                marginTop: 10, 
+                                textAlign: 'justify',
+                                fontFamily:'EuroStyle',
 
                             }}
                                 numberOfLines={0}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
 export default class NotificationDetail extends Component {
@@ -44,27 +44,29 @@ export default class NotificationDetail extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
-                                color: APP_YELLOW
+                                color: APP_YELLOW, fontFamily:'EuroStileBold',
                             }}>Notifications</Text>
                         </View>
                     </View>
             
                 <View style={{flex:1}}>
-                   <View style={{height:250,
+                   <View style={{height:Dimensions.get('window').height/2.5,
                         width:'100%',
                         justifyContent:'center',
                         alignItems:'center'
                         // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
-                                height:250,
+                               flex:1,
                             width:'95%',
-                           
                             borderRadius:10,
                             alignSelf:'center',
                             
-                            justifyContent:'center',overflow:'hidden'}}>
-                            <Image style={{height:250,flex:1}}
+                            justifyContent:'center',
+                            overflow:'hidden'}}>
+                            <Image style={{flex:1,
+                           // width:'100%'
+                        }}
                             resizeMode='cover'
                             source={this.state.data.image == null? 
                             require('../assets/placeholder.jpg'):
@@ -73,15 +75,18 @@ export default class NotificationDetail extends Component {
                         </View>
                                 <View style={{
                                     marginTop:10,
-                                marginLeft:10,marginRight:10,
-                                width:'90%',alignSelf:'center'}}>
+                                marginLeft:10,
+                                marginRight:10,
+                                width:'90%',
+                                alignSelf:'center'}}>
                         <Text style={{fontSize:17,
-                        fontWeight:'bold'
+                        fontWeight:'bold', fontFamily:'EuroStileBold',
                             }}>
                             {this.state.data.title}</Text>
-                            <Text style={{fontSize:17,
-                            
-                            marginTop:10,textAlign:'justify',
+                            <Text style={{fontSize:20,
+                            marginTop:10,
+                            textAlign:'justify',
+                            fontFamily:'EuroStyle',
                            }}
                             numberOfLines={0}>
                               {this.state.data.description}

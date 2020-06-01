@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
@@ -178,6 +178,7 @@ export default class MyCars extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, fontWeight: '700',
+                                fontFamily:'EuroStileBold',
                                 color: APP_YELLOW
                             }}>My Cars</Text>
                         </View>
@@ -266,16 +267,17 @@ export default class MyCars extends Component {
                    
                     <Image style={{
                         height: 120,
-                        width: '50%',
+                        width: Dimensions.get('window').width/2,
                     }}
                         resizeMode='cover'
-                        source={item.image == null ?
-                            require('../assets/placeholder.jpg') :
+                        source={item.image == null || item.image == 0 ?
+                            require('../assets/placeholder.jpg'):
                             { uri: item.image }}>
 
                     </Image>
            
-                    <View style={{ marginLeft:20, marginTop: 10 }}>
+                    <View style={{ marginLeft:20, 
+                        marginTop: 10 }}>
                         {/* <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
@@ -285,15 +287,17 @@ export default class MyCars extends Component {
                         <Text style={{
                             fontSize: 16,
                             fontWeight: '700',
-                            marginTop: 5
+                            marginTop: 5,
+                            fontFamily:'EuroStileBold',
                         }}>
                             {item.vehicle_no}
                         </Text>
-                        <Text style={{ marginTop: 5 }}>{item.manufacture_year}</Text>
+                        <Text style={{ marginTop: 10,
+                            fontFamily:'EuroStileBold', }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,
                             width: 30,
-                            marginTop: 5,
+                            marginTop:10,
                             marginBottom:5,
                             alignItems: 'center',
                             justifyContent: 'center',
