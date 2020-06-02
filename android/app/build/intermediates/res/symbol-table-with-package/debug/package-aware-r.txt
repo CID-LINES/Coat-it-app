@@ -1354,8 +1354,13 @@ drawable abc_vector_test
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
 drawable assets_back
+drawable assets_camera
 drawable assets_caricon
 drawable assets_carlogo
+drawable assets_deleteicon
+drawable assets_editdetail
+drawable assets_info
+drawable assets_logo
 drawable assets_notificationicon
 drawable assets_pencil
 drawable assets_placeholder
@@ -1420,6 +1425,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable node_modules_reactnativeimageplaceholder_images_emptyimage
 drawable node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon
 drawable node_modules_reactnavigationstack_lib_module_vendor_views_assets_backiconmask
 drawable notification_action_background
@@ -1611,6 +1617,8 @@ id month_navigation_bar
 id month_navigation_fragment_toggle
 id month_navigation_next
 id month_navigation_previous
+id month_picker
+id month_picker_dialog
 id month_title
 id mtrl_calendar_day_selector_frame
 id mtrl_calendar_days_of_week
@@ -1641,6 +1649,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number_spinners
 id off
 id on
 id outline
@@ -1760,6 +1769,7 @@ id wide
 id window
 id withText
 id wrap_content
+id year_picker
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1879,6 +1889,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout picker_list_view
 layout redbox_item_frame
 layout redbox_item_title
 layout redbox_view

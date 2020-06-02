@@ -137,6 +137,7 @@
     <orderEntry type="module" module-name="react-native-maps-lib-android-react-native-maps" />
     <orderEntry type="module" module-name="masked-view-android-react-native-community_masked-view" />
     <orderEntry type="module" module-name="react-native-gesture-handler-android-react-native-gesture-handler" />
+    <orderEntry type="module" module-name="react-native-month-year-picker" />
     <orderEntry type="module" module-name="react-native-reanimated-android-react-native-reanimated" />
     <orderEntry type="module" module-name="react-native-safe-area-context-android-react-native-safe-area-context" />
     <orderEntry type="module" module-name="react-native-screens-android-react-native-screens" />

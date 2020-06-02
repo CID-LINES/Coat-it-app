@@ -22,6 +22,8 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.imagepicker.ImagePickerPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
+// react-native-month-year-picker
+import com.gusparis.monthpicker.RNMonthPickerPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -77,6 +79,7 @@ public class PackageList {
       new RNGestureHandlerPackage(),
       new ImagePickerPackage(),
       new MapsPackage(),
+      new RNMonthPickerPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage()

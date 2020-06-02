@@ -127,8 +127,8 @@ export default class ChangePassword extends Component {
                         <View style={{ flex: 1 }}>
 
                             <View style={{
-                                height: Dimensions.get('window').height/2.5,
-                                width: '80%',
+                                height: Dimensions.get('window').height/2,
+                                width: 250,
                                  alignSelf:'center',
                                 justifyContent: 'center'
                             }}>

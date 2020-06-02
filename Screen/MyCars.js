@@ -4,7 +4,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
-
+import ImageLoad from 'react-native-image-placeholder';
 
 const DATA = [
     {
@@ -265,7 +265,7 @@ export default class MyCars extends Component {
             >
                 <View style={{ flexDirection: 'row' }}>
                    
-                    <Image style={{
+                    <ImageLoad style={{
                         height: 120,
                         width: Dimensions.get('window').width/2,
                     }}
@@ -273,11 +273,13 @@ export default class MyCars extends Component {
                         source={item.image == null || item.image == 0 ?
                             require('../assets/placeholder.jpg'):
                             { uri: item.image }}>
-
-                    </Image>
-           
-                    <View style={{ marginLeft:20, 
-                        marginTop: 10 }}>
+                    </ImageLoad>
+                    <View style={{ 
+                        marginLeft:20, 
+                        marginTop:10,
+                        // alignItems:'center',
+                        // justifyContent:'center'
+                        }}>
                         {/* <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
@@ -285,14 +287,16 @@ export default class MyCars extends Component {
                             {item.brand_name} {item.model_name}
                         </Text> */}
                         <Text style={{
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: '700',
-                            marginTop: 5,
+                       marginTop:10,
                             fontFamily:'EuroStileBold',
                         }}>
                             {item.vehicle_no}
                         </Text>
-                        <Text style={{ marginTop: 10,
+                        <Text style={{ 
+                            marginTop: 10,
+                            fontSize:17,
                             fontFamily:'EuroStileBold', }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,

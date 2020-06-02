@@ -182,8 +182,9 @@ export default class CarDetail extends Component {
                     // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert('The details of the car has been saved')
                 }
+              
                 else{
-                    alert('image must be requried')
+                    alert(responseJson.response.message)
                 }
                 this.setState({
                     isLoading: false
@@ -486,7 +487,11 @@ export default class CarDetail extends Component {
             alert('Please enter the vehicle number')
         } else if (this.state.manufacture_year == '') {
             alert('Please enter the manufacture date')
-        } else {
+        } else if(this.state.filePath == ''){
+            alert('Image must be required')
+
+        }
+        else {
             this.carDetailApi()
         }
     }

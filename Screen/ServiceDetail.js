@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
-
+import ImageLoad from 'react-native-image-placeholder';
 export default class ServiceDeatil extends Component {
     constructor(props) {
         super(props)
@@ -160,7 +160,7 @@ export default class ServiceDeatil extends Component {
                                 justifyContent: 'center',
                                 overflow: 'hidden'
                             }}>
-                                <Image style={{ 
+                                <ImageLoad style={{ 
                                     //height: 200,
                                  flex: 1 }}
                                     resizeMode='cover'
@@ -169,7 +169,7 @@ export default class ServiceDeatil extends Component {
                                         { uri: this.state.data.image }
                                     }>
 
-                                </Image>
+                                </ImageLoad>
                             </TouchableOpacity>
                         </View>
                         <View style={{

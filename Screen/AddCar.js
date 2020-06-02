@@ -186,7 +186,7 @@ export default class AddCar extends Component {
                     alert('The details of the car has been saved')
                  }
                  else{
-                    alert('image must be requried')
+                    alert(responseJson.response.message)
                 }
                 this.setState({
                     isLoading: false
@@ -415,10 +415,11 @@ export default class AddCar extends Component {
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', alignItems: 'center',
-                                justifyContent: 'center', marginBottom: 10,
-                                backgroundColor: APP_YELLOW, borderRadius: 10
+                                justifyContent: 'center', 
+                                marginBottom: 10,
+                                backgroundColor: APP_YELLOW,
+                                borderRadius: 10
                             }}
-
                                 onPress={() => {
                                     this.CarDetail()
 
@@ -475,7 +476,11 @@ export default class AddCar extends Component {
             alert('Please enter the vehicle number')
         } else if (this.state.manufacture_year == '') {
             alert('Please enter the manufacture year')
-        } else {
+        } else if(this.state.filePath == ''){
+            alert('Image must be required')
+
+        }
+        else {
             this.addCarApi()
         }
     }

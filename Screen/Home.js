@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
+import ImageLoad from 'react-native-image-placeholder';
 
 
 const DATA = [
@@ -168,14 +169,14 @@ export default class Home extends Component {
                     height: Dimensions.get('window').height/4,
                     width: '100%'
                 }} >
-                    <Image style={{
+                    <ImageLoad style={{
                        flex:1,
                         width: '100%'
                     }}
                         resizeMode='cover'
                         source={item.image == null ?
                             require('../assets/placeholder.jpg') :
-                            { uri: item.image }}></Image>
+                            { uri: item.image }}></ImageLoad>
                 </View>
                 <View style={{
                     width:'95%',

@@ -3,14 +3,15 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
-const DATA=[
-{
-    title:'first'
-},{
-    title:'first'
-},{
-    title:'first'
-}
+import ImageLoad from 'react-native-image-placeholder';
+const DATA = [
+    {
+        title: 'first'
+    }, {
+        title: 'first'
+    }, {
+        title: 'first'
+    }
 ]
 
 
@@ -18,14 +19,14 @@ export default class Notification extends Component {
     constructor() {
         super()
         this.state = {
-            data:[],
-            isFetching:false
+            data: [],
+            isFetching: false
         }
     }
 
-componentDidMount(){
-    this.NotificationApi()
-}
+    componentDidMount() {
+        this.NotificationApi()
+    }
     NotificationApi = () => {
         this.setState({
             isLoading: true
@@ -52,7 +53,7 @@ componentDidMount(){
                 }
                 this.setState({
                     isLoading: false,
-                    isFetching:false
+                    isFetching: false
                 })
 
             })
@@ -65,39 +66,41 @@ componentDidMount(){
 
     }
 
-    onRefresh=()=> {
-        this.setState({ isFetching: true }, function() { this.NotificationApi() });    
-     }
+    onRefresh = () => {
+        this.setState({ isFetching: true }, function () { this.NotificationApi() });
+    }
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
-               
-
-                        <View style={{ flex: 1 }}>
-                            <View style={{
-                                alignSelf: 'center',
-                                alignItems: 'center', justifyContent: 'center',
-                                height: 30, width: '100%'
-                            }}>
-                                <Text style={{fontSize:18,
-                                fontWeight:'bold', fontFamily:'EuroStileBold',
-                                color:APP_YELLOW}}>Notifications</Text>
-                            </View>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
-                                    <FlatList style={{marginTop:20}}
-                                      refreshControl={<RefreshControl 
-                                        refreshing={this.state.isFetching}
-                                        onRefresh={this.onRefresh}>
-                                        </RefreshControl>}
-                                    data={this.state.data}
-                                    renderItem={({item}) =>(
-                                        this.Notification(item)
-                                    )}></FlatList>
+                <View style={{ flex: 1 }}>
+                    <View style={{
+                        alignSelf: 'center',
+                        alignItems: 'center', justifyContent: 'center',
+                        height: 30, width: '100%'
+                    }}>
+                        <Text style={{
+                            fontSize: 18,
+                            fontWeight: 'bold', fontFamily: 'EuroStileBold',
+                            color: APP_YELLOW
+                        }}>Notifications</Text>
+                    </View>
 
-                        </View>
-                        {this.state.isLoading &&
+
+                    <FlatList style={{ marginTop: 20 }}
+                        refreshControl={<RefreshControl
+                            refreshing={this.state.isFetching}
+                            onRefresh={this.onRefresh}>
+                        </RefreshControl>}
+                        data={this.state.data}
+                        renderItem={({ item }) => (
+                            this.Notification(item)
+                        )}></FlatList>
+
+                </View>
+                {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
                         backgroundColor: '#000000aa',
@@ -115,83 +118,104 @@ componentDidMount(){
 
                     </View>
                 }
-                  
+
             </SafeAreaView>
         );
     }
 
-    Notification=(item)=>{
-        return(
-            <View>
+    Notification = (item) => {
+        return (
+<View>
             <TouchableOpacity style={{
-            width:'95%',
-            alignSelf:'center',
-            justifyContent:'center',
-            //alignItems:'center',
-            flexDirection:'row',
-            marginBottom:5
-           
-            }} onPress={() =>{
-                this.props.navigation.navigate('NotificationDetail',{
-                    data:item
-                })
-            }}>
-                <View style={{height:Dimensions.get('window').height/13
-                ,width:60,
-                borderColor:APP_YELLOW,
-                borderWidth:1,
-                marginLeft:10,
-                borderRadius:10,
-                overflow:'hidden'}}>
-                <Image style={{
-                    flex:1,
-                    width:60,
-               // marginLeft:10,
-                   resizeMode:'cover'
-                }}
-                    source={item.image == null ? 
-                        require('../assets/placeholder.jpg'):
-                    {uri:item.image}}>
-                    </Image>
-                    </View>
-                    <View style={{width:'80%',
-                    justifyContent:'center',
-                    marginLeft:10,}}> 
-                  <View style={{flexDirection:'row',
-                  width:'70%',
-                  justifyContent:'space-between'}}>
-                      <View>
-                  <Text style={{fontSize:17,
-                    fontWeight:'600', 
-                    fontFamily:'EuroStileBold',}}>
-                       {item.title}
-                    </Text>
-                    </View>
-                    
-                  <Text style={{fontSize:17,       
-                    color:'gray',
-                    marginLeft:5,
-                    fontFamily:'EuroStileBold'
+                width: '95%',
+                alignSelf: 'center',
+                // borderColor: APP_YELLOW,
+                // borderWidth: 2,
+                marginBottom: 5,
+                flexDirection: 'row',
+                // alignItems:'center',
+                overflow: 'hidden'
+                // justifyContent:'center'
+            }}
+            onPress={() =>{
+                        this.props.navigation.navigate('NotificationDetail',{
+                            data:item
+                        })
                     }}>
-                   {moment.utc(item.created_at,'HH:mm:ss').local().format('hh:mm a')}
-                    </Text>
-                  </View>
-                    <Text style={{fontSize:18,
-                    fontWeight:'600',
-                     fontFamily:'EuroStyle',
-                    marginTop:5}}
-                    numberOfLines={0}>
-                        {item.description}
-                    </Text>
+
+                <TouchableOpacity style={{
+                    marginTop: 5,
+                    height: Dimensions.get('window').height / 11,
+                    width: 60,
+                    marginLeft: 5,
+                    borderRadius: 5,
+                    overflow: "hidden",
+                    borderColor: APP_YELLOW,
+                    borderWidth: 1, 
+                    //marginBottom: 5
+                }}>
+                    <ImageLoad style={{ flex: 1, width: '100%' }}
+                        resizeMode='cover'
+                        source={item.image == null || item.image == ''
+                            ? require('../assets/placeholder.jpg') :
+                            { uri: item.image }}
+                    ></ImageLoad>
+                </TouchableOpacity>
+                <View>
+                    <View style={{
+                        marginTop: 5,
+                        marginLeft: 5,
+                       // marginBottom: 5,
+                        
+                        flexDirection: 'row',
+                        justifyContent:'space-between'
+
+                    }}>
+                        <View style={{
+                            width:Dimensions.get('window').width/1.8,
+                           
+                        }}>
+                            <Text style={{
+                                fontSize: 17,
+                                textAlign:'justify',
+                                fontFamily: 'EuroStileBold'
+                            }}>{item.title}</Text>
+                        </View>
+                        <Text style={{
+                            fontSize: 17,
+                            fontFamily: 'EuroStileBold'
+                            ,marginLeft:5,
+                            marginRight:5
+                        }}>
+                            {moment.utc(item.created_at).local().format('hh:mm a')}
+                        </Text>
                     </View>
+                    <View style={{
+                         width:Dimensions.get('window').width/1.33,
+                         marginLeft: 5, 
+                         marginBottom:5,
+                         marginTop: 10 }}>
+                        <Text style={{
+                            fontSize: 18,
+                            fontWeight: '600',
+                            fontFamily: 'EuroStyle',
+                            textAlign:'justify'
+
+                        }}
+                            numberOfLines={0}>
+                            {item.description}
+                        </Text>
+                    </View>
+                </View>
             </TouchableOpacity>
-            <View style={{height:2,width:'100%',
-            marginBottom:5,
-        backgroundColor:APP_YELLOW}}></View>
-            </View>
-           
+             <View style={{height:2,width:'100%',
+                 marginBottom:5,
+             backgroundColor:APP_YELLOW}}></View>
+                </View>
+
+          
         )
-        
+
     }
 }
 

@@ -148,11 +148,11 @@ export default class Login extends Component {
                     behavior={Platform.OS== 'ios'?'padding':null} 
                     keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{flex:1}}>
-                            <View style={{ height: Dimensions.get('window').height/2.5, 
-                            width: '80%',
+                            <View style={{ height: Dimensions.get('window').height/2, 
+                            width: 250,
                             alignSelf:'center',
                             justifyContent: 'center' ,
-                            marginTop:20}}>
+                            marginTop:10}}>
                                 <Image style={{
                                     flex:1,
                                    // height: 250,
@@ -167,7 +167,7 @@ export default class Login extends Component {
                             </View>
                          
                             <View style={{
-                                width: '100%', marginTop: 30,
+                                width: '100%', marginTop: 10,
                                 alignItems: 'center'
                             }}>
 
@@ -220,7 +220,9 @@ export default class Login extends Component {
                                 fontFamily:'EuroStile',
                                 fontSize: 16 }}>Forget Password</Text>
                             </TouchableOpacity>
-                                <View style={{flexDirection:'row',justifyContent:'space-between',
+                                <View style={{flexDirection:'row',
+                                justifyContent:'space-between',
+                                marginBottom:10,
                             width:'80%',alignSelf:'center'}}> 
                             <TouchableOpacity style={{
                                 height: 50, width: '40%',

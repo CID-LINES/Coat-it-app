@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
-
+import ImageLoad from 'react-native-image-placeholder';
 export default class NotificationDetail extends Component {
     constructor(props) {
         super(props)
@@ -64,13 +64,13 @@ export default class NotificationDetail extends Component {
                             
                             justifyContent:'center',
                             overflow:'hidden'}}>
-                            <Image style={{flex:1,
+                            <ImageLoad style={{flex:1,
                            // width:'100%'
                         }}
                             resizeMode='cover'
                             source={this.state.data.image == null? 
                             require('../assets/placeholder.jpg'):
-                                {uri:this.state.data.image}}></Image>
+                                {uri:this.state.data.image}}></ImageLoad>
                             </TouchableOpacity>
                         </View>
                                 <View style={{

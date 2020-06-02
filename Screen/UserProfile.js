@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_BLUE, APP_LIGHT, APP_YELLOW } from '../Component/colors'
 import { StackActions, NavigationActions } from 'react-navigation';
 import { CallGetApi } from '../Component/ApiClient';
+import ImageLoad from 'react-native-image-placeholder';
 //import { Platform } from 'react-native';
 //import Share from 'react-native-share';
 
@@ -142,12 +143,12 @@ export default class UserProfile extends Component {
                                             isShow:true
                                         })
                                     }}>
-                                    <Image style={{ height: 150, width: 150 }}
+                                    <ImageLoad style={{ height: 150, width: 150 }}
                                         resizeMode='cover'
                                         source={this.state.data.avatar == null ?
                                             require('../assets/placeholder.jpg')
                                             : { uri: this.state.data.avatar }
-                                        }></Image>
+                                        }></ImageLoad>
                                         </TouchableOpacity>
                                 </View>
                             </View>
