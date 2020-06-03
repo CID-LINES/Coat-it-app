@@ -43,8 +43,8 @@ export default class NotificationDetail extends Component {
 
                         }}>
                             <Text style={{
-                                fontSize: 18, fontWeight: '700',
-                                color: APP_YELLOW, fontFamily:'EuroStileBold',
+                                fontSize: 18, 
+                                color: APP_YELLOW, fontFamily:'EurostileBold',
                             }}>Notifications</Text>
                         </View>
                     </View>
@@ -80,13 +80,13 @@ export default class NotificationDetail extends Component {
                                 width:'90%',
                                 alignSelf:'center'}}>
                         <Text style={{fontSize:17,
-                        fontWeight:'bold', fontFamily:'EuroStileBold',
+                         fontFamily:'EurostileBold',
                             }}>
                             {this.state.data.title}</Text>
                             <Text style={{fontSize:20,
                             marginTop:10,
                             textAlign:'justify',
-                            fontFamily:'EuroStyle',
+                            fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
                            }}
                             numberOfLines={0}>
                               {this.state.data.description}

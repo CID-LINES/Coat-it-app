@@ -113,9 +113,9 @@ export default class ChangePassword extends Component {
                     }}>
                         <Text style={{
                                 fontSize: 20, 
-                                fontWeight: '700',
+                               
                                 color: APP_YELLOW,
-                                fontFamily:'EuroStileBold',
+                                fontFamily:'EurostileBold',
                             }}>Kenotek Coat IT
                             </Text>
                     </View>
@@ -127,7 +127,7 @@ export default class ChangePassword extends Component {
                         <View style={{ flex: 1 }}>
 
                             <View style={{
-                                height: Dimensions.get('window').height/2,
+                                height: Dimensions.get('window').height/2.5,
                                 width: 250,
                                  alignSelf:'center',
                                 justifyContent: 'center'
@@ -154,7 +154,7 @@ export default class ChangePassword extends Component {
                                 <Text style={{
                                     width: '75%',
                                     marginTop: 10
-                                    ,fontFamily:'EuroStileBold',
+                                    ,fontFamily:'EurostileBold',
                                 }}>Old Password</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -177,7 +177,7 @@ export default class ChangePassword extends Component {
                                 }}></View>
 
                                 <Text style={{ width: '75%',
-                                fontFamily:'EuroStileBold', 
+                               fontFamily:'EurostileBold', 
                                 marginTop: 10 }}>New Password</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -216,8 +216,8 @@ export default class ChangePassword extends Component {
                                     this.ChangePassword()
                                 }}>
                                 <Text style={{ fontSize: 20, 
-                                    fontWeight: '700', 
-                                    fontFamily:'EuroStileBold',
+                                   
+                                   fontFamily:'EurostileBold',
                                     color: 'white' }}>Submit</Text>
 
                             </TouchableOpacity>

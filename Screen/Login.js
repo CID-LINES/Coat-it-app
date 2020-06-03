@@ -140,15 +140,14 @@ export default class Login extends Component {
                                 height: 30, width: '100%'
                             }}>
                                 <Text style={{fontSize:20,
-                                 fontFamily:'EuroStile',
-                                fontWeight:'bold',
+                                 fontFamily:'EurostileBold',
                                 color:APP_YELLOW}}>Kenotek Coat IT</Text>
                             </View>
                             <KeyboardAvoidingView style={{flex:1}}
                     behavior={Platform.OS== 'ios'?'padding':null} 
                     keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{flex:1}}>
-                            <View style={{ height: Dimensions.get('window').height/2, 
+                            <View style={{ height: Dimensions.get('window').height/2.5, 
                             width: 250,
                             alignSelf:'center',
                             justifyContent: 'center' ,
@@ -172,7 +171,8 @@ export default class Login extends Component {
                             }}>
 
                                 <Text style={{ width: '78%', 
-                                marginTop: 10,fontFamily:'EuroStileBold' }}>Email</Text>
+                                marginTop: 10
+                                ,fontFamily:'EurostileBold' }}>Email</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
 
@@ -191,7 +191,7 @@ export default class Login extends Component {
                                         width:'80%',backgroundColor:'gray'}}></View>
 
                                 <Text style={{ width: '78%', 
-                                marginTop: 10,fontFamily:'EuroStileBold',  
+                                marginTop: 10,fontFamily:'EurostileBold',  
                             }}
                             >Password</Text>
                                 <TextInput style={{
@@ -217,7 +217,7 @@ export default class Login extends Component {
                                     })
                                 }}>
                                 <Text style={{ alignSelf: 'flex-end', 
-                                fontFamily:'EuroStile',
+                               fontFamily:'EurostileBold',
                                 fontSize: 16 }}>Forget Password</Text>
                             </TouchableOpacity>
                                 <View style={{flexDirection:'row',
@@ -241,8 +241,8 @@ export default class Login extends Component {
                                 }}>
                                 <Text style={{ 
                                     fontSize: 18, 
-                                    fontFamily:'EuroStileBold',
-                                    fontWeight: 'bold', 
+                                    fontFamily:'EurostileBold',
+                                    
                                     color: 'white' }}>Login</Text>
 
                             </TouchableOpacity>
@@ -263,8 +263,8 @@ export default class Login extends Component {
                                     this.props.navigation.navigate('Signup')
                                 }}>
                                 <Text style={{ fontSize: 18,
-                                 fontFamily:'EuroStileBold', 
-                                    fontWeight: '700', color: 'white' }}>Sign up</Text>
+                                 fontFamily:'EurostileBold', 
+                                     color: 'white' }}>Sign up</Text>
 
                             </TouchableOpacity> 
                         
@@ -301,7 +301,7 @@ export default class Login extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '80%', marginTop: 10,
-                            fontFamily:'EuroStile', }}>Email</Text>
+                          fontFamily:'EurostileBold', }}>Email</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
 
@@ -343,7 +343,7 @@ export default class Login extends Component {
                                         }}
                                     >
                                         <Text style={{fontWeight: '800', 
-                                        fontFamily:'EuroStile',
+                                       fontFamily:'EurostileBold',
                                         color: 'white'}}>Ok</Text>
                                     </TouchableOpacity>
 
@@ -364,7 +364,7 @@ export default class Login extends Component {
                                             })
                                         }}>
                                         <Text style={{ fontWeight: '800', color: 'white',
-                                    fontFamily:'EuroStile', }}>Cancel</Text>
+                                  fontFamily:'EurostileBold', }}>Cancel</Text>
                                     </TouchableOpacity>
                                 </View>
 

@@ -20,7 +20,8 @@ export default class Notification extends Component {
         super()
         this.state = {
             data: [],
-            isFetching: false
+            isFetching: false,
+            previewurl:null
         }
     }
 
@@ -83,7 +84,7 @@ export default class Notification extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18,
-                            fontWeight: 'bold', fontFamily: 'EuroStileBold',
+                            fontFamily:'EurostileBold',
                             color: APP_YELLOW
                         }}>Notifications</Text>
                     </View>
@@ -118,6 +119,36 @@ export default class Notification extends Component {
 
                     </View>
                 }
+                 {
+                    this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        //backgroundColor:'black',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} onPress={() => {
+                        this.setState({
+                            previewurl:null,
+                            isShow: false
+                        })
+                    }}>
+                        <View style={{
+                            height: 400,
+                            width: '100%'
+                        }}
+                        >
+                            <ImageLoad style={{ flex: 1, width: '100%' }}
+                                resizeMode=
+                                'cover'
+                                source={{ uri 
+                                :this.state.previewurl }}></ImageLoad>
+               </View>
+
+            </TouchableOpacity>
+        }
 
             </SafeAreaView>
         );
@@ -153,6 +184,12 @@ export default class Notification extends Component {
                     borderColor: APP_YELLOW,
                     borderWidth: 1, 
                     //marginBottom: 5
+                }}
+                onPress={()=>{
+                    this.setState({
+                        previewurl:item.image,
+                        isShow:true
+                    })
                 }}>
                     <ImageLoad style={{ flex: 1, width: '100%' }}
                         resizeMode='cover'
@@ -165,25 +202,24 @@ export default class Notification extends Component {
                     <View style={{
                         marginTop: 5,
                         marginLeft: 5,
-                       // marginBottom: 5,
-                        
+                       // marginBottom: 5, 
                         flexDirection: 'row',
                         justifyContent:'space-between'
 
                     }}>
                         <View style={{
-                            width:Dimensions.get('window').width/1.8,
+                            width:Dimensions.get('window').width/1.87,
                            
                         }}>
                             <Text style={{
                                 fontSize: 17,
                                 textAlign:'justify',
-                                fontFamily: 'EuroStileBold'
+                                fontFamily:'EurostileBold'
                             }}>{item.title}</Text>
                         </View>
                         <Text style={{
                             fontSize: 17,
-                            fontFamily: 'EuroStileBold'
+                            fontFamily:'EurostileBold'
                             ,marginLeft:5,
                             marginRight:5
                         }}>
@@ -197,8 +233,8 @@ export default class Notification extends Component {
                          marginTop: 10 }}>
                         <Text style={{
                             fontSize: 18,
-                            fontWeight: '600',
-                            fontFamily: 'EuroStyle',
+                           
+                            fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
                             textAlign:'justify'
 
                         }}

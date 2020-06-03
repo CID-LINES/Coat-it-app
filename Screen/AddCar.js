@@ -11,6 +11,7 @@ import YeaPicker from 'react-native-month-year-picker'
 import { color } from 'react-native-reanimated';
 
 import RNPickerSelect from 'react-native-picker-select';
+var year = new Date().getFullYear();
 const DATA = [
     { label: '2020', value: '2020' },
     { label: '2019', value: '2019' },
@@ -67,12 +68,13 @@ export default class AddCar extends Component {
             image: '',
             isLoading: false,
             user_id: '',
-            isShow:false
+            isShow:false,
+            DATA:''
 
         }
     }
 
-
+              
 
     chooseFile = () => {
         var options = {
@@ -128,8 +130,19 @@ export default class AddCar extends Component {
     componentDidMount() {
 
         this.get('user_id')
+        //this.manufactureyear()
     }
 
+    // manufactureyear=()=>{
+    //     var allyear=[]
+    //     //alert(JSON.stringify(year))
+    //     for(var i=1945;i<=year;i++){
+    //         allyear.push(i)
+    //     }
+    //     this.setState({
+    //         DATA:allyear
+    //     })
+    // }
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -239,8 +252,8 @@ export default class AddCar extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18, 
-                                fontWeight: '700',
-                                fontFamily:'EuroStileBold',
+                               
+                                fontFamily:'EurostileBold',
                                 color: APP_YELLOW
                             }}>Add Car</Text>
                         </View>
@@ -287,8 +300,8 @@ export default class AddCar extends Component {
                             </View>
                             <View style={{ width: '100%', marginTop: 20 }}>
                                 <Text style={{ marginLeft: 35, 
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold' }}>Brand/Company Name</Text>
+                                   
+                                   fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -306,9 +319,9 @@ export default class AddCar extends Component {
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
-                                    fontWeight: '600',
+                                    fontFamily:'EurostileBold',
                                     marginTop: 20,
-                                    fontFamily:'EuroStileBold'
+                                   
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -328,9 +341,9 @@ export default class AddCar extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '600',
+                                    marginLeft: 35, 
                                     marginTop: 20,
-                                    fontFamily:'EuroStileBold'
+                                    fontFamily:'EurostileBold'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -348,8 +361,8 @@ export default class AddCar extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '600',
-                                    marginTop: 20,fontFamily:'EuroStileBold'
+                                    marginLeft: 35, 
+                                    marginTop: 20,fontFamily:'EurostileBold'
                                 }}>Year of Manufacture</Text>
 
                              
@@ -395,7 +408,7 @@ export default class AddCar extends Component {
                                         color:'gray'
                                     }}
                                    
-                                    items={DATA}
+                                    items={this.state.DATA}
                                     onValueChange={(value) => {
                                         this.setState({
                                             manufacture_year: value,
@@ -425,8 +438,8 @@ export default class AddCar extends Component {
 
                                 }}>
                                 <Text style={{
-                                    fontWeight: '700', color: 'white',
-                                    fontFamily:'EuroStileBold',
+                                   color: 'white',
+                                   fontFamily:'EurostileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
                             </TouchableOpacity>
@@ -458,7 +471,6 @@ export default class AddCar extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 

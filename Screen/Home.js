@@ -105,10 +105,10 @@ export default class Home extends Component {
                         justifyContent: 'center', alignItems: 'center'
                     }}>
                         <Text style={{
-                            fontWeight: '800',
+                            
                             fontSize: 18,
                              color: APP_YELLOW,
-                             fontFamily:'EuroStileBold',
+                             fontFamily:'EurostileBold',
                         }}>
                             Service Plan
                             </Text>
@@ -184,12 +184,12 @@ export default class Home extends Component {
                      marginLeft: 10,
                 }}>
                         <Text style={{ fontSize: 17,
-                         fontFamily:'EuroStileBold', 
-                         fontWeight: 'bold' }}
+                        fontFamily:'EurostileBold', 
+                         }}
                     >{item.name}</Text>
                     <Text style={{ fontSize: 16 ,
-                     fontFamily:'EuroStyle',
-                     fontWeight:'600',
+                      fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
+                    
                     marginTop:5}}
                     >{item.title}</Text>
 
@@ -212,8 +212,8 @@ export default class Home extends Component {
                         plan: item
                     })
                 }}>
-                    <Text style={{ color: 'white', fontFamily:'EuroStileBold',
-                fontWeight:'700' }}>View details</Text>
+                    <Text style={{ color: 'white',fontFamily:'EurostileBold',
+                 }}>View details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>
         )

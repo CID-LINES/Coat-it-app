@@ -95,10 +95,10 @@ export default class UserProfile extends Component {
                         justifyContent: 'center', alignItems: 'center'
                     }}>
                         <Text style={{
-                            fontWeight: '800',
+                           
                             fontSize: 18,
                              color: APP_YELLOW,
-                             fontFamily:'EuroStileBold',
+                             fontFamily:'EurostileBold',
                         }}>
                             User Profile
                             </Text>
@@ -167,13 +167,13 @@ export default class UserProfile extends Component {
                                 // backgroundColor:'pink',
                                 //width:'60%',
                                 marginTop:10}}>
-                                    <Text style={{fontWeight:'700',
-                                    marginLeft:15, fontFamily:'EuroStileBold',
+                                    <Text style={{
+                                    marginLeft:15, fontFamily:'EurostileBold',
                                 fontSize:17,
                                 color:APP_YELLOW}}>Customer id </Text>
                                 <Text style={{marginLeft:30,
                                 fontSize:16,
-                                fontWeight:'500',
+                                fontFamily:'EurostileBold',
                                 marginRight:15}}>
                                     {this.state.data.customer_id}
                                   </Text>
@@ -183,24 +183,24 @@ export default class UserProfile extends Component {
                                 // width:'60%',
                                 // justifyContent:'space-between'
                                 }}>
-                                    <Text style={{fontWeight:'700',
-                                    marginLeft:15, fontFamily:'EuroStileBold',
+                                    <Text style={{
+                                    marginLeft:15, fontFamily:'EurostileBold',
                                 fontSize:17,color:APP_YELLOW}}>Name </Text>
                                 <Text style={{marginLeft:80,
-                                fontSize:16,fontWeight:'500',marginRight:15, fontFamily:'EuroStileBold',}}>
+                                fontSize:16,marginRight:15, fontFamily:'EurostileBold',}}>
                                     {this.state.data.first_name} {this.state.data.last_name}
                                   </Text>
                                 </View>
                                 <View style={{flexDirection:'row',marginTop:10,
                             // width:'80%',justifyContent:'space-between'
                             }}>
-                                    <Text style={{fontWeight:'700',
-                                    marginLeft:15, fontFamily:'EuroStileBold',
+                                    <Text style={{
+                                    marginLeft:15, fontFamily:'EurostileBold',
                                 fontSize:17,color:APP_YELLOW}}>Email </Text>
                                 <Text style={{marginLeft:82,
-                                fontSize:16,fontWeight:'500',
+                                fontSize:16,
                                 marginRight:15, 
-                                fontFamily:'EuroStileBold',}}>
+                                fontFamily:'EurostileBold',}}>
                                     {this.state.data.email}
                                   </Text>
                                 </View>
@@ -209,12 +209,12 @@ export default class UserProfile extends Component {
                             marginBottom:10,
                             // width:'60%',justifyContent:'space-between'
                             }}>
-                                    <Text style={{fontWeight:'700',marginLeft:15,
-                                     fontFamily:'EuroStileBold',
+                                    <Text style={{marginLeft:15,
+                                     fontFamily:'EurostileBold',
                                 fontSize:17,color:APP_YELLOW}}>Phone no </Text>
                                 <Text style={{marginLeft:50,marginRight:15,
-                                fontSize:16,fontWeight:'500',
-                                fontFamily:'EuroStileBold',}}>
+                                fontSize:16,
+                                fontFamily:'EurostileBold',}}>
                                     {this.state.data.phone_no}
                                   </Text>
                                 </View>
@@ -238,8 +238,8 @@ export default class UserProfile extends Component {
                                     this.props.navigation.navigate('DetailerList')
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, fontWeight: '700',
-                                    color: 'white', fontFamily:'EuroStileBold',
+                                    fontSize: 18, 
+                                    color: 'white', fontFamily:'EurostileBold',
                                 }}>My Detailer</Text>
                             </TouchableOpacity>
 
@@ -255,8 +255,8 @@ export default class UserProfile extends Component {
                                     this.props.navigation.navigate('MyCars')
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, fontWeight: '700',
-                                    fontFamily:'EuroStileBold',
+                                    fontSize: 18,
+                                    fontFamily:'EurostileBold',
                                     color: 'white'
                                 }}>My Cars</Text>
                             </TouchableOpacity>
@@ -278,8 +278,8 @@ export default class UserProfile extends Component {
                                     })
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, fontWeight: '700',
-                                    color: 'white', fontFamily:'EuroStileBold',
+                                    fontSize: 18, 
+                                    color: 'white', fontFamily:'EurostileBold',
                                 }}>Settings</Text>
                             </TouchableOpacity>
 

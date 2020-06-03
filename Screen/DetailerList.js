@@ -120,8 +120,8 @@ export default class DetailerList extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
-                            color: APP_YELLOW, fontFamily: 'EuroStileBold',
+                            fontSize: 18,
+                            color: APP_YELLOW, fontFamily:'EurostileBold',
                         }}>Detailers List</Text>
                     </View>
                 </View>
@@ -135,9 +135,9 @@ export default class DetailerList extends Component {
                         <Text style={{
                             fontSize: 22,
                             color: 'gray',
-                            fontWeight: 'bold',
+                           
                             textAlign: 'center',
-                            fontFamily: 'EuroStileBold'
+                            fontFamily:'EurostileBold'
                         }}
                             numberOfLines={0}>
                             No detailers found, Please visit your latest detailer to get detailing!
@@ -262,17 +262,17 @@ DetailerList = (item, index) => {
             }}>
                 <Text style={{
                     fontSize: 17,
-                    fontWeight: '800', fontFamily: 'EuroStileBold',
+                    fontFamily:'EurostileBold',
                 }}
                     numberOfLines={2}>
                     {item.first_name}
                 </Text>
 
                 <TouchableOpacity style={{
-                    height: 20,
+                   // height: 20,
                     marginTop: 8,
-                    width: '80%',
-                    alignItems: 'center',
+                   // width: '80%',
+                   // alignItems: 'center',
                     justifyContent: 'space-between',
                     flexDirection: 'row'
                 }}
@@ -282,9 +282,9 @@ DetailerList = (item, index) => {
                             car: item.car_name
                         })
                     }}>
-                    <View style={{ width: '95%' }}>
+                    <View style={{ width:Dimensions.get('window').width/2 }}>
                         <Text style={{
-                            fontFamily: 'EuroStyle',
+                            fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
                             fontSize: 17
                         }}
                             numberOfLines={0}>{item.service}</Text>
@@ -301,7 +301,7 @@ DetailerList = (item, index) => {
                 <Text style={{
                     marginTop: 8,
                     fontSize: 17,
-                    fontFamily: 'EuroStyle',
+                    fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
                 }}
                     numberOfLines={0}>
                     {item.car_name}
@@ -309,7 +309,8 @@ DetailerList = (item, index) => {
 
                 <Text style={{
                     marginTop: 8, marginBottom: 5,
-                    fontFamily: 'EuroStyle', fontSize: 17
+                    fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
+                     fontSize: 17
                 }}>
                     {moment(item.created_at).format('DD-MM-YYYY')}</Text>
                 {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}

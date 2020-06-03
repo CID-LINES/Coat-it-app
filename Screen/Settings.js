@@ -170,8 +170,8 @@ export default class Settings extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
-                            color: APP_YELLOW,fontFamily:'EuroStileBold',
+                            fontSize: 20, 
+                            color: APP_YELLOW,fontFamily:'EurostileBold',
                         }}>Settings</Text>
                     </View>
                 </View>
@@ -187,9 +187,9 @@ export default class Settings extends Component {
                         this.props.navigation.navigate('ChangePassword')
                     }}>
                     <Text style={{
-                        fontSize: 18, fontWeight: '700',
+                        fontSize: 18, 
                         color: 'white',
-                        fontFamily:'EuroStileBold',
+                        fontFamily:'EurostileBold',
                     }}>Change Password</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{
@@ -208,7 +208,7 @@ export default class Settings extends Component {
                             'Are you sure you want to logout?',
                             [
                                 {
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                     text: 'Logout', onPress: () => {
                                         this.save('user_id', '')
                                         //this.props.navigation.navigate('Login')
@@ -222,7 +222,7 @@ export default class Settings extends Component {
                                     }
                                 },
                                 {
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                     text: 'Cancel',
                                     style: 'cancel',
                                 }],
@@ -231,8 +231,8 @@ export default class Settings extends Component {
                     }}
                 >
                     <Text style={{
-                        fontSize: 18, fontWeight: '700',
-                        color: 'white',fontFamily:'EuroStileBold',
+                        fontSize: 18,
+                        color: 'white',fontFamily:'EurostileBold',
                     }}>Logout</Text>
                 </TouchableOpacity>
                 {/* <KeyboardAvoidingView style={{ flex: 1 }}

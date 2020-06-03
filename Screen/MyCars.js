@@ -177,8 +177,8 @@ export default class MyCars extends Component {
 
                         }}>
                             <Text style={{
-                                fontSize: 18, fontWeight: '700',
-                                fontFamily:'EuroStileBold',
+                                fontSize: 18, 
+                                fontFamily:'EurostileBold',
                                 color: APP_YELLOW
                             }}>My Cars</Text>
                         </View>
@@ -266,7 +266,8 @@ export default class MyCars extends Component {
                 <View style={{ flexDirection: 'row' }}>
                    
                     <ImageLoad style={{
-                        height: 120,
+                        //height: 120,
+                       
                         width: Dimensions.get('window').width/2,
                     }}
                         resizeMode='cover'
@@ -288,16 +289,16 @@ export default class MyCars extends Component {
                         </Text> */}
                         <Text style={{
                             fontSize: 18,
-                            fontWeight: '700',
+                           
                        marginTop:10,
-                            fontFamily:'EuroStileBold',
+                       fontFamily:'EurostileBold',
                         }}>
                             {item.vehicle_no}
                         </Text>
                         <Text style={{ 
                             marginTop: 10,
                             fontSize:17,
-                            fontFamily:'EuroStileBold', }}>{item.manufacture_year}</Text>
+                            fontFamily:'EurostileBold', }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,
                             width: 30,

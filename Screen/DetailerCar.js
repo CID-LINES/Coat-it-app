@@ -149,9 +149,9 @@ export default class ServiceDeatil extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18, 
-                            fontWeight: '700',
+                            
                             color: APP_YELLOW,
-                            fontFamily:'EuroStileBold',
+                            fontFamily:'EurostileBold',
 
                         }}
                             numberOfLines={0}>{this.state.serviceplan.name}</Text>
@@ -192,8 +192,8 @@ export default class ServiceDeatil extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 17,
-                                fontWeight: 'bold',
-                                fontFamily:'EuroStileBold',
+                                
+                                fontFamily:'EurostileBold',
 
                             }}>
                                 {this.state.serviceplan.title}</Text>
@@ -202,7 +202,7 @@ export default class ServiceDeatil extends Component {
                                 marginBottom: 10,
                                 marginTop: 10, 
                                 textAlign: 'justify',
-                                fontFamily:'EuroStyle',
+                                fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
 
                             }}
                                 numberOfLines={0}>
@@ -228,8 +228,8 @@ export default class ServiceDeatil extends Component {
                             }}>
                             <Text style={{
                                 fontSize: 20,
-                                 fontWeight: '800',
-                                 fontFamily:'EuroStileBold',
+                                 
+                                fontFamily:'EurostileBold',
                                 color: 'white'
                             }}>View Car</Text></TouchableOpacity>
                             <TouchableOpacity style={{
@@ -250,8 +250,8 @@ export default class ServiceDeatil extends Component {
                             }}>
                             <Text style={{
                                 fontSize: 20,
-                                 fontWeight: '800',
-                                 fontFamily:'EuroStileBold',
+                                
+                                fontFamily:'EurostileBold',
                                 color: 'white'
                             }}>View Detailer</Text></TouchableOpacity>
 
@@ -306,15 +306,15 @@ export default class ServiceDeatil extends Component {
                                 }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        fontWeight: '800',
+                                        
                                         color: APP_YELLOW,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>Name</Text>
                                     <Text style={{
                                         fontSize: 17, 
                                         marginLeft:20,
                                         marginBottom:10,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>{this.state.detailer.first_name}</Text>
                                 </View>
                                 </View>
@@ -367,13 +367,13 @@ export default class ServiceDeatil extends Component {
                                 }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        fontWeight: '800',
+                                        
                                         color: APP_YELLOW,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>Car name</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 80,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>{this.state.cardetail.brand_name}</Text>
                                 </View>
                                 <View style={{
@@ -383,13 +383,13 @@ export default class ServiceDeatil extends Component {
                                 }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        fontWeight: '800',
+                                       
                                          color: APP_YELLOW,
-                                         fontFamily:'EuroStileBold'
+                                         fontFamily:'EurostileBold'
                                     }}>Model name</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 60,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>{this.state.cardetail.model_name}</Text>
                                 </View>
                                 <View style={{
@@ -399,13 +399,13 @@ export default class ServiceDeatil extends Component {
                                 }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        fontWeight: '800',
+                                        
                                          color: APP_YELLOW,
-                                         fontFamily:'EuroStileBold'
+                                         fontFamily:'EurostileBold'
                                     }}>Vehicle no.</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 73,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}
                                         numberOfLines={2}>
                                         {this.state.cardetail.vehicle_no}
@@ -419,12 +419,12 @@ export default class ServiceDeatil extends Component {
                                 }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        fontFamily:'EuroStileBold',
-                                        fontWeight: '800', color: APP_YELLOW
+                                        fontFamily:'EurostileBold',
+                                        color: APP_YELLOW
                                     }}>Manufacture year</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 18,
-                                        fontFamily:'EuroStileBold'
+                                        fontFamily:'EurostileBold'
                                     }}>{this.state.cardetail.manufacture_year}</Text>
                                 </View>
 

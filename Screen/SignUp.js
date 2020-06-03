@@ -143,9 +143,8 @@ export default class SignUp extends Component {
                             }}>
                                 <Text style={{
                                     fontSize: 20,
-                                    fontWeight: 'bold',
                                     color: APP_YELLOW,
-                                    fontFamily:'EuroStileBold'
+                                    fontFamily:'EurostileBold'
                                 }}>Kenotek Coat IT</Text>
                             </View>
                             <KeyboardAvoidingView style={{ flex: 1 }}
@@ -203,8 +202,8 @@ export default class SignUp extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '80%',
-                                 fontWeight: '600',
-                                 fontFamily:'EuroStileBold' }}>First name</Text>
+                                 
+                                 fontFamily:'EurostileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
@@ -226,9 +225,9 @@ export default class SignUp extends Component {
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
-                                    fontWeight: '600',
+                                   
                                     marginTop: 10,
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                 }}>Last name</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -252,8 +251,8 @@ export default class SignUp extends Component {
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold',
+                                   
+                                    fontFamily:'EurostileBold',
                                 }}>Email</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -275,8 +274,8 @@ export default class SignUp extends Component {
 
                                 <Text style={{
                                     width: '80%', marginTop: 10,
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold',
+                                   
+                                    fontFamily:'EurostileBold',
                                 }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -299,8 +298,8 @@ export default class SignUp extends Component {
 
                                 <Text style={{
                                     width: '80%', marginTop: 10,
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold',
+                                    
+                                    fontFamily:'EurostileBold',
                                 }}>Password</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -337,9 +336,9 @@ export default class SignUp extends Component {
                                     this.signup()
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, fontWeight: '700',
+                                    fontSize: 18, 
                                     color: 'white',
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                 }}>Submit</Text>
 
 
@@ -373,13 +372,17 @@ export default class SignUp extends Component {
                             }}>
                                 <Text
                                     style={{
-                                        alignSelf: 'center', marginTop: 5,
-                                        color: 'gray', marginBottom: 15,
-                                        marginTop: 10
+                                        alignSelf: 'center',
+                                         marginTop: 5,
+                                        color: 'gray', 
+                                        marginBottom: 15,
+                                        marginTop: 10,
+                                        fontFamily:'EurostileBold'
                                     }}>
                                     Already have an account ?<Text style={{
-                                        alignSelf: 'center', color: APP_YELLOW,
-                                        fontWeight: '700',fontFamily:'EuroStileBold',
+                                        alignSelf: 'center', 
+                                        color: APP_YELLOW,
+                                       fontFamily:'EurostileBold',
                                     }}> Login here</Text></Text>
                             </TouchableOpacity>
                             </ScrollView>

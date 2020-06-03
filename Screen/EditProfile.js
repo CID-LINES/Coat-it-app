@@ -172,7 +172,8 @@ export default class Settings extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
+                            fontSize: 18, 
+                            fontFamily:'EurostileBold',
                             color: APP_YELLOW
                         }}>Kenotek Coat IT
                         </Text>
@@ -249,7 +250,7 @@ export default class Settings extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '78%',
-                                 fontWeight: '700',fontFamily:'EuroStileBold', }}>First name</Text>
+                                 fontFamily:'EurostileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
@@ -269,8 +270,8 @@ export default class Settings extends Component {
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
-                                    fontFamily:'EuroStileBold',
-                                    fontWeight: '700'
+                                    fontFamily:'EurostileBold',
+                                    
                                 }}>Last name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -295,8 +296,8 @@ export default class Settings extends Component {
                                 <Text style={{
                                     width: '78%',
                                      marginTop: 10,
-                                     fontFamily:'EuroStileBold',
-                                    fontWeight: '700'
+                                     fontFamily:'EurostileBold',
+                                    
                                 }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -334,8 +335,8 @@ export default class Settings extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, 
-                                    fontWeight: 'bold',
-                                    fontFamily:'EuroStileBold',
+                                   
+                                    fontFamily:'EurostileBold',
                                     color: 'white'
                                 }}>Submit</Text>
 
