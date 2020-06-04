@@ -69,7 +69,7 @@ export default class AddCar extends Component {
             isLoading: false,
             user_id: '',
             isShow:false,
-            DATA:''
+            DATA:[]
 
         }
     }
@@ -130,19 +130,22 @@ export default class AddCar extends Component {
     componentDidMount() {
 
         this.get('user_id')
-        //this.manufactureyear()
+        this.manufactureyear()
     }
 
-    // manufactureyear=()=>{
-    //     var allyear=[]
-    //     //alert(JSON.stringify(year))
-    //     for(var i=1945;i<=year;i++){
-    //         allyear.push(i)
-    //     }
-    //     this.setState({
-    //         DATA:allyear
-    //     })
-    // }
+    manufactureyear=()=>{
+        var allyear=[]
+        //alert(JSON.stringify(year))
+        for(var i=year;i>=1945;i--){
+            allyear.push({
+                label: i+'',
+                value: i+''
+                })
+        } 
+        this.setState({
+            DATA:allyear
+        })
+    }
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -261,7 +264,7 @@ export default class AddCar extends Component {
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: Dimensions.get('window').height/3,
+                                height: Dimensions.get('window').height/3.5,
                                 width: '100%',
                                 marginTop: 10,
                                 justifyContent: 'center',
@@ -279,7 +282,9 @@ export default class AddCar extends Component {
                                     onPress={() => this.chooseFile()}>
                                     <Image style={{ 
                                       flex:1, 
-                                    width: '100%', borderRadius: 10 }}
+                                    width: '100%',
+                                     borderRadius: 10 }}
+                                    
                                         resizeMode='cover'
                                         source={this.state.filePath == '' ?
                                             require('../assets/placeholder.jpg') : this.state.filePath}>
@@ -289,10 +294,13 @@ export default class AddCar extends Component {
                                 <View style={{
                                     height:40,
                                     width:40,
-                              alignItems:'center',justifyContent:'center',
-                              position:'absolute',bottom:5,
-                              right:18}}>
-                                  <Image style={{height:30,width:30,
+                                    alignItems:'center',
+                                     justifyContent:'center',
+                                     position:'absolute',
+                                     bottom:5,
+                                     right:18}}>
+                                  <Image style={{height:30,
+                                  width:30,
                                   tintColor:'black'}}
                                   
                                   source={require('../assets/camera.png')}></Image>

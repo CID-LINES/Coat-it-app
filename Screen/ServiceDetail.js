@@ -159,6 +159,11 @@ export default class ServiceDeatil extends Component {
                                 alignSelf: 'center',
                                 justifyContent: 'center',
                                 overflow: 'hidden'
+                            }}
+                            onPress={()=>{
+                                this.setState({
+                                    isShow:true
+                                })
                             }}>
                                 <ImageLoad style={{ 
                                     //height: 200,
@@ -239,6 +244,36 @@ export default class ServiceDeatil extends Component {
 
                     </View>
                 }
+                 {
+                    this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        //backgroundColor:'black',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} onPress={() => {
+                        this.setState({
+                            
+                            isShow: false
+                        })
+                    }}>
+                        <View style={{
+                            height: Dimensions.get('window').height/1.5,
+                             width: '100%'
+                        }}
+                        >
+                            <ImageLoad style={{flex:1}}
+                                resizeMode=
+                                'contain'
+                                source={{ uri 
+                                :this.state.data.image }}></ImageLoad>
+               </View>
+
+            </TouchableOpacity>
+        }
             </SafeAreaView>
         );
     }

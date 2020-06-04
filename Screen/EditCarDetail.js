@@ -70,7 +70,8 @@ export default class EditCarDetail extends Component {
             model_name: props.navigation.state.params.data.model_name,
             vehicle_no: props.navigation.state.params.data.vehicle_no,
             manufacture_year: props.navigation.state.params.data.manufacture_year,
-            data: props.navigation.state.params.data
+            data: props.navigation.state.params.data,
+            DATA:[]
         }
         //  console.log(JSON.stringify(this.state.data))
     }
@@ -109,7 +110,24 @@ export default class EditCarDetail extends Component {
             }
         });
     };
+    componentDidMount(){
+        this.manufactureyear()
+    }
 
+    manufactureyear=()=>{
+        var allyear=[]
+        //alert(JSON.stringify(year))
+        for(var i=year;i>=1945;i--){
+            allyear.push({
+                label: i+'',
+                value: i+''
+                })
+        }
+       
+        this.setState({
+            DATA:allyear
+        })
+    }
 
     editDetailApi = () => {
         this.setState({
@@ -358,7 +376,7 @@ export default class EditCarDetail extends Component {
                                             color: 'gray'
                                         }}
 
-                                        items={DATA}
+                                        items={this.state.DATA}
                                         onValueChange={(value) => {
                                             this.setState({
                                                 manufacture_year: value,

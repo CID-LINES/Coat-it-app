@@ -143,8 +143,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/ios/
 	tools:ignore
 		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/debug/AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.xml:14:7-52
-		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.xml:14:7-52
+		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.xml:14:7-46
+		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/main/AndroidManifest.xml:14:7-46
 	tools:targetApi
 		ADDED from /Users/ios/Desktop/Work/Coatit/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon

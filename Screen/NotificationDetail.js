@@ -63,7 +63,12 @@ export default class NotificationDetail extends Component {
                             alignSelf:'center',
                             
                             justifyContent:'center',
-                            overflow:'hidden'}}>
+                            overflow:'hidden'}}
+                            onPress={()=>{
+                                this.setState({
+                                    isShow:true
+                                })
+                            }}>
                             <ImageLoad style={{flex:1,
                            // width:'100%'
                         }}
@@ -106,6 +111,38 @@ export default class NotificationDetail extends Component {
                         color:'white'}}>Buy</Text></TouchableOpacity>
                       */}
                 </View>
+
+                {
+                    this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        //backgroundColor:'black',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} onPress={() => {
+                        this.setState({
+                            
+                            isShow: false
+                        })
+                    }}>
+                        <View style={{
+                            height: Dimensions.get('window').height/1.5,
+                            width: '100%'
+                        }}
+                        >
+                            <ImageLoad style={{ flex: 1, width: '100%' }}
+                                resizeMode=
+                                'cover'
+                                source={{ uri 
+                                :this.state.data.image }}></ImageLoad>
+               </View>
+
+            </TouchableOpacity>
+        }
+
                 
             </SafeAreaView>
         );

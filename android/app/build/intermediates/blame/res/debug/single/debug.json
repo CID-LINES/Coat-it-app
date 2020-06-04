@@ -520,10 +520,6 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/res/layout/text_view_with_line_height_from_style.xml"
     },
     {
-        "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/2612be86db51ba7bbd711acc900fd640/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
@@ -680,10 +676,6 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/res/layout/mtrl_picker_header_selection_text.xml"
     },
     {
-        "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/drawable-v21_avd_hide_password.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/res/drawable-v21/avd_hide_password.xml"
     },
@@ -746,10 +738,6 @@
     {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/raw_amu_poly_style_boolean_numeric.kml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/d3baf0072b39ea47fb1f2a2eac90bb68/res/raw/amu_poly_style_boolean_numeric.kml"
-    },
-    {
-        "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -1916,10 +1904,6 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/2612be86db51ba7bbd711acc900fd640/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
-        "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/2612be86db51ba7bbd711acc900fd640/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
     },
@@ -2174,10 +2158,6 @@
     {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/layout_design_text_input_end_icon.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/5a874b82e3b0d21072ba14ec7e437f7a/res/layout/design_text_input_end_icon.xml"
-    },
-    {
-        "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/res/merged/debug/layout_design_layout_tab_text.xml.flat",

@@ -1,8 +1,8 @@
 #Internal package file, do not edit.
-#Tue Jun 02 18:31:17 IST 2020
+#Wed Jun 03 19:12:18 IST 2020
 60.set=NATIVE_RESOURCE
-52.set=NATIVE_RESOURCE
-53.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/merged_assets/debug/out
+52.set=ASSET
+53.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 44.set=NATIVE_RESOURCE
 36.set=NATIVE_RESOURCE
 28.set=NATIVE_RESOURCE
@@ -29,7 +29,7 @@
 27.set=NATIVE_RESOURCE
 63.path=lib/arm64-v8a/libyoga.so
 7.baseType=DIRECTORY
-19.set=ASSET
+19.set=NATIVE_RESOURCE
 36.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 58.baseType=DIRECTORY
 18.baseType=DIRECTORY
@@ -47,17 +47,17 @@
 11.baseType=DIRECTORY
 50.set=NATIVE_RESOURCE
 42.set=NATIVE_RESOURCE
-52.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
+52.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/merged_assets/debug/out
 34.set=NATIVE_RESOURCE
 59.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/dexMerger/debug/0
 26.set=NATIVE_RESOURCE
 44.baseType=DIRECTORY
-18.set=NATIVE_RESOURCE
+18.set=ASSET
 12.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 2.path=lib/x86/libreactnativejni.so
 46.path=ula.kml
 9.path=lib/x86/libfolly_json.so
-53.path=fonts/EurostileBold.ttf
+53.path=lib/armeabi-v7a/libreactnativeblob.so
 7.set=NATIVE_RESOURCE
 68.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 21.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/merged_assets/debug/out
@@ -100,7 +100,7 @@
 8.path=lib/x86_64/libreactnativeblob.so
 36.baseType=DIRECTORY
 5.set=NATIVE_RESOURCE
-52.path=lib/armeabi-v7a/libreactnativeblob.so
+52.path=fonts/EurostileBold.ttf
 67.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 59.path=classes.dex
 69.baseType=DIRECTORY
@@ -140,7 +140,7 @@
 41.baseType=DIRECTORY
 7.path=lib/x86/libjsinspector.so
 3.set=NATIVE_RESOURCE
-19.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/merged_assets/debug/out
+19.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 51.path=fonts/VarelaRound-Regular.ttf
 66.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 71.baseType=DIRECTORY
@@ -179,7 +179,7 @@
 16.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 6.path=lib/armeabi-v7a/libjsc.so
 1.set=NATIVE_RESOURCE
-18.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
+18.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/merged_assets/debug/out
 50.path=lib/armeabi-v7a/libfb.so
 65.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 count=72
@@ -191,7 +191,7 @@ count=72
 11.set=NATIVE_RESOURCE
 8.baseType=DIRECTORY
 65.set=NATIVE_RESOURCE
-19.path=index.android.bundle
+19.path=lib/armeabi-v7a/libfolly_json.so
 32.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 57.set=NATIVE_RESOURCE
 66.path=lib/x86_64/libfb.so
@@ -232,7 +232,7 @@ count=72
 71.set=NATIVE_RESOURCE
 63.set=NATIVE_RESOURCE
 55.set=NATIVE_RESOURCE
-18.path=lib/armeabi-v7a/libfolly_json.so
+18.path=index.android.bundle
 31.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 47.set=NATIVE_RESOURCE
 65.path=lib/armeabi-v7a/libnative-imagetranscoder.so
@@ -269,7 +269,7 @@ count=72
 15.path=lib/x86/libyoga.so
 70.base=/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 61.set=NATIVE_RESOURCE
-53.set=ASSET
+53.set=NATIVE_RESOURCE
 63.baseType=DIRECTORY
 45.set=NATIVE_RESOURCE
 23.baseType=DIRECTORY

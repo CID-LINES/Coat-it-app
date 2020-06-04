@@ -217,29 +217,15 @@ export default class Settings extends Component {
 
                                     </Image>
                                 </TouchableOpacity>
-                                {/* <View style={{
-                                    height: 30, width: 30,
-                                    
-                                     marginTop: 1, 
-                                    marginRight:10,
-                                    alignSelf: 'flex-end',
-                                }}>
-                                    <TouchableOpacity style={{
-                                        height: 30, width: 30, alignSelf: 'center',
-                                        alignItems: 'center', justifyContent: 'center'
-                                    }}
-                                    >
-                                        <Image style={{ height: 30, width: 30 }}
-                                            resizeMode='contain'
-                                            source={require('../assets/pencil.png')}></Image>
-                                    </TouchableOpacity> */}
+                             
                                      <View style={{
                                     height:40,width:40,
                               alignItems:'center',justifyContent:'center',
                               position:'absolute',bottom:5,
                               right:18}}>
                                   <Image style={{height:30,width:30,
-                                  tintColor:'black'}}      
+                                  tintColor:'black'
+                                }}      
                                   source={require('../assets/camera.png')}></Image>
                               </View>
                                 

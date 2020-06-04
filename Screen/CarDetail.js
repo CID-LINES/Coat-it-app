@@ -12,7 +12,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { CallApi } from '../Component/ApiClient';
 import RNPickerSelect from 'react-native-picker-select';
-
+var year = new Date().getFullYear();
 
 
 const DATA = [
@@ -67,7 +67,8 @@ export default class CarDetail extends Component {
             Modelname: '',
             Vehicleno: '',
             manufacture_year: '',
-            user_id: ''
+            user_id: '',
+            DATA:[]
         }
     }
 
@@ -116,6 +117,21 @@ export default class CarDetail extends Component {
     componentDidMount() {
 
         this.get('user_id')
+        this.manufactureyear()
+    }
+    manufactureyear=()=>{
+        var allyear=[]
+        //alert(JSON.stringify(year))
+        for(var i=year;i>=1945;i--){
+            allyear.push({
+                label: i+'',
+                value: i+''
+                })
+        }
+       
+        this.setState({
+            DATA:allyear
+        })
     }
 
     async get(key) {
@@ -236,9 +252,9 @@ export default class CarDetail extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
+                            fontSize: 18, 
                             color: APP_YELLOW,
-                            fontFamily:'EuroStileBold'
+                            fontFamily:'EurostileBold'
                         }}>Car Detail</Text>
                     </View>
                 </View>
@@ -291,8 +307,8 @@ export default class CarDetail extends Component {
                             </View>
                             <View style={{ width: '100%', marginTop: 10 }}>
                                 <Text style={{ marginLeft: 35, 
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold' }}>Brand/Company Name</Text>
+                                    
+                                    fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
@@ -310,9 +326,9 @@ export default class CarDetail extends Component {
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
-                                    fontWeight: '600',
+                                   
                                     marginTop: 20,
-                                    fontFamily:'EuroStileBold'
+                                    fontFamily:'EurostileBold'
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
@@ -333,8 +349,8 @@ export default class CarDetail extends Component {
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, 
-                                    fontWeight: '600',
-                                    fontFamily:'EuroStileBold',
+                                   
+                                    fontFamily:'EurostileBold',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -353,9 +369,9 @@ export default class CarDetail extends Component {
                                     backgroundColor: 'gray'
                                 }}></View>
                                 <Text style={{
-                                    marginLeft: 35, fontWeight: '600',
+                                    marginLeft: 35,
                                     marginTop: 20,
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                 }}>Year of Manufacture</Text>
 
                                 <View style={{
@@ -385,7 +401,7 @@ export default class CarDetail extends Component {
                                             color: 'gray'
                                         }}
 
-                                        items={DATA}
+                                        items={this.state.DATA}
                                         onValueChange={(value) => {
                                             this.setState({
                                                 manufacture_year: value,
@@ -426,9 +442,9 @@ export default class CarDetail extends Component {
                                     this.CarDetail()
                                 }}>
                                 <Text style={{
-                                    fontWeight: '700', 
+                                    
                                     color: 'white',
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
                             </TouchableOpacity>
@@ -448,9 +464,9 @@ export default class CarDetail extends Component {
                                     this.props.navigation.navigate('Home')
                                 }}>
                                 <Text style={{
-                                    fontWeight: '700', 
+                                   
                                     color: APP_YELLOW,
-                                    fontFamily:'EuroStileBold',
+                                    fontFamily:'EurostileBold',
                                     fontSize: 18
                                 }}>Skip</Text>
                             </TouchableOpacity>
