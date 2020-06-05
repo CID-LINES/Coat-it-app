@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ios/Desktop/Work/Coatit/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/2612be86db51ba7bbd711acc900fd640/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

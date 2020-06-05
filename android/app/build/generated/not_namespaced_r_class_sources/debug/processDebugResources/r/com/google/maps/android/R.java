@@ -78,22 +78,22 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int adjust_height = 0x7f080045;
-        public static final int adjust_width = 0x7f080046;
-        public static final int amu_text = 0x7f08004a;
-        public static final int auto = 0x7f08004c;
-        public static final int dark = 0x7f080069;
-        public static final int hybrid = 0x7f080093;
-        public static final int icon_only = 0x7f080096;
-        public static final int light = 0x7f08009f;
-        public static final int none = 0x7f0800c8;
-        public static final int normal = 0x7f0800c9;
-        public static final int satellite = 0x7f0800e8;
-        public static final int standard = 0x7f08010e;
-        public static final int terrain = 0x7f08011c;
-        public static final int webview = 0x7f080140;
-        public static final int wide = 0x7f080141;
-        public static final int window = 0x7f080142;
+        public static final int adjust_height = 0x7f080046;
+        public static final int adjust_width = 0x7f080047;
+        public static final int amu_text = 0x7f08004b;
+        public static final int auto = 0x7f08004d;
+        public static final int dark = 0x7f08006b;
+        public static final int hybrid = 0x7f080096;
+        public static final int icon_only = 0x7f080099;
+        public static final int light = 0x7f0800a2;
+        public static final int none = 0x7f0800cc;
+        public static final int normal = 0x7f0800cd;
+        public static final int satellite = 0x7f0800ec;
+        public static final int standard = 0x7f080112;
+        public static final int terrain = 0x7f080121;
+        public static final int webview = 0x7f080145;
+        public static final int wide = 0x7f080146;
+        public static final int window = 0x7f080147;
     }
     public static final class integer {
         private integer() {}
@@ -154,9 +154,9 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int amu_Bubble_TextAppearance_Dark = 0x7f1002b3;
-        public static final int amu_Bubble_TextAppearance_Light = 0x7f1002b4;
-        public static final int amu_ClusterIcon_TextAppearance = 0x7f1002b5;
+        public static final int amu_Bubble_TextAppearance_Dark = 0x7f1002b8;
+        public static final int amu_Bubble_TextAppearance_Light = 0x7f1002b9;
+        public static final int amu_ClusterIcon_TextAppearance = 0x7f1002ba;
     }
     public static final class styleable {
         private styleable() {}

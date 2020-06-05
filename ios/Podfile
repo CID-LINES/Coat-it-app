@@ -36,8 +36,17 @@ target 'kenotekcarapp' do
 
 # pod 'GoogleMaps'
 # pod 'Google-Maps-iOS-Utils' ,:git => 'https://github.com/googlemaps/google-maps-ios-utils'
+pod 'Firebase/Analytics'
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
+  # pod 'react-native-firebase-push-notifications', :path => '../node_modules/react-native-firebase-push-notifications'
+
+pod 'Firebase/Messaging'
+# pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+  pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
+
+
 
   target 'kenotekcarappTests' do
     inherit! :search_paths

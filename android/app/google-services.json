@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "897331415812",
+    "firebase_url": "https://kenotekcarapp-1584936903801.firebaseio.com",
+    "project_id": "kenotekcarapp-1584936903801",
+    "storage_bucket": "kenotekcarapp-1584936903801.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897331415812:android:ef959fc28aa8494ec25e51",
+        "android_client_info": {
+          "package_name": "com.kenotekcarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897331415812-29meeptqjshr11kom4as8m7mkgtd1hi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi-ifHjdcLRWGaPwUfR2T8q1RJQFhmJco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897331415812-29meeptqjshr11kom4as8m7mkgtd1hi5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "897331415812-lf1su9n4d9oc626iu15diltpcgdrck24.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "aditinet.uk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

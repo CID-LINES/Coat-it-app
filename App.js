@@ -15,7 +15,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import React from 'react';
 import {
-  Image
+  Image, DeviceEventEmitter
 } from 'react-native';
 
 import Signup from './Screen/SignUp';
@@ -39,6 +39,8 @@ import Payment from './Screen/Payment'
 import PurchaseDetail from './Screen/PurchaseDetail'
 import PastPurchaseDetail from './Screen/PastPurchaseDetail'
 import EditProfile from './Screen/EditProfile'
+
+
 
 
 

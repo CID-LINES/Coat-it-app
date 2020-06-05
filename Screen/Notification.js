@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator, Dimensions, PushNotificationIOS } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
 import ImageLoad from 'react-native-image-placeholder';
+import PushNotification from 'react-native-push-notification';
 const DATA = [
     {
         title: 'first'
@@ -25,14 +26,15 @@ export default class Notification extends Component {
         }
     }
 
-    componentDidMount() {
+   async componentDidMount() {
         this.NotificationApi()
+
+      
     }
     NotificationApi = () => {
         this.setState({
             isLoading: true
         })
-
 
         fetch('http://3.137.41.50/coatit/public/api/notification_list',
             {

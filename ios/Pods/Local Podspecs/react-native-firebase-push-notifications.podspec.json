@@ -1,0 +1,31 @@
+{
+  "name": "react-native-firebase-push-notifications",
+  "version": "0.0.8",
+  "summary": "A React native firebase push notification implementation for Android and iOS",
+  "description": "react-native-firebase-push-notifications",
+  "homepage": "https://github.com/afrihost/react-native-firebase-push-notifications",
+  "license": "MIT",
+  "authors": {
+    "Your Name": "open-source@afrihost.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/afrihost/react-native-firebase-push-notifications.git",
+    "tag": "0.0.8"
+  },
+  "source_files": "ios/**/*.{h,m,swift}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ],
+    "Firebase/Core": [
+      "~> 6.13.0"
+    ],
+    "Firebase/Messaging": [
+      "~> 6.13.0"
+    ]
+  }
+}

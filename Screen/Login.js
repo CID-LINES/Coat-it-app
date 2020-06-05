@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions, DeviceEventEmitter, PushNotificationIOS } from 'react-native';
 import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall ,CallApi} from '../Component/ApiClient';
 
+
+import PushNotificationAndroid, { PushNotificationObject } from 'react-native-push-notification'
+import PushNotification from 'react-native-push-notification';
+import firebase from 'react-native-firebase';
 
 
 export default class Login extends Component {
@@ -14,7 +18,8 @@ export default class Login extends Component {
             Password: '',
             femail: '',
             shift: false,
-            user_id: ''
+            user_id: '',
+            device_token:''
         }
     }
 
@@ -26,8 +31,37 @@ export default class Login extends Component {
                 this.props.navigation.push('Home')
             }
         })
+      this.checkPermission()
     }
-
+    
+    checkPermission = async () => {
+        const enabled = await firebase.messaging().hasPermission();
+        if (enabled) {
+          this.getFcmToken();
+        } else {
+          this.requestPermission();
+        }
+      }
+      requestPermission = async () => {
+        try {
+          console.log('request permission')
+          await firebase.messaging().requestPermission();
+          // User has authorised
+          this.getFcmToken()
+        } catch (error) {
+          console.log('permission rejected')
+          // User has rejected permissions
+        }
+      }
+    
+      getFcmToken = async () => {
+        const { userId } = this.props;
+        const fcmToken = await firebase.messaging().getToken();
+        AsyncStorage.setItem('device_token', fcmToken + '')
+        this.setState({
+          device_token: fcmToken + ''
+        })
+    }
 
     async get(key) {
         try {
@@ -97,7 +131,6 @@ export default class Login extends Component {
        CallApi('forgot_password/email',
             {
                 'email': this.state.femail
-
             },
             (data) => {
                 console.log(JSON.stringify(data))
@@ -130,7 +163,6 @@ export default class Login extends Component {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
                   <StatusBar barStyle="dark-content" />
-              
                         <View style={{flex:1}}>
                         <View style={{
                                 alignSelf: 'center',
