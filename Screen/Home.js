@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
@@ -96,7 +96,8 @@ export default class Home extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-
+ <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{ flex: 1 }}>
                     <View style={{
                         height: 30,
@@ -143,7 +144,7 @@ export default class Home extends Component {
 
                     </View>
                 }
-
+</ImageBackground>
             </SafeAreaView>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions, DeviceEventEmitter, PushNotificationIOS } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions, DeviceEventEmitter, PushNotificationIOS, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall ,CallApi} from '../Component/ApiClient';
 
@@ -162,6 +162,8 @@ export default class Login extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
+                   <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                   <StatusBar barStyle="dark-content" />
                         <View style={{flex:1}}>
                         <View style={{
@@ -423,7 +425,7 @@ export default class Login extends Component {
 
                     </View>
                 }
-
+</ImageBackground>
             </SafeAreaView>
         );
     }

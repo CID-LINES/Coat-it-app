@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, Share, AsyncStorage, ActivityIndicator, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, Share, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground } from 'react-native';
 import { APP_BLUE, APP_LIGHT, APP_YELLOW } from '../Component/colors'
 import { StackActions, NavigationActions } from 'react-navigation';
 import { CallGetApi } from '../Component/ApiClient';
@@ -85,6 +85,8 @@ export default class UserProfile extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior='padding' enabled>
                         <View>
@@ -386,12 +388,12 @@ export default class UserProfile extends Component {
                    width:'100%'
                }}
               >
-                   <Image style={{flex:1,width:'100%'}}
+                   <ImageLoad style={{flex:1,width:'100%'}}
                    resizeMode=
                    'cover'
                    source={this.state.data.avatar == null ?
                                             require('../assets/placeholder.jpg')
-                                            : { uri: this.state.data.avatar }}></Image>
+                                            : { uri: this.state.data.avatar }}></ImageLoad>
                </View>
 
             </TouchableOpacity>
@@ -415,6 +417,7 @@ export default class UserProfile extends Component {
 
             </View>
         }
+        </ImageBackground>
             </SafeAreaView >
         );
     }

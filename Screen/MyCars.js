@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
@@ -145,7 +145,8 @@ export default class MyCars extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                     <View style={{
                         height: 40, 
                         width: '95%',
@@ -238,7 +239,7 @@ export default class MyCars extends Component {
 
                     </View>
                 }
-
+</ImageBackground>
             </SafeAreaView>
         );
     }

@@ -4,7 +4,8 @@ import {
     TextInput, ScrollView, TouchableOpacity,
     KeyboardAvoidingView, AsyncStorage, ActivityIndicator,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    ImageBackground
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
@@ -187,6 +188,8 @@ export default class EditCarDetail extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
@@ -429,6 +432,7 @@ export default class EditCarDetail extends Component {
 
                     </View>
                 }
+                </ImageBackground>
             </SafeAreaView>
         );
     }

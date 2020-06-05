@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, 
     TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, ActivityIndicator,
-     AsyncStorage, Platform, Picker,StyleSheet, Dimensions } from 'react-native';
+     AsyncStorage, Platform, Picker,StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors';
 import ImagePicker from 'react-native-image-picker';
 import { ApiCallWithImage } from '../Component/ApiClient';
@@ -220,6 +220,8 @@ export default class AddCar extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
@@ -484,6 +486,7 @@ export default class AddCar extends Component {
 
                     </View>
                 }
+                </ImageBackground>
             </SafeAreaView>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
 export default class ServiceDeatil extends Component {
@@ -94,8 +94,9 @@ export default class ServiceDeatil extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-
+            <SafeAreaView style={{ flex: 1, }}>
+ <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{
                     height: 60, 
                     width: '95%',
@@ -144,7 +145,7 @@ export default class ServiceDeatil extends Component {
                 </View>
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1,
-                     backgroundColor: 'white' }}
+                     }}
                     >
                         <View style={{
                             height: Dimensions.get('window').height/3,
@@ -274,7 +275,9 @@ export default class ServiceDeatil extends Component {
 
             </TouchableOpacity>
         }
+        </ImageBackground>
             </SafeAreaView>
+
         );
     }
 }

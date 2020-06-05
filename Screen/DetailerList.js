@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
@@ -89,6 +89,8 @@ export default class DetailerList extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
 
                 <View style={{
                     height: 40, width: '95%',
@@ -174,7 +176,7 @@ export default class DetailerList extends Component {
 
                     </View>
                 }
-                {
+                {/* {
                     this.state.isShow &&
                     <TouchableOpacity style={{
                         position: 'absolute',
@@ -203,8 +205,8 @@ export default class DetailerList extends Component {
                </View>
 
             </TouchableOpacity>
-        }
-
+        } */}
+</ImageBackground>
             </SafeAreaView>
         );
     }
@@ -238,10 +240,10 @@ DetailerList = (item, index) => {
                 width: Dimensions.get('window').width / 3
             }}
                 onPress={() => {
-                    this.setState({
-                        previewurl:item.avatar,
-                        isShow: true
-                    })
+                    // this.setState({
+                    //     previewurl:item.avatar,
+                    //     isShow: true
+                    // })
                 }}>
                 <ImageLoad style={{
                     // height: 120,
@@ -279,7 +281,8 @@ DetailerList = (item, index) => {
                     onPress={() => {
                         this.props.navigation.push('DetailerCar', {
                             plan: item.service,
-                            car: item.car_name
+                            car: item.car_name,
+                            detailer: item
                         })
                     }}>
                     <View style={{ width:Dimensions.get('window').width/2 }}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
 export default class NotificationDetail extends Component {
@@ -13,7 +13,8 @@ export default class NotificationDetail extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-               
+                <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                      <View style={{
                         height: 40, width: '95%',
                         justifyContent: 'center',
@@ -143,7 +144,7 @@ export default class NotificationDetail extends Component {
             </TouchableOpacity>
         }
 
-                
+                </ImageBackground>
             </SafeAreaView>
         );
     }

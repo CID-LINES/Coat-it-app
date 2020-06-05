@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator, Dimensions, PushNotificationIOS } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, RefreshControl, ActivityIndicator, Dimensions, PushNotificationIOS, ImageBackground } from 'react-native';
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
@@ -77,7 +77,8 @@ export default class Notification extends Component {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
-
+<ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{ flex: 1 }}>
                     <View style={{
                         alignSelf: 'center',
@@ -121,7 +122,7 @@ export default class Notification extends Component {
 
                     </View>
                 }
-                 {
+                 {/* {
                     this.state.isShow &&
                     <TouchableOpacity style={{
                         position: 'absolute',
@@ -150,8 +151,8 @@ export default class Notification extends Component {
                </View>
 
             </TouchableOpacity>
-        }
-
+        } */}
+</ImageBackground>
             </SafeAreaView>
         );
     }
@@ -188,10 +189,10 @@ export default class Notification extends Component {
                     //marginBottom: 5
                 }}
                 onPress={()=>{
-                    this.setState({
-                        previewurl:item.image,
-                        isShow:true
-                    })
+                    // this.setState({
+                    //     previewurl:item.image,
+                    //     isShow:true
+                    // })
                 }}>
                     <ImageLoad style={{ flex: 1, width: '100%' }}
                         resizeMode='cover'

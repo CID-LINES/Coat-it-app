@@ -6,7 +6,8 @@ import {
     StyleSheet,
     ActivityIndicator,
     AsyncStorage,
-    Dimensions
+    Dimensions,
+    ImageBackground
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
@@ -221,6 +222,8 @@ export default class CarDetail extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+                 <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
@@ -491,6 +494,7 @@ export default class CarDetail extends Component {
 
                     </View>
                 }
+                </ImageBackground>
             </SafeAreaView>
         );
     }

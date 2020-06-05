@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { NavigationActions, StackActions } from 'react-navigation';
@@ -142,7 +142,8 @@ export default class Settings extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-
+ <ImageBackground style={{ flex: 1 ,}}
+                        source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
@@ -390,6 +391,7 @@ export default class Settings extends Component {
 
                     </View>
                 }
+                </ImageBackground>
             </SafeAreaView>
         );
     }
