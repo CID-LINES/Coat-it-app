@@ -1,1 +1,0 @@
-../../../../../node_modules/react-native-month-year-picker/ios/RNMonthPickerManager.h
