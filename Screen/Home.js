@@ -95,21 +95,22 @@ export default class Home extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
- <ImageBackground style={{ flex: 1 ,}}
-                        source={require('../assets/bg.png')}>
+            // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
                 <View style={{ flex: 1 }}>
                     <View style={{
                         height: 30,
                         width: "95%",
                         alignSelf: 'center',
-                        justifyContent: 'center', alignItems: 'center'
+                        justifyContent: 'center', alignItems: 'center',marginTop:40
                     }}>
                         <Text style={{
-                            
+
                             fontSize: 18,
-                             color: APP_YELLOW,
-                             fontFamily:'EurostileBold',
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold',
                         }}>
                             Service Plan
                             </Text>
@@ -144,15 +145,15 @@ export default class Home extends Component {
 
                     </View>
                 }
-</ImageBackground>
-            </SafeAreaView>
+            </ImageBackground>
+            // </SafeAreaView >
         );
     }
     MembershipPlan = (item) => {
 
         return (
 
-            <TouchableOpacity style={{     
+            <TouchableOpacity style={{
                 width: '95%',
                 alignSelf: 'center',
                 borderColor: APP_YELLOW,
@@ -167,11 +168,11 @@ export default class Home extends Component {
                 })
             }}>
                 <View style={{
-                    height: Dimensions.get('window').height/4,
+                    height: Dimensions.get('window').height / 4,
                     width: '100%'
                 }} >
                     <ImageLoad style={{
-                       flex:1,
+                        flex: 1,
                         width: '100%'
                     }}
                         resizeMode='cover'
@@ -180,25 +181,30 @@ export default class Home extends Component {
                             { uri: item.image }}></ImageLoad>
                 </View>
                 <View style={{
-                    width:'95%',
+                    width: '95%',
                     marginTop: 10,
-                     marginLeft: 10,
+                    marginLeft: 10,
                 }}>
-                        <Text style={{ fontSize: 17,
-                        fontFamily:'EurostileBold', 
-                         }}
+                    <Text style={{
+                        fontSize: 17,
+                        fontFamily: 'EurostileBold',
+                        color: 'white'
+                    }}
                     >{item.name}</Text>
-                    <Text style={{ fontSize: 16 ,
-                      fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
-                    
-                    marginTop:5}}
+                    <Text style={{
+                        fontSize: 16,
+                        color: 'white',
+                        fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+
+                        marginTop: 5
+                    }}
                     >{item.title}</Text>
 
                 </View>
                 <TouchableOpacity style={{
                     height: 30,
                     width: '30%',
-                    marginTop:5,
+                    marginTop: 5,
                     borderRadius: 5,
                     marginBottom: 10,
                     alignSelf: 'flex-end',
@@ -207,14 +213,15 @@ export default class Home extends Component {
                     justifyContent: 'center',
                     backgroundColor: APP_YELLOW
                 }}
-                onPress={() => {
+                    onPress={() => {
 
-                    this.props.navigation.navigate('ServiceDetail', {
-                        plan: item
-                    })
-                }}>
-                    <Text style={{ color: 'white',fontFamily:'EurostileBold',
-                 }}>View details</Text>
+                        this.props.navigation.navigate('ServiceDetail', {
+                            plan: item
+                        })
+                    }}>
+                    <Text style={{
+                        color: 'white', fontFamily: 'EurostileBold',
+                    }}>View details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>
         )

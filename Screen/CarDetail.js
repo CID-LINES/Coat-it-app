@@ -223,13 +223,14 @@ export default class CarDetail extends Component {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                  <ImageBackground style={{ flex: 1 ,}}
+                 resizeMode='stretch'
                         source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    backgroundColor: 'white'
+                  
                 }}>
                     {/* <TouchableOpacity style={{
                         height: 35,
@@ -310,14 +311,15 @@ export default class CarDetail extends Component {
                             </View>
                             <View style={{ width: '100%', marginTop: 10 }}>
                                 <Text style={{ marginLeft: 35, 
-                                    
+                                    color:'white',
                                     fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
-                                    alignSelf: 'center'
+                                    alignSelf: 'center',
+                                    color:'white'
                                 }}
-                                    placeholderTextColor='gray'
+                                    placeholderTextColor='white'
                                     value={this.state.Companyname}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
@@ -325,20 +327,22 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'gray'
+                                    backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
                                    
                                     marginTop: 20,
+                                    color:'white',
                                     fontFamily:'EurostileBold'
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
-                                    alignSelf: 'center'
+                                    alignSelf: 'center',
+                                    color:'white'
                                 }}
-                                    placeholderTextColor='gray'
+                                    placeholderTextColor='white'
                                     keyboardType='ascii-capable'
                                     value={this.state.Modelname}
                                     onChangeText={(value) => this.setState({ Modelname: value })}
@@ -348,20 +352,22 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'gray'
+                                    backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, 
                                    
                                     fontFamily:'EurostileBold',
+                                    color:'white',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
-                                    alignSelf: 'center'
+                                    alignSelf: 'center',
+                                    color:'white'
                                 }}
-                                    placeholderTextColor='gray'
+                                    placeholderTextColor='white'
                                     keyboardType='ascii-capable'
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
@@ -369,11 +375,12 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'gray'
+                                    backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 20,
+                                    color:'white',
                                     fontFamily:'EurostileBold',
                                 }}>Year of Manufacture</Text>
 
@@ -526,7 +533,7 @@ const pickerSelectStyles = StyleSheet.create({
         // borderWidth: 1,
         // borderColor: colors.APPCOLOR,
         // borderRadius: 4,
-        color: 'black',
+        color: 'white',
         // paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
@@ -536,7 +543,7 @@ const pickerSelectStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
-        color: 'black',
+        color: 'white',
         paddingRight: 30, // to ensure the text is never behind the icon
     },
 })

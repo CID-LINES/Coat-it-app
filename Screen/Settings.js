@@ -141,102 +141,104 @@ export default class Settings extends Component {
     // }
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
- <ImageBackground style={{ flex: 1 ,}}
-                        source={require('../assets/bg.png')}>
-                <View style={{
-                    height: 40, width: '95%',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    alignSelf: 'center',
-                }}>
-                    <TouchableOpacity style={{
-                        height: 35, width: 35,
-                        alignItems: 'center',
+            // <SafeAreaView style={{ flex: 1 }}>
+                <ImageBackground style={{ flex: 1, }}
+                    resizeMode='stretch'
+                    source={require('../assets/bg.png')}>
+                    <View style={{
+                        height: 40, width: '95%',
                         justifyContent: 'center',
-                        position: 'absolute', left: 5
+                        flexDirection: 'row',
+                        alignSelf: 'center',marginTop:40
+                    }}>
+                        <TouchableOpacity style={{
+                            height: 35, width: 35,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute', left: 5
 
+                        }}
+                            onPress={() => {
+                                this.props.navigation.goBack()
+                            }}>
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                                resizeMode='contain'
+                                source={require('../assets/back.png')}></Image>
+
+                        </TouchableOpacity>
+                        <View style={{
+                            height: 35,
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+
+                        }}>
+                            <Text style={{
+                                fontSize: 20,
+                                color: APP_YELLOW, fontFamily: 'EurostileBold',
+                            }}>Settings</Text>
+                        </View>
+                    </View>
+
+                    <TouchableOpacity style={{
+                        height: 40, width: '60%',
+                        marginTop: 20,
+                        alignItems: "center", justifyContent: 'center',
+                        borderRadius: 10, alignSelf: 'center',
+                        backgroundColor: APP_YELLOW
                     }}
                         onPress={() => {
-                            this.props.navigation.goBack()
+                            this.props.navigation.navigate('ChangePassword')
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
-                            resizeMode='contain'
-                            source={require('../assets/back.png')}></Image>
-
-                    </TouchableOpacity>
-                    <View style={{
-                        height: 35,
-                        alignItems: 'center', justifyContent: 'center',
-
-                    }}>
                         <Text style={{
-                            fontSize: 20, 
-                            color: APP_YELLOW,fontFamily:'EurostileBold',
-                        }}>Settings</Text>
-                    </View>
-                </View>
-
-                <TouchableOpacity style={{
-                    height: 40, width: '60%',
-                    marginTop: 20,
-                    alignItems: "center", justifyContent: 'center',
-                    borderRadius: 10, alignSelf: 'center',
-                    backgroundColor: APP_YELLOW
-                }}
-                    onPress={() => {
-                        this.props.navigation.navigate('ChangePassword')
-                    }}>
-                    <Text style={{
-                        fontSize: 18, 
-                        color: 'white',
-                        fontFamily:'EurostileBold',
-                    }}>Change Password</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    height: 40, width: '60%',
-                    marginTop: 10, marginBottom: 10,
-                    alignItems: "center", justifyContent: 'center',
-                    borderRadius: 10, alignSelf: 'center',
-                    backgroundColor: APP_YELLOW
-                }}
-                    // onPress={() => {
-                    //     this.props.navigation.navigate('Login')
-                    // }}
-                    onPress={() => {
-                        Alert.alert(
-                            'Logout',
-                            'Are you sure you want to logout?',
-                            [
-                                {
-                                    fontFamily:'EurostileBold',
-                                    text: 'Logout', onPress: () => {
-                                        this.save('user_id', '')
-                                        //this.props.navigation.navigate('Login')
-
-                                        const resetAction = StackActions.reset({
-                                            index: 0,
-                                            key: null,
-                                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
-                                        });
-                                        this.props.navigation.dispatch(resetAction);
-                                    }
-                                },
-                                {
-                                    fontFamily:'EurostileBold',
-                                    text: 'Cancel',
-                                    style: 'cancel',
-                                }],
-                            { cancelable: false },
-                        );
+                            fontSize: 18,
+                            color: 'white',
+                            fontFamily: 'EurostileBold',
+                        }}>Change Password</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        height: 40, width: '60%',
+                        marginTop: 10, marginBottom: 10,
+                        alignItems: "center", justifyContent: 'center',
+                        borderRadius: 10, alignSelf: 'center',
+                        backgroundColor: APP_YELLOW
                     }}
-                >
-                    <Text style={{
-                        fontSize: 18,
-                        color: 'white',fontFamily:'EurostileBold',
-                    }}>Logout</Text>
-                </TouchableOpacity>
-                {/* <KeyboardAvoidingView style={{ flex: 1 }}
+                        // onPress={() => {
+                        //     this.props.navigation.navigate('Login')
+                        // }}
+                        onPress={() => {
+                            Alert.alert(
+                                'Logout',
+                                'Are you sure you want to logout?',
+                                [
+                                    {
+                                        fontFamily: 'EurostileBold',
+                                        text: 'Logout', onPress: () => {
+                                            this.save('user_id', '')
+                                            //this.props.navigation.navigate('Login')
+
+                                            const resetAction = StackActions.reset({
+                                                index: 0,
+                                                key: null,
+                                                actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                                            });
+                                            this.props.navigation.dispatch(resetAction);
+                                        }
+                                    },
+                                    {
+                                        fontFamily: 'EurostileBold',
+                                        text: 'Cancel',
+                                        style: 'cancel',
+                                    }],
+                                { cancelable: false },
+                            );
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 18,
+                            color: 'white', fontFamily: 'EurostileBold',
+                        }}>Logout</Text>
+                    </TouchableOpacity>
+                    {/* <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
@@ -373,26 +375,26 @@ export default class Settings extends Component {
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView> */}
-                {this.state.isLoading &&
-                    <View style={{
-                        position: 'absolute',
-                        backgroundColor: '#000000aa',
-                        top: 0,
-                        bottom: 0, left: 0, right: 0,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <ActivityIndicator
-                            animating={this.state.isLoading}
-                            size='large'
+                    {this.state.isLoading &&
+                        <View style={{
+                            position: 'absolute',
+                            backgroundColor: '#000000aa',
+                            top: 0,
+                            bottom: 0, left: 0, right: 0,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <ActivityIndicator
+                                animating={this.state.isLoading}
+                                size='large'
 
-                            color={APP_BLUE}
-                        ></ActivityIndicator>
+                                color={APP_BLUE}
+                            ></ActivityIndicator>
 
-                    </View>
-                }
+                        </View>
+                    }
                 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
 }

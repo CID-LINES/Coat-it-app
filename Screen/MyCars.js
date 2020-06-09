@@ -144,8 +144,9 @@ export default class MyCars extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            // <SafeAreaView style={{ flex: 1 }}>
                  <ImageBackground style={{ flex: 1 ,}}
+                 resizeMode='stretch'
                         source={require('../assets/bg.png')}>
                     <View style={{
                         height: 40, 
@@ -153,6 +154,7 @@ export default class MyCars extends Component {
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
+                        marginTop:40
                     }}>
                         <TouchableOpacity style={{
                             height: 35, 
@@ -187,7 +189,7 @@ export default class MyCars extends Component {
 
                     <View style={{ flex: 1 }}>
 
-                        <FlatList style={{ flex: 1, marginTop: 10 }}
+                        <FlatList style={{ flex: 1, marginTop: 10 ,marginBottom:20}}
                           refreshControl={<RefreshControl 
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
@@ -206,7 +208,7 @@ export default class MyCars extends Component {
                             position: 'absolute',
                             alignContent: 'flex-end',
                             right: 20,
-                            bottom: 30,
+                            bottom: 50,
                         }}
                             onPress={() => {
                                 this.props.navigation.navigate('AddCar')
@@ -240,7 +242,7 @@ export default class MyCars extends Component {
                     </View>
                 }
 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
     MyCars = (item, index) => {
@@ -293,12 +295,14 @@ export default class MyCars extends Component {
                            
                        marginTop:10,
                        fontFamily:'EurostileBold',
+                       color:'white'
                         }}>
                             {item.vehicle_no}
                         </Text>
                         <Text style={{ 
                             marginTop: 10,
                             fontSize:17,
+                            color:'white',
                             fontFamily:'EurostileBold', }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,

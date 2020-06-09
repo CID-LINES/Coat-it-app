@@ -107,16 +107,16 @@ export default class ServiceDeatil extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, }}>
+            // <SafeAreaView style={{ flex: 1, }}>
  <ImageBackground style={{ flex: 1 ,}}
                         source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 60,
+                    height: 40,
                     width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignItems:'center',
-                    alignSelf: 'center',
+                    alignSelf: 'center',marginTop:40
                 }}>
                     <TouchableOpacity style={{
                        // height: 35,
@@ -164,7 +164,9 @@ export default class ServiceDeatil extends Component {
 
                         <View style={{
                             height: Dimensions.get('window').height/3,
-                            width: '100%', justifyContent: 'center',
+                            marginTop:10,
+                            width: '100%', 
+                            justifyContent: 'center',
                             alignItems: 'center'
                             // backgroundColor:'pink'
                         }}>
@@ -195,6 +197,7 @@ export default class ServiceDeatil extends Component {
                                 fontSize: 17,
                                 
                                 fontFamily:'EurostileBold',
+                                color:'white'
 
                             }}>
                                 {this.state.serviceplan.title}</Text>
@@ -203,6 +206,7 @@ export default class ServiceDeatil extends Component {
                                 marginBottom: 10,
                                 marginTop: 10, 
                                 textAlign: 'justify',
+                                color:'white',
                                 fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
 
                             }}
@@ -276,16 +280,22 @@ export default class ServiceDeatil extends Component {
                         }}
                     >
                         <TouchableOpacity style={{
+                              height: Dimensions.get('window').height/2.5,
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            backgroundColor: 'white'
+                            borderColor:APP_YELLOW,
+                            borderWidth:2
+                          
                         }}
                             onPress={() => {
                                 this.setState({
                                     isHide: false
                                 })
                             }}>
+                                 <ImageBackground style={{flex:1}}
+                                resizeMode='stretch'
+                                source={require('../assets/bg.png')}>
                             <ImageLoad style={{
                                 height: Dimensions.get('window').height/3,
                                 width: '100%'
@@ -315,10 +325,12 @@ export default class ServiceDeatil extends Component {
                                         fontSize: 17, 
                                         marginLeft:20,
                                         marginBottom:10,
+                                        color:'white',
                                         fontFamily:'EurostileBold'
                                     }}>{this.state.detailer.first_name}</Text>
                                 </View>
                                 </View>
+                                </ImageBackground>
                                 </TouchableOpacity>
                                 </TouchableOpacity>
                                 }
@@ -338,16 +350,21 @@ export default class ServiceDeatil extends Component {
                         }}
                     >
                         <TouchableOpacity style={{
+                            height:Dimensions.get('window').height/2.1,
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            backgroundColor: 'white'
+                            borderColor:APP_YELLOW,
+                            borderWidth:2
                         }}
                             onPress={() => {
                                 this.setState({
                                     isShow: false
                                 })
                             }}>
+                                <ImageBackground style={{flex:1}}
+                                resizeMode='stretch'
+                                source={require('../assets/bg.png')}>
                             <ImageLoad style={{
                                 height: Dimensions.get('window').height/3,
                                 width: '100%'
@@ -374,7 +391,8 @@ export default class ServiceDeatil extends Component {
                                     }}>Car name</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 80,
-                                        fontFamily:'EurostileBold'
+                                        fontFamily:'EurostileBold',
+                                        color:'white'
                                     }}>{this.state.cardetail.brand_name}</Text>
                                 </View>
                                 <View style={{
@@ -390,7 +408,8 @@ export default class ServiceDeatil extends Component {
                                     }}>Model name</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 60,
-                                        fontFamily:'EurostileBold'
+                                        fontFamily:'EurostileBold',
+                                        color:'white'
                                     }}>{this.state.cardetail.model_name}</Text>
                                 </View>
                                 <View style={{
@@ -402,11 +421,13 @@ export default class ServiceDeatil extends Component {
                                         fontSize: 18,
                                         
                                          color: APP_YELLOW,
-                                         fontFamily:'EurostileBold'
+                                         fontFamily:'EurostileBold',
+                                         
                                     }}>Vehicle no.</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 73,
-                                        fontFamily:'EurostileBold'
+                                        fontFamily:'EurostileBold',
+                                        color:'white'
                                     }}
                                         numberOfLines={2}>
                                         {this.state.cardetail.vehicle_no}
@@ -425,15 +446,16 @@ export default class ServiceDeatil extends Component {
                                     }}>Manufacture year</Text>
                                     <Text style={{
                                         fontSize: 17, marginLeft: 18,
-                                        fontFamily:'EurostileBold'
+                                        fontFamily:'EurostileBold',
+                                        color:'white'
                                     }}>{this.state.cardetail.manufacture_year}</Text>
                                 </View>
 
 
                             </View>
-
+                          </ImageBackground>
                         </TouchableOpacity>
-
+                       
                     </TouchableOpacity>
                 }
 
@@ -455,7 +477,7 @@ export default class ServiceDeatil extends Component {
                     </View>
                 }
                 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
 }

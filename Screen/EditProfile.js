@@ -141,14 +141,15 @@ export default class Settings extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            // <SafeAreaView style={{ flex: 1 }}>
                  <ImageBackground style={{ flex: 1 ,}}
+                 resizeMode='stretch'
                         source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignSelf: 'center',
+                    alignSelf: 'center',marginTop:40
                 }}>
                     <TouchableOpacity style={{
                         height: 35, 
@@ -238,26 +239,29 @@ export default class Settings extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '78%',
+                                color:'white',
                                  fontFamily:'EurostileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     marginTop: 2,
                                     
-                                    padding: 5
+                                    padding: 5,
+                                    color:'white'
                                 }}
                                     value={this.state.firstname}
                                     onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
+                                    color:'white',
                                     fontFamily:'EurostileBold',
                                     
                                 }}>Last name</Text>
@@ -267,24 +271,25 @@ export default class Settings extends Component {
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     // borderRadius: 10,
-                                    padding: 5
+                                    padding: 5,color:'white'
                                 }}
                                     keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Last Name'
-                                    placeholderTextColor='gray'>
+                                    placeholderTextColor='white'>
 
                                 </TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
 
                                 <Text style={{
                                     width: '78%',
                                      marginTop: 10,
                                      fontFamily:'EurostileBold',
+                                     color:'white'
                                     
                                 }}>Phone No.</Text>
                                 <TextInput style={{
@@ -292,17 +297,18 @@ export default class Settings extends Component {
                                     width: '80%',
                                     marginTop: 2,
                                     
-                                    padding: 5
+                                    padding: 5,
+                                    color:'white'
                                 }}
                                     value={this.state.phone}
                                     onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Phone no.'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
 
                             </View>
@@ -323,7 +329,6 @@ export default class Settings extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, 
-                                   
                                     fontFamily:'EurostileBold',
                                     color: 'white'
                                 }}>Submit</Text>
@@ -353,7 +358,7 @@ export default class Settings extends Component {
                     </View>
                 }
                 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
 
         );
     }

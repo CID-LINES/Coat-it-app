@@ -131,17 +131,19 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,}}>
-                  
-                <StatusBar barStyle="dark-content" />
-                <ImageBackground style={{ flex: 1 ,}}
+            // <SafeAreaView style={{ flex: 1,}}>
+                    <ImageBackground style={{ flex: 1 ,}}
+                   resizeMode='stretch'
                         source={require('../assets/bg.png')}>
+                <StatusBar barStyle="light-content" />
+              
                         <View style={{ flex: 1,}}>
                             <View style={{
                                 alignSelf: 'center',
                                 alignItems: 'center', 
                                 justifyContent: 'center',
-                                height: 30, width: '100%'
+                                height: 30, width: '100%',
+                                marginTop:40
                             }}>
                                 <Text style={{
                                     fontSize: 20,
@@ -204,7 +206,7 @@ export default class SignUp extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '80%',
-                                 
+                                 color:'white',
                                  fontFamily:'EurostileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -213,21 +215,21 @@ export default class SignUp extends Component {
                                     //borderColor: 'gray',
                                     //borderWidth: 1,
                                     borderRadius: 10,
-                                    padding: 5
+                                    padding: 5,color:'white'
                                 }}
                                     value={this.state.firstname}
                                     onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'></TextInput>
                                 <View style={{
                                     height: 1,
                                     width: '80%', 
-                                    backgroundColor: 'gray'
+                                    backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
-                                   
+                                   color:'white',
                                     marginTop: 10,
                                     fontFamily:'EurostileBold',
                                 }}>Last name</Text>
@@ -235,25 +237,25 @@ export default class SignUp extends Component {
                                     height: 40,
                                     width: '80%',
                                     marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    borderRadius: 10, padding: 5
+                                    color:'white',
+                                    borderRadius: 10,
+                                     padding: 5
                                 }}
                                     keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Last Name'
-                                    placeholderTextColor='gray'>
+                                    placeholderTextColor='white'>
 
                                 </TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
-                                   
+                                   color:'white',
                                     fontFamily:'EurostileBold',
                                 }}>Email</Text>
                                 <TextInput style={{
@@ -262,21 +264,25 @@ export default class SignUp extends Component {
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
-                                    borderRadius: 10, padding: 5
+                                    borderRadius: 10, padding: 5,
+                                    color:'white'
                                 }}
                                     value={this.state.email}
                                     onChangeText={(value) => { this.setState({ email: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='Email'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'>
+
+                                    </TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%',
+                                     backgroundColor: 'white'
                                 }}></View>
 
                                 <Text style={{
                                     width: '80%', marginTop: 10,
-                                   
+                                   color:'white',
                                     fontFamily:'EurostileBold',
                                 }}>Phone No.</Text>
                                 <TextInput style={{
@@ -285,41 +291,45 @@ export default class SignUp extends Component {
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
-                                    borderRadius: 10, padding: 5
+                                    borderRadius: 10, padding: 5,
+                                    color:'white'
                                 }}
                                     value={this.state.phone}
                                     onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Phone no.'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
 
                                 <Text style={{
-                                    width: '80%', marginTop: 10,
-                                    
+                                    width: '80%', 
+                                    marginTop: 10,
+                                    color:'white',
                                     fontFamily:'EurostileBold',
                                 }}>Password</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    borderRadius: 10, padding: 5
+                                    color:'white',
+                                    borderRadius: 10, 
+                                    padding: 5
                                 }}
                                     secureTextEntry={true}
                                     keyboardType='ascii-capable'
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Password'
-                                    placeholderTextColor='gray'></TextInput>
+                                    placeholderTextColor='white'>
+
+                                    </TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'gray'
+                                    width: '80%', backgroundColor: 'white'
                                 }}></View>
                             </View>
 
@@ -379,7 +389,8 @@ export default class SignUp extends Component {
                                         color: 'gray', 
                                         marginBottom: 15,
                                         marginTop: 10,
-                                        fontFamily:'EurostileBold'
+                                        fontFamily:'EurostileBold',
+                                        color:'white'
                                     }}>
                                     Already have an account ?<Text style={{
                                         alignSelf: 'center', 
@@ -391,7 +402,6 @@ export default class SignUp extends Component {
                 </KeyboardAvoidingView>
                         </View>
 
-                 
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
@@ -411,7 +421,7 @@ export default class SignUp extends Component {
                     </View>
                 }
 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
     signup = () => {

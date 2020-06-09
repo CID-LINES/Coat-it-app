@@ -94,120 +94,125 @@ export default class ServiceDeatil extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, }}>
- <ImageBackground style={{ flex: 1 ,}}
-                        source={require('../assets/bg.png')}>
-                <View style={{
-                    height: 60, 
-                    width: '95%',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    alignSelf: 'center',
-                    alignItems:'center', 
-                    
-                }}>
-                    <TouchableOpacity style={{
-                      //  height: 35, 
-                        width: 35,
-                        alignItems: 'center',
+            // <SafeAreaView style={{ flex: 1, }}>
+                <ImageBackground style={{ flex: 1, }}
+                    resizeMode='stretch'
+                    source={require('../assets/bg.png')}>
+                    <View style={{
+                        height: 60,
+                        width: '95%',
                         justifyContent: 'center',
-                        position: 'absolute', 
-                        left: 5
+                        flexDirection: 'row',
+                        alignSelf: 'center',
+                        alignItems: 'center',marginTop
+                        :35
 
-                    }}
-                        onPress={() => {
-                            this.props.navigation.goBack()
-                        }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
-                            resizeMode='contain'
-                            source={require('../assets/back.png')}></Image>
-
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{
-                        //height: 35, 
-                        width: '80%',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginLeft: 15
-
-                    }} onPress={() => {
-                        this.props.navigation.goBack()
                     }}>
-                        <Text style={{
-                            fontSize: 18, 
-                           
-                            color: APP_YELLOW,
-                            fontFamily:'EurostileBold',
+                        <TouchableOpacity style={{
+                            //  height: 35, 
+                            width: 35,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            left: 5
 
                         }}
-                            numberOfLines={0}>{this.state.data.name}</Text>
-                    </TouchableOpacity>
-                </View>
-                <ScrollView style={{ flex: 1 }}>
-                    <View style={{ flex: 1,
-                     }}
-                    >
-                        <View style={{
-                            height: Dimensions.get('window').height/3,
-                            width: '100%', justifyContent: 'center',
-                            alignItems: 'center'
-                            // backgroundColor:'pink'
-                        }}>
-                            <TouchableOpacity style={{
-                                flex:1,
-                                width: '95%',
-                                borderRadius: 10,
-                                alignSelf: 'center',
-                                justifyContent: 'center',
-                                overflow: 'hidden'
-                            }}
-                            onPress={()=>{
-                                this.setState({
-                                    isShow:true
-                                })
+                            onPress={() => {
+                                this.props.navigation.goBack()
                             }}>
-                                <ImageLoad style={{ 
-                                    //height: 200,
-                                 flex: 1 }}
-                                    resizeMode='cover'
-                                    source={this.state.data.image == null ?
-                                        require('../assets/placeholder.jpg') :
-                                        { uri: this.state.data.image }
-                                    }>
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                                resizeMode='contain'
+                                source={require('../assets/back.png')}></Image>
 
-                                </ImageLoad>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{
-                            marginLeft: 10, 
-                            marginRight: 10,
-                            marginTop:10,
-                            width: '90%', 
-                            alignSelf: 'center'
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{
+                            //height: 35, 
+                            width: '80%',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginLeft: 15
+
+                        }} onPress={() => {
+                            this.props.navigation.goBack()
                         }}>
-                            <Text style={{
-                                fontSize: 20,
-                               textAlign:'justify',
-                                fontFamily:'EurostileBold',
-
-                            }}>
-                                {this.state.data.title}</Text>
                             <Text style={{
                                 fontSize: 18,
-                                marginBottom: 10,
-                               
-                                marginTop: 10,
-                                 textAlign: 'justify',
-                                 fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
+
+                                color: APP_YELLOW,
+                                fontFamily: 'EurostileBold',
 
                             }}
-                                numberOfLines={0}>
+                                numberOfLines={0}>{this.state.data.name}</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <ScrollView style={{ flex: 1 }}>
+                        <View style={{
+                            flex: 1,
+                        }}
+                        >
+                            <View style={{
+                                height: Dimensions.get('window').height / 3,
+                                width: '100%', justifyContent: 'center',
+                                alignItems: 'center'
+                                // backgroundColor:'pink'
+                            }}>
+                                <TouchableOpacity style={{
+                                    flex: 1,
+                                    width: '95%',
+                                    borderRadius: 10,
+                                    alignSelf: 'center',
+                                    justifyContent: 'center',
+                                    overflow: 'hidden'
+                                }}
+                                    onPress={() => {
+                                        this.setState({
+                                            isShow: true
+                                        })
+                                    }}>
+                                    <ImageLoad style={{
+                                        //height: 200,
+                                        flex: 1
+                                    }}
+                                        resizeMode='cover'
+                                        source={this.state.data.image == null ?
+                                            require('../assets/placeholder.jpg') :
+                                            { uri: this.state.data.image }
+                                        }>
 
-                                {this.state.data.description}
+                                    </ImageLoad>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{
+                                marginLeft: 10,
+                                marginRight: 10,
+                                marginTop: 10,
+                                width: '90%',
+                                alignSelf: 'center'
+                            }}>
+                                <Text style={{
+                                    fontSize: 20,
+                                    color: 'white',
+                                    textAlign: 'justify',
+                                    fontFamily: 'EurostileBold',
 
-                            </Text>
-                        </View>
-                        {/* 
+                                }}>
+                                    {this.state.data.title}</Text>
+                                <Text style={{
+                                    fontSize: 18,
+                                    marginBottom: 10,
+                                    color: 'white',
+                                    marginTop: 10,
+                                    textAlign: 'justify',
+                                    fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+
+                                }}
+                                    numberOfLines={0}>
+
+                                    {this.state.data.description}
+
+                                </Text>
+                            </View>
+                            {/* 
                     <TouchableOpacity style={{
                         height: 45, width: '60%',
                         alignSelf: 'center', alignItems: 'center',
@@ -225,58 +230,60 @@ export default class ServiceDeatil extends Component {
                             color: 'white'
                         }}>Buy</Text></TouchableOpacity> */}
 
-                    </View>
-                </ScrollView>
-                {this.state.isLoading &&
-                    <View style={{
-                        position: 'absolute',
-                        backgroundColor: '#000000aa',
-                        top: 0,
-                        bottom: 0, left: 0, right: 0,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <ActivityIndicator
-                            animating={this.state.isLoading}
-                            size='large'
-
-                            color={APP_YELLOW}
-                        ></ActivityIndicator>
-
-                    </View>
-                }
-                 {
-                    this.state.isShow &&
-                    <TouchableOpacity style={{
-                        position: 'absolute',
-                        backgroundColor: '#000000aa',
-                        //backgroundColor:'black',
-                        top: 0,
-                        bottom: 0, left: 0, right: 0,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }} onPress={() => {
-                        this.setState({
-                            
-                            isShow: false
-                        })
-                    }}>
+                        </View>
+                    </ScrollView>
+                    {this.state.isLoading &&
                         <View style={{
-                            height: Dimensions.get('window').height/1.5,
-                             width: '100%'
-                        }}
-                        >
-                            <ImageLoad style={{flex:1}}
-                                resizeMode=
-                                'contain'
-                                source={{ uri 
-                                :this.state.data.image }}></ImageLoad>
-               </View>
+                            position: 'absolute',
+                            backgroundColor: '#000000aa',
+                            top: 0,
+                            bottom: 0, left: 0, right: 0,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <ActivityIndicator
+                                animating={this.state.isLoading}
+                                size='large'
 
-            </TouchableOpacity>
-        }
-        </ImageBackground>
-            </SafeAreaView>
+                                color={APP_YELLOW}
+                            ></ActivityIndicator>
+
+                        </View>
+                    }
+                    {
+                        this.state.isShow &&
+                        <TouchableOpacity style={{
+                            position: 'absolute',
+                            backgroundColor: '#000000aa',
+                            //backgroundColor:'black',
+                            top: 0,
+                            bottom: 0, left: 0, right: 0,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }} onPress={() => {
+                            this.setState({
+
+                                isShow: false
+                            })
+                        }}>
+                            <View style={{
+                                height: Dimensions.get('window').height / 1.5,
+                                width: '100%'
+                            }}
+                            >
+                                <ImageLoad style={{ flex: 1 }}
+                                    resizeMode=
+                                    'contain'
+                                    source={{
+                                        uri
+                                            : this.state.data.image
+                                    }}></ImageLoad>
+                            </View>
+
+                        </TouchableOpacity>
+                    }
+                </ImageBackground>
+            // </SafeAreaView>
 
         );
     }

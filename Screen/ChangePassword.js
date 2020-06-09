@@ -81,172 +81,182 @@ export default class ChangePassword extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'white' }}>
- <ImageBackground style={{ flex: 1 ,}}
-                        source={require('../assets/bg.png')}>
-                <View style={{
-                    height: 40, width: '95%',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    alignSelf: 'center',
-                }}>
-                    <TouchableOpacity style={{
-                        height: 35,
-                        width: 35,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'absolute',
-                        left: 5
-
-                    }}
-                        onPress={() => {
-                            this.props.navigation.goBack()
-                        }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
-                            resizeMode='contain'
-                            source={require('../assets/back.png')}></Image>
-
-                    </TouchableOpacity>
+            // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+                <ImageBackground style={{ flex: 1, }}
+                    resizeMode='stretch'
+                    source={require('../assets/bg.png')}>
                     <View style={{
-                        height: 35,
-                        alignItems: 'center', justifyContent: 'center',
-
+                        height: 40,
+                         width: '95%',
+                        justifyContent: 'center',
+                        flexDirection: 'row',
+                        alignSelf: 'center',
+                        marginTop:40
                     }}>
-                        <Text style={{
-                                fontSize: 20, 
-                               
+                        <TouchableOpacity style={{
+                            height: 35,
+                            width: 35,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            left: 5
+
+                        }}
+                            onPress={() => {
+                                this.props.navigation.goBack()
+                            }}>
+                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                                resizeMode='contain'
+                                source={require('../assets/back.png')}></Image>
+
+                        </TouchableOpacity>
+                        <View style={{
+                            height: 35,
+                            alignItems: 'center', justifyContent: 'center',
+
+                        }}>
+                            <Text style={{
+                                fontSize: 20,
                                 color: APP_YELLOW,
-                                fontFamily:'EurostileBold',
+                                fontFamily: 'EurostileBold',
                             }}>Kenotek Coat IT
                             </Text>
+                        </View>
                     </View>
-                </View>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS == 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
-                    <ScrollView style={{ flex: 1 }}>
-                        <View style={{ flex: 1 }}>
+                    <KeyboardAvoidingView style={{ flex: 1 }}
+                        behavior={Platform.OS == 'ios' ? 'padding' : null}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
+                        <ScrollView style={{ flex: 1 }}>
+                            <View style={{ flex: 1 }}>
 
-                            <View style={{
-                                height: Dimensions.get('window').height/2.5,
-                                width: 250,
-                                 alignSelf:'center',
-                                justifyContent: 'center'
-                            }}>
-                                <Image style={{
-                                    flex:1,
-                                    width: '100%', 
+                                <View style={{
+                                    height: Dimensions.get('window').height /3.8,
+                                    width: 250,
                                     alignSelf: 'center',
-                                    // marginTop: 20
-                                }}
-                                    resizeMode='contain'
-                                    source={require('../assets/logo.png')}>
-
-                                </Image>
-                            </View>
-
-                            <View style={{
-                                width: '100%',
-                                 marginTop: 30,
-                                alignItems: 'center'
-                            }}>
-
-
-                                <Text style={{
-                                    width: '75%',
-                                    marginTop: 10
-                                    ,fontFamily:'EurostileBold',
-                                }}>Old Password</Text>
-                                <TextInput style={{
-                                    height: 40, width: '80%',
-
-                                    marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    borderRadius: 10,
-                                    padding: 5
-                                }}
-                                    value={this.state.Oldpassword}
-                                    onChangeText={(value) => this.setState({ Oldpassword: value })}
-                                    placeholder='Old Password'
-                                    keyboardType='ascii-capable'
-                                    secureTextEntry={true}
-                                    placeholderTextColor='gray'></TextInput>
-                                <View style={{
-                                    height: 1, width: '80%',
-                                    backgroundColor: 'gray'
-                                }}></View>
-
-                                <Text style={{ width: '75%',
-                               fontFamily:'EurostileBold', 
-                                marginTop: 10 }}>New Password</Text>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '80%',
-                                    marginTop: 2,
-                                    // borderColor: 'gray', borderWidth: 1,
-                                    borderRadius: 10, padding: 5
-                                }}
-                                    value={this.state.NewPassword}
-                                    onChangeText={(value) => this.setState({ NewPassword: value })}
-                                    placeholder=' New Password'
-                                    keyboardType='ascii-capable'
-                                    secureTextEntry={true}
-                                    placeholderTextColor='gray'></TextInput>
-
-                                <View style={{
-                                    height: 1, width: '80%',
-                                    backgroundColor: 'gray'
-                                }}></View>
-
-                            </View>
-
-                            <TouchableOpacity style={{
-                                height: 50, width: '60%',
-                                backgroundColor: APP_YELLOW,
-                                marginTop: 20,
-                                alignSelf: 'center',
-                                shadowColor: 'gray',
-                                // shadowOpacity: 0.5,
-                                // shadowRadius: 1,
-                                // shadowOffset: { width: 2, height: 1 },
-                                borderRadius: 10, alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                                onPress={() => {
-                                    this.ChangePassword()
+                                    justifyContent: 'center',
+                                    marginTop:70
                                 }}>
-                                <Text style={{ fontSize: 20, 
-                                   
-                                   fontFamily:'EurostileBold',
-                                    color: 'white' }}>Submit</Text>
+                                    <Image style={{
+                                        flex: 1,
+                                        width: '100%',
+                                        alignSelf: 'center',
+                                        // marginTop: 20
+                                    }}
+                                        resizeMode='contain'
+                                        source={require('../assets/logo.png')}>
 
-                            </TouchableOpacity>
+                                    </Image>
+                                </View>
+
+                                <View style={{
+                                    width: '100%',
+                                    marginTop: 30,
+                                    alignItems: 'center'
+                                }}>
+
+
+                                    <Text style={{
+                                        width: '75%',
+                                        marginTop: 10, color: 'white'
+                                        , fontFamily: 'EurostileBold',
+                                    }}>Old Password</Text>
+                                    <TextInput style={{
+                                        height: 40, width: '80%',
+
+                                        marginTop: 2,
+                                        // borderColor: 'gray',
+                                        // borderWidth: 1,
+                                        borderRadius: 10,
+                                        padding: 5,
+                                        color: 'white'
+                                    }}
+                                        value={this.state.Oldpassword}
+                                        onChangeText={(value) => this.setState({ Oldpassword: value })}
+                                        placeholder='Old Password'
+                                        keyboardType='ascii-capable'
+                                        secureTextEntry={true}
+                                        placeholderTextColor='white'></TextInput>
+                                    <View style={{
+                                        height: 1, width: '80%',
+                                        backgroundColor: 'white'
+                                    }}></View>
+
+                                    <Text style={{
+                                        width: '75%',
+                                        fontFamily: 'EurostileBold',
+                                        color: 'white',
+                                        marginTop: 10
+                                    }}>New Password</Text>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '80%',
+                                        marginTop: 2,
+                                        // borderColor: 'gray', borderWidth: 1,
+                                        borderRadius: 10, padding: 5,
+                                        color: 'white'
+                                    }}
+                                        value={this.state.NewPassword}
+                                        onChangeText={(value) => this.setState({ NewPassword: value })}
+                                        placeholder=' New Password'
+                                        keyboardType='ascii-capable'
+                                        secureTextEntry={true}
+                                        placeholderTextColor='white'></TextInput>
+
+                                    <View style={{
+                                        height: 1, width: '80%',
+                                        backgroundColor: 'gray'
+                                    }}></View>
+
+                                </View>
+
+                                <TouchableOpacity style={{
+                                    height: 50, width: '60%',
+                                    backgroundColor: APP_YELLOW,
+                                    marginTop: 20,
+                                    alignSelf: 'center',
+                                    shadowColor: 'gray',
+                                    // shadowOpacity: 0.5,
+                                    // shadowRadius: 1,
+                                    // shadowOffset: { width: 2, height: 1 },
+                                    borderRadius: 10, alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                                    onPress={() => {
+                                        this.ChangePassword()
+                                    }}>
+                                    <Text style={{
+                                        fontSize: 20,
+
+                                        fontFamily: 'EurostileBold',
+                                        color: 'white'
+                                    }}>Submit</Text>
+
+                                </TouchableOpacity>
+
+                            </View>
+
+                        </ScrollView>
+                    </KeyboardAvoidingView>
+                    {this.state.isLoading &&
+                        <View style={{
+                            position: 'absolute',
+                            backgroundColor: '#000000aa',
+                            top: 0,
+                            bottom: 0, left: 0, right: 0,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <ActivityIndicator
+                                animating={this.state.isLoading}
+                                size='large'
+
+                                color={APP_BLUE}
+                            ></ActivityIndicator>
 
                         </View>
-
-                    </ScrollView>
-                </KeyboardAvoidingView>
-                {this.state.isLoading &&
-                    <View style={{
-                        position: 'absolute',
-                        backgroundColor: '#000000aa',
-                        top: 0,
-                        bottom: 0, left: 0, right: 0,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <ActivityIndicator
-                            animating={this.state.isLoading}
-                            size='large'
-
-                            color={APP_BLUE}
-                        ></ActivityIndicator>
-
-                    </View>
-                }
-</ImageBackground>
-            </SafeAreaView>
+                    }
+                </ImageBackground>
+            // </SafeAreaView>
         );
     }
     ChangePassword = () => {

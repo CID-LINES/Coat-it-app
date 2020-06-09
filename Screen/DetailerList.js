@@ -88,16 +88,17 @@ export default class DetailerList extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            // <SafeAreaView style={{ flex: 1 }}>
                  <ImageBackground style={{ flex: 1 ,}}
+                 resizeMode='stretch'
                         source={require('../assets/bg.png')}>
 
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 30, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    marginTop: 10
+                    marginTop: 40
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,
@@ -147,7 +148,7 @@ export default class DetailerList extends Component {
                     </View> :
                     <View style={{ flex: 1 }}>
 
-                        <FlatList style={{ marginTop: 20 }}
+                        <FlatList style={{ marginTop: 10,marginBottom:20 }}
                             refreshControl={<RefreshControl
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
@@ -207,7 +208,7 @@ export default class DetailerList extends Component {
             </TouchableOpacity>
         } */}
 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
 
@@ -265,6 +266,7 @@ DetailerList = (item, index) => {
                 <Text style={{
                     fontSize: 17,
                     fontFamily:'EurostileBold',
+                    color:'white'
                 }}
                     numberOfLines={2}>
                     {item.first_name}
@@ -287,6 +289,7 @@ DetailerList = (item, index) => {
                     }}>
                     <View style={{ width:Dimensions.get('window').width/2 }}>
                         <Text style={{
+                            color:'white',
                             fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
                             fontSize: 17
                         }}
@@ -305,6 +308,7 @@ DetailerList = (item, index) => {
                     marginTop: 8,
                     fontSize: 17,
                     fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
+                    color:'white'
                 }}
                     numberOfLines={0}>
                     {item.car_name}
@@ -313,7 +317,7 @@ DetailerList = (item, index) => {
                 <Text style={{
                     marginTop: 8, marginBottom: 5,
                     fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
-                     fontSize: 17
+                     fontSize: 17,color:'white'
                 }}>
                     {moment(item.created_at).format('DD-MM-YYYY')}</Text>
                 {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
