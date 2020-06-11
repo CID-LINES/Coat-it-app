@@ -84,8 +84,8 @@ export default class Notification extends Component {
                         <View style={{
                             alignSelf: 'center',
                             alignItems: 'center', justifyContent: 'center',
-                            height: 30, width: '100%',
-                            marginTop:40
+                            height: 45, width: '100%',
+                            marginTop:Platform.OS==='ios'?25:7
                         }}>
                             <Text style={{
                                 fontSize: 18,
@@ -95,7 +95,7 @@ export default class Notification extends Component {
                         </View>
 
 
-                        <FlatList style={{ marginTop: 20 }}
+                        <FlatList style={{ marginTop: 5 }}
                             refreshControl={<RefreshControl
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>

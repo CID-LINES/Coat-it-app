@@ -149,12 +149,13 @@ export default class MyCars extends Component {
                  resizeMode='stretch'
                         source={require('../assets/bg.png')}>
                     <View style={{
-                        height: 40, 
+                        height: 45, 
                         width: '95%',
                         justifyContent: 'center',
+                        alignItems:'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
-                        marginTop:40
+                        marginTop:Platform.OS==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35, 
@@ -167,7 +168,7 @@ export default class MyCars extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}>
                                 </Image>
@@ -188,7 +189,6 @@ export default class MyCars extends Component {
                     </View>
 
                     <View style={{ flex: 1 }}>
-
                         <FlatList style={{ flex: 1, marginTop: 10 ,marginBottom:20}}
                           refreshControl={<RefreshControl 
                             refreshing={this.state.isFetching}
@@ -198,7 +198,6 @@ export default class MyCars extends Component {
                             renderItem={({ item, index }) => (
                                 this.MyCars(item, index)
                             )}>
-
                         </FlatList>
                         <TouchableOpacity style={{
                             height: 60, width: 60,
@@ -208,7 +207,7 @@ export default class MyCars extends Component {
                             position: 'absolute',
                             alignContent: 'flex-end',
                             right: 20,
-                            bottom: 50,
+                            bottom: 40,
                         }}
                             onPress={() => {
                                 this.props.navigation.navigate('AddCar')

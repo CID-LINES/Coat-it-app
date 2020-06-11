@@ -16,12 +16,12 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/res/layout/mtrl_calendar_month_navigation.xml"
     },
     {
-        "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon.png.flat",
-        "source": "/Users/ios/Desktop/Work/Coatit 2/android/app/src/main/res/drawable-mdpi/node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon.png"
-    },
-    {
         "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable_abc_ic_search_api_material.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon.png.flat",
+        "source": "/Users/ios/Desktop/Work/Coatit 2/android/app/src/main/res/drawable-mdpi/node_modules_reactnavigationstack_lib_module_vendor_views_assets_backicon.png"
     },
     {
         "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -2386,6 +2386,10 @@
     {
         "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/anim-v21_mtrl_bottom_sheet_slide_in.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/res/anim-v21/mtrl_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable-mdpi_assets_bg.png.flat",
+        "source": "/Users/ios/Desktop/Work/Coatit 2/android/app/src/main/res/drawable-mdpi/assets_bg.png"
     },
     {
         "merged": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",

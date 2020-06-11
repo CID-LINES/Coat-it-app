@@ -142,8 +142,9 @@ export default class SignUp extends Component {
                                 alignSelf: 'center',
                                 alignItems: 'center', 
                                 justifyContent: 'center',
-                                height: 30, width: '100%',
-                                marginTop:40
+                                height: 40,
+                                 width: '100%',
+                                 marginTop:Platform.OS==='ios'?25:7
                             }}>
                                 <Text style={{
                                     fontSize: 20,
@@ -220,8 +221,10 @@ export default class SignUp extends Component {
                                     value={this.state.firstname}
                                     onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
-                                    placeholder='First Name'
-                                    placeholderTextColor='white'></TextInput>
+                                    placeholder='Enter your first name'
+                                    placeholderTextColor='lightgray'>
+
+                                    </TextInput>
                                 <View style={{
                                     height: 1,
                                     width: '80%', 
@@ -244,8 +247,8 @@ export default class SignUp extends Component {
                                     keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
-                                    placeholder='Last Name'
-                                    placeholderTextColor='white'>
+                                    placeholder='Enter your last name'
+                                    placeholderTextColor='lightgray'>
 
                                 </TextInput>
                                 <View style={{
@@ -270,8 +273,8 @@ export default class SignUp extends Component {
                                     value={this.state.email}
                                     onChangeText={(value) => { this.setState({ email: value }) }}
                                     keyboardType='ascii-capable'
-                                    placeholder='Email'
-                                    placeholderTextColor='white'>
+                                    placeholder='Enter your email'
+                                    placeholderTextColor='lightgray'>
 
                                     </TextInput>
                                 <View style={{
@@ -298,8 +301,8 @@ export default class SignUp extends Component {
                                     onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
-                                    placeholder='Phone no.'
-                                    placeholderTextColor='white'></TextInput>
+                                    placeholder='Enter your phone no'
+                                    placeholderTextColor='lightgray'></TextInput>
                                 <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: 'white'
@@ -323,8 +326,8 @@ export default class SignUp extends Component {
                                     keyboardType='ascii-capable'
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
-                                    placeholder='Password'
-                                    placeholderTextColor='white'>
+                                    placeholder='Enter your password'
+                                    placeholderTextColor='lightgray'>
 
                                     </TextInput>
                                 <View style={{

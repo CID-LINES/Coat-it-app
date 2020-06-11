@@ -94,11 +94,13 @@ export default class DetailerList extends Component {
                         source={require('../assets/bg.png')}>
 
                 <View style={{
-                    height: 30, width: '95%',
-                    justifyContent: 'center',
+                    height: 40, width: '95%',
+                    alignItems: 'center',
+                    justifyContent:'center',
+                    //backgroundColor:'pink',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    marginTop: 40
+                    marginTop:Platform.OS==='ios'?25:7
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,

@@ -11,8 +11,8 @@ export default class ServiceDeatil extends Component {
             serviceplan: '',
             car: props.navigation.state.params.car,
             cardetail: "",
-           
-            detailer:props.navigation.state.params.detailer,
+
+            detailer: props.navigation.state.params.detailer,
         }
         //console.log(JSON.stringify(this.state.car))
     }
@@ -42,7 +42,7 @@ export default class ServiceDeatil extends Component {
                 if (responseJson.response.status == true) {
                     this.setState({
                         serviceplan: responseJson.response.data,
-                      
+
                     })
 
                 }
@@ -86,8 +86,7 @@ export default class ServiceDeatil extends Component {
                         isShow: true
                     })
                 }
-                else
-                {
+                else {
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -108,19 +107,20 @@ export default class ServiceDeatil extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, }}>
- <ImageBackground style={{ flex: 1 ,}}
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 40,
+                    height: 45,
                     width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignItems:'center',
-                    alignSelf: 'center',marginTop:40
+                    alignItems: 'center',
+                    alignSelf: 'center', 
+                    marginTop:Platform.OS==='ios'?25:7
                 }}>
                     <TouchableOpacity style={{
-                       // height: 35,
-                         width: 35,
+                        // height: 35,
+                        width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute', left: 5
@@ -130,56 +130,57 @@ export default class ServiceDeatil extends Component {
                             this.props.navigation.goBack()
                         }}>
                         <Image style={{
-                             height: 25, 
-                        width: 25, 
-                        tintColor: APP_YELLOW }}
+                            height: 25,
+                            width: 25,
+                            tintColor: APP_YELLOW
+                        }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
                     </TouchableOpacity>
                     <TouchableOpacity style={{
-                       // height: 40, 
+                        // height: 40, 
                         width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
 
                     }}
-                    onPress={() => {
-                        this.props.navigation.goBack()
-                    }}>
+                        onPress={() => {
+                            this.props.navigation.goBack()
+                        }}>
                         <Text style={{
-                            fontSize: 18, 
-                            
+                            fontSize: 18,
+
                             color: APP_YELLOW,
-                            fontFamily:'EurostileBold',
+                            fontFamily: 'EurostileBold',
 
                         }}
                             numberOfLines={0}>{this.state.serviceplan.name}</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
-                    <View style={{ flex: 1,}}
+                    <View style={{ flex: 1, }}
                     >
 
                         <View style={{
-                            height: Dimensions.get('window').height/3,
-                            marginTop:10,
-                            width: '100%', 
+                            height: Dimensions.get('window').height / 3,
+                            marginTop: 10,
+                            width: '100%',
                             justifyContent: 'center',
                             alignItems: 'center'
                             // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
-                               flex:1,
+                                flex: 1,
                                 width: '95%',
                                 borderRadius: 10,
                                 alignSelf: 'center',
                                 justifyContent: 'center',
                                 overflow: 'hidden'
                             }}>
-                                <ImageLoad style={{  flex: 1 }}
-                                    resizeMode='cover'
+                                <ImageLoad style={{ flex: 1 }}
+                                    resizeMode='stretch'
                                     source={this.state.serviceplan.image == null ?
                                         require('../assets/placeholder.jpg') :
                                         { uri: this.state.serviceplan.image }
@@ -189,25 +190,25 @@ export default class ServiceDeatil extends Component {
                         </View>
                         <View style={{
                             marginLeft: 10,
-                             marginRight: 10,
-                            width: '90%', 
+                            marginRight: 10,
+                            width: '90%',
                             alignSelf: 'center'
                         }}>
                             <Text style={{
                                 fontSize: 17,
-                                
-                                fontFamily:'EurostileBold',
-                                color:'white'
+
+                                fontFamily: 'EurostileBold',
+                                color: 'white'
 
                             }}>
                                 {this.state.serviceplan.title}</Text>
                             <Text style={{
                                 fontSize: 19,
                                 marginBottom: 10,
-                                marginTop: 10, 
+                                marginTop: 10,
                                 textAlign: 'justify',
-                                color:'white',
-                                fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
+                                color: 'white',
+                                fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
 
                             }}
                                 numberOfLines={0}>
@@ -219,12 +220,12 @@ export default class ServiceDeatil extends Component {
 
                         <TouchableOpacity style={{
                             height: 45, width: '60%',
-                            alignSelf: 'center', 
+                            alignSelf: 'center',
                             alignItems: 'center',
-                            justifyContent: 'center', 
+                            justifyContent: 'center',
                             marginTop: 20,
                             borderRadius: 10,
-                           
+
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
@@ -233,35 +234,35 @@ export default class ServiceDeatil extends Component {
                             }}>
                             <Text style={{
                                 fontSize: 20,
-                                 
-                                fontFamily:'EurostileBold',
+
+                                fontFamily: 'EurostileBold',
                                 color: 'white'
                             }}>View Car</Text></TouchableOpacity>
-                            <TouchableOpacity style={{
+                        <TouchableOpacity style={{
                             height: 45, width: '60%',
-                            alignSelf: 'center', 
+                            alignSelf: 'center',
                             alignItems: 'center',
-                            justifyContent: 'center', 
+                            justifyContent: 'center',
                             marginTop: 10,
                             borderRadius: 10,
                             marginBottom: 10,
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
-                              this.setState({
-                                  isHide:true
-                              })
+                                this.setState({
+                                    isHide: true
+                                })
 
                             }}>
                             <Text style={{
                                 fontSize: 20,
-                                
-                                fontFamily:'EurostileBold',
+
+                                fontFamily: 'EurostileBold',
                                 color: 'white'
                             }}>View Detailer</Text></TouchableOpacity>
 
                     </View>
-                    
+
                 </ScrollView>
 
                 {this.state.isHide &&
@@ -280,60 +281,61 @@ export default class ServiceDeatil extends Component {
                         }}
                     >
                         <TouchableOpacity style={{
-                              height: Dimensions.get('window').height/2.5,
+                            height: Dimensions.get('window').height / 2.5,
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            borderColor:APP_YELLOW,
-                            borderWidth:2
-                          
+                            borderColor: APP_YELLOW,
+                            borderWidth: 2
+
                         }}
                             onPress={() => {
                                 this.setState({
                                     isHide: false
                                 })
                             }}>
-                                 <ImageBackground style={{flex:1}}
+                            <ImageBackground style={{ flex: 1 }}
                                 resizeMode='stretch'
                                 source={require('../assets/bg.png')}>
-                            <ImageLoad style={{
-                                height: Dimensions.get('window').height/3,
-                                width: '100%'
-                            }}
-                                source={{ uri: this.state.detailer.avatar }}>
-                            </ImageLoad>
-                            <View style={{
-                                marginTop: 10,
-                                width: '95%',
-                                alignSelf: 'center',
-                                // alignItems: 'center',
-                                // justifyContent: 'center'
-                            }}>
+                                <ImageLoad style={{
+                                    height: Dimensions.get('window').height / 3,
+                                    width: '100%'
+                                }}
+                                resizeMode='stretch'
+                                    source={{ uri: this.state.detailer.avatar }}>
+                                </ImageLoad>
                                 <View style={{
-                                    flexDirection: 'row',
+                                    marginTop: 10,
+                                    width: '95%',
                                     alignSelf: 'center',
-                                    justifyContent:'center',
-                                    width: '60%',
+                                    // alignItems: 'center',
+                                    // justifyContent: 'center'
                                 }}>
-                                    <Text style={{
-                                        fontSize: 18,
-                                        
-                                        color: APP_YELLOW,
-                                        fontFamily:'EurostileBold'
-                                    }}>Name</Text>
-                                    <Text style={{
-                                        fontSize: 17, 
-                                        marginLeft:20,
-                                        marginBottom:10,
-                                        color:'white',
-                                        fontFamily:'EurostileBold'
-                                    }}>{this.state.detailer.first_name}</Text>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        alignSelf: 'center',
+                                        justifyContent: 'center',
+                                        width: '60%',
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 18,
+
+                                            color: APP_YELLOW,
+                                            fontFamily: 'EurostileBold'
+                                        }}>Name</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            marginLeft: 20,
+                                            marginBottom: 10,
+                                            color: 'white',
+                                            fontFamily: 'EurostileBold'
+                                        }}>{this.state.detailer.first_name}</Text>
+                                    </View>
                                 </View>
-                                </View>
-                                </ImageBackground>
-                                </TouchableOpacity>
-                                </TouchableOpacity>
-                                }
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </TouchableOpacity>
+                }
                 {this.state.isShow &&
                     <TouchableOpacity style={{
                         position: 'absolute',
@@ -350,112 +352,113 @@ export default class ServiceDeatil extends Component {
                         }}
                     >
                         <TouchableOpacity style={{
-                            height:Dimensions.get('window').height/2.1,
+                            height: Dimensions.get('window').height/2,
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            borderColor:APP_YELLOW,
-                            borderWidth:2
+                            borderColor: APP_YELLOW,
+                            borderWidth: 2
                         }}
                             onPress={() => {
                                 this.setState({
                                     isShow: false
                                 })
                             }}>
-                                <ImageBackground style={{flex:1}}
+                            <ImageBackground style={{ flex: 1 }}
                                 resizeMode='stretch'
                                 source={require('../assets/bg.png')}>
-                            <ImageLoad style={{
-                                height: Dimensions.get('window').height/3,
-                                width: '100%'
-                            }}
-                                source={{ uri: this.state.cardetail.image }}>
-                            </ImageLoad>
-                            <View style={{
-                                marginTop: 10,
-                                width: Dimensions.get('window').width/1.6,
-                                alignSelf: 'center',
-                                // alignItems: 'center',
-                                // justifyContent: 'center'
-                            }}>
+                                <ImageLoad style={{
+                                    height: Dimensions.get('window').height / 3,
+                                    width: '100%'
+                                }}
+                                resizeMode='stretch'
+                                    source={{ uri: this.state.cardetail.image }}>
+                                </ImageLoad>
                                 <View style={{
-                                    flexDirection: 'row',
+                                    marginTop: 10,
+                                    width: Dimensions.get('window').width / 1.6,
                                     alignSelf: 'center',
-                                    width: '95%',
+                                    // alignItems: 'center',
+                                    // justifyContent: 'center'
                                 }}>
-                                    <Text style={{
-                                        fontSize: 18,
-                                        
-                                        color: APP_YELLOW,
-                                        fontFamily:'EurostileBold'
-                                    }}>Car name</Text>
-                                    <Text style={{
-                                        fontSize: 17, marginLeft: 80,
-                                        fontFamily:'EurostileBold',
-                                        color:'white'
-                                    }}>{this.state.cardetail.brand_name}</Text>
-                                </View>
-                                <View style={{
-                                    flexDirection: 'row',
-                                    alignSelf: 'center', marginTop: 5,
-                                    width: '95%'
-                                }}>
-                                    <Text style={{
-                                        fontSize: 18,
-                                       
-                                         color: APP_YELLOW,
-                                         fontFamily:'EurostileBold'
-                                    }}>Model name</Text>
-                                    <Text style={{
-                                        fontSize: 17, marginLeft: 60,
-                                        fontFamily:'EurostileBold',
-                                        color:'white'
-                                    }}>{this.state.cardetail.model_name}</Text>
-                                </View>
-                                <View style={{
-                                    flexDirection: 'row',
-                                    alignSelf: 'center', marginTop: 5,
-                                    width: '95%'
-                                }}>
-                                    <Text style={{
-                                        fontSize: 18,
-                                        
-                                         color: APP_YELLOW,
-                                         fontFamily:'EurostileBold',
-                                         
-                                    }}>Vehicle no.</Text>
-                                    <Text style={{
-                                        fontSize: 17, marginLeft: 73,
-                                        fontFamily:'EurostileBold',
-                                        color:'white'
-                                    }}
-                                        numberOfLines={2}>
-                                        {this.state.cardetail.vehicle_no}
-                                    </Text>
-                                </View>
-                                <View style={{
-                                    flexDirection: 'row',
-                                    marginBottom: 5,
-                                    alignSelf: 'center', marginTop: 5
-                                    , width: '95%'
-                                }}>
-                                    <Text style={{
-                                        fontSize: 18,
-                                        fontFamily:'EurostileBold',
-                                        color: APP_YELLOW
-                                    }}>Manufacture year</Text>
-                                    <Text style={{
-                                        fontSize: 17, marginLeft: 18,
-                                        fontFamily:'EurostileBold',
-                                        color:'white'
-                                    }}>{this.state.cardetail.manufacture_year}</Text>
-                                </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        alignSelf: 'center',
+                                        width: '95%',
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 18,
+
+                                            color: APP_YELLOW,
+                                            fontFamily: 'EurostileBold'
+                                        }}>Car name</Text>
+                                        <Text style={{
+                                            fontSize: 17, marginLeft: 80,
+                                            fontFamily: 'EurostileBold',
+                                            color: 'white'
+                                        }}>{this.state.cardetail.brand_name}</Text>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        alignSelf: 'center', marginTop: 5,
+                                        width: '95%'
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 18,
+
+                                            color: APP_YELLOW,
+                                            fontFamily: 'EurostileBold'
+                                        }}>Model name</Text>
+                                        <Text style={{
+                                            fontSize: 17, marginLeft: 60,
+                                            fontFamily: 'EurostileBold',
+                                            color: 'white'
+                                        }}>{this.state.cardetail.model_name}</Text>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        alignSelf: 'center', marginTop: 5,
+                                        width: '95%'
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 18,
+
+                                            color: APP_YELLOW,
+                                            fontFamily: 'EurostileBold',
+
+                                        }}>Vehicle no.</Text>
+                                        <Text style={{
+                                            fontSize: 17, marginLeft: 73,
+                                            fontFamily: 'EurostileBold',
+                                            color: 'white'
+                                        }}
+                                            numberOfLines={2}>
+                                            {this.state.cardetail.vehicle_no}
+                                        </Text>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        marginBottom: 5,
+                                        alignSelf: 'center', marginTop: 5
+                                        , width: '95%'
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 18,
+                                            fontFamily: 'EurostileBold',
+                                            color: APP_YELLOW
+                                        }}>Manufacture year</Text>
+                                        <Text style={{
+                                            fontSize: 17, marginLeft: 18,
+                                            fontFamily: 'EurostileBold',
+                                            color: 'white'
+                                        }}>{this.state.cardetail.manufacture_year}</Text>
+                                    </View>
 
 
-                            </View>
-                          </ImageBackground>
+                                </View>
+                            </ImageBackground>
                         </TouchableOpacity>
-                       
+
                     </TouchableOpacity>
                 }
 
@@ -476,7 +479,7 @@ export default class ServiceDeatil extends Component {
 
                     </View>
                 }
-                </ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }

@@ -1359,6 +1359,7 @@ drawable abc_vector_test
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
 drawable assets_back
+drawable assets_bg
 drawable assets_camera
 drawable assets_caricon
 drawable assets_carlogo

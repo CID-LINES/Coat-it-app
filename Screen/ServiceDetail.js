@@ -99,13 +99,13 @@ export default class ServiceDeatil extends Component {
                     resizeMode='stretch'
                     source={require('../assets/bg.png')}>
                     <View style={{
-                        height: 60,
+                        height: 45,
                         width: '95%',
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
-                        alignItems: 'center',marginTop
-                        :35
+                        alignItems: 'center',
+                        marginTop:Platform.OS==='ios'?25:7
 
                     }}>
                         <TouchableOpacity style={{
@@ -120,7 +120,7 @@ export default class ServiceDeatil extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
@@ -173,7 +173,7 @@ export default class ServiceDeatil extends Component {
                                         //height: 200,
                                         flex: 1
                                     }}
-                                        resizeMode='cover'
+                                        resizeMode='stretch'
                                         source={this.state.data.image == null ?
                                             require('../assets/placeholder.jpg') :
                                             { uri: this.state.data.image }
@@ -267,13 +267,13 @@ export default class ServiceDeatil extends Component {
                             })
                         }}>
                             <View style={{
-                                height: Dimensions.get('window').height / 1.5,
+                                height: Dimensions.get('window').height / 2,
                                 width: '100%'
                             }}
                             >
                                 <ImageLoad style={{ flex: 1 }}
                                     resizeMode=
-                                    'contain'
+                                    'stretch'
                                     source={{
                                         uri
                                             : this.state.data.image

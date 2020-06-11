@@ -25,6 +25,13 @@ export default class Login extends Component {
 
 
     componentDidMount() {
+
+        PushNotification.configure({
+            onNotification: function(notification) {
+                console.log( 'NOTIFICATION:', notification );
+               
+            }, 
+          });
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
@@ -171,9 +178,9 @@ export default class Login extends Component {
                             alignSelf: 'center',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            height: 30, 
+                            height: 40, 
                             width: '100%',
-                            marginTop:40
+                            marginTop:Platform.OS==='ios'?25:7
                         }}>
                             <Text style={{
                                 fontSize: 20,
@@ -227,9 +234,11 @@ export default class Login extends Component {
                                     }}
                                         value={this.state.email}
                                         onChangeText={(value) => this.setState({ email: value })}
-                                        placeholder='Email'
+                                        placeholder='Enter your email'
                                         keyboardType='ascii-capable'
-                                        placeholderTextColor='white'></TextInput>
+                                        placeholderTextColor='lightgray'>
+
+                                        </TextInput>
                                     <View style={{
                                         height: 1,
                                         width: '80%', backgroundColor: 'white'
@@ -253,8 +262,8 @@ export default class Login extends Component {
                                         secureTextEntry={true}
                                         keyboardType='ascii-capable'
                                         onChangeText={(value) => this.setState({ Password: value })}
-                                        placeholder='Password'
-                                        placeholderTextColor='white'></TextInput>
+                                        placeholder='Enter your password'
+                                        placeholderTextColor='lightgray'></TextInput>
                                     <View style={{
                                         height: 1,
                                         width: '80%', backgroundColor: 'white'
@@ -290,10 +299,10 @@ export default class Login extends Component {
                                         height: 50, width: '40%',
                                         backgroundColor: APP_YELLOW,
                                         marginTop: 15, alignSelf: 'center',
-                                        shadowColor: 'gray',
-                                        shadowOpacity: 0.5,
-                                        shadowRadius: 1,
-                                        shadowOffset: { width: 2, height: 1 },
+                                        // shadowColor: 'gray',
+                                        // shadowOpacity: 0.5,
+                                        // shadowRadius: 1,
+                                        // shadowOffset: { width: 2, height: 1 },
                                         borderRadius: 10, alignItems: 'center',
                                         justifyContent: 'center'
                                     }}
@@ -314,10 +323,10 @@ export default class Login extends Component {
                                         backgroundColor: APP_YELLOW,
 
                                         marginTop: 15, alignSelf: 'center',
-                                        shadowColor: 'gray',
-                                        shadowOpacity: 0.5,
-                                        shadowRadius: 1,
-                                        shadowOffset: { width: 2, height: 1 },
+                                        // shadowColor: 'gray',
+                                        // shadowOpacity: 0.5,
+                                        // shadowRadius: 1,
+                                        // shadowOffset: { width: 2, height: 1 },
                                         borderRadius: 10, alignItems: 'center',
                                         justifyContent: 'center'
                                     }}
@@ -376,7 +385,8 @@ export default class Login extends Component {
                                             fontFamily: 'EurostileBold',
                                         }}>Email</Text>
                                         <TextInput style={{
-                                            height: 40, width: '80%',
+                                            height: 40, 
+                                            width: '80%',
 
                                             marginTop: 2,
                                             // borderColor: 'gray',
@@ -387,8 +397,8 @@ export default class Login extends Component {
                                             value={this.state.femail}
                                             onChangeText={(value) => this.setState({ femail: value })}
                                             keyboardType='ascii-capable'
-                                            placeholder='Email'
-                                            placeholderTextColor='white'>
+                                            placeholder='Enter your email'
+                                            placeholderTextColor='lightgray'>
                                         </TextInput>
                                         <View style={{
                                             height: 1, width: '80%',

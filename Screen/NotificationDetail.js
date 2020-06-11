@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ImageBackground } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ImageBackground, Platform } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
 export default class NotificationDetail extends Component {
@@ -17,23 +17,25 @@ export default class NotificationDetail extends Component {
                     resizeMode='stretch'
                     source={require('../assets/bg.png')}>
                     <View style={{
-                        height: 40, width: '95%',
+                        height: 45, width: '95%',
                         justifyContent: 'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
-                        alignItems: 'center', marginTop: 40
+                        alignItems: 'center', 
+                        marginTop:Platform.OS==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            position: 'absolute', left: 5
+                            position: 'absolute', 
+                            left: 5
 
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
@@ -77,7 +79,7 @@ export default class NotificationDetail extends Component {
                                     flex: 1,
                                     // width:'100%'
                                 }}
-                                    resizeMode='cover'
+                                resizeMode='stretch'
                                     source={this.state.data.image == null ?
                                         require('../assets/placeholder.jpg') :
                                         { uri: this.state.data.image }}></ImageLoad>
@@ -139,13 +141,12 @@ export default class NotificationDetail extends Component {
                             })
                         }}>
                             <View style={{
-                                height: Dimensions.get('window').height / 1.5,
+                                height: Dimensions.get('window').height / 2,
                                 width: '100%'
                             }}
                             >
                                 <ImageLoad style={{ flex: 1, width: '100%' }}
-                                    resizeMode=
-                                    'cover'
+                                    resizeMode='stretch'
                                     source={{
                                         uri
                                             : this.state.data.image

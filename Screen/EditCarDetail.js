@@ -192,11 +192,11 @@ export default class EditCarDetail extends Component {
                  resizeMode='stretch'
                         source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 45, width: '95%',
                     justifyContent: 'center',
-                    flexDirection: 'row',
+                    flexDirection: 'row',alignItems:'center',
                     alignSelf: 'center',
-                    marginTop: 40
+                    marginTop:Platform.OS==='ios'?25:7
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,
@@ -208,7 +208,7 @@ export default class EditCarDetail extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                        <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
 
@@ -235,7 +235,7 @@ export default class EditCarDetail extends Component {
                                 height: Dimensions.get('window').height / 3.5,
                                 width: '100%',
                                 justifyContent: 'center',
-                                // backgroundColor:'pink'
+                             marginTop:10
                             }}>
                                 <TouchableOpacity style={{
                                     flex: 1,

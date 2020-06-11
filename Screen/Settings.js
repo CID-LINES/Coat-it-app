@@ -146,10 +146,11 @@ export default class Settings extends Component {
                     resizeMode='stretch'
                     source={require('../assets/bg.png')}>
                     <View style={{
-                        height: 40, width: '95%',
+                        height: 45, width: '95%',
                         justifyContent: 'center',
-                        flexDirection: 'row',
-                        alignSelf: 'center',marginTop:40
+                        flexDirection: 'row',alignItems:'center',
+                        alignSelf: 'center',
+                        marginTop:Platform.OS==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35, width: 35,
@@ -161,7 +162,7 @@ export default class Settings extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 

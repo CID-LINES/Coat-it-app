@@ -221,7 +221,7 @@ export default class CarDetail extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+            // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                  <ImageBackground style={{ flex: 1 ,}}
                  resizeMode='stretch'
                         source={require('../assets/bg.png')}>
@@ -229,7 +229,9 @@ export default class CarDetail extends Component {
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
+                    alignItems:'center',
                     alignSelf: 'center',
+                    marginTop:Platform.OS==='ios'?25:7
                   
                 }}>
                     {/* <TouchableOpacity style={{
@@ -319,7 +321,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center',
                                     color:'white'
                                 }}
-                                    placeholderTextColor='white'
+                                    placeholderTextColor='lightgray'
                                     value={this.state.Companyname}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
@@ -342,7 +344,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center',
                                     color:'white'
                                 }}
-                                    placeholderTextColor='white'
+                                placeholderTextColor='lightgray'
                                     keyboardType='ascii-capable'
                                     value={this.state.Modelname}
                                     onChangeText={(value) => this.setState({ Modelname: value })}
@@ -367,7 +369,7 @@ export default class CarDetail extends Component {
                                     alignSelf: 'center',
                                     color:'white'
                                 }}
-                                    placeholderTextColor='white'
+                                placeholderTextColor='lightgray'
                                     keyboardType='ascii-capable'
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
@@ -502,7 +504,7 @@ export default class CarDetail extends Component {
                     </View>
                 }
                 </ImageBackground>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
     CarDetail = () => {
@@ -538,7 +540,7 @@ const pickerSelectStyles = StyleSheet.create({
     },
     inputAndroid: {
         fontSize: 16,
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         paddingVertical: 8,
         borderWidth: 1,
         borderColor: APP_YELLOW,

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground, RefreshControl } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
+import PushNotification from 'react-native-push-notification';
 
 
 const DATA = [
@@ -26,13 +27,15 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: ''
+            data: '',
+            isFetching: false
         }
 
     }
 
 
     componentDidMount() {
+       
 
         this.get('user_id')
     }
@@ -80,7 +83,8 @@ export default class Home extends Component {
                     // alert('helo')
                 }
                 this.setState({
-                    isLoading: false
+                    isLoading: false,
+                    isFetching: false
                 })
 
             })
@@ -92,7 +96,9 @@ export default class Home extends Component {
             });
 
     }
-
+    onRefresh = () => {
+        this.setState({ isFetching: true }, function () { this.PlanApi() });
+    }
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -101,13 +107,14 @@ export default class Home extends Component {
                 source={require('../assets/bg.png')}>
                 <View style={{ flex: 1 }}>
                     <View style={{
-                        height: 30,
+                        height: 40,
                         width: "95%",
                         alignSelf: 'center',
-                        justifyContent: 'center', alignItems: 'center',marginTop:40
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
                     }}>
                         <Text style={{
-
                             fontSize: 18,
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
@@ -115,9 +122,12 @@ export default class Home extends Component {
                             Service Plan
                             </Text>
                     </View>
-                    <FlatList style={{ marginTop: 20 }}
+                    <FlatList style={{ marginTop: 5 }}
 
-                        // numColumns={2}
+                        refreshControl={<RefreshControl
+                            refreshing={this.state.isFetching}
+                            onRefresh={this.onRefresh}>
+                        </RefreshControl>}
                         data={this.state.data}
                         renderItem={({ item }) => (
                             this.MembershipPlan(item)

@@ -227,11 +227,13 @@ export default class AddCar extends Component {
                     behavior={Platform.OS === 'ios' ? 'padding' : null}
                     keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
                     <View style={{
-                        height: 40,
+                        height: 45,
                          width: '95%',
                         justifyContent: 'center',
                         flexDirection: 'row',
-                        alignSelf: 'center',marginTop:40
+                        alignSelf: 'center',
+                        alignItems:'center',
+                        marginTop:Platform.OS==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35,
@@ -244,7 +246,7 @@ export default class AddCar extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
 
@@ -320,7 +322,7 @@ export default class AddCar extends Component {
                                     alignSelf: 'center',
                                     color:'white'
                                 }}
-                                    placeholderTextColor='white'
+                                    placeholderTextColor='lightgray'
                                     value={this.state.brand_name}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ brand_name: value })}
@@ -343,7 +345,7 @@ export default class AddCar extends Component {
                                     color:'white',
                                     alignSelf: 'center'
                                 }}
-                                    placeholderTextColor='white'
+                                placeholderTextColor='lightgray'
                                     value={this.state.model_name}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ model_name: value })}
@@ -367,7 +369,7 @@ export default class AddCar extends Component {
                                     color:'white',
                                     alignSelf: 'center'
                                 }}
-                                    placeholderTextColor='white'
+                                placeholderTextColor='lightgray'
                                     value={this.state.vehicle_no}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ vehicle_no: value })}

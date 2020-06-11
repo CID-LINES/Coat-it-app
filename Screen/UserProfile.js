@@ -90,10 +90,9 @@ export default class UserProfile extends Component {
                     source={require('../assets/bg.png')}>
                     <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior='padding' enabled>
-                        <View style={{marginTop:40,}}>
+                        <View style={{marginTop:Platform.OS==='ios'?30:7}}>
                             <View style={{
                                 height: 40,
-
                                 width: "95%", 
                                 alignSelf: 'center',
                                 justifyContent: 'center',
@@ -112,7 +111,8 @@ export default class UserProfile extends Component {
                                 height: 35, width: 35,
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                position: 'absolute', right: 10
+                                position: 'absolute', 
+                                right: 13
 
                             }}
                                 onPress={() => {
@@ -120,7 +120,7 @@ export default class UserProfile extends Component {
                                         data: this.state.data
                                     })
                                 }}>
-                                <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                                <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                     resizeMode='contain'
                                     source={require('../assets/edit-detail.png')}></Image>
 
@@ -414,9 +414,10 @@ export default class UserProfile extends Component {
                                 width: '100%'
                             }}
                             >
-                                <ImageLoad style={{ flex: 1, width: '100%' }}
-                                    resizeMode=
-                                    'cover'
+                                <ImageLoad style={{ flex: 1, 
+                                width: '100%' }}
+                                    resizeMode='stretch'
+                                    
                                     source={this.state.data.avatar == null ?
                                         require('../assets/placeholder.jpg')
                                         : { uri: this.state.data.avatar }}></ImageLoad>
