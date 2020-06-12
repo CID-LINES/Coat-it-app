@@ -227,8 +227,9 @@ export default class EditCarDetail extends Component {
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -254,7 +255,7 @@ export default class EditCarDetail extends Component {
                                         flex: 1, width: '100%',
                                         borderRadius: 10
                                     }}
-                                        resizeMode='cover'
+                                        resizeMode='stretch'
                                         source={{ uri: this.state.filePath }}>
                                     </ImageLoad>
                                 </TouchableOpacity>

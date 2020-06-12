@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, Dimensions, ImageBackground } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, Dimensions, ImageBackground, ImageEditor } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { NavigationActions, StackActions } from 'react-navigation';
+import ImageLoad from 'react-native-image-placeholder';
 
 export default class Settings extends Component {
     constructor(props) {
@@ -185,8 +186,9 @@ export default class Settings extends Component {
 
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
 
@@ -209,17 +211,17 @@ export default class Settings extends Component {
                                         this.chooseFile()
                                     }}>
 
-                                    <Image style={{
+                                    <ImageLoad style={{
                                        // height: 130,
                                         flex:1,
                                         
                                     }}
                                         resizeMethod='resize'
-                                        source={this.state.filePath == null ?
-                                            require('../assets/placeholder.jpg') :
+                                        source={
+                                          
                                             { uri: this.state.filePath }}>
 
-                                    </Image>
+                                    </ImageLoad>
                                 </TouchableOpacity>
                              
                                      <View style={{

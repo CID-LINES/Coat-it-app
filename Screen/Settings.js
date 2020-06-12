@@ -389,7 +389,7 @@ export default class Settings extends Component {
                                 animating={this.state.isLoading}
                                 size='large'
 
-                                color={APP_BLUE}
+                                color={APP_YELLOW}
                             ></ActivityIndicator>
 
                         </View>

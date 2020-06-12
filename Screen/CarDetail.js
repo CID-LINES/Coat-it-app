@@ -116,7 +116,6 @@ export default class CarDetail extends Component {
     };
 
     componentDidMount() {
-
         this.get('user_id')
         this.manufactureyear()
     }
@@ -265,8 +264,9 @@ export default class CarDetail extends Component {
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{

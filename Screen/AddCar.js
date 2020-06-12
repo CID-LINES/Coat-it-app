@@ -223,9 +223,10 @@ export default class AddCar extends Component {
                  <ImageBackground style={{ flex: 1 ,}}
                  resizeMode='stretch'
                         source={require('../assets/bg.png')}>
-                <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+               <KeyboardAvoidingView style={{ flex: 1 }}
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                     <View style={{
                         height: 45,
                          width: '95%',

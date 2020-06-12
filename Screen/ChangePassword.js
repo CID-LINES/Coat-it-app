@@ -66,7 +66,7 @@ export default class ChangePassword extends Component {
                         this.props.navigation.navigate('Login')
                     }
                     else {
-                        alert('Please enter correct password')
+                        alert('Please entered the correct old password')
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -125,8 +125,9 @@ export default class ChangePassword extends Component {
                         </View>
                     </View>
                     <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior={Platform.OS == 'ios' ? 'padding' : null}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                         <ScrollView style={{ flex: 1 }}>
                             <View style={{ flex: 1 }}>
 
@@ -251,7 +252,7 @@ export default class ChangePassword extends Component {
                                 animating={this.state.isLoading}
                                 size='large'
 
-                                color={APP_BLUE}
+                                color={APP_YELLOW}
                             ></ActivityIndicator>
 
                         </View>

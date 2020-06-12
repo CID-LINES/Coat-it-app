@@ -80,8 +80,8 @@ export default class NotificationDetail extends Component {
                                     // width:'100%'
                                 }}
                                 resizeMode='stretch'
-                                    source={this.state.data.image == null ?
-                                        require('../assets/placeholder.jpg') :
+                                    source={
+                                      
                                         { uri: this.state.data.image }}></ImageLoad>
                             </TouchableOpacity>
                         </View>

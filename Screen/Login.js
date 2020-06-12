@@ -6,12 +6,15 @@ import { ApiCall, CallApi } from '../Component/ApiClient';
 
 import PushNotificationAndroid, { PushNotificationObject } from 'react-native-push-notification'
 import PushNotification from 'react-native-push-notification';
-import firebase from 'react-native-firebase';
+// import { notifications } from "react-native-firebase-push-notifications"
+
+
 
 
 export default class Login extends Component {
     constructor(props) {
         super(props)
+       
         this.state = {
             isshow: false,
             email: '',
@@ -23,52 +26,43 @@ export default class Login extends Component {
         }
     }
 
-
+    // onPressNotificacion() {
+    //     this.props.navigation.dispatch(
+    //         NavigationActions.navigate({ routeName: "Notification" })
+    //     );
+    //   }
     componentDidMount() {
+        
+        // PushNotification.configure({
+        //     onRegister: function (token) {
+        //         console.log("TOKEN:", token);
+        //       },
+        //       onNotification: function (notification) {
+        //         console.log("NOTIFICATION:", notification);
+       
+        //         notification.finish(PushNotificationIOS.FetchResult.NoData);
+        //       },
+        //       permissions: {
+        //         alert: true,
+        //         badge: true,
+        //         sound: true,
+        //       },
+        //       popInitialNotification: true,
+        //       requestPermissions: true,
+              
 
-        PushNotification.configure({
-            onNotification: function(notification) {
-                console.log( 'NOTIFICATION:', notification );
-               
-            }, 
-          });
+        //     });      
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
                 this.props.navigation.push('Home')
             }
         })
-        this.checkPermission()
+     
+          
     }
-
-    checkPermission = async () => {
-        const enabled = await firebase.messaging().hasPermission();
-        if (enabled) {
-            this.getFcmToken();
-        } else {
-            this.requestPermission();
-        }
-    }
-    requestPermission = async () => {
-        try {
-            console.log('request permission')
-            await firebase.messaging().requestPermission();
-            // User has authorised
-            this.getFcmToken()
-        } catch (error) {
-            console.log('permission rejected')
-            // User has rejected permissions
-        }
-    }
-
-    getFcmToken = async () => {
-        const { userId } = this.props;
-        const fcmToken = await firebase.messaging().getToken();
-        AsyncStorage.setItem('device_token', fcmToken + '')
-        this.setState({
-            device_token: fcmToken + ''
-        })
-    }
+   
+  
 
     async get(key) {
         try {
@@ -83,7 +77,6 @@ export default class Login extends Component {
 
         }
     }
-
 
 
     async save(key, value) {
@@ -152,7 +145,7 @@ export default class Login extends Component {
                     }
 
                     else {
-                        alert('Please enter a valid email address ')
+                        alert('Please entered a valid email address ')
                     }
                 } else {
                     alert('Somthing went wrong')
@@ -189,8 +182,9 @@ export default class Login extends Component {
                             }}>Kenotek Coat IT</Text>
                         </View>
                         <KeyboardAvoidingView style={{ flex: 1 }}
-                            behavior={Platform.OS == 'ios' ? 'padding' : null}
-                            keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                             <ScrollView style={{ flex: 1 }}>
                                 <View style={{
                                     height: Dimensions.get('window').height / 3.8,

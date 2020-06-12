@@ -27,6 +27,8 @@ export default class Notification extends Component {
     }
 
     async componentDidMount() {
+
+     
         this.NotificationApi()
 
 
@@ -74,6 +76,7 @@ export default class Notification extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 

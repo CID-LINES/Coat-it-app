@@ -153,8 +153,9 @@ export default class SignUp extends Component {
                                 }}>Kenotek Coat IT</Text>
                             </View>
                             <KeyboardAvoidingView style={{ flex: 1 }}
-                    behavior={Platform.OS === 'ios' ? 'padding' : null}
-                    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                        behavior="padding" enabled={Platform.OS==='ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+                    >
                     <ScrollView style={{ flex: 1 }}>
                             <View style={{
                                 height: Dimensions.get('window').height/3.5,

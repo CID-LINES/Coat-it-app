@@ -150,9 +150,9 @@ export default class UserProfile extends Component {
                                         }}>
                                             <ImageLoad style={{ height: 150, width: 150 }}
                                                 resizeMode='cover'
-                                                source={this.state.data.avatar == null ?
-                                                    require('../assets/placeholder.jpg')
-                                                    : { uri: this.state.data.avatar }
+                                                source={
+                                                   
+                                                    { uri: this.state.data.avatar }
                                                 }></ImageLoad>
                                         </TouchableOpacity>
                                     </View>

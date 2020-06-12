@@ -4,6 +4,8 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
+import { NavigationActions } from 'react-navigation';
+import Notification from './Notification';
 
 
 const DATA = [
@@ -23,6 +25,8 @@ const DATA = [
     },
 
 ]
+
+
 export default class Home extends Component {
     constructor(props) {
         super(props)
@@ -32,13 +36,16 @@ export default class Home extends Component {
         }
 
     }
-
+    
 
     componentDidMount() {
        
-
         this.get('user_id')
+      
     }
+  
+ 
+    
 
     async get(key) {
         try {
@@ -100,6 +107,7 @@ export default class Home extends Component {
         this.setState({ isFetching: true }, function () { this.PlanApi() });
     }
     render() {
+        
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <ImageBackground style={{ flex: 1, }}
@@ -186,8 +194,7 @@ export default class Home extends Component {
                         width: '100%'
                     }}
                         resizeMode='cover'
-                        source={item.image == null ?
-                            require('../assets/placeholder.jpg') :
+                        source={
                             { uri: item.image }}></ImageLoad>
                 </View>
                 <View style={{
