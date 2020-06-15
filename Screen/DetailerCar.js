@@ -162,6 +162,7 @@ export default class ServiceDeatil extends Component {
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1, }}
                     >
+                     
 
                         <View style={{
                             height: Dimensions.get('window').height / 3,
@@ -198,7 +199,7 @@ export default class ServiceDeatil extends Component {
                                 fontSize: 17,
 
                                 fontFamily: 'EurostileBold',
-                                color: 'white'
+                                color: '#C0C0C0'
 
                             }}>
                                 {this.state.serviceplan.title}</Text>
@@ -207,7 +208,7 @@ export default class ServiceDeatil extends Component {
                                 marginBottom: 10,
                                 marginTop: 10,
                                 textAlign: 'justify',
-                                color: 'white',
+                                color: '#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
 
                             }}
@@ -236,7 +237,7 @@ export default class ServiceDeatil extends Component {
                                 fontSize: 20,
 
                                 fontFamily: 'EurostileBold',
-                                color: 'white'
+                                color: 'black'
                             }}>View Car</Text></TouchableOpacity>
                         <TouchableOpacity style={{
                             height: 45, width: '60%',
@@ -258,7 +259,7 @@ export default class ServiceDeatil extends Component {
                                 fontSize: 20,
 
                                 fontFamily: 'EurostileBold',
-                                color: 'white'
+                                color: 'black'
                             }}>View Detailer</Text></TouchableOpacity>
 
                     </View>
@@ -285,8 +286,8 @@ export default class ServiceDeatil extends Component {
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            borderColor: APP_YELLOW,
-                            borderWidth: 2
+                            // borderColor: APP_YELLOW,
+                            // borderWidth: 2
 
                         }}
                             onPress={() => {
@@ -327,7 +328,7 @@ export default class ServiceDeatil extends Component {
                                             fontSize: 17,
                                             marginLeft: 20,
                                             marginBottom: 10,
-                                            color: 'white',
+                                            color: '#C0C0C0',
                                             fontFamily: 'EurostileBold'
                                         }}>{this.state.detailer.first_name}</Text>
                                     </View>
@@ -356,8 +357,8 @@ export default class ServiceDeatil extends Component {
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
-                            borderColor: APP_YELLOW,
-                            borderWidth: 2
+                            // borderColor: APP_YELLOW,
+                            // borderWidth: 2
                         }}
                             onPress={() => {
                                 this.setState({
@@ -395,7 +396,7 @@ export default class ServiceDeatil extends Component {
                                         <Text style={{
                                             fontSize: 17, marginLeft: 80,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: '#C0C0C0'
                                         }}>{this.state.cardetail.brand_name}</Text>
                                     </View>
                                     <View style={{
@@ -412,7 +413,7 @@ export default class ServiceDeatil extends Component {
                                         <Text style={{
                                             fontSize: 17, marginLeft: 60,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: '#C0C0C0'
                                         }}>{this.state.cardetail.model_name}</Text>
                                     </View>
                                     <View style={{
@@ -430,7 +431,7 @@ export default class ServiceDeatil extends Component {
                                         <Text style={{
                                             fontSize: 17, marginLeft: 73,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: '#C0C0C0'
                                         }}
                                             numberOfLines={2}>
                                             {this.state.cardetail.vehicle_no}
@@ -450,7 +451,7 @@ export default class ServiceDeatil extends Component {
                                         <Text style={{
                                             fontSize: 17, marginLeft: 18,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: '#C0C0C0'
                                         }}>{this.state.cardetail.manufacture_year}</Text>
                                     </View>
 

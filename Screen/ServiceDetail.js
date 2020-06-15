@@ -191,7 +191,7 @@ export default class ServiceDeatil extends Component {
                             }}>
                                 <Text style={{
                                     fontSize: 20,
-                                    color: 'white',
+                                    color: '#C0C0C0',
                                     textAlign: 'justify',
                                     fontFamily: 'EurostileBold',
 
@@ -200,7 +200,7 @@ export default class ServiceDeatil extends Component {
                                 <Text style={{
                                     fontSize: 18,
                                     marginBottom: 10,
-                                    color: 'white',
+                                    color: '#C0C0C0',
                                     marginTop: 10,
                                     textAlign: 'justify',
                                     fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',

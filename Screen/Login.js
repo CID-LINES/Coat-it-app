@@ -113,7 +113,8 @@ export default class Login extends Component {
                     else {
                         alert(data.data.response.message)
                     }
-                } else {
+                } 
+                else {
                     alert('Somthing went wrong')
                 }
                 this.setState({
@@ -213,9 +214,22 @@ export default class Login extends Component {
 
                                     <Text style={{
                                         width: '78%',
-                                        marginTop: 10, color: 'white'
+                                        marginTop: 10, color: '#C0C0C0'
                                         , fontFamily: 'EurostileBold'
                                     }}>Email</Text>
+                                    <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/email.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                     <TextInput style={{
                                         height: 40, width: '80%',
 
@@ -224,31 +238,46 @@ export default class Login extends Component {
                                         // borderWidth: 1,
                                         borderRadius: 10,
                                         padding: 5,
-                                        color: 'white'
+                                        color: '#C0C0C0'
                                     }}
                                         value={this.state.email}
                                         onChangeText={(value) => this.setState({ email: value })}
                                         placeholder='Enter your email'
                                         keyboardType='ascii-capable'
-                                        placeholderTextColor='lightgray'>
+                                        placeholderTextColor='#C0C0C0'>
 
                                         </TextInput>
+                                        </View>
                                     <View style={{
                                         height: 1,
-                                        width: '80%', backgroundColor: 'white'
+                                        width: '80%', backgroundColor: '#C0C0C0'
                                     }}></View>
 
                                     <Text style={{
                                         width: '78%',
-                                        marginTop: 10, fontFamily: 'EurostileBold',
-                                        color: 'white'
+                                        marginTop: 10, 
+                                        fontFamily: 'EurostileBold',
+                                        color: '#C0C0C0'
                                     }}
                                     >Password</Text>
+                                    <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/lock.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                     <TextInput style={{
                                         height: 40,
-                                        width: '80%',
+                                        width: '75%',
                                         marginTop: 2,
-                                        color: 'white',
+                                        color: '#C0C0C0',
                                         borderRadius: 10,
                                         padding: 5
                                     }}
@@ -257,10 +286,12 @@ export default class Login extends Component {
                                         keyboardType='ascii-capable'
                                         onChangeText={(value) => this.setState({ Password: value })}
                                         placeholder='Enter your password'
-                                        placeholderTextColor='lightgray'></TextInput>
+                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                        </View>
                                     <View style={{
                                         height: 1,
-                                        width: '80%', backgroundColor: 'white'
+                                        width: '80%', 
+                                        backgroundColor: '#C0C0C0'
                                     }}>
 
                                     </View>
@@ -279,7 +310,7 @@ export default class Login extends Component {
                                     <Text style={{
                                         alignSelf: 'flex-end',
                                         fontFamily: 'EurostileBold',
-                                        color: 'white',
+                                        color: '#C0C0C0',
                                         fontSize: 16
                                     }}>Forget Password</Text>
                                 </TouchableOpacity>
@@ -292,12 +323,14 @@ export default class Login extends Component {
                                     <TouchableOpacity style={{
                                         height: 50, width: '40%',
                                         backgroundColor: APP_YELLOW,
-                                        marginTop: 15, alignSelf: 'center',
+                                        marginTop: 15, 
+                                        alignSelf: 'center',
                                         // shadowColor: 'gray',
                                         // shadowOpacity: 0.5,
                                         // shadowRadius: 1,
                                         // shadowOffset: { width: 2, height: 1 },
-                                        borderRadius: 10, alignItems: 'center',
+                                        borderRadius: 10, 
+                                        alignItems: 'center',
                                         justifyContent: 'center'
                                     }}
                                         onPress={() => {
@@ -307,8 +340,7 @@ export default class Login extends Component {
                                         <Text style={{
                                             fontSize: 18,
                                             fontFamily: 'EurostileBold',
-
-                                            color: 'white'
+                                            color: 'black'
                                         }}>Login</Text>
 
                                     </TouchableOpacity>
@@ -331,7 +363,7 @@ export default class Login extends Component {
                                         <Text style={{
                                             fontSize: 18,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: 'black'
                                         }}>Sign up</Text>
 
                                     </TouchableOpacity>
@@ -352,8 +384,8 @@ export default class Login extends Component {
                             <View style={{
                                 height: 200,
                                 width: '90%',
-                                borderColor: APP_YELLOW,
-                                borderWidth: 3,
+                                // borderColor: APP_YELLOW,
+                                // borderWidth: 3,
                                 alignSelf: 'center',
                                 borderRadius: 10,
                                 justifyContent: 'center',
@@ -375,28 +407,42 @@ export default class Login extends Component {
 
                                         <Text style={{
                                             width: '80%', marginTop: 10,
-                                            color: 'white',
+                                            color: '#C0C0C0',
                                             fontFamily: 'EurostileBold',
                                         }}>Email</Text>
+                                        <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/email.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                         <TextInput style={{
                                             height: 40, 
-                                            width: '80%',
+                                            width: '75%',
 
                                             marginTop: 2,
                                             // borderColor: 'gray',
                                             // borderWidth: 1,
                                             borderRadius: 10,
-                                            padding: 5, color: 'white'
+                                            padding: 5, color: '#C0C0C0'
                                         }}
                                             value={this.state.femail}
                                             onChangeText={(value) => this.setState({ femail: value })}
                                             keyboardType='ascii-capable'
                                             placeholder='Enter your email'
-                                            placeholderTextColor='lightgray'>
+                                            placeholderTextColor='#C0C0C0'>
                                         </TextInput>
+                                        </View>
                                         <View style={{
                                             height: 1, width: '80%',
-                                            backgroundColor: 'white'
+                                            backgroundColor: '#C0C0C0'
                                         }}></View>
                                         <View style={{
                                             flexDirection: 'row',
@@ -423,8 +469,9 @@ export default class Login extends Component {
                                             >
                                                 <Text style={{
                                                     fontWeight: '800',
+                                                    fontSize:17,
                                                     fontFamily: 'EurostileBold',
-                                                    color: 'white'
+                                                    color: 'black'
                                                 }}>Ok</Text>
                                             </TouchableOpacity>
 
@@ -445,7 +492,9 @@ export default class Login extends Component {
                                                     })
                                                 }}>
                                                 <Text style={{
-                                                    fontWeight: '800', color: 'white',
+                                                    fontWeight: '800',
+                                                    fontSize:17,
+                                                     color: 'black',
                                                     fontFamily: 'EurostileBold',
                                                 }}>Cancel</Text>
                                             </TouchableOpacity>

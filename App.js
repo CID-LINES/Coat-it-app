@@ -86,7 +86,7 @@ const Tabnavigation =createBottomTabNavigator({
   tabBarOptions: {
     showIcon: true,
     inactiveTintColor:'white',
-    activeTintColor: '#3f51B5',
+    activeTintColor: 'black',
 
     style: {height:45,
 

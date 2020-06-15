@@ -120,7 +120,9 @@ export default class UserProfile extends Component {
                                         data: this.state.data
                                     })
                                 }}>
-                                <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
+                                <Image style={{ height: 20, 
+                                width: 20, 
+                                tintColor: APP_YELLOW }}
                                     resizeMode='contain'
                                     source={require('../assets/edit-detail.png')}></Image>
 
@@ -128,8 +130,9 @@ export default class UserProfile extends Component {
                         </View>
                         <ScrollView style={{ flex: 1 }}>
                             <View style={{ flex: 1 }}>
+                         
                                 <View style={{
-                                    height: Dimensions.get('window').height / 3.5,
+                                    height: Dimensions.get('window').height /4,
                                     marginTop: 5,
                                     width: '100%',
                                     justifyContent: 'center',
@@ -150,19 +153,22 @@ export default class UserProfile extends Component {
                                         }}>
                                             <ImageLoad style={{ height: 150, width: 150 }}
                                                 resizeMode='cover'
-                                                source={
-                                                   
+                                                source={this.state.data.avatar ==null?
+                                                    require('../assets/placeholder.jpg'):
                                                     { uri: this.state.data.avatar }
                                                 }></ImageLoad>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
                                 <View style={{
+                                    width:"70%",
                                     justifyContent: 'center',
                                     alignSelf: 'center',
-                                    marginTop: 20,
-                                    borderColor: APP_YELLOW,
-                                    borderWidth: 2,
+                                    marginTop: 10,
+                                    marginLeft:120,
+                                    // alignItems:'center',
+                                    // borderColor: APP_YELLOW,
+                                    // borderWidth: 2,
                                     borderRadius: 10,
 
                                 }}>
@@ -171,60 +177,81 @@ export default class UserProfile extends Component {
                                         //justifyContent:'space-between',
                                         // backgroundColor:'pink',
                                         //width:'60%',
-                                        marginTop: 10
+                                      
                                     }}>
+                                        <Image style={{height:30,
+                                        width:30,tintColor:APP_YELLOW}}
+                                        source={require('../assets/id.png')}></Image>
+                                        <View style={{alignItems:'flex-start',
+                                        marginLeft:10,
+                                        justifyContent:"flex-start"}}>
                                         <Text style={{
-                                            marginLeft: 15, fontFamily: 'EurostileBold',
+                                             fontFamily: 'EurostileBold',
                                             fontSize: 17,
                                             color: APP_YELLOW
                                         }}>Customer id </Text>
-                                        <Text style={{
-                                            marginLeft: 30,
+                                        <Text style={{ 
                                             fontSize: 16,
+                                            marginTop:5,
                                             fontFamily: 'EurostileBold',
                                             marginRight: 15,
-                                            color:'white'
-                                        }}>
+                                            color:'#C0C0C0'
+                                        }}
+                                        numberOfLines={0}>
                                             {this.state.data.customer_id}
                                         </Text>
+                                        </View>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
                                         marginTop: 10,
+                                        
                                         // width:'60%',
                                         // justifyContent:'space-between'
                                     }}>
+                                         <Image style={{height:25,
+                                        width:25,tintColor:APP_YELLOW}}
+                                        source={require('../assets/user.png')}></Image>
+                                        <View style={{marginLeft:10}}>
                                         <Text style={{
-                                            marginLeft: 15, fontFamily: 'EurostileBold',
+                                            fontFamily: 'EurostileBold',
                                             fontSize: 17, color: APP_YELLOW
                                         }}>Name </Text>
                                         <Text style={{
-                                            marginLeft: 78,
-                                            color:'white',
-                                            fontSize: 16, 
+                                            
+                                            color:'#C0C0C0',
+                                            fontSize: 17, 
                                             marginRight: 15,
                                              fontFamily: 'EurostileBold',
-                                        }}>
+                                        }}   numberOfLines={0}>
                                             {this.state.data.first_name} {this.state.data.last_name}
                                         </Text>
+                                        </View>
                                     </View>
                                     <View style={{
-                                        flexDirection: 'row', marginTop: 10,
+                                        flexDirection: 'row',
+                                         marginTop: 10,
                                         // width:'80%',justifyContent:'space-between'
                                     }}>
+                                        <Image style={{height:25,
+                                        tintColor:APP_YELLOW,
+                                        width:25}}
+                                        source={require('../assets/email.png')}></Image>
+                                        <View style={{marginLeft:10}}>
                                         <Text style={{
-                                            marginLeft: 15, fontFamily: 'EurostileBold',
+                                            fontFamily: 'EurostileBold',
                                             fontSize: 17, color: APP_YELLOW
                                         }}>Email </Text>
                                         <Text style={{
-                                            marginLeft: 82,
+                                          
                                             fontSize: 16,
                                             marginRight: 15,
-                                            color:'white',
+                                            color:'#C0C0C0',
                                             fontFamily: 'EurostileBold',
-                                        }}>
+                                        }}   numberOfLines={0}>
                                             {this.state.data.email}
                                         </Text>
+                                        </View>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
@@ -232,26 +259,32 @@ export default class UserProfile extends Component {
                                         marginBottom: 10,
                                         // width:'60%',justifyContent:'space-between'
                                     }}>
+                                         <Image style={{height:25,
+                                        width:25,tintColor:APP_YELLOW}}
+                                        source={require('../assets/phone.png')}></Image>
+                                        <View style={{marginLeft:10}}>
                                         <Text style={{
-                                            marginLeft: 15,
                                            
                                             fontFamily: 'EurostileBold',
                                             fontSize: 17, color: APP_YELLOW
                                         }}>Phone no </Text>
                                         <Text style={{
-                                            marginLeft: 50, marginRight: 15,
-                                            fontSize: 16,color:'white',
+                                          
+                                            // marginRight: 15,
+                                            fontSize: 16,
+                                            color:'#C0C0C0',
                                             fontFamily: 'EurostileBold',
                                         }}>
                                             {this.state.data.phone_no}
                                         </Text>
+                                        </View>
                                     </View>
 
 
                                 </View>
 
 
-                                <View style={{ marginTop: 20 }}>
+                                <View style={{ marginTop: 10 }}>
                                     <TouchableOpacity style={{
                                         height: 40,
                                         width: '60%',
@@ -267,7 +300,7 @@ export default class UserProfile extends Component {
                                         }}>
                                         <Text style={{
                                             fontSize: 18,
-                                            color: 'white', fontFamily: 'EurostileBold',
+                                            color: 'black', fontFamily: 'EurostileBold',
                                         }}>My Detailer</Text>
                                     </TouchableOpacity>
 
@@ -285,7 +318,7 @@ export default class UserProfile extends Component {
                                         <Text style={{
                                             fontSize: 18,
                                             fontFamily: 'EurostileBold',
-                                            color: 'white'
+                                            color: 'black'
                                         }}>My Cars</Text>
                                     </TouchableOpacity>
 
@@ -297,7 +330,7 @@ export default class UserProfile extends Component {
                                         justifyContent: 'center',
                                         borderRadius: 10,
                                         alignSelf: 'center',
-                                        backgroundColor: APP_YELLOW,
+                                        backgroundColor: APP_YELLOW,marginBottom:10
 
                                     }}
                                         onPress={() => {
@@ -307,7 +340,7 @@ export default class UserProfile extends Component {
                                         }}>
                                         <Text style={{
                                             fontSize: 18,
-                                            color: 'white', fontFamily: 'EurostileBold',
+                                            color: 'black', fontFamily: 'EurostileBold',
                                         }}>Settings</Text>
                                     </TouchableOpacity>
 

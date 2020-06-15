@@ -22,7 +22,7 @@ export default class DetailerList extends Component {
             user_id: '',
             DATA: [],
             isFetching: false,
-            previewurl:null
+            previewurl: null
         }
     }
     componentDidMount() {
@@ -89,25 +89,25 @@ export default class DetailerList extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
-                 <ImageBackground style={{ flex: 1 ,}}
-                 resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
 
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 45, width: '95%',
                     alignItems: 'center',
-                    justifyContent:'center',
+                    justifyContent: 'center',
                     //backgroundColor:'pink',
                     flexDirection: 'row',
                     alignSelf: 'center',
-                    marginTop:Platform.OS==='ios'?25:7
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
+                        height: 25, width: 25,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
-                        left: 5
+                        left: 10
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
@@ -126,7 +126,7 @@ export default class DetailerList extends Component {
                     }}>
                         <Text style={{
                             fontSize: 18,
-                            color: APP_YELLOW, fontFamily:'EurostileBold',
+                            color: APP_YELLOW, fontFamily: 'EurostileBold',
                         }}>Detailers List</Text>
                     </View>
                 </View>
@@ -139,10 +139,10 @@ export default class DetailerList extends Component {
                     }}>
                         <Text style={{
                             fontSize: 22,
-                            color: 'gray',
-                           
+                            color: '#C0C0C0',
+
                             textAlign: 'center',
-                            fontFamily:'EurostileBold'
+                            fontFamily: 'EurostileBold'
                         }}
                             numberOfLines={0}>
                             No detailers found, Please visit your latest detailer to get detailing!
@@ -150,8 +150,9 @@ export default class DetailerList extends Component {
                     </View> :
                     <View style={{ flex: 1 }}>
 
-                        <FlatList style={{ marginTop: 10,marginBottom:20 }}
+                        <FlatList style={{ marginTop: 10, marginBottom: 20 }}
                             refreshControl={<RefreshControl
+                                tintColor={APP_YELLOW}
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -209,133 +210,133 @@ export default class DetailerList extends Component {
 
             </TouchableOpacity>
         } */}
-</ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
 
-DetailerList = (item, index) => {
-    return (
-        <TouchableOpacity style={{
-            marginTop: 5,
-            marginBottom: 5,
-            width: '95%',
-            borderRadius: 10,
-            flexDirection: 'row',
-            borderColor: APP_YELLOW,
-            borderWidth: 2,
-            alignSelf: 'center',
-            // backgroundColor: 'pink',
-            overflow: 'hidden'
-        }}
-            onPress={() => {
-                this.props.navigation.push('DetailerCar', {
-                    plan: item.service,
-                    car: item.car_name,
-                    detailer: item
-
-                })
-            }}
-
-        >
+    DetailerList = (item, index) => {
+        return (
             <TouchableOpacity style={{
-                // height:120,
-                width: Dimensions.get('window').width / 3
+                marginTop: 5,
+                marginBottom: 5,
+                width: '95%',
+                borderRadius: 10,
+               // flexDirection: 'row',
+                // borderColor: APP_YELLOW,
+                // borderWidth: 2,
+                alignSelf: 'center',
+                // backgroundColor: 'pink',
+                overflow: 'hidden'
             }}
                 onPress={() => {
-                    // this.setState({
-                    //     previewurl:item.avatar,
-                    //     isShow: true
-                    // })
-                }}>
-                <ImageLoad style={{
-                    // height: 120,
-                    flex: 1,
-                    width: '100%',
-                }}
-                    resizeMode='cover'
-                    source={item.avatar == null || item.avatar == 0 ?
-                        require('../assets/placeholder.jpg')
-                        : { uri: item.avatar }}>
+                    this.props.navigation.push('DetailerCar', {
+                        plan: item.service,
+                        car: item.car_name,
+                        detailer: item
 
-                </ImageLoad>
-            </TouchableOpacity>
-            <View style={{
-                marginLeft: 15,
-                marginTop: 5,
-                width: '55%'
-            }}>
-                <Text style={{
-                    fontSize: 17,
-                    fontFamily:'EurostileBold',
-                    color:'white'
+                    })
                 }}
-                    numberOfLines={2}>
-                    {item.first_name}
-                </Text>
 
+            >
                 <TouchableOpacity style={{
-                   // height: 20,
-                    marginTop: 8,
-                   // width: '80%',
-                   // alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row'
+                    height:Dimensions.get('window').height/4,
+                    width: '100%'
                 }}
                     onPress={() => {
-                        this.props.navigation.push('DetailerCar', {
-                            plan: item.service,
-                            car: item.car_name,
-                            detailer: item
-                        })
+                        // this.setState({
+                        //     previewurl:item.avatar,
+                        //     isShow: true
+                        // })
                     }}>
-                    <View style={{ width:Dimensions.get('window').width/2 }}>
-                        <Text style={{
-                            color:'white',
-                            fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
-                            fontSize: 17
-                        }}
-                            numberOfLines={0}>{item.service}</Text>
-                    </View>
-                    <Image style={{
-                        height: 15,
-                        width: 15,
-                        tintColor: APP_YELLOW
+                    <ImageLoad style={{
+                        flex:1,
+                        width: '100%',
                     }}
-                        source={require('../assets/info.png')}
-                        resizeMode='contain'>
-                    </Image>
+                        resizeMode='cover'
+                        source={item.avatar == null || item.avatar == 0 ?
+                            require('../assets/placeholder.jpg')
+                            : { uri: item.avatar }}>
+
+                    </ImageLoad>
                 </TouchableOpacity>
-                <Text style={{
-                    marginTop: 8,
-                    fontSize: 17,
-                    fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
-                    color:'white'
-                }}
-                    numberOfLines={0}>
-                    {item.car_name}
-                </Text>
-
-                <Text style={{
-                    marginTop: 8, marginBottom: 5,
-                    fontFamily:Platform.OS ==='ios'?'EuroStyle':'EuroStyle Normal',
-                     fontSize: 17,color:'white'
+                <View style={{
+                    //marginLeft: 15,
+                    marginTop: 5,
+                    width: '55%'
                 }}>
-                    {moment(item.created_at).format('DD-MM-YYYY')}</Text>
-                {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
+                    
+                    <Text style={{
+                        fontSize: 17,
+                        fontFamily: 'EurostileBold',
+                        color: '#C0C0C0'
+                    }}
+                        numberOfLines={2}>
+                        {item.first_name}
+                    </Text>
+
+                    <TouchableOpacity style={{
+                        // height: 20,
+                        marginTop: 8,
+                        // width: '80%',
+                        // alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flexDirection: 'row'
+                    }}
+                        onPress={() => {
+                            this.props.navigation.push('DetailerCar', {
+                                plan: item.service,
+                                car: item.car_name,
+                                detailer: item
+                            })
+                        }}>
+                        <View style={{ width: Dimensions.get('window').width / 2 }}>
+                            <Text style={{
+                                color: '#C0C0C0',
+                                fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                                fontSize: 17
+                            }}
+                                numberOfLines={0}>{item.service}</Text>
+                        </View>
+                        <Image style={{
+                            height: 15,
+                            width: 15,
+                            tintColor: APP_YELLOW
+                        }}
+                            source={require('../assets/info.png')}
+                            resizeMode='contain'>
+                        </Image>
+                    </TouchableOpacity>
+                    <Text style={{
+                        marginTop: 8,
+                        fontSize: 17,
+                        fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                        color: '#C0C0C0'
+                    }}
+                        numberOfLines={0}>
+                        {item.car_name}
+                    </Text>
+
+                    <Text style={{
+                        marginTop: 8, marginBottom: 5,
+                        fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                        fontSize: 17, color: '#C0C0C0'
+                    }}>
+                        {moment(item.created_at).format('DD-MM-YYYY')}</Text>
+                    {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
 
 
 
-            </View>
+                </View>
 
 
 
 
 
-        </TouchableOpacity>
+            </TouchableOpacity>
 
-    )
-}
+        )
+    }
 }
 
 

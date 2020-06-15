@@ -191,6 +191,7 @@ export default class MyCars extends Component {
                     <View style={{ flex: 1 }}>
                         <FlatList style={{ flex: 1, marginTop: 10 ,marginBottom:20}}
                           refreshControl={<RefreshControl 
+                            tintColor={APP_YELLOW}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -253,7 +254,8 @@ export default class MyCars extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, borderColor: APP_YELLOW, borderWidth: 3,
+                borderRadius: 10, 
+                // borderColor: APP_YELLOW, borderWidth: 3,
                 alignSelf: 'center',
                 // backgroundColor: 'pink',
                 overflow: 'hidden'
@@ -265,12 +267,11 @@ export default class MyCars extends Component {
                     })
                 }}
             >
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{ flexDirection: 'column' }}>
                    
                     <ImageLoad style={{
-                        //height: 120,
-                       
-                        width: Dimensions.get('window').width/2,
+                        height: Dimensions.get('window').height/4,
+                        width: '100%',
                     }}
                         resizeMode='cover'
                         source={item.image == null || item.image == 0 ?
@@ -278,7 +279,7 @@ export default class MyCars extends Component {
                             { uri: item.image }}>
                     </ImageLoad>
                     <View style={{ 
-                        marginLeft:20, 
+                        marginLeft:5, 
                         marginTop:10,
                         // alignItems:'center',
                         // justifyContent:'center'
@@ -291,17 +292,17 @@ export default class MyCars extends Component {
                         </Text> */}
                         <Text style={{
                             fontSize: 18,
-                           
-                       marginTop:10,
+                    //    marginTop:10,
+                    
                        fontFamily:'EurostileBold',
-                       color:'white'
+                       color:'#C0C0C0'
                         }}>
                             {item.vehicle_no}
                         </Text>
                         <Text style={{ 
                             marginTop: 10,
                             fontSize:17,
-                            color:'white',
+                            color:'#C0C0C0',
                             fontFamily:'EurostileBold', }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,

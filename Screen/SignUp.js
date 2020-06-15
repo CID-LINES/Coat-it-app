@@ -190,13 +190,15 @@ export default class SignUp extends Component {
 
                                     </Image>
                                 </TouchableOpacity>
-                                <View style={{height:40,width:40,
+                                <View style={{height:40,width:'60%',
                                 alignItems:'center',
                                 justifyContent:'center',
                                 position:'absolute',
-                                bottom:5,
+                                bottom:5,flexDirection:'row',
                                 right:28}}>
+                                    <Text style={{ fontFamily:'EurostileBold'}}>Upload profile picture here</Text>
                                     <Image style={{height:30,width:30,
+                                    marginLeft:10,
                                     tintColor:'black'}}
                                     
                                     source={require('../assets/camera.png')}></Image>
@@ -208,40 +210,67 @@ export default class SignUp extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '80%',
-                                 color:'white',
+                                 color:'#C0C0C0',
                                  fontFamily:'EurostileBold' }}>First name</Text>
+                                   <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/user.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,
                                     //borderColor: 'gray',
                                     //borderWidth: 1,
                                     borderRadius: 10,
-                                    padding: 5,color:'white'
+                                    padding: 5,color:'#C0C0C0'
                                 }}
                                     value={this.state.firstname}
                                     onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='Enter your first name'
-                                    placeholderTextColor='lightgray'>
+                                    placeholderTextColor='#C0C0C0'>
 
                                     </TextInput>
+                                    </View>
                                 <View style={{
                                     height: 1,
                                     width: '80%', 
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
-                                   color:'white',
+                                   color:'#C0C0C0',
                                     marginTop: 10,
                                     fontFamily:'EurostileBold',
                                 }}>Last name</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/user.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     borderRadius: 10,
                                      padding: 5
                                 }}
@@ -249,77 +278,119 @@ export default class SignUp extends Component {
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Enter your last name'
-                                    placeholderTextColor='lightgray'>
+                                    placeholderTextColor='#C0C0C0'>
 
                                 </TextInput>
+                                </View>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
-                                   color:'white',
+                                   color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Email</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/email.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     borderRadius: 10, padding: 5,
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
                                     value={this.state.email}
                                     onChangeText={(value) => { this.setState({ email: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='Enter your email'
-                                    placeholderTextColor='lightgray'>
+                                    placeholderTextColor='#C0C0C0'>
 
                                     </TextInput>
+                                    </View>
                                 <View style={{
                                     height: 1,
                                     width: '80%',
-                                     backgroundColor: 'white'
+                                     backgroundColor: '#C0C0C0'
                                 }}></View>
 
                                 <Text style={{
                                     width: '80%', marginTop: 10,
-                                   color:'white',
+                                   color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Phone No.</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/phone.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     borderRadius: 10, padding: 5,
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
                                     value={this.state.phone}
                                     onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Enter your phone no'
-                                    placeholderTextColor='lightgray'></TextInput>
+                                    placeholderTextColor='#C0C0C0'></TextInput>
+                                    </View>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
 
                                 <Text style={{
                                     width: '80%', 
                                     marginTop: 10,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Password</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/lock.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     borderRadius: 10, 
                                     padding: 5
                                 }}
@@ -328,12 +399,13 @@ export default class SignUp extends Component {
                                     value={this.state.password}
                                     onChangeText={(value) => { this.setState({ password: value }) }}
                                     placeholder='Enter your password'
-                                    placeholderTextColor='lightgray'>
+                                    placeholderTextColor='#C0C0C0'>
 
                                     </TextInput>
+                                    </View>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
                             </View>
 
@@ -353,7 +425,7 @@ export default class SignUp extends Component {
                                 }}>
                                 <Text style={{
                                     fontSize: 18, 
-                                    color: 'white',
+                                    color: 'black',
                                     fontFamily:'EurostileBold',
                                 }}>Submit</Text>
 
@@ -394,9 +466,10 @@ export default class SignUp extends Component {
                                         marginBottom: 15,
                                         marginTop: 10,
                                         fontFamily:'EurostileBold',
-                                        color:'white'
+                                        color:'#C0C0C0'
                                     }}>
-                                    Already have an account ?<Text style={{
+                                    Already have an account ?
+                                    <Text style={{
                                         alignSelf: 'center', 
                                         color: APP_YELLOW,
                                        fontFamily:'EurostileBold',

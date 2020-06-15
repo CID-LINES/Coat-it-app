@@ -133,6 +133,7 @@ export default class Home extends Component {
                     <FlatList style={{ marginTop: 5 }}
 
                         refreshControl={<RefreshControl
+                        tintColor={APP_YELLOW}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
@@ -144,13 +145,14 @@ export default class Home extends Component {
                     </FlatList>
                 </View>
 
-
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
@@ -174,8 +176,8 @@ export default class Home extends Component {
             <TouchableOpacity style={{
                 width: '95%',
                 alignSelf: 'center',
-                borderColor: APP_YELLOW,
-                borderWidth: 3,
+                // borderColor: APP_YELLOW,
+                // borderWidth: 3,
                 borderRadius: 10,
                 marginBottom: 10,
                 overflow: 'hidden'
@@ -205,12 +207,12 @@ export default class Home extends Component {
                     <Text style={{
                         fontSize: 17,
                         fontFamily: 'EurostileBold',
-                        color: 'white'
+                        color: '#C0C0C0'
                     }}
                     >{item.name}</Text>
                     <Text style={{
                         fontSize: 16,
-                        color: 'white',
+                        color: '#C0C0C0',
                         fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
 
                         marginTop: 5
@@ -237,7 +239,8 @@ export default class Home extends Component {
                         })
                     }}>
                     <Text style={{
-                        color: 'white', fontFamily: 'EurostileBold',
+                        color: 'black',
+                         fontFamily: 'EurostileBold',
                     }}>View details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>

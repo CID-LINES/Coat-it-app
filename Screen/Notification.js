@@ -100,6 +100,7 @@ export default class Notification extends Component {
 
                         <FlatList style={{ marginTop: 5 }}
                             refreshControl={<RefreshControl
+                                tintColor={APP_YELLOW}
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -189,8 +190,8 @@ export default class Notification extends Component {
                         marginLeft: 5,
                         borderRadius: 5,
                         overflow: "hidden",
-                        borderColor: APP_YELLOW,
-                        borderWidth: 1,
+                        // borderColor: APP_YELLOW,
+                        // borderWidth: 1,
                         //marginBottom: 5
                     }}
                         onPress={() => {
@@ -222,7 +223,7 @@ export default class Notification extends Component {
                                 <Text style={{
                                     fontSize: 17,
                                     textAlign: 'justify',
-                                    color: 'white',
+                                    color: '#C0C0C0',
                                     fontFamily: 'EurostileBold'
                                 }}>{item.title}</Text>
                             </View>
@@ -230,7 +231,7 @@ export default class Notification extends Component {
                                 fontSize: 17,
                                 fontFamily: 'EurostileBold'
                                 , marginLeft: 5,
-                                color: 'white',
+                                color:'#C0C0C0',
                                 marginRight: 5
                             }}>
                                 {moment.utc(item.created_at).local().format('hh:mm a')}
@@ -244,7 +245,7 @@ export default class Notification extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18,
-                                color: 'white',
+                                color:'#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                                 textAlign: 'justify'
 

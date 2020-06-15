@@ -116,12 +116,12 @@ export default class ChangePassword extends Component {
                             alignItems: 'center', justifyContent: 'center',
 
                         }}>
-                            <Text style={{
+                            {/* <Text style={{
                                 fontSize: 20,
                                 color: APP_YELLOW,
                                 fontFamily: 'EurostileBold',
                             }}>Kenotek Coat IT
-                            </Text>
+                            </Text> */}
                         </View>
                     </View>
                     <KeyboardAvoidingView style={{ flex: 1 }}
@@ -159,54 +159,82 @@ export default class ChangePassword extends Component {
 
                                     <Text style={{
                                         width: '75%',
-                                        marginTop: 10, color: 'white'
+                                        marginTop: 10, color: '#C0C0C0'
                                         , fontFamily: 'EurostileBold',
                                     }}>Old Password</Text>
+                                      <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/lock.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                     <TextInput style={{
-                                        height: 40, width: '80%',
-
+                                        height: 40,
+                                         width: '75%',
                                         marginTop: 2,
                                         // borderColor: 'gray',
                                         // borderWidth: 1,
                                         borderRadius: 10,
                                         padding: 5,
-                                        color: 'white'
+                                        color: '#C0C0C0'
                                     }}
                                         value={this.state.Oldpassword}
                                         onChangeText={(value) => this.setState({ Oldpassword: value })}
                                         placeholder='Old Password'
                                         keyboardType='ascii-capable'
                                         secureTextEntry={true}
-                                        placeholderTextColor='white'></TextInput>
+                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                        </View>
                                     <View style={{
                                         height: 1, width: '80%',
-                                        backgroundColor: 'white'
+                                        backgroundColor: '#C0C0C0'
                                     }}></View>
 
                                     <Text style={{
                                         width: '75%',
                                         fontFamily: 'EurostileBold',
-                                        color: 'white',
+                                        color: '#C0C0C0',
                                         marginTop: 10
                                     }}>New Password</Text>
+                                      <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/lock.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                     <TextInput style={{
                                         height: 40,
-                                        width: '80%',
+                                        width: '75%',
                                         marginTop: 2,
                                         // borderColor: 'gray', borderWidth: 1,
                                         borderRadius: 10, padding: 5,
-                                        color: 'white'
+                                        color: '#C0C0C0'
                                     }}
                                         value={this.state.NewPassword}
                                         onChangeText={(value) => this.setState({ NewPassword: value })}
                                         placeholder=' New Password'
                                         keyboardType='ascii-capable'
                                         secureTextEntry={true}
-                                        placeholderTextColor='white'></TextInput>
+                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                        </View>
 
                                     <View style={{
                                         height: 1, width: '80%',
-                                        backgroundColor: 'gray'
+                                        backgroundColor: '#C0C0C0'
                                     }}></View>
 
                                 </View>
@@ -216,7 +244,7 @@ export default class ChangePassword extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 20,
                                     alignSelf: 'center',
-                                    shadowColor: 'gray',
+                                    // shadowColor: 'gray',
                                     // shadowOpacity: 0.5,
                                     // shadowRadius: 1,
                                     // shadowOffset: { width: 2, height: 1 },
@@ -230,7 +258,7 @@ export default class ChangePassword extends Component {
                                         fontSize: 20,
 
                                         fontFamily: 'EurostileBold',
-                                        color: 'white'
+                                        color: 'black'
                                     }}>Submit</Text>
 
                                 </TouchableOpacity>

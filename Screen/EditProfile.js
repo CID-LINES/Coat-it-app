@@ -225,11 +225,16 @@ export default class Settings extends Component {
                                 </TouchableOpacity>
                              
                                      <View style={{
-                                    height:40,width:40,
-                              alignItems:'center',justifyContent:'center',
-                              position:'absolute',bottom:5,
+                                    height:40,width:'60%',
+                                    flexDirection:'row',
+                              alignItems:'center',
+                              justifyContent:'center',
+                              position:'absolute',
+                              bottom:5,
                               right:18}}>
+                                  <Text style={{ fontFamily:'EurostileBold'}}>Upload profile picture here</Text>
                                   <Image style={{height:30,width:30,
+                                  marginLeft:10,
                                   tintColor:'black'
                                 }}      
                                   source={require('../assets/camera.png')}></Image>
@@ -242,7 +247,7 @@ export default class Settings extends Component {
                                 alignItems: 'center'
                             }}>
                                 <Text style={{ width: '78%',
-                                color:'white',
+                                color:'#C0C0C0',
                                  fontFamily:'EurostileBold' }}>First name</Text>
                                 <TextInput style={{
                                     height: 40,
@@ -250,21 +255,21 @@ export default class Settings extends Component {
                                     marginTop: 2,
                                     
                                     padding: 5,
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
                                     value={this.state.firstname}
                                     onChangeText={(value) => { this.setState({ firstname: value }) }}
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
-                                    placeholderTextColor='white'></TextInput>
+                                    placeholderTextColor='#C0C0C0'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                     
                                 }}>Last name</Text>
@@ -274,25 +279,25 @@ export default class Settings extends Component {
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     // borderRadius: 10,
-                                    padding: 5,color:'white'
+                                    padding: 5,color:'#C0C0C0'
                                 }}
                                     keyboardType='ascii-capable'
                                     value={this.state.lastname}
                                     onChangeText={(value) => { this.setState({ lastname: value }) }}
                                     placeholder='Last Name'
-                                    placeholderTextColor='white'>
+                                    placeholderTextColor='#C0C0C0'>
 
                                 </TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
 
                                 <Text style={{
                                     width: '78%',
                                      marginTop: 10,
                                      fontFamily:'EurostileBold',
-                                     color:'white'
+                                     color:'#C0C0C0'
                                     
                                 }}>Phone No.</Text>
                                 <TextInput style={{
@@ -301,17 +306,17 @@ export default class Settings extends Component {
                                     marginTop: 2,
                                     
                                     padding: 5,
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
                                     value={this.state.phone}
                                     onChangeText={(value) => { this.setState({ phone: value }) }}
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Phone no.'
-                                    placeholderTextColor='white'></TextInput>
+                                    placeholderTextColor='#C0C0C0'></TextInput>
                                 <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: 'white'
+                                    width: '80%', backgroundColor: '#C0C0C0'
                                 }}></View>
 
                             </View>
@@ -333,7 +338,7 @@ export default class Settings extends Component {
                                 <Text style={{
                                     fontSize: 18, 
                                     fontFamily:'EurostileBold',
-                                    color: 'white'
+                                    color: 'black'
                                 }}>Submit</Text>
 
 

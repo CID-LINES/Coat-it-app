@@ -298,14 +298,22 @@ export default class CarDetail extends Component {
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{
-                                    height: 40, width: 40,
-                                    alignItems: 'center', justifyContent: 'center',
-                                    position: 'absolute', bottom: 5,
+                                    height: 40, 
+                                    //width: 40,
+                                    alignItems: 'center', 
+                                    justifyContent: 'center',
+                                    position: 'absolute', 
+                                    flexDirection:'row',
+                                    bottom: 5,
                                     right: 18
                                 }}>
+                                    <Text style={{
+                                       fontFamily:'EurostileBold'
+                                    }}>Upload profile picture here</Text>
                                     <Image style={{
                                         height: 30, width: 30,
-                                        tintColor: 'black'
+                                        tintColor: 'black',
+                                        marginLeft:10
                                     }}
 
                                         source={require('../assets/camera.png')}></Image>
@@ -313,15 +321,15 @@ export default class CarDetail extends Component {
                             </View>
                             <View style={{ width: '100%', marginTop: 10 }}>
                                 <Text style={{ marginLeft: 35, 
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
-                                    placeholderTextColor='lightgray'
+                                    placeholderTextColor='#C0C0C0'
                                     value={this.state.Companyname}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
@@ -329,22 +337,22 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
                                    
                                     marginTop: 20,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold'
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
-                                placeholderTextColor='lightgray'
+                                placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
                                     value={this.state.Modelname}
                                     onChangeText={(value) => this.setState({ Modelname: value })}
@@ -354,22 +362,22 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, 
                                    
                                     fontFamily:'EurostileBold',
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
-                                placeholderTextColor='lightgray'
+                                placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
@@ -377,12 +385,12 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 20,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Year of Manufacture</Text>
 
@@ -435,7 +443,7 @@ export default class CarDetail extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'gray'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
 
                             </View>
@@ -455,7 +463,7 @@ export default class CarDetail extends Component {
                                 }}>
                                 <Text style={{
                                     
-                                    color: 'white',
+                                    color: 'black',
                                     fontFamily:'EurostileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
@@ -535,7 +543,7 @@ const pickerSelectStyles = StyleSheet.create({
         // borderWidth: 1,
         // borderColor: colors.APPCOLOR,
         // borderRadius: 4,
-        color: 'white',
+        color: '#C0C0C0',
         // paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
@@ -545,7 +553,7 @@ const pickerSelectStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
-        color: 'white',
+        color: '#C0C0C0',
         paddingRight: 30, // to ensure the text is never behind the icon
     },
 })

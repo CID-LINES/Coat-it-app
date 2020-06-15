@@ -299,13 +299,16 @@ export default class AddCar extends Component {
                                 </TouchableOpacity>
                                 <View style={{
                                     height:40,
-                                    width:40,
+                                  //  width:40,
                                     alignItems:'center',
                                      justifyContent:'center',
                                      position:'absolute',
+                                     flexDirection:'row',
                                      bottom:5,
                                      right:18}}>
+                                         <Text style={{ fontFamily:'EurostileBold'}}>Upload car picture here</Text>
                                   <Image style={{height:30,
+                                  marginLeft:10,
                                   width:30,
                                   tintColor:'black'}}
                                   
@@ -314,16 +317,16 @@ export default class AddCar extends Component {
                             </View>
                             <View style={{ width: '100%', marginTop: 20 }}>
                                 <Text style={{ marginLeft: 35, 
-                                color:'white',
+                                color:'#C0C0C0',
                                    fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40,
                                      width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}
-                                    placeholderTextColor='lightgray'
+                                    placeholderTextColor='#C0C0C0'
                                     value={this.state.brand_name}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ brand_name: value })}
@@ -331,22 +334,22 @@ export default class AddCar extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35,
                                     fontFamily:'EurostileBold',
                                     marginTop: 20,
-                                    color:'white'
+                                    color:'#C0C0C0'
                                    
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     alignSelf: 'center'
                                 }}
-                                placeholderTextColor='lightgray'
+                                placeholderTextColor='#C0C0C0'
                                     value={this.state.model_name}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ model_name: value })}
@@ -356,21 +359,21 @@ export default class AddCar extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, 
                                     marginTop: 20,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     fontFamily:'EurostileBold'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
-                                    color:'white',
+                                    color:'#C0C0C0',
                                     alignSelf: 'center'
                                 }}
-                                placeholderTextColor='lightgray'
+                                placeholderTextColor='#C0C0C0'
                                     value={this.state.vehicle_no}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ vehicle_no: value })}
@@ -378,12 +381,12 @@ export default class AddCar extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
                                 <Text style={{
                                     marginLeft: 35, 
                                     marginTop: 20,fontFamily:'EurostileBold',
-                                    color:'white'
+                                    color:'#C0C0C0'
                                 }}>Year of Manufacture</Text>
 
                              
@@ -426,7 +429,7 @@ export default class AddCar extends Component {
                                     }}
                                     placeholder={{
                                         label: 'Manufacture Year',
-                                        color:'white'
+                                        color:'#C0C0C0'
                                     }}
                                    
                                     items={this.state.DATA}
@@ -441,14 +444,15 @@ export default class AddCar extends Component {
                                 <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
-                                    backgroundColor: 'white'
+                                    backgroundColor: '#C0C0C0'
                                 }}></View>
 
                             </View>
 
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
-                                marginTop: 20, alignSelf: 'center', alignItems: 'center',
+                                marginTop: 20, alignSelf: 'center', 
+                                alignItems: 'center',
                                 justifyContent: 'center', 
                                 marginBottom: 10,
                                 backgroundColor: APP_YELLOW,
@@ -459,7 +463,7 @@ export default class AddCar extends Component {
 
                                 }}>
                                 <Text style={{
-                                   color: 'white',
+                                   color: 'black',
                                    fontFamily:'EurostileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
@@ -530,7 +534,7 @@ const pickerSelectStyles = StyleSheet.create({
         // borderWidth: 1,
         // borderColor: colors.APPCOLOR,
         // borderRadius: 4,
-        color: 'white',
+        color: '#C0C0C0',
         // paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
@@ -540,7 +544,7 @@ const pickerSelectStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
-        color: 'black',
+        color: '#C0C0C0',
         paddingRight: 30, // to ensure the text is never behind the icon
     },
 })

@@ -94,7 +94,7 @@ export default class NotificationDetail extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 17,
-                                color: 'white',
+                                color:'#C0C0C0',
                                 fontFamily: 'EurostileBold',
                             }}>
                                 {this.state.data.title}</Text>
@@ -102,7 +102,7 @@ export default class NotificationDetail extends Component {
                                 fontSize: 20,
                                 marginTop: 10,
                                 textAlign: 'justify',
-                                color: 'white',
+                                color:'#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                             }}
                                 numberOfLines={0}>
