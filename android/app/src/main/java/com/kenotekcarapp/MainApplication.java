@@ -6,13 +6,16 @@ import android.content.Context;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import io.invertase.firebase.RNFirebasePackage;
+//import io.invertase.firebase.RNFirebasePackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -31,6 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
             new ReactNativePushNotificationPackage();
+            packages.add(new RNFirebaseMessagingPackage()); // add this line
+            packages.add(new RNFirebaseNotificationsPackage()); // add this line
+
           return packages;
         }
 

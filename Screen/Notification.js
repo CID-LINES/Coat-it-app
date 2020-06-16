@@ -171,14 +171,14 @@ export default class Notification extends Component {
                     alignSelf: 'center',
                     // borderColor: APP_YELLOW,
                     // borderWidth: 2,
-                    marginBottom: 5,
+                    marginBottom: 10,
                     flexDirection: 'row',
                     // alignItems:'center',
                     overflow: 'hidden'
                     // justifyContent:'center'
                 }}
                     onPress={() => {
-                        this.props.navigation.navigate('NotificationDetail', {
+                        this.props.navigation.navigate('NotificationDetail',{
                             data: item
                         })
                     }}>
@@ -256,11 +256,11 @@ export default class Notification extends Component {
                         </View>
                     </View>
                 </TouchableOpacity>
-                <View style={{
+                {/* <View style={{
                     height: 2, width: '100%',
                     marginBottom: 5,
                     backgroundColor: APP_YELLOW
-                }}></View>
+                }}></View> */}
             </View>
 
 

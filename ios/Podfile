@@ -48,20 +48,20 @@ pod 'Firebase/Messaging'
 
 
 
-  target 'kenotekcarappTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  use_native_modules!
-end
-
-target 'kenotekcarapp-tvOS' do
-  # Pods for kenotekcarapp-tvOS
-
-  target 'kenotekcarapp-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'kenotekcarappTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  use_native_modules!
+#end
+#
+#target 'kenotekcarapp-tvOS' do
+#  # Pods for kenotekcarapp-tvOS
+#
+#  target 'kenotekcarapp-tvOSTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end

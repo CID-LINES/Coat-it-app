@@ -79,7 +79,7 @@ export default class NotificationDetail extends Component {
                                     flex: 1,
                                     // width:'100%'
                                 }}
-                                resizeMode='stretch'
+                                 resizeMode='cover'
                                     source={
                                       
                                         { uri: this.state.data.image }}></ImageLoad>

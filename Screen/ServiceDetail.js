@@ -173,7 +173,7 @@ export default class ServiceDeatil extends Component {
                                         //height: 200,
                                         flex: 1
                                     }}
-                                        resizeMode='stretch'
+                                       // resizeMode='stretch'
                                         source={this.state.data.image == null ?
                                             require('../assets/placeholder.jpg') :
                                             { uri: this.state.data.image }

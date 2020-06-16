@@ -85,172 +85,184 @@ export default class UserProfile extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-                <ImageBackground style={{ flex: 1, }}
+            <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
-                    source={require('../assets/bg.png')}>
-                    <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior='padding' enabled>
-                        <View style={{marginTop:Platform.OS==='ios'?30:7}}>
-                            <View style={{
-                                height: 40,
-                                width: "95%", 
-                                alignSelf: 'center',
-                                justifyContent: 'center',
-                                 alignItems: 'center'
+                source={require('../assets/bg.png')}>
+                <KeyboardAvoidingView style={{ flex: 1 }}
+                    behavior='padding' enabled>
+                    <View style={{ marginTop: Platform.OS === 'ios' ? 30 : 7 }}>
+                        <View style={{
+                            height: 40,
+                            width: "95%",
+                            alignSelf: 'center',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{
+
+                                fontSize: 18,
+                                color: APP_YELLOW,
+                                fontFamily: 'EurostileBold',
                             }}>
-                                <Text style={{
-
-                                    fontSize: 18,
-                                    color: APP_YELLOW,
-                                    fontFamily: 'EurostileBold',
-                                }}>
-                                    User Profile
+                                User Profile
                             </Text>
-                            </View>
-                            <TouchableOpacity style={{
-                                height: 35, width: 35,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'absolute', 
-                                right: 13
-
-                            }}
-                                onPress={() => {
-                                    this.props.navigation.navigate('EditProfile', {
-                                        data: this.state.data
-                                    })
-                                }}>
-                                <Image style={{ height: 20, 
-                                width: 20, 
-                                tintColor: APP_YELLOW }}
-                                    resizeMode='contain'
-                                    source={require('../assets/edit-detail.png')}></Image>
-
-                            </TouchableOpacity>
                         </View>
-                        <ScrollView style={{ flex: 1 }}>
-                            <View style={{ flex: 1 }}>
-                         
-                                <View style={{
-                                    height: Dimensions.get('window').height /4,
-                                    marginTop: 5,
-                                    width: '100%',
-                                    justifyContent: 'center',
-                                    // backgroundColor:'pink'
-                                }}>
-                                    <View style={{
-                                        height: 150,
-                                        width: 150,
-                                        borderRadius: 90,
-                                        alignSelf: 'center',
-                                        justifyContent: 'center',
-                                        overflow: 'hidden'
-                                    }}>
-                                        <TouchableOpacity onPress={() => {
-                                            this.setState({
-                                                isShow: true
-                                            })
-                                        }}>
-                                            <ImageLoad style={{ height: 150, width: 150 }}
-                                                resizeMode='cover'
-                                                source={this.state.data.avatar ==null?
-                                                    require('../assets/placeholder.jpg'):
-                                                    { uri: this.state.data.avatar }
-                                                }></ImageLoad>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
-                                <View style={{
-                                    width:"70%",
-                                    justifyContent: 'center',
-                                    alignSelf: 'center',
-                                    marginTop: 10,
-                                    marginLeft:120,
-                                    // alignItems:'center',
-                                    // borderColor: APP_YELLOW,
-                                    // borderWidth: 2,
-                                    borderRadius: 10,
+                        <TouchableOpacity style={{
+                            height: 35, width: 35,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            right: 13
 
+                        }}
+                            onPress={() => {
+                                this.props.navigation.navigate('EditProfile', {
+                                    data: this.state.data
+                                })
+                            }}>
+                            <Image style={{
+                                height: 20,
+                                width: 20,
+                                tintColor: APP_YELLOW
+                            }}
+                                resizeMode='contain'
+                                source={require('../assets/edit-detail.png')}></Image>
+
+                        </TouchableOpacity>
+                    </View>
+                    <ScrollView style={{ flex: 1 }}>
+                        <View style={{ flex: 1 }}>
+
+                            <View style={{
+                                height: Dimensions.get('window').height / 4,
+                                marginTop: 5,
+                                width: '100%',
+                                justifyContent: 'center',
+                                // backgroundColor:'pink'
+                            }}>
+                                <View style={{
+                                    height: 150,
+                                    width: 150,
+                                    borderRadius: 90,
+                                    alignSelf: 'center',
+                                    justifyContent: 'center',
+                                    overflow: 'hidden'
+                                }}>
+                                    <TouchableOpacity onPress={() => {
+                                        this.setState({
+                                            isShow: true
+                                        })
+                                    }}>
+                                        <ImageLoad style={{ height: 150, width: 150 }}
+                                            resizeMode='cover'
+                                            source={this.state.data.avatar == null ?
+                                                require('../assets/placeholder.jpg') :
+                                                { uri: this.state.data.avatar }
+                                            }></ImageLoad>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                            <View style={{
+                                width: "90%",
+                                justifyContent: 'center',
+                                alignSelf: 'center',
+                                marginTop: 10,
+                            
+                                 alignItems:'center',
+                            
+                                borderRadius: 10,
+
+                            }}>
+                                <View style={{
+                                    alignItems: 'flex-start',
+                                    marginLeft: 40
                                 }}>
                                     <View style={{
                                         flexDirection: 'row',
                                         //justifyContent:'space-between',
                                         // backgroundColor:'pink',
                                         //width:'60%',
-                                      
+
                                     }}>
-                                        <Image style={{height:30,
-                                        width:30,tintColor:APP_YELLOW}}
-                                        source={require('../assets/id.png')}></Image>
-                                        <View style={{alignItems:'flex-start',
-                                        marginLeft:10,
-                                        justifyContent:"flex-start"}}>
-                                        <Text style={{
-                                             fontFamily: 'EurostileBold',
-                                            fontSize: 17,
-                                            color: APP_YELLOW
-                                        }}>Customer id </Text>
-                                        <Text style={{ 
-                                            fontSize: 16,
-                                            marginTop:5,
-                                            fontFamily: 'EurostileBold',
-                                            marginRight: 15,
-                                            color:'#C0C0C0'
+                                        <Image style={{
+                                            height: 30,
+                                            width: 30, tintColor: APP_YELLOW
                                         }}
-                                        numberOfLines={0}>
-                                            {this.state.data.customer_id}
-                                        </Text>
+                                            source={require('../assets/id.png')}></Image>
+                                        <View style={{
+                                            alignItems: 'flex-start',
+                                            marginLeft: 10,
+                                            justifyContent: "flex-start"
+                                        }}>
+                                            <Text style={{
+                                                fontFamily: 'EurostileBold',
+                                                fontSize: 17,
+                                                color: APP_YELLOW
+                                            }}>Customer id </Text>
+                                            <Text style={{
+                                                fontSize: 16,
+                                                marginTop: 5,
+                                                fontFamily: 'EurostileBold',
+                                                marginRight: 15,
+                                                color: '#C0C0C0'
+                                            }}
+                                                numberOfLines={0}>
+                                                {this.state.data.customer_id}
+                                            </Text>
                                         </View>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
                                         marginTop: 10,
-                                        
+
                                         // width:'60%',
                                         // justifyContent:'space-between'
                                     }}>
-                                         <Image style={{height:25,
-                                        width:25,tintColor:APP_YELLOW}}
-                                        source={require('../assets/user.png')}></Image>
-                                        <View style={{marginLeft:10}}>
-                                        <Text style={{
-                                            fontFamily: 'EurostileBold',
-                                            fontSize: 17, color: APP_YELLOW
-                                        }}>Name </Text>
-                                        <Text style={{
-                                            
-                                            color:'#C0C0C0',
-                                            fontSize: 17, 
-                                            marginRight: 15,
-                                             fontFamily: 'EurostileBold',
-                                        }}   numberOfLines={0}>
-                                            {this.state.data.first_name} {this.state.data.last_name}
-                                        </Text>
+                                        <Image style={{
+                                            height: 25,
+                                            width: 25, tintColor: APP_YELLOW
+                                        }}
+                                            source={require('../assets/user.png')}></Image>
+                                        <View style={{ marginLeft: 10 }}>
+                                            <Text style={{
+                                                fontFamily: 'EurostileBold',
+                                                fontSize: 17, color: APP_YELLOW
+                                            }}>Name </Text>
+                                            <Text style={{
+                                                color: '#C0C0C0',
+                                                fontSize: 17,
+                                                marginRight: 15,
+                                                fontFamily: 'EurostileBold',
+                                            }} numberOfLines={0}>
+                                                {this.state.data.first_name} {this.state.data.last_name}
+                                            </Text>
                                         </View>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
-                                         marginTop: 10,
+                                        marginTop: 10,
                                         // width:'80%',justifyContent:'space-between'
                                     }}>
-                                        <Image style={{height:25,
-                                        tintColor:APP_YELLOW,
-                                        width:25}}
-                                        source={require('../assets/email.png')}></Image>
-                                        <View style={{marginLeft:10}}>
-                                        <Text style={{
-                                            fontFamily: 'EurostileBold',
-                                            fontSize: 17, color: APP_YELLOW
-                                        }}>Email </Text>
-                                        <Text style={{
-                                          
-                                            fontSize: 16,
-                                            marginRight: 15,
-                                            color:'#C0C0C0',
-                                            fontFamily: 'EurostileBold',
-                                        }}   numberOfLines={0}>
-                                            {this.state.data.email}
-                                        </Text>
+                                        <Image style={{
+                                            height: 25,
+                                            tintColor: APP_YELLOW,
+                                            width: 25
+                                        }}
+                                            source={require('../assets/email.png')}></Image>
+                                        <View style={{ marginLeft: 10 }}>
+                                            <Text style={{
+                                                fontFamily: 'EurostileBold',
+                                                fontSize: 17, color: APP_YELLOW
+                                            }}>Email </Text>
+                                            <Text style={{
+
+                                                fontSize: 16,
+                                                marginRight: 15,
+                                                color: '#C0C0C0',
+                                                fontFamily: 'EurostileBold',
+                                            }} numberOfLines={0}>
+                                                {this.state.data.email}
+                                            </Text>
                                         </View>
                                     </View>
                                     <View style={{
@@ -259,225 +271,155 @@ export default class UserProfile extends Component {
                                         marginBottom: 10,
                                         // width:'60%',justifyContent:'space-between'
                                     }}>
-                                         <Image style={{height:25,
-                                        width:25,tintColor:APP_YELLOW}}
-                                        source={require('../assets/phone.png')}></Image>
-                                        <View style={{marginLeft:10}}>
-                                        <Text style={{
-                                           
-                                            fontFamily: 'EurostileBold',
-                                            fontSize: 17, color: APP_YELLOW
-                                        }}>Phone no </Text>
-                                        <Text style={{
-                                          
-                                            // marginRight: 15,
-                                            fontSize: 16,
-                                            color:'#C0C0C0',
-                                            fontFamily: 'EurostileBold',
-                                        }}>
-                                            {this.state.data.phone_no}
-                                        </Text>
+                                        <Image style={{
+                                            height: 25,
+                                            width: 25, tintColor: APP_YELLOW
+                                        }}
+                                            source={require('../assets/phone.png')}></Image>
+                                        <View style={{ marginLeft: 10 }}>
+                                            <Text style={{
+
+                                                fontFamily: 'EurostileBold',
+                                                fontSize: 17, color: APP_YELLOW
+                                            }}>Phone no </Text>
+                                            <Text style={{
+
+                                                // marginRight: 15,
+                                                fontSize: 16,
+                                                color: '#C0C0C0',
+                                                fontFamily: 'EurostileBold',
+                                            }}>
+                                                {this.state.data.phone_no}
+                                            </Text>
                                         </View>
                                     </View>
-
-
                                 </View>
 
-
-                                <View style={{ marginTop: 10 }}>
-                                    <TouchableOpacity style={{
-                                        height: 40,
-                                        width: '60%',
-                                        alignItems: "center",
-                                        justifyContent: 'center',
-                                        borderRadius: 10,
-                                        alignSelf: 'center',
-                                        backgroundColor: APP_YELLOW,
-
-                                    }}
-                                        onPress={() => {
-                                            this.props.navigation.navigate('DetailerList')
-                                        }}>
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black', fontFamily: 'EurostileBold',
-                                        }}>My Detailer</Text>
-                                    </TouchableOpacity>
-
-                                    <TouchableOpacity style={{
-                                        height: 40, width: '60%',
-                                        marginTop: 10,
-                                        alignItems: "center", justifyContent: 'center',
-                                        borderRadius: 10, alignSelf: 'center',
-                                        backgroundColor: APP_YELLOW,
-
-                                    }}
-                                        onPress={() => {
-                                            this.props.navigation.navigate('MyCars')
-                                        }}>
-                                        <Text style={{
-                                            fontSize: 18,
-                                            fontFamily: 'EurostileBold',
-                                            color: 'black'
-                                        }}>My Cars</Text>
-                                    </TouchableOpacity>
+                            </View>
 
 
-                                    <TouchableOpacity style={{
-                                        height: 40, width: '60%',
-                                        marginTop: 10,
-                                        alignItems: "center",
-                                        justifyContent: 'center',
-                                        borderRadius: 10,
-                                        alignSelf: 'center',
-                                        backgroundColor: APP_YELLOW,marginBottom:10
+                            <View style={{ marginTop: 10 }}>
+                                <TouchableOpacity style={{
+                                    height: 40,
+                                    width: '60%',
+                                    alignItems: "center",
+                                    justifyContent: 'center',
+                                    borderRadius: 10,
+                                    alignSelf: 'center',
+                                    backgroundColor: APP_YELLOW,
 
-                                    }}
-                                        onPress={() => {
-                                            this.props.navigation.navigate('Settings', {
-                                                data: this.state.data
-                                            })
-                                        }}>
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black', fontFamily: 'EurostileBold',
-                                        }}>Settings</Text>
-                                    </TouchableOpacity>
+                                }}
+                                    onPress={() => {
+                                        this.props.navigation.navigate('DetailerList')
+                                    }}>
+                                    <Text style={{
+                                        fontSize: 18,
+                                        color: 'black', fontFamily: 'EurostileBold',
+                                    }}>My Detailer</Text>
+                                </TouchableOpacity>
 
-                                    {/* <TouchableOpacity style={{
+                                <TouchableOpacity style={{
                                     height: 40, width: '60%',
                                     marginTop: 10,
                                     alignItems: "center", justifyContent: 'center',
                                     borderRadius: 10, alignSelf: 'center',
-                                    backgroundColor: APP_LIGHT
+                                    backgroundColor: APP_YELLOW,
+
                                 }}
                                     onPress={() => {
-
-                                        this.props.navigation.navigate('ChangePassword')
+                                        this.props.navigation.navigate('MyCars')
                                     }}>
                                     <Text style={{
-                                        fontSize: 18, fontWeight: '700',
-                                        color: 'white'
-                                    }}>Chnage Password</Text>
-                                </TouchableOpacity> */}
+                                        fontSize: 18,
+                                        fontFamily: 'EurostileBold',
+                                        color: 'black'
+                                    }}>My Cars</Text>
+                                </TouchableOpacity>
 
-                                    {/* <TouchableOpacity style={{
-                                    height: 40,
-                                    width: '60%',
+
+                                <TouchableOpacity style={{
+                                    height: 40, width: '60%',
                                     marginTop: 10,
                                     alignItems: "center",
                                     justifyContent: 'center',
-                                    borderRadius: 10, alignSelf: 'center',
-                                    backgroundColor: APP_LIGHT
+                                    borderRadius: 10,
+                                    alignSelf: 'center',
+                                    backgroundColor: APP_YELLOW, marginBottom: 10
+
                                 }}
                                     onPress={() => {
-                                        Share.share({ message: 'this is my app' })
+                                        this.props.navigation.navigate('Settings', {
+                                            data: this.state.data
+                                        })
                                     }}>
                                     <Text style={{
-                                        fontSize: 18, fontWeight: '700',
-                                        color: 'white'
-                                    }}>Share</Text>
-                                </TouchableOpacity> */}
-                                    {/* <TouchableOpacity style={{
-                                    height: 40, width: '60%',
-                                    marginTop: 10, marginBottom: 10,
-                                    alignItems: "center", justifyContent: 'center',
-                                    borderRadius: 10, alignSelf: 'center',
-                                    backgroundColor: APP_LIGHT
-                                }}
-                                    // onPress={() => {
-                                    //     this.props.navigation.navigate('Login')
-                                    // }}
-                                    onPress={() => {
-                                        Alert.alert(
-                                            'Logout',
-                                            'Are you sure you want to logout?',
-                                            [
-                                                {
-                                                    text: 'Logout', onPress: () => {
-                                                        this.save('user_id', '')
-                                                        //this.props.navigation.navigate('Login')
+                                        fontSize: 18,
+                                        color: 'black', fontFamily: 'EurostileBold',
+                                    }}>Settings</Text>
+                                </TouchableOpacity>
 
-                                                        const resetAction = StackActions.reset({
-                                                            index: 0,
-                                                            key: null,
-                                                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
-                                                        });
-                                                        this.props.navigation.dispatch(resetAction);
-                                                    }
-                                                },
-                                                {
-                                                    text: 'Cancel',
-                                                    style: 'cancel',
-                                                }],
-                                            { cancelable: false },
-                                        );
-                                    }}
-                                >
-                                    <Text style={{
-                                        fontSize: 18, fontWeight: '700',
-                                        color: 'white'
-                                    }}>Logout</Text>
-                                </TouchableOpacity> */}
-
-                                </View>
 
 
                             </View>
-                        </ScrollView>
-                    </KeyboardAvoidingView>
 
-                    {
-                        this.state.isShow &&
-                        <TouchableOpacity style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
-                            //backgroundColor:'black',
-                            top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }} onPress={() => {
-                            this.setState({
-                                isShow: false
-                            })
-                        }}>
-                            <View style={{
-                                height: 400,
-                                width: '100%'
-                            }}
-                            >
-                                <ImageLoad style={{ flex: 1, 
-                                width: '100%' }}
-                                    resizeMode='stretch'
-                                    
-                                    source={this.state.data.avatar == null ?
-                                        require('../assets/placeholder.jpg')
-                                        : { uri: this.state.data.avatar }}></ImageLoad>
-                            </View>
-
-                        </TouchableOpacity>
-                    }
-                    {
-                        this.state.isLoading &&
-                        <View style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
-                            top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <ActivityIndicator
-                                animating={this.state.isLoading}
-                                size='large'
-
-                                color={APP_YELLOW}
-                            ></ActivityIndicator>
 
                         </View>
-                    }
-                </ImageBackground>
+                    </ScrollView>
+                </KeyboardAvoidingView>
+
+                {
+                    this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        //backgroundColor:'black',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} onPress={() => {
+                        this.setState({
+                            isShow: false
+                        })
+                    }}>
+                        <View style={{
+                            height:Dimensions.get('window').height/2,
+                            width: '100%'
+                        }}
+                        >
+                            <ImageLoad style={{
+                                flex: 1,
+                                width: '100%'
+                            }}
+                                resizeMode='stretch'
+
+                                source={this.state.data.avatar == null ?
+                                    require('../assets/placeholder.jpg')
+                                    : { uri: this.state.data.avatar }}></ImageLoad>
+                        </View>
+
+                    </TouchableOpacity>
+                }
+                {
+                    this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
+
+                    </View>
+                }
+            </ImageBackground>
             // </SafeAreaView >
         );
     }

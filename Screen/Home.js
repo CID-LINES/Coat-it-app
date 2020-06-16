@@ -4,8 +4,8 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
-import { NavigationActions } from 'react-navigation';
-import Notification from './Notification';
+import firebase from 'react-native-firebase'
+
 
 
 const DATA = [
@@ -38,13 +38,75 @@ export default class Home extends Component {
     }
     
 
-    componentDidMount() {
+    async componentDidMount() {
        
         this.get('user_id')
-      
+        this.checkPermission();
+        // Register all listener for notification 
+        this.createNotificationListeners();
     }
-  
- 
+    async checkPermission() {
+        const enabled = await firebase.messaging().hasPermission();
+        // If Premission granted proceed towards token fetch
+        if (enabled) {
+          this.getToken();
+        } else {
+          // If permission hasn’t been granted to our app, request user in requestPermission method. 
+          this.requestPermission();
+        }
+      }
+      async getToken() {
+        let fcmToken = await AsyncStorage.getItem('fcmToken');
+        if (!fcmToken) {
+          fcmToken = await firebase.messaging().getToken();
+          if (fcmToken) {
+            // user has a device token
+            await AsyncStorage.setItem('fcmToken', fcmToken);
+            
+          }
+        }
+      }
+      async requestPermission() {
+        try {
+          await firebase.messaging().requestPermission();
+          // User has authorised
+          this.getToken();
+        } catch (error) {
+          // User has rejected permissions
+          console.log('permission rejected');
+        }
+      }
+    
+      async createNotificationListeners() {
+    
+        // This listener triggered when notification has been received in foreground
+        this.notificationListener = firebase.notifications().onNotification((notification) => {
+          const { title, body } = notification;
+          this.navigate(title,body)
+        });
+    
+        // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
+        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+          const { title, body } = notificationOpen.notification;
+          if(notificationOpen){
+            this.navigate(title,body)
+          }
+        
+     
+        });
+    
+        // This listener triggered when app is closed and we click,tapped and opened notification 
+        const notificationOpen = await firebase.notifications().getInitialNotification();
+        if (notificationOpen) {
+    const { title, body } = notificationOpen.notification;
+      this.navigate(title,body)
+        }
+      }
+    
+    navigate=(title,body)=>{
+        this.props.navigation.navigate('Notification')
+    }
+    
     
 
     async get(key) {
@@ -68,7 +130,6 @@ export default class Home extends Component {
         this.setState({
             isLoading: true
         })
-
 
         fetch('http://3.137.41.50/coatit/public/api/plan/display',
             {
