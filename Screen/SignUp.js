@@ -73,7 +73,7 @@ export default class SignUp extends Component {
     }
 
 
-    SignUp = () => {
+    SignUp = (fcmToken) => {
         this.setState({
             isLoading: true
         })
@@ -85,13 +85,15 @@ export default class SignUp extends Component {
             name: 'photo.jpg',
         };
     }
-        // alert(this.state.brewery_id)
+      
         body.append('avatar', photo);
         body.append('email', this.state.email)
         body.append('password', this.state.password)
         body.append('first_name', this.state.firstname)
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
+        body.append('device_token',fcmToken+''),
+        body.append('device_type',Platform.OS=='android'?'a':'i')
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
             {
@@ -501,7 +503,7 @@ export default class SignUp extends Component {
             // </SafeAreaView>
         );
     }
-    signup = () => {
+    signup = async() => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (this.state.firstname == '') {
             alert('Please enter the first name')
@@ -518,7 +520,9 @@ export default class SignUp extends Component {
         } else if (this.state.phone == '') {
             alert('Please enter the phone number')
         } else {
-            this.SignUp()
+            const value = await AsyncStorage.getItem("fcmToken");
+           
+            this.SignUp(value)
         }
     }
 }

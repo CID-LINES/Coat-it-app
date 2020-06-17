@@ -309,7 +309,7 @@ export default class CarDetail extends Component {
                                 }}>
                                     <Text style={{
                                        fontFamily:'EurostileBold'
-                                    }}>Upload profile picture here</Text>
+                                    }}>Upload car picture here</Text>
                                     <Image style={{
                                         height: 30, width: 30,
                                         tintColor: 'black',

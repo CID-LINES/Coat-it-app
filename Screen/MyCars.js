@@ -204,7 +204,8 @@ export default class MyCars extends Component {
                             height: 60, width: 60,
                             borderRadius: 30,
                             backgroundColor: APP_YELLOW,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center', 
+                            justifyContent: 'center',
                             position: 'absolute',
                             alignContent: 'flex-end',
                             right: 20,
@@ -214,7 +215,9 @@ export default class MyCars extends Component {
                                 this.props.navigation.navigate('AddCar')
                             }
                             }>
-                            <Image style={{ height: 40, width: 40 }}
+                            <Image style={{ height: 40, width: 40,
+                            tintColor:'black' }}
+                            
                                 source={require('../assets/plus-icon.png')}></Image>
                         </TouchableOpacity>
 

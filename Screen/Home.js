@@ -36,10 +36,7 @@ export default class Home extends Component {
         }
 
     }
-    
-
     async componentDidMount() {
-       
         this.get('user_id')
         this.checkPermission();
         // Register all listener for notification 
@@ -82,31 +79,27 @@ export default class Home extends Component {
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
           const { title, body } = notification;
-          this.navigate(title,body)
+         
         });
     
         // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
           const { title, body } = notificationOpen.notification;
-          if(notificationOpen){
             this.navigate(title,body)
-          }
-        
-     
         });
     
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
-    const { title, body } = notificationOpen.notification;
+   const { title, body } = notificationOpen.notification;
       this.navigate(title,body)
         }
       }
     
     navigate=(title,body)=>{
+    
         this.props.navigation.navigate('Notification')
     }
-    
     
 
     async get(key) {

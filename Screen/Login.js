@@ -26,32 +26,8 @@ export default class Login extends Component {
         }
     }
 
-    // onPressNotificacion() {
-    //     this.props.navigation.dispatch(
-    //         NavigationActions.navigate({ routeName: "Notification" })
-    //     );
-    //   }
-    componentDidMount() {
-        
-        // PushNotification.configure({
-        //     onRegister: function (token) {
-        //         console.log("TOKEN:", token);
-        //       },
-        //       onNotification: function (notification) {
-        //         console.log("NOTIFICATION:", notification);
-       
-        //         notification.finish(PushNotificationIOS.FetchResult.NoData);
-        //       },
-        //       permissions: {
-        //         alert: true,
-        //         badge: true,
-        //         sound: true,
-        //       },
-        //       popInitialNotification: true,
-        //       requestPermissions: true,
-              
 
-        //     });      
+    componentDidMount() {        
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
@@ -89,15 +65,17 @@ export default class Login extends Component {
             //   console.log("Error saving data" + error);
         }
     }
-    LoginApi = () => {
+    LoginApi = (fcmToken) => {
         this.setState({
             isLoading: true
         })
+       
         ApiCall('login',
             {
                 'email': this.state.email,
                 'password': this.state.Password,
-
+                'device_token':fcmToken+'',
+                'device_type':Platform.OS=='android'?'a':'i'
             },
             (data) => {
                 console.log(JSON.stringify(data))
@@ -528,7 +506,7 @@ export default class Login extends Component {
             // </SafeAreaView>
         );
     }
-    Login = () => {
+    Login =  async() => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (this.state.email == '') {
             alert('Please enter the email')
@@ -538,7 +516,8 @@ export default class Login extends Component {
         else if (this.state.Password == '') {
             alert('Please enter the password')
         } else {
-            this.LoginApi()
+            const value = await AsyncStorage.getItem("fcmToken");
+            this.LoginApi(value)
         }
     }
     forget = () => {
@@ -549,6 +528,7 @@ export default class Login extends Component {
             alert('Please enter the email')
         }
         else {
+          
             this.forgetApi()
         }
     }

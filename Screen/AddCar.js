@@ -429,7 +429,7 @@ export default class AddCar extends Component {
                                     }}
                                     placeholder={{
                                         label: 'Manufacture Year',
-                                        color:'#C0C0C0'
+                                        color:'gray'
                                     }}
                                    
                                     items={this.state.DATA}
