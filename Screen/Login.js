@@ -59,8 +59,6 @@ export default class Login extends Component {
 
         try {
             await AsyncStorage.setItem(key, value);
-
-            //alert(JSON.stringify(value))
         } catch (error) {
             //   console.log("Error saving data" + error);
         }
@@ -483,8 +481,8 @@ export default class Login extends Component {
                             </View>
 
                         </View>}
-
-                    {this.state.isLoading &&
+                    {
+                    this.state.isLoading &&
                         <View style={{
                             position: 'absolute',
                             backgroundColor: '#000000aa',
@@ -496,12 +494,10 @@ export default class Login extends Component {
                             <ActivityIndicator
                                 animating={this.state.isLoading}
                                 size='large'
-
-                                color={APP_YELLOW}
-                            ></ActivityIndicator>
-
+                                color={APP_YELLOW}>
+                            </ActivityIndicator>
                         </View>
-                    }
+                        }
                 </ImageBackground>
             // </SafeAreaView>
         );

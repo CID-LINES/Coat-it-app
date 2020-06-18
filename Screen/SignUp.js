@@ -85,7 +85,6 @@ export default class SignUp extends Component {
             name: 'photo.jpg',
         };
     }
-      
         body.append('avatar', photo);
         body.append('email', this.state.email)
         body.append('password', this.state.password)
