@@ -97,10 +97,8 @@ export default class Home extends Component {
       }
     
     navigate=(title,body)=>{
-    
         this.props.navigation.navigate('Notification')
     }
-    
 
     async get(key) {
         try {
@@ -121,7 +119,8 @@ export default class Home extends Component {
 
     PlanApi = () => {
         this.setState({
-            isLoading: true
+             isLoading: true
+            // isFetching:true
         })
 
         fetch('http://3.137.41.50/coatit/public/api/plan/display',
@@ -144,10 +143,9 @@ export default class Home extends Component {
                     // alert('helo')
                 }
                 this.setState({
-                    isLoading: false,
-                    isFetching: false
+                     isLoading: false,
+                     isFetching: false
                 })
-
             })
             .catch((error) => {
                 console.error(error);
@@ -155,7 +153,6 @@ export default class Home extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.PlanApi() });
@@ -185,9 +182,9 @@ export default class Home extends Component {
                             </Text>
                     </View>
                     <FlatList style={{ marginTop: 5 }}
-
                         refreshControl={<RefreshControl
                         tintColor={APP_YELLOW}
+                        colors={["#D65050","#D65050"]}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
@@ -195,7 +192,6 @@ export default class Home extends Component {
                         renderItem={({ item }) => (
                             this.MembershipPlan(item)
                         )}>
-
                     </FlatList>
                 </View>
 
@@ -213,10 +209,9 @@ export default class Home extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
-                        ></ActivityIndicator>
-
+                        >
+                        </ActivityIndicator>
                     </View>
                 }
             </ImageBackground>
@@ -268,11 +263,10 @@ export default class Home extends Component {
                         fontSize: 16,
                         color: '#C0C0C0',
                         fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-
                         marginTop: 5
                     }}
-                    >{item.title}</Text>
-
+                    >{item.title}
+                    </Text>
                 </View>
                 <TouchableOpacity style={{
                     height: 30,
@@ -287,7 +281,6 @@ export default class Home extends Component {
                     backgroundColor: APP_YELLOW
                 }}
                     onPress={() => {
-
                         this.props.navigation.navigate('ServiceDetail', {
                             plan: item
                         })

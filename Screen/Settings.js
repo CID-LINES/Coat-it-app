@@ -8,11 +8,11 @@ export default class Settings extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: props.navigation.state.params.data,
-            phone: props.navigation.state.params.data.phone_no,
-            firstname: props.navigation.state.params.data.first_name,
-            lastname: props.navigation.state.params.data.last_name,
-            filePath: props.navigation.state.params.data.avatar,
+            // data: props.navigation.state.params.data,
+            // phone: props.navigation.state.params.data.phone_no,
+            // firstname: props.navigation.state.params.data.first_name,
+            // lastname: props.navigation.state.params.data.last_name,
+            // filePath: props.navigation.state.params.data.avatar,
             isLoading: false,
             user_id: ''
         }

@@ -2,7 +2,6 @@ package com.kenotekcarapp;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -13,7 +12,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
@@ -26,7 +24,6 @@ public class MainApplication extends Application implements ReactApplication {
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
-
         @Override
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
@@ -39,7 +36,6 @@ public class MainApplication extends Application implements ReactApplication {
 
           return packages;
         }
-
         @Override
         protected String getJSMainModuleName() {
           return "index";

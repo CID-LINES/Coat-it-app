@@ -27,15 +27,12 @@ export default class Notification extends Component {
     }
 
     async componentDidMount() {
-
-     
         this.NotificationApi()
-
-
     }
     NotificationApi = () => {
         this.setState({
             isLoading: true
+            // isFetching:true
         })
 
         fetch('http://3.137.41.50/coatit/public/api/notification_list',
@@ -57,29 +54,25 @@ export default class Notification extends Component {
 
                 }
                 this.setState({
-                    isLoading: false,
-                    isFetching: false
+                     isLoading: false,
+                     isFetching: false
                 })
 
             })
             .catch((error) => {
                 console.error(error);
-                //  alert(error)
-                //  callback({ data: error });
-                //callback({error: true, data: error});
             });
 
     }
 
     onRefresh = () => {
-        this.setState({ isFetching: true }, function () { this.NotificationApi() });
+        this.setState({ isFetching: true }, function () {this.NotificationApi()});
     }
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-
                 <ImageBackground style={{ flex: 1, }}
                     resizeMode='stretch'
                     source={require('../assets/bg.png')}>
@@ -91,16 +84,15 @@ export default class Notification extends Component {
                             marginTop:Platform.OS==='ios'?25:7
                         }}>
                             <Text style={{
-                                fontSize: 18,
+                                fontSize: 20,
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
                             }}>Notifications</Text>
                         </View>
-
-
                         <FlatList style={{ marginTop: 5 }}
                             refreshControl={<RefreshControl
                                 tintColor={APP_YELLOW}
+                                colors={["#D65050","#D65050"]}
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -185,7 +177,7 @@ export default class Notification extends Component {
 
                     <TouchableOpacity style={{
                         marginTop: 5,
-                        height: Dimensions.get('window').height / 11,
+                        height: Dimensions.get('window').height / 12,
                         width: 60,
                         marginLeft: 5,
                         borderRadius: 5,
@@ -217,15 +209,19 @@ export default class Notification extends Component {
 
                         }}>
                             <View style={{
-                                width: Dimensions.get('window').width / 1.87,
+                               
+                                width: Dimensions.get('window').width /2,
 
                             }}>
                                 <Text style={{
                                     fontSize: 17,
                                     textAlign: 'justify',
+                                    marginLeft:10,
                                     color: '#C0C0C0',
                                     fontFamily: 'EurostileBold'
-                                }}>{item.title}</Text>
+                                }}>
+                                    {item.title}
+                                    </Text>
                             </View>
                             <Text style={{
                                 fontSize: 17,
@@ -239,7 +235,7 @@ export default class Notification extends Component {
                         </View>
                         <View style={{
                             width: Dimensions.get('window').width / 1.33,
-                            marginLeft: 5,
+                            marginLeft: 15,
                             marginBottom: 5,
                             marginTop: 10
                         }}>

@@ -132,12 +132,9 @@ export default class MyCars extends Component {
             })
             .catch((error) => {
                 console.error(error);
-                //  alert(error)
-                //  callback({ data: error });
-                //callback({error: true, data: error});
+ 
             });
-
-    }
+}
     onRefresh=()=> {
         this.setState({ isFetching: true }, function() { this.MycarApi() });    
      }
@@ -155,7 +152,7 @@ export default class MyCars extends Component {
                         alignItems:'center',
                         flexDirection: 'row',
                         alignSelf: 'center',
-                        marginTop:Platform.OS==='ios'?25:7
+                        marginTop:Platform.OS ==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35, 
@@ -168,7 +165,9 @@ export default class MyCars extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, 
+                            width: 20, 
+                            tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}>
                                 </Image>
@@ -189,9 +188,12 @@ export default class MyCars extends Component {
                     </View>
 
                     <View style={{ flex: 1 }}>
-                        <FlatList style={{ flex: 1, marginTop: 10 ,marginBottom:20}}
+                        <FlatList style={{ flex: 1, 
+                        marginTop: 10,
+                        marginBottom:20}}
                           refreshControl={<RefreshControl 
                             tintColor={APP_YELLOW}
+                            colors={["#D65050","#D65050"]}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -217,15 +219,9 @@ export default class MyCars extends Component {
                             }>
                             <Image style={{ height: 40, width: 40,
                             tintColor:'black' }}
-                            
                                 source={require('../assets/plus-icon.png')}></Image>
                         </TouchableOpacity>
-
                     </View>
-
-
-            
-
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
@@ -238,7 +234,6 @@ export default class MyCars extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 

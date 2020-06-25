@@ -94,7 +94,8 @@ export default class DetailerList extends Component {
                 source={require('../assets/bg.png')}>
 
                 <View style={{
-                    height: 45, width: '95%',
+                    height: 45,
+                    width: '95%',
                     alignItems: 'center',
                     justifyContent: 'center',
                     //backgroundColor:'pink',
@@ -103,7 +104,8 @@ export default class DetailerList extends Component {
                     marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
                     <TouchableOpacity style={{
-                        height: 25, width: 25,
+                        height: 25,
+                        width: 25,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
@@ -112,7 +114,11 @@ export default class DetailerList extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
+                        <Image style={{
+                            height: 25,
+                            width: 25,
+                            tintColor: APP_YELLOW
+                        }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}>
                         </Image>
@@ -122,11 +128,11 @@ export default class DetailerList extends Component {
                         height: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-
                     }}>
                         <Text style={{
                             fontSize: 18,
-                            color: APP_YELLOW, fontFamily: 'EurostileBold',
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold',
                         }}>Detailers List</Text>
                     </View>
                 </View>
@@ -140,7 +146,6 @@ export default class DetailerList extends Component {
                         <Text style={{
                             fontSize: 22,
                             color: '#C0C0C0',
-
                             textAlign: 'center',
                             fontFamily: 'EurostileBold'
                         }}
@@ -150,9 +155,13 @@ export default class DetailerList extends Component {
                     </View> :
                     <View style={{ flex: 1 }}>
 
-                        <FlatList style={{ marginTop: 10, marginBottom: 20 }}
+                        <FlatList style={{
+                            marginTop: 10,
+                            marginBottom: 20
+                        }}
                             refreshControl={<RefreshControl
                                 tintColor={APP_YELLOW}
+                                colors={["#D65050", "#D65050"]}
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -211,7 +220,7 @@ export default class DetailerList extends Component {
             </TouchableOpacity>
         } */}
             </ImageBackground>
-            // </SafeAreaView>
+            // </SafeAreaView`>
         );
     }
 
@@ -274,7 +283,7 @@ export default class DetailerList extends Component {
                         <Text style={{
                             fontSize: 17,
                             fontFamily: 'EurostileBold',
-                            color:APP_YELLOW
+                            color: APP_YELLOW
                         }}
                             numberOfLines={2}>
                             {item.first_name}
@@ -313,10 +322,9 @@ export default class DetailerList extends Component {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        marginTop:10,
+                        marginTop: 10,
                     }}>
                         <Text style={{
-
                             fontSize: 17,
                             fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                             color: '#C0C0C0'
@@ -326,8 +334,8 @@ export default class DetailerList extends Component {
                         </Text>
 
                         <Text style={{
-                           marginBottom: 5,
-                           marginRight:8,
+                            marginBottom: 5,
+                            marginRight: 8,
                             fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                             fontSize: 17, color: '#C0C0C0'
                         }}>

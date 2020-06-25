@@ -78,21 +78,21 @@ export default class SignUp extends Component {
             isLoading: true
         })
         let body = new FormData();
-        if(this.state.filePath.uri){
-        var photo = {
-            uri: this.state.filePath.uri,
-            type: 'image/jpeg',
-            name: 'photo.jpg',
-        };
-    }
+        if (this.state.filePath.uri) {
+            var photo = {
+                uri: this.state.filePath.uri,
+                type: 'image/jpeg',
+                name: 'photo.jpg',
+            };
+        }
         body.append('avatar', photo);
         body.append('email', this.state.email)
         body.append('password', this.state.password)
         body.append('first_name', this.state.firstname)
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
-        body.append('device_token',fcmToken+''),
-        body.append('device_type',Platform.OS=='android'?'a':'i')
+        body.append('device_token', fcmToken + ''),
+            body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
             {
@@ -110,10 +110,10 @@ export default class SignUp extends Component {
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
                     this.props.navigation.replace('CarDetail')
-                    
+
                 }
-            alert(responseJson.response.message)
-                
+                alert(responseJson.response.message)
+
                 this.setState({
                     isLoading: false
 
@@ -133,40 +133,40 @@ export default class SignUp extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1,}}>
-                    <ImageBackground style={{ flex: 1 ,}}
-                   resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
                 <StatusBar barStyle="light-content" />
-              
-                        <View style={{ flex: 1,}}>
-                            <View style={{
-                                alignSelf: 'center',
-                                alignItems: 'center', 
-                                justifyContent: 'center',
-                                height: 40,
-                                 width: '100%',
-                                 marginTop:Platform.OS==='ios'?25:7
-                            }}>
-                                <Text style={{
-                                    fontSize: 20,
-                                    color: APP_YELLOW,
-                                    fontFamily:'EurostileBold'
-                                }}>Kenotek Coat IT</Text>
-                            </View>
-                            <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
+
+                <View style={{ flex: 1, }}>
+                    <View style={{
+                        alignSelf: 'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 40,
+                        width: '100%',
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
+                    }}>
+                        <Text style={{
+                            fontSize: 20,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
+                        }}>Kenotek Coat IT</Text>
+                    </View>
+                    <KeyboardAvoidingView style={{flex: 1}}
+                        behavior="padding" enabled={Platform.OS === 'ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}
                     >
-                    <ScrollView style={{ flex: 1 }}>
+                        <ScrollView style={{flex: 1}}>
                             <View style={{
-                                height: Dimensions.get('window').height/3.5,
+                                height: Dimensions.get('window').height / 3.5,
                                 width: '100%',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 marginTop: 10
                             }}>
                                 <TouchableOpacity style={{
-                                    flex:1,
+                                    flex: 1,
                                     width: '95%',
                                     borderRadius: 60,
                                     justifyContent: 'center',
@@ -176,33 +176,40 @@ export default class SignUp extends Component {
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-
                                     <Image style={{
-                                       
-                                        flex:1,
+                                        flex: 1,
                                         width: '95%',
                                         borderRadius: 10,
                                         // maxHeight:100
                                         //alignSelf: 'center', 
                                     }}
-                                        resizeMode='cover' source={this.state.filePath == '' ?
+                                        resizeMode='cover' 
+                                        source={this.state.filePath == '' ?
                                             require('../assets/placeholder.jpg') :
                                             this.state.filePath}>
-
                                     </Image>
                                 </TouchableOpacity>
-                                <View style={{height:40,width:'60%',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                position:'absolute',
-                                bottom:5,flexDirection:'row',
-                                right:28}}>
-                                    <Text style={{ fontFamily:'EurostileBold'}}>Upload profile picture here</Text>
-                                    <Image style={{height:30,width:30,
-                                    marginLeft:10,
-                                    tintColor:'black'}}
-                                    
-                                    source={require('../assets/camera.png')}></Image>
+                                <View style={{
+                                    height: 40,
+                                    width: '60%',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    position: 'absolute',
+                                    bottom: 5,
+                                    flexDirection: 'row',
+                                    right: 28
+                                }}>
+                                    <Text style={{ fontFamily: 'EurostileBold' }}>
+                                        Upload profile picture here
+                                        </Text>
+                                    <Image style={{
+                                        height: 30,
+                                        width: 30,
+                                        marginLeft: 10,
+                                        tintColor: 'black'
+                                    }}
+                                        source={require('../assets/camera.png')}>
+                                        </Image>
                                 </View>
                             </View>
                             <View style={{
@@ -210,10 +217,14 @@ export default class SignUp extends Component {
                                 marginTop: 20,
                                 alignItems: 'center'
                             }}>
-                                <Text style={{ width: '80%',
-                                 color:'#C0C0C0',
-                                 fontFamily:'EurostileBold' }}>First name</Text>
-                                   <View style={{
+                                <Text style={{
+                                    width: '80%',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold'
+                                }}>
+                                    First name
+                                     </Text>
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -225,75 +236,80 @@ export default class SignUp extends Component {
                                     }}
                                         source={require('../assets/user.png')}
                                         resizeMode='cover'
-                                    ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,
-                                    //borderColor: 'gray',
-                                    //borderWidth: 1,
-                                    borderRadius: 10,
-                                    padding: 5,color:'#C0C0C0'
-                                }}
-                                    value={this.state.firstname}
-                                    onChangeText={(value) => { this.setState({ firstname: value }) }}
-                                    keyboardType='ascii-capable'
-                                    placeholder='Enter your first name'
-                                    placeholderTextColor='#C0C0C0'>
-
+                                    >
+                                    </Image>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        //borderColor: 'gray',
+                                        //borderWidth: 1,
+                                        borderRadius: 10,
+                                        padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        value={this.state.firstname}
+                                        onChangeText={(value) => { this.setState({ firstname: value }) }}
+                                        keyboardType='ascii-capable'
+                                        placeholder='Enter your first name'
+                                        placeholderTextColor='#C0C0C0'>
                                     </TextInput>
-                                    </View>
+                                </View>
+                                {/* <View style={{
+                                    height: 1,
+                                    width: '80%',
+                                    backgroundColor: '#C0C0C0'
+                                }}>
+
+                                </View> */}
+                                <Text style={{
+                                    width: '80%',
+                                    color: '#C0C0C0',
+                                    marginTop: 10,
+                                    fontFamily: 'EurostileBold',
+                                }}>Last name</Text>
                                 <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/user.png')}
+                                        resizeMode='cover'
+                                    >
+                                    </Image>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        color: '#C0C0C0',
+                                        borderRadius: 10,
+                                        padding: 5
+                                    }}
+                                        keyboardType='ascii-capable'
+                                        value={this.state.lastname}
+                                        onChangeText={(value) => { this.setState({lastname: value}) }}
+                                        placeholder='Enter your last name'
+                                        placeholderTextColor='#C0C0C0'>
+                                    </TextInput>
+                                </View>
+                                {/* <View style={{
                                     height: 1,
                                     width: '80%', 
-                                    backgroundColor: '#C0C0C0'
-                                }}></View>
-                                <Text style={{
-                                    width: '80%',
-                                   color:'#C0C0C0',
-                                    marginTop: 10,
-                                    fontFamily:'EurostileBold',
-                                }}>Last name</Text>
-                                  <View style={{
-                                    flexDirection: 'row',
-                                    width: '80%',
-                                    alignItems: "center"
+                                    backgroundColor:'#C0C0C0'
                                 }}>
-                                    <Image style={{
-                                        height: 25,
-                                        tintColor: APP_YELLOW,
-                                        width: 25
-                                    }}
-                                        source={require('../assets/user.png')}
-                                        resizeMode='cover'
-                                    ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,
-                                    color:'#C0C0C0',
-                                    borderRadius: 10,
-                                     padding: 5
-                                }}
-                                    keyboardType='ascii-capable'
-                                    value={this.state.lastname}
-                                    onChangeText={(value) => { this.setState({ lastname: value }) }}
-                                    placeholder='Enter your last name'
-                                    placeholderTextColor='#C0C0C0'>
-
-                                </TextInput>
-                                </View>
-                                <View style={{
-                                    height: 1,
-                                    width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                </View> */}
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
-                                   color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Email</Text>
-                                  <View style={{
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -306,35 +322,37 @@ export default class SignUp extends Component {
                                         source={require('../assets/email.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    borderRadius: 10, padding: 5,
-                                    color:'#C0C0C0'
-                                }}
-                                    value={this.state.email}
-                                    onChangeText={(value) => { this.setState({ email: value }) }}
-                                    keyboardType='ascii-capable'
-                                    placeholder='Enter your email'
-                                    placeholderTextColor='#C0C0C0'>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        // borderColor: 'gray',
+                                        // borderWidth: 1,
+                                        borderRadius: 10, 
+                                        padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        value={this.state.email}
+                                        onChangeText={(value) => { this.setState({ email: value }) }}
+                                        keyboardType='ascii-capable'
+                                        placeholder='Enter your email'
+                                        placeholderTextColor='#C0C0C0'>
 
                                     </TextInput>
-                                    </View>
-                                <View style={{
+                                </View>
+                                {/* <View style={{
                                     height: 1,
                                     width: '80%',
-                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                    backgroundColor: '#C0C0C0'
+                                }}></View> */}
 
                                 <Text style={{
-                                    width: '80%', marginTop: 10,
-                                   color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    width: '80%', 
+                                    marginTop: 10,
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Phone No.</Text>
-                                  <View style={{
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -347,34 +365,35 @@ export default class SignUp extends Component {
                                         source={require('../assets/phone.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    borderRadius: 10, padding: 5,
-                                    color:'#C0C0C0'
-                                }}
-                                    value={this.state.phone}
-                                    onChangeText={(value) => { this.setState({ phone: value }) }}
-                                    keyboardType='number-pad'
-                                    returnKeyType='done'
-                                    placeholder='Enter your phone no'
-                                    placeholderTextColor='#C0C0C0'></TextInput>
-                                    </View>
-                                <View style={{
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        // borderColor: 'gray',
+                                        // borderWidth: 1,
+                                        borderRadius: 10, padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        value={this.state.phone}
+                                        onChangeText={(value) => { this.setState({ phone: value }) }}
+                                        keyboardType='number-pad'
+                                        returnKeyType='done'
+                                        placeholder='Enter your phone no'
+                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                </View>
+                                {/* <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                    width: '80%', 
+                                    backgroundColor: '#C0C0C0'
+                                }}></View> */}
 
                                 <Text style={{
-                                    width: '80%', 
+                                    width: '80%',
                                     marginTop: 10,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Password</Text>
-                                  <View style={{
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -387,31 +406,33 @@ export default class SignUp extends Component {
                                         source={require('../assets/lock.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,
-                                    color:'#C0C0C0',
-                                    borderRadius: 10, 
-                                    padding: 5
-                                }}
-                                    secureTextEntry={true}
-                                    keyboardType='ascii-capable'
-                                    value={this.state.password}
-                                    onChangeText={(value) => { this.setState({ password: value }) }}
-                                    placeholder='Enter your password'
-                                    placeholderTextColor='#C0C0C0'>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        color: '#C0C0C0',
+                                        borderRadius: 10,
+                                        padding: 5
+                                    }}
+                                        secureTextEntry={true}
+                                        keyboardType='ascii-capable'
+                                        value={this.state.password}
+                                        onChangeText={(value) => { this.setState({ password: value }) }}
+                                        placeholder='Enter your password'
+                                        placeholderTextColor='#C0C0C0'>
 
                                     </TextInput>
-                                    </View>
-                                <View style={{
+                                </View>
+                                {/* <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                    width: '80%',
+                                    backgroundColor: '#C0C0C0'
+                                }}></View> */}
                             </View>
 
                             <TouchableOpacity style={{
-                                height: 50, width: '60%',
+                                height: 50, 
+                                width: '60%',
                                 backgroundColor: APP_YELLOW,
                                 marginTop: 20,
                                 alignSelf: 'center',
@@ -425,12 +446,10 @@ export default class SignUp extends Component {
                                     this.signup()
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, 
+                                    fontSize: 18,
                                     color: 'black',
-                                    fontFamily:'EurostileBold',
+                                    fontFamily: 'EurostileBold',
                                 }}>Submit</Text>
-
-
                             </TouchableOpacity>
                             {/* <TouchableOpacity style={{
                                 height: 50, width: '60%',
@@ -452,8 +471,6 @@ export default class SignUp extends Component {
                                     fontSize: 18, fontWeight: '700',
                                     color: APP_YELLOW
                                 }}>Login</Text>
-                                
-
                             </TouchableOpacity> */}
 
                             <TouchableOpacity onPress={() => {
@@ -462,23 +479,23 @@ export default class SignUp extends Component {
                                 <Text
                                     style={{
                                         alignSelf: 'center',
-                                         marginTop: 5,
-                                        color: 'gray', 
+                                        marginTop: 5,
+                                        color: 'gray',
                                         marginBottom: 15,
                                         marginTop: 10,
-                                        fontFamily:'EurostileBold',
-                                        color:'#C0C0C0'
+                                        fontFamily: 'EurostileBold',
+                                        color: '#C0C0C0'
                                     }}>
                                     Already have an account ?
                                     <Text style={{
-                                        alignSelf: 'center', 
+                                        alignSelf: 'center',
                                         color: APP_YELLOW,
-                                       fontFamily:'EurostileBold',
+                                        fontFamily: 'EurostileBold',
                                     }}> Login here</Text></Text>
                             </TouchableOpacity>
-                            </ScrollView>
-                </KeyboardAvoidingView>
-                        </View>
+                        </ScrollView>
+                    </KeyboardAvoidingView>
+                </View>
 
                 {this.state.isLoading &&
                     <View style={{
@@ -498,11 +515,11 @@ export default class SignUp extends Component {
 
                     </View>
                 }
-</ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
-    signup = async() => {
+    signup = async () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (this.state.firstname == '') {
             alert('Please enter the first name')
@@ -520,7 +537,7 @@ export default class SignUp extends Component {
             alert('Please enter the phone number')
         } else {
             const value = await AsyncStorage.getItem("fcmToken");
-           
+
             this.SignUp(value)
         }
     }

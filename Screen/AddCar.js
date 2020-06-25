@@ -12,6 +12,7 @@ import { color } from 'react-native-reanimated';
 
 import RNPickerSelect from 'react-native-picker-select';
 var year = new Date().getFullYear();
+
 const DATA = [
     { label: '2020', value: '2020' },
     { label: '2019', value: '2019' },
@@ -331,15 +332,16 @@ export default class AddCar extends Component {
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ brand_name: value })}
                                     placeholder='Name'></TextInput>
-                                <View style={{
-                                    height: 1, width: '80%',
+                                {/* <View style={{
+                                    height: 1,
+                                     width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
                                     fontFamily:'EurostileBold',
-                                    marginTop: 20,
+                                    marginTop: 10,
                                     color:'#C0C0C0'
                                    
                                 }}>Model Name</Text>
@@ -356,14 +358,14 @@ export default class AddCar extends Component {
                                     placeholder='Model Name'>
 
                                 </TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35, 
-                                    marginTop: 20,
+                                    marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold'
                                 }}>Vehicle No.</Text>
@@ -378,14 +380,14 @@ export default class AddCar extends Component {
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ vehicle_no: value })}
                                     placeholder='Vehicle No.'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35, 
-                                    marginTop: 20,fontFamily:'EurostileBold',
+                                    marginTop: 10,fontFamily:'EurostileBold',
                                     color:'#C0C0C0'
                                 }}>Year of Manufacture</Text>
 
@@ -410,7 +412,7 @@ export default class AddCar extends Component {
                                 fontSize: 16,
                                 width:'80%',
                                 alignSelf:'center',
-                                padding:5,
+                         padding:5,
                                 // paddingVertical: 12,
                                 height: 40,
                                 justifyContent: 'center',
@@ -423,7 +425,7 @@ export default class AddCar extends Component {
                                     style={{
                                         ...pickerSelectStyles,
                                         iconContainer: {
-                                            top: 10,
+                                            top: 5,
                                             right: 12,
                                         },
                                     }}
@@ -441,11 +443,11 @@ export default class AddCar extends Component {
                                     value={this.state.manufacture_year}
                                 />
                             </View>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
 
                             </View>
 
@@ -489,7 +491,9 @@ export default class AddCar extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
@@ -497,7 +501,8 @@ export default class AddCar extends Component {
                             animating={this.state.isLoading}
                             size='large'
                             color={APP_YELLOW}
-                        ></ActivityIndicator>
+                        >
+                        </ActivityIndicator>
 
                     </View>
                 }
@@ -522,13 +527,11 @@ export default class AddCar extends Component {
             this.addCarApi()
         }
     }
-   
-       
 }
 const pickerSelectStyles = StyleSheet.create({
     inputIOS: {
         // marginTop: 10,
-        fontSize: 16,
+        //fontSize: 16,
         // paddingVertical: 12,
         // paddingHorizontal: 7,
         // borderWidth: 1,
@@ -538,14 +541,16 @@ const pickerSelectStyles = StyleSheet.create({
         // paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
-        fontSize: 16,
-        paddingHorizontal: 10,
-        paddingVertical: 8,
+        // fontSize: 16,
+        // paddingHorizontal: 10,
+        // paddingVertical: ,
+        
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
         color: '#C0C0C0',
-        paddingRight: 30, // to ensure the text is never behind the icon
+       // paddingRight: 30,
+         // to ensure the text is never behind the icon
     },
 })
 

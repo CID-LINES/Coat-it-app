@@ -1934,7 +1934,6 @@ int layout text_view_with_line_height_from_style 0x7f0b006e
 int layout text_view_with_theme_line_height 0x7f0b006f
 int layout text_view_without_line_height 0x7f0b0070
 int mipmap ic_launcher 0x7f0c0000
-int mipmap ic_launcher_round 0x7f0c0001
 int plurals mtrl_badge_content_description 0x7f0d0000
 int raw amu_ballon_gx_prefix 0x7f0e0000
 int raw amu_basic_folder 0x7f0e0001

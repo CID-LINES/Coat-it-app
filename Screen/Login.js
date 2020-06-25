@@ -33,13 +33,8 @@ export default class Login extends Component {
             if (item != null && item != '') {
                 this.props.navigation.push('Home')
             }
-        })
-     
-          
+        })  
     }
-   
-  
-
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -80,11 +75,10 @@ export default class Login extends Component {
                 if (!data.error) {
                     if (data.data.response.status == true) {
 
-
                         this.save('access_token', data.data.response.access_token)
                         this.save('user_id', data.data.response.id + '')
                         this.props.navigation.push('Home')
-                        // alert('helo')
+               
                     }
                     else {
                         alert(data.data.response.message)
@@ -101,40 +95,7 @@ export default class Login extends Component {
             })
     }
 
-    forgetApi = () => {
-        this.setState({
-            isLoading: true
-        })
-        CallApi('forgot_password/email',
-            {
-                'email': this.state.femail
-            },
-            (data) => {
-                console.log(JSON.stringify(data))
-                if (!data.error) {
-                    if (data.data.response.Status == true) {
-                        alert('A link with password reset instructions has been sent on entered email address. Please follow the instructions to reset the link')
-                        this.setState({
-                            isshow: !this.state.isshow
-                        })
-                        // this.props.navigation.replace('Home') 
-                        // alert('helo')
-                    }
-
-                    else {
-                        alert('Please entered a valid email address ')
-                    }
-                } else {
-                    alert('Somthing went wrong')
-                }
-                this.setState({
-                    isLoading: false
-                })
-                // alert(JSON.stringify(data))
-                //nsole.log(data)
-            })
-    }
-
+  
 
     render() {
         return (
@@ -160,8 +121,7 @@ export default class Login extends Component {
                         </View>
                         <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
-                    >
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}>
                             <ScrollView style={{ flex: 1 }}>
                                 <View style={{
                                     height: Dimensions.get('window').height / 3.8,
@@ -190,8 +150,9 @@ export default class Login extends Component {
 
                                     <Text style={{
                                         width: '78%',
-                                        marginTop: 10, color: '#C0C0C0'
-                                        , fontFamily: 'EurostileBold'
+                                        marginTop: 10, 
+                                        color: '#C0C0C0',
+                                        fontFamily: 'EurostileBold'
                                     }}>Email</Text>
                                     <View style={{
                                     flexDirection: 'row',
@@ -205,10 +166,12 @@ export default class Login extends Component {
                                     }}
                                         source={require('../assets/email.png')}
                                         resizeMode='cover'
-                                    ></Image>
-                                    <TextInput style={{
-                                        height: 40, width: '80%',
+                                    >
 
+                                    </Image>
+                                    <TextInput style={{
+                                        height: 40, 
+                                        width: '80%',
                                         marginTop: 2,
                                         // borderColor: 'gray',
                                         // borderWidth: 1,
@@ -221,13 +184,13 @@ export default class Login extends Component {
                                         placeholder='Enter your email'
                                         keyboardType='ascii-capable'
                                         placeholderTextColor='#C0C0C0'>
-
                                         </TextInput>
                                         </View>
-                                    <View style={{
+                                    {/* <View style={{
                                         height: 1,
-                                        width: '80%', backgroundColor: '#C0C0C0'
-                                    }}></View>
+                                        width: '80%', 
+                                        backgroundColor: '#C0C0C0'
+                                    }}></View> */}
 
                                     <Text style={{
                                         width: '78%',
@@ -264,13 +227,13 @@ export default class Login extends Component {
                                         placeholder='Enter your password'
                                         placeholderTextColor='#C0C0C0'></TextInput>
                                         </View>
-                                    <View style={{
+                                    {/* <View style={{
                                         height: 1,
                                         width: '80%', 
                                         backgroundColor: '#C0C0C0'
                                     }}>
 
-                                    </View>
+                                    </View> */}
                                 </View>
                                 <TouchableOpacity style={{
                                     height: 30,
@@ -279,9 +242,7 @@ export default class Login extends Component {
                                     marginTop: 5
                                 }}
                                     onPress={() => {
-                                        this.setState({
-                                            isshow: !this.state.isshow
-                                        })
+                                       this.props.navigation.navigate('ForgetPassword')
                                     }}>
                                     <Text style={{
                                         alignSelf: 'flex-end',
@@ -323,8 +284,8 @@ export default class Login extends Component {
                                     <TouchableOpacity style={{
                                         height: 50, width: '40%',
                                         backgroundColor: APP_YELLOW,
-
-                                        marginTop: 15, alignSelf: 'center',
+                                        marginTop: 15, 
+                                        alignSelf: 'center',
                                         // shadowColor: 'gray',
                                         // shadowOpacity: 0.5,
                                         // shadowRadius: 1,
@@ -350,7 +311,7 @@ export default class Login extends Component {
                     </View>
 
 
-                    {this.state.isshow &&
+                    {/* {this.state.isshow &&
                         <View style={{
                             position: 'absolute', top: 0,
                             bottom: 0, left: 0, right: 0,
@@ -480,7 +441,7 @@ export default class Login extends Component {
                                 </ImageBackground>
                             </View>
 
-                        </View>}
+                        </View>} */}
                     {
                     this.state.isLoading &&
                         <View style={{
@@ -516,18 +477,7 @@ export default class Login extends Component {
             this.LoginApi(value)
         }
     }
-    forget = () => {
-        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (!reg.test(this.state.femail)) {
-            alert('Please enter valid email')
-        } else if (this.state.femail == '') {
-            alert('Please enter the email')
-        }
-        else {
-          
-            this.forgetApi()
-        }
-    }
+    
 }
 
 

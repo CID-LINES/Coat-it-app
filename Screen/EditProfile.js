@@ -151,7 +151,8 @@ export default class Settings extends Component {
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignItems:'center',
-                    alignSelf: 'center',marginTop:Platform.OS==='ios'?25:7
+                    alignSelf: 'center',
+                    marginTop:Platform.OS==='ios'?25:7
                 }}>
                     <TouchableOpacity style={{
                         height: 35, 
@@ -173,7 +174,8 @@ export default class Settings extends Component {
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
-                        alignItems: 'center', justifyContent: 'center',
+                        alignItems: 'center', 
+                        justifyContent: 'center',
 
                     }}>
                         <Text style={{
@@ -202,9 +204,7 @@ export default class Settings extends Component {
                                     flex:1,
                                     width: '95%',
                                     borderRadius: 10,
-                                    
                                     alignSelf: 'center',
-                                   
                                     overflow: 'hidden'
                                 }}
                                     onPress={() => {
@@ -252,8 +252,7 @@ export default class Settings extends Component {
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
-                                    marginTop: 2,
-                                    
+                                    marginTop: 2,    
                                     padding: 5,
                                     color:'#C0C0C0'
                                 }}
@@ -262,24 +261,25 @@ export default class Settings extends Component {
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
                                     placeholderTextColor='#C0C0C0'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
-                                    
                                 }}>Last name</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
+                                    height: 40,
+                                     width: '80%',
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
                                     // borderRadius: 10,
-                                    padding: 5,color:'#C0C0C0'
+                                    padding: 5,
+                                    color:'#C0C0C0'
                                 }}
                                     keyboardType='ascii-capable'
                                     value={this.state.lastname}
@@ -288,23 +288,21 @@ export default class Settings extends Component {
                                     placeholderTextColor='#C0C0C0'>
 
                                 </TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
 
                                 <Text style={{
                                     width: '78%',
                                      marginTop: 10,
                                      fontFamily:'EurostileBold',
                                      color:'#C0C0C0'
-                                    
                                 }}>Phone No.</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
-                                    marginTop: 2,
-                                    
+                                    marginTop: 2,  
                                     padding: 5,
                                     color:'#C0C0C0'
                                 }}
@@ -313,11 +311,13 @@ export default class Settings extends Component {
                                     keyboardType='number-pad'
                                     returnKeyType='done'
                                     placeholder='Phone no.'
-                                    placeholderTextColor='#C0C0C0'></TextInput>
-                                <View style={{
+                                    placeholderTextColor='#C0C0C0'>
+                                    </TextInput>
+                                {/* <View style={{
                                     height: 1,
-                                    width: '80%', backgroundColor: '#C0C0C0'
-                                }}></View>
+                                    width: '80%', 
+                                    backgroundColor: '#C0C0C0'
+                                }}></View> */}
 
                             </View>
 
@@ -340,8 +340,6 @@ export default class Settings extends Component {
                                     fontFamily:'EurostileBold',
                                     color: 'black'
                                 }}>Submit</Text>
-
-
                             </TouchableOpacity>
 
                         </View>

@@ -37,7 +37,7 @@ import NotificationDetail from './Screen/NotificationDetail';
 import EditCarDetail from './Screen/EditCarDetail'
 import Payment from './Screen/Payment'
 import PurchaseDetail from './Screen/PurchaseDetail'
-import PastPurchaseDetail from './Screen/PastPurchaseDetail'
+import ForgetPassword from './Screen/ForgetPassword'
 import EditProfile from './Screen/EditProfile'
 
 
@@ -113,7 +113,7 @@ const Tabnavigation =createBottomTabNavigator({
   EditCarDetail:{screen :EditCarDetail},
   Payment:{screen :Payment},
   PurchaseDetail:{screen:PurchaseDetail},
-  PastPurchaseDetail:{screen:PastPurchaseDetail},
+  ForgetPassword:{screen:ForgetPassword},
   EditProfile:{screen:EditProfile}
     
   },

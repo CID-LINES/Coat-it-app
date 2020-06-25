@@ -192,10 +192,10 @@ export default class ChangePassword extends Component {
                                         secureTextEntry={true}
                                         placeholderTextColor='#C0C0C0'></TextInput>
                                         </View>
-                                    <View style={{
+                                    {/* <View style={{
                                         height: 1, width: '80%',
                                         backgroundColor: '#C0C0C0'
-                                    }}></View>
+                                    }}></View> */}
 
                                     <Text style={{
                                         width: '75%',
@@ -232,10 +232,10 @@ export default class ChangePassword extends Component {
                                         placeholderTextColor='#C0C0C0'></TextInput>
                                         </View>
 
-                                    <View style={{
+                                    {/* <View style={{
                                         height: 1, width: '80%',
                                         backgroundColor: '#C0C0C0'
-                                    }}></View>
+                                    }}></View> */}
 
                                 </View>
 

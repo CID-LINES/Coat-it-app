@@ -334,14 +334,13 @@ export default class CarDetail extends Component {
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
                                     placeholder='Name'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
-                                   
                                     marginTop: 20,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold'
@@ -359,11 +358,11 @@ export default class CarDetail extends Component {
                                     placeholder='Model Name'>
 
                                 </TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35, 
                                    
@@ -382,11 +381,11 @@ export default class CarDetail extends Component {
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
                                     placeholder='Vehicle No.'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 20,
@@ -440,11 +439,11 @@ export default class CarDetail extends Component {
                                     value={this.state.yearofmanufacture}
                                     onChangeText={(value) => this.setState({ yearofmanufacture: value })}
                                     placeholder='Manufacture year'></TextInput> */}
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
 
                             </View>
                             <TouchableOpacity style={{

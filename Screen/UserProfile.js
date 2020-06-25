@@ -116,9 +116,10 @@ export default class UserProfile extends Component {
 
                         }}
                             onPress={() => {
-                                this.props.navigation.navigate('EditProfile', {
-                                    data: this.state.data
+                                this.props.navigation.navigate('Settings', {
+                                        
                                 })
+                               
                             }}>
                             <Image style={{
                                 height: 20,
@@ -127,7 +128,6 @@ export default class UserProfile extends Component {
                             }}
                                 resizeMode='contain'
                                 source={require('../assets/edit-detail.png')}></Image>
-
                         </TouchableOpacity>
                     </View>
                     <ScrollView style={{ flex: 1 }}>
@@ -160,22 +160,46 @@ export default class UserProfile extends Component {
                                                 { uri: this.state.data.avatar }
                                             }></ImageLoad>
                                     </TouchableOpacity>
+                                   
                                 </View>
+                                <TouchableOpacity style={{
+                                    height: 40,
+                                    width:40,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    //position: 'absolute',
+                                   marginLeft:Dimensions.get('window').fontScale*125,
+                                   marginTop:Dimensions.get('window').fontScale*-50,
+                                    alignSelf:'center',
+                                }}
+                                onPress={() => {
+                                    this.props.navigation.navigate('EditProfile', {
+                                        data: this.state.data
+                                    })
+                                }}>
+                                   
+                                    <Image style={{
+                                        height: 35,
+                                        width: 35,
+                                        marginLeft: 10,
+                                        tintColor: APP_YELLOW
+                                    }}
+                                        source={require('../assets/service-icon.png')}>
+                                        </Image>
+                                </TouchableOpacity>
                             </View>
                             <View style={{
                                 width: "90%",
                                 justifyContent: 'center',
                                 alignSelf: 'center',
-                                marginTop: 10,
-                            
+                                 marginTop: 10,
                                  alignItems:'center',
-                            
                                 borderRadius: 10,
 
                             }}>
                                 <View style={{
                                     alignItems: 'flex-start',
-                                    marginLeft: 40
+                                    marginLeft: Dimensions.get('window').fontScale*40
                                 }}>
                                     <View style={{
                                         flexDirection: 'row',
@@ -184,11 +208,11 @@ export default class UserProfile extends Component {
                                         //width:'60%',
 
                                     }}>
-                                        <Image style={{
+                                        {/* <Image style={{
                                             height: 30,
                                             width: 30, tintColor: APP_YELLOW
                                         }}
-                                            source={require('../assets/id.png')}></Image>
+                                            source={require('../assets/id.png')}></Image> */}
                                         <View style={{
                                             alignItems: 'flex-start',
                                             marginLeft: 10,
@@ -218,11 +242,11 @@ export default class UserProfile extends Component {
                                         // width:'60%',
                                         // justifyContent:'space-between'
                                     }}>
-                                        <Image style={{
+                                        {/* <Image style={{
                                             height: 25,
                                             width: 25, tintColor: APP_YELLOW
                                         }}
-                                            source={require('../assets/user.png')}></Image>
+                                            source={require('../assets/user.png')}></Image> */}
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
@@ -243,12 +267,12 @@ export default class UserProfile extends Component {
                                         marginTop: 10,
                                         // width:'80%',justifyContent:'space-between'
                                     }}>
-                                        <Image style={{
+                                        {/* <Image style={{
                                             height: 25,
                                             tintColor: APP_YELLOW,
                                             width: 25
                                         }}
-                                            source={require('../assets/email.png')}></Image>
+                                            source={require('../assets/email.png')}></Image> */}
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
@@ -271,14 +295,13 @@ export default class UserProfile extends Component {
                                         marginBottom: 10,
                                         // width:'60%',justifyContent:'space-between'
                                     }}>
-                                        <Image style={{
+                                        {/* <Image style={{
                                             height: 25,
                                             width: 25, tintColor: APP_YELLOW
                                         }}
-                                            source={require('../assets/phone.png')}></Image>
+                                            source={require('../assets/phone.png')}></Image> */}
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={{
-
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17, color: APP_YELLOW
                                             }}>Phone no </Text>
@@ -335,9 +358,7 @@ export default class UserProfile extends Component {
                                         color: 'black'
                                     }}>My Cars</Text>
                                 </TouchableOpacity>
-
-
-                                <TouchableOpacity style={{
+                                {/* <TouchableOpacity style={{
                                     height: 40, width: '60%',
                                     marginTop: 10,
                                     alignItems: "center",
@@ -347,19 +368,12 @@ export default class UserProfile extends Component {
                                     backgroundColor: APP_YELLOW, marginBottom: 10
 
                                 }}
-                                    onPress={() => {
-                                        this.props.navigation.navigate('Settings', {
-                                            data: this.state.data
-                                        })
-                                    }}>
+                                   >
                                     <Text style={{
                                         fontSize: 18,
                                         color: 'black', fontFamily: 'EurostileBold',
                                     }}>Settings</Text>
-                                </TouchableOpacity>
-
-
-
+                                </TouchableOpacity> */}
                             </View>
 
 

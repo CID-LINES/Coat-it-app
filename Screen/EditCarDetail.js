@@ -273,11 +273,10 @@ export default class EditCarDetail extends Component {
                                         height: 30, width: 30,
                                         tintColor: 'black'
                                     }}
-
                                         source={require('../assets/camera.png')}></Image>
                                 </View>
                             </View>
-                            <View style={{ width: '100%', marginTop: 10 }}>
+                            <View style={{ width: '100%', marginTop: 20 }}>
                                 <Text style={{
                                     marginLeft: 35,
                                     fontFamily:'EurostileBold', 
@@ -294,15 +293,15 @@ export default class EditCarDetail extends Component {
                                     onChangeText={(value) => this.setState({ brand_name: value })}
                                     keyboardType='ascii-capable'
                                     placeholder='Name'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
                                  
-                                    marginTop: 20,
+                                    marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Model Name</Text>
@@ -318,14 +317,14 @@ export default class EditCarDetail extends Component {
                                     onChangeText={(value) => this.setState({ model_name: value })}
                                     keyboardType='ascii-capable'
                                     placeholder='Model Name'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35, 
-                                    marginTop: 20, fontFamily:'EurostileBold',
+                                    marginTop: 10, fontFamily:'EurostileBold',
                                     color:'#C0C0C0'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -340,15 +339,15 @@ export default class EditCarDetail extends Component {
                                     onChangeText={(value) => this.setState({ vehicle_no: value })}
                                     keyboardType='ascii-capable'
                                     placeholder='Vehicle No.'></TextInput>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
                                  
-                                    marginTop: 20,
+                                    marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Year of Manufacture</Text>
@@ -365,13 +364,12 @@ export default class EditCarDetail extends Component {
                                     placeholder='Manufacture year'></TextInput> */}
 
                                 <View style={{
-                                    marginTop: 5,
                                     fontSize: 16,
                                     width: '80%',
                                     alignSelf: 'center',
                                     padding: 5,
                                     // paddingVertical: 12,
-                                    height: 40,
+                                    height: 30,
                                     justifyContent: 'center',
 
 
@@ -402,11 +400,11 @@ export default class EditCarDetail extends Component {
                                         value={this.state.manufacture_year}
                                     />
                                 </View>
-                                <View style={{
+                                {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
-                                }}></View>
+                                }}></View> */}
 
                             </View>
                             <TouchableOpacity style={{
@@ -479,14 +477,16 @@ const pickerSelectStyles = StyleSheet.create({
         // paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
-        fontSize: 16,
-        paddingHorizontal: 10,
-        paddingVertical: 8,
+        // fontSize: 16,
+        // paddingHorizontal: 10,
+        // paddingVertical: 8,
+        padding:2,
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
         color: '#C0C0C0',
-        paddingRight: 30, // to ensure the text is never behind the icon
+       // paddingRight: 30, 
+        // to ensure the text is never behind the icon
     },
 })
 
