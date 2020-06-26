@@ -88,7 +88,7 @@ export default class ChangePassword extends Component {
                                 fontSize: 20,
                                 color: APP_YELLOW,
                                 fontFamily: 'EurostileBold',
-                            }}>Kenotek Coat IT
+                            }}>Forget Password
                             </Text>
                         </View>
                     </View>

@@ -6,6 +6,7 @@ import { ApiCall, CallApi } from '../Component/ApiClient';
 
 import PushNotificationAndroid, { PushNotificationObject } from 'react-native-push-notification'
 import PushNotification from 'react-native-push-notification';
+import { NavigationActions } from 'react-navigation';
 // import { notifications } from "react-native-firebase-push-notifications"
 
 
@@ -77,8 +78,8 @@ export default class Login extends Component {
 
                         this.save('access_token', data.data.response.access_token)
                         this.save('user_id', data.data.response.id + '')
-                        this.props.navigation.push('Home')
-               
+                        // this.props.navigation.push('Home')
+                        this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
                     }
                     else {
                         alert(data.data.response.message)
@@ -139,15 +140,13 @@ export default class Login extends Component {
                                     }}
                                         resizeMode='contain'
                                         source={require('../assets/logo.png')}>
-
                                     </Image>
                                 </View>
-
                                 <View style={{
-                                    width: '100%', marginTop: 20,
+                                    width: '100%', 
+                                    marginTop: 20,
                                     alignItems: 'center'
                                 }}>
-
                                     <Text style={{
                                         width: '78%',
                                         marginTop: 10, 
@@ -165,9 +164,7 @@ export default class Login extends Component {
                                         width: 25
                                     }}
                                         source={require('../assets/email.png')}
-                                        resizeMode='cover'
-                                    >
-
+                                        resizeMode='cover'>
                                     </Image>
                                     <TextInput style={{
                                         height: 40, 
@@ -232,7 +229,6 @@ export default class Login extends Component {
                                         width: '80%', 
                                         backgroundColor: '#C0C0C0'
                                     }}>
-
                                     </View> */}
                                 </View>
                                 <TouchableOpacity style={{
@@ -255,10 +251,12 @@ export default class Login extends Component {
                                     flexDirection: 'row',
                                     justifyContent: 'space-between',
                                     marginBottom: 10,
-                                    width: '80%', alignSelf: 'center'
+                                    width: '80%', 
+                                    alignSelf: 'center'
                                 }}>
                                     <TouchableOpacity style={{
-                                        height: 50, width: '40%',
+                                        height: 50,
+                                        width: '40%',
                                         backgroundColor: APP_YELLOW,
                                         marginTop: 15, 
                                         alignSelf: 'center',
@@ -271,7 +269,6 @@ export default class Login extends Component {
                                         justifyContent: 'center'
                                     }}
                                         onPress={() => {
-
                                             this.Login()
                                         }}>
                                         <Text style={{
@@ -290,7 +287,8 @@ export default class Login extends Component {
                                         // shadowOpacity: 0.5,
                                         // shadowRadius: 1,
                                         // shadowOffset: { width: 2, height: 1 },
-                                        borderRadius: 10, alignItems: 'center',
+                                        borderRadius: 10,
+                                        alignItems: 'center',
                                         justifyContent: 'center'
                                     }}
                                         onPress={() => {

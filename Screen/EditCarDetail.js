@@ -105,9 +105,6 @@ export default class EditCarDetail extends Component {
                 this.setState({
                     filePath: source.uri,
                 });
-
-
-
             }
         });
     };
@@ -124,7 +121,6 @@ export default class EditCarDetail extends Component {
                 value: i+''
                 })
         }
-       
         this.setState({
             DATA:allyear
         })
@@ -265,7 +261,8 @@ export default class EditCarDetail extends Component {
                                     flexDirection:'row',
                                     alignItems: 'center', 
                                     justifyContent: 'center',
-                                    position: 'absolute', bottom: 5,
+                                    position: 'absolute', 
+                                    bottom: 5,
                                     right: 18
                                 }}>
                                     <Text style={{ fontFamily:'EurostileBold'}}>Upload car picture here</Text>
@@ -300,7 +297,6 @@ export default class EditCarDetail extends Component {
                                 }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
-                                 
                                     marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
@@ -324,7 +320,8 @@ export default class EditCarDetail extends Component {
                                 }}></View> */}
                                 <Text style={{
                                     marginLeft: 35, 
-                                    marginTop: 10, fontFamily:'EurostileBold',
+                                    marginTop: 10, 
+                                    fontFamily:'EurostileBold',
                                     color:'#C0C0C0'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
@@ -345,8 +342,7 @@ export default class EditCarDetail extends Component {
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
                                 <Text style={{
-                                    marginLeft: 35,
-                                 
+                                    marginLeft: 35,                       
                                     marginTop: 10,
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
@@ -377,8 +373,7 @@ export default class EditCarDetail extends Component {
                                     // paddingRight: 30, // to ensure the text is never behind the icon
                                 }}>
                                     <RNPickerSelect
-                                        style={{
-                                            
+                                        style={{                                            
                                             ...pickerSelectStyles,
                                             iconContainer: {
                                                 top: 10,
@@ -390,7 +385,6 @@ export default class EditCarDetail extends Component {
                                            color:'gray',
                                           
                                         }}
-
                                         items={this.state.DATA}
                                         onValueChange={(value) => {
                                             this.setState({
@@ -408,10 +402,15 @@ export default class EditCarDetail extends Component {
 
                             </View>
                             <TouchableOpacity style={{
-                                height: 50, width: '60%',
-                                marginTop: 20, alignSelf: 'center', alignItems: 'center',
-                                justifyContent: 'center', marginBottom: 10,
-                                backgroundColor: APP_YELLOW, borderRadius: 10
+                                height: 50,
+                                 width: '60%',
+                                marginTop: 20, 
+                                alignSelf: 'center', 
+                                alignItems: 'center',
+                                justifyContent: 'center', 
+                                marginBottom: 10,
+                                backgroundColor: APP_YELLOW, 
+                                borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.EditCarDetail()
@@ -438,7 +437,6 @@ export default class EditCarDetail extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 

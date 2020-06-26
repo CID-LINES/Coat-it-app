@@ -99,7 +99,6 @@ export default class UserProfile extends Component {
                             alignItems: 'center'
                         }}>
                             <Text style={{
-
                                 fontSize: 18,
                                 color: APP_YELLOW,
                                 fontFamily: 'EurostileBold',
@@ -112,22 +111,21 @@ export default class UserProfile extends Component {
                             alignItems: 'center',
                             justifyContent: 'center',
                             position: 'absolute',
-                            right: 13
+                            right: 13,
+                            top:3
 
                         }}
                             onPress={() => {
-                                this.props.navigation.navigate('Settings', {
-                                        
-                                })
-                               
+                                this.props.navigation.navigate('Settings')
                             }}>
                             <Image style={{
-                                height: 20,
-                                width: 20,
+                                height: 22,
+                                width: 22,
                                 tintColor: APP_YELLOW
                             }}
                                 resizeMode='contain'
-                                source={require('../assets/edit-detail.png')}></Image>
+                                source={require('../assets/settings.png')}>
+                                </Image>
                         </TouchableOpacity>
                     </View>
                     <ScrollView style={{ flex: 1 }}>
@@ -317,6 +315,7 @@ export default class UserProfile extends Component {
                                         </View>
                                     </View>
                                 </View>
+                                
 
                             </View>
 
@@ -365,13 +364,15 @@ export default class UserProfile extends Component {
                                     justifyContent: 'center',
                                     borderRadius: 10,
                                     alignSelf: 'center',
-                                    backgroundColor: APP_YELLOW, marginBottom: 10
+                                    backgroundColor: APP_YELLOW, 
+                                    marginBottom: 10
 
                                 }}
                                    >
                                     <Text style={{
                                         fontSize: 18,
-                                        color: 'black', fontFamily: 'EurostileBold',
+                                        color: 'black', 
+                                        fontFamily: 'EurostileBold',
                                     }}>Settings</Text>
                                 </TouchableOpacity> */}
                             </View>
@@ -388,7 +389,9 @@ export default class UserProfile extends Component {
                         backgroundColor: '#000000aa',
                         //backgroundColor:'black',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }} onPress={() => {
@@ -399,19 +402,17 @@ export default class UserProfile extends Component {
                         <View style={{
                             height:Dimensions.get('window').height/2,
                             width: '100%'
-                        }}
-                        >
+                        }}>
                             <ImageLoad style={{
                                 flex: 1,
                                 width: '100%'
                             }}
                                 resizeMode='stretch'
-
                                 source={this.state.data.avatar == null ?
                                     require('../assets/placeholder.jpg')
-                                    : { uri: this.state.data.avatar }}></ImageLoad>
+                                    : { uri: this.state.data.avatar }}>
+                                    </ImageLoad>
                         </View>
-
                     </TouchableOpacity>
                 }
                 {

@@ -13,6 +13,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImagePicker from 'react-native-image-picker';
 import { CallApi } from '../Component/ApiClient';
 import RNPickerSelect from 'react-native-picker-select';
+import { NavigationActions } from 'react-navigation';
 var year = new Date().getFullYear();
 
 
@@ -194,7 +195,7 @@ export default class CarDetail extends Component {
             .then((responseJson) => {
                 console.log(responseJson.response)
                 if (responseJson.response.status == true) {
-                    this.props.navigation.replace('Home')
+                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
                     // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert('The details of the car has been saved')
                 }
@@ -402,9 +403,6 @@ export default class CarDetail extends Component {
                                     // paddingVertical: 12,
                                     height: 40,
                                     justifyContent: 'center',
-
-
-
                                     // paddingRight: 30, // to ensure the text is never behind the icon
                                 }}>
                                     <RNPickerSelect

@@ -106,22 +106,26 @@ export default class ChangePassword extends Component {
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
+                            <Image style={{ height: 20, 
+                            width: 20, 
+                            tintColor: APP_YELLOW }}
                                 resizeMode='contain'
-                                source={require('../assets/back.png')}></Image>
+                                source={require('../assets/back.png')}>
+                                </Image>
 
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
-                            alignItems: 'center', justifyContent: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
 
                         }}>
-                            {/* <Text style={{
+                            <Text style={{
                                 fontSize: 20,
                                 color: APP_YELLOW,
                                 fontFamily: 'EurostileBold',
-                            }}>Kenotek Coat IT
-                            </Text> */}
+                            }}>Change Password
+                            </Text>
                         </View>
                     </View>
                     <KeyboardAvoidingView style={{ flex: 1 }}
@@ -146,7 +150,6 @@ export default class ChangePassword extends Component {
                                     }}
                                         resizeMode='contain'
                                         source={require('../assets/logo.png')}>
-
                                     </Image>
                                 </View>
 
@@ -159,8 +162,9 @@ export default class ChangePassword extends Component {
 
                                     <Text style={{
                                         width: '75%',
-                                        marginTop: 10, color: '#C0C0C0'
-                                        , fontFamily: 'EurostileBold',
+                                        marginTop: 10, 
+                                        color: '#C0C0C0',
+                                        fontFamily: 'EurostileBold',
                                     }}>Old Password</Text>
                                       <View style={{
                                     flexDirection: 'row',

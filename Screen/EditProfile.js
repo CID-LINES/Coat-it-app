@@ -59,7 +59,6 @@ export default class Settings extends Component {
 
         try {
             await AsyncStorage.setItem(key, value);
-
             //alert(JSON.stringify(value))
         } catch (error) {
             //   console.log("Error saving data" + error);
@@ -182,7 +181,7 @@ export default class Settings extends Component {
                             fontSize: 18, 
                             fontFamily:'EurostileBold',
                             color: APP_YELLOW
-                        }}>Kenotek Coat IT
+                        }}>Edit Profile
                         </Text>
                     </View>
 
@@ -249,9 +248,22 @@ export default class Settings extends Component {
                                 <Text style={{ width: '78%',
                                 color:'#C0C0C0',
                                  fontFamily:'EurostileBold' }}>First name</Text>
+                                   <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/user.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,    
                                     padding: 5,
                                     color:'#C0C0C0'
@@ -261,6 +273,7 @@ export default class Settings extends Component {
                                     keyboardType='ascii-capable'
                                     placeholder='First Name'
                                     placeholderTextColor='#C0C0C0'></TextInput>
+                                    </View>
                                 {/* <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: '#C0C0C0'
@@ -271,9 +284,22 @@ export default class Settings extends Component {
                                     color:'#C0C0C0',
                                     fontFamily:'EurostileBold',
                                 }}>Last name</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/user.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                     width: '80%',
+                                     width: '75%',
                                     marginTop: 2,
                                     // borderColor: 'gray',
                                     // borderWidth: 1,
@@ -288,6 +314,7 @@ export default class Settings extends Component {
                                     placeholderTextColor='#C0C0C0'>
 
                                 </TextInput>
+                                </View>
                                 {/* <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: '#C0C0C0'
@@ -299,9 +326,22 @@ export default class Settings extends Component {
                                      fontFamily:'EurostileBold',
                                      color:'#C0C0C0'
                                 }}>Phone No.</Text>
+                                  <View style={{
+                                    flexDirection: 'row',
+                                    width: '80%',
+                                    alignItems: "center"
+                                }}>
+                                    <Image style={{
+                                        height: 25,
+                                        tintColor: APP_YELLOW,
+                                        width: 25
+                                    }}
+                                        source={require('../assets/phone.png')}
+                                        resizeMode='cover'
+                                    ></Image>
                                 <TextInput style={{
                                     height: 40,
-                                    width: '80%',
+                                    width: '75%',
                                     marginTop: 2,  
                                     padding: 5,
                                     color:'#C0C0C0'
@@ -313,6 +353,7 @@ export default class Settings extends Component {
                                     placeholder='Phone no.'
                                     placeholderTextColor='#C0C0C0'>
                                     </TextInput>
+                                    </View>
                                 {/* <View style={{
                                     height: 1,
                                     width: '80%', 

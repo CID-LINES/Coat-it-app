@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
+import { NavigationActions } from 'react-navigation';
 
 export default class SignUp extends Component {
     constructor() {
@@ -62,7 +63,6 @@ export default class SignUp extends Component {
     }
 
     async save(key, value) {
-
         try {
             await AsyncStorage.setItem(key, value);
 
@@ -92,7 +92,7 @@ export default class SignUp extends Component {
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
         body.append('device_token', fcmToken + ''),
-            body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
+        body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
             {
@@ -109,11 +109,11 @@ export default class SignUp extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
-                    this.props.navigation.replace('CarDetail')
+                    //this.props.navigation.replace('CarDetail')
+                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
 
                 }
                 alert(responseJson.response.message)
-
                 this.setState({
                     isLoading: false
 
@@ -126,9 +126,6 @@ export default class SignUp extends Component {
                 //callback({error: true, data: error});
             });
     }
-
-
-
 
     render() {
         return (
@@ -371,7 +368,8 @@ export default class SignUp extends Component {
                                         marginTop: 2,
                                         // borderColor: 'gray',
                                         // borderWidth: 1,
-                                        borderRadius: 10, padding: 5,
+                                        borderRadius: 10,
+                                         padding: 5,
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.phone}
