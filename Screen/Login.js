@@ -2,15 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions, DeviceEventEmitter, PushNotificationIOS, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall, CallApi } from '../Component/ApiClient';
-
-
-import PushNotificationAndroid, { PushNotificationObject } from 'react-native-push-notification'
-import PushNotification from 'react-native-push-notification';
 import { NavigationActions } from 'react-navigation';
 // import { notifications } from "react-native-firebase-push-notifications"
-
-
-
 
 export default class Login extends Component {
     constructor(props) {
@@ -26,8 +19,6 @@ export default class Login extends Component {
             device_token: ''
         }
     }
-
-
     componentDidMount() {        
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
@@ -49,8 +40,6 @@ export default class Login extends Component {
 
         }
     }
-
-
     async save(key, value) {
 
         try {

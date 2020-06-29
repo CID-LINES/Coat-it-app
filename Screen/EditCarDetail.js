@@ -155,7 +155,6 @@ export default class EditCarDetail extends Component {
                 },
                 body: body
             })
-
             .then((response) => response.json())
             .then((responseJson) => {
 
@@ -190,16 +189,18 @@ export default class EditCarDetail extends Component {
                 <View style={{
                     height: 45, width: '95%',
                     justifyContent: 'center',
-                    flexDirection: 'row',alignItems:'center',
+                    flexDirection: 'row',
+                    alignItems:'center',
                     alignSelf: 'center',
                     marginTop:Platform.OS==='ios'?25:7
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, width: 35,
-                        alignItems: 'center', justifyContent: 'center',
-                        position: 'absolute', left: 5
-
-
+                        height: 35,
+                        width: 35,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute',
+                        left: 5
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
@@ -207,18 +208,14 @@ export default class EditCarDetail extends Component {
                         <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
-
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
                         alignItems: 'center', 
-                        justifyContent: 'center',
-
-                    }}>
+                        justifyContent: 'center'}}>
                         <Text style={{
                             fontSize: 18,
                             color: APP_YELLOW, 
-
                             fontFamily:'EurostileBold'
                         }}>Car Detail</Text>
                     </View>
@@ -249,7 +246,8 @@ export default class EditCarDetail extends Component {
                                         this.chooseFile()
                                     }}>
                                     <ImageLoad style={{
-                                        flex: 1, width: '100%',
+                                        flex: 1, 
+                                        width: '100%',
                                         borderRadius: 10
                                     }}
                                         resizeMode='stretch'
@@ -280,8 +278,10 @@ export default class EditCarDetail extends Component {
                                    color:'#C0C0C0'
                                 }}>Brand/Company Name</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
-                                    padding: 5,color:'#C0C0C0',
+                                    height: 40,
+                                    width: '80%',
+                                    padding: 5,
+                                    color:'#C0C0C0',
                                     alignSelf: 'center'
                                 }}
                                     placeholderTextColor='#C0C0C0'
@@ -302,7 +302,8 @@ export default class EditCarDetail extends Component {
                                     fontFamily:'EurostileBold',
                                 }}>Model Name</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
+                                    height: 40,
+                                    width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
                                     color:'#C0C0C0'
@@ -325,7 +326,8 @@ export default class EditCarDetail extends Component {
                                     color:'#C0C0C0'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
+                                    height: 40,
+                                    width: '80%',
                                     padding: 5,
                                     alignSelf: 'center'
                                     ,color:'#C0C0C0'
@@ -367,9 +369,6 @@ export default class EditCarDetail extends Component {
                                     // paddingVertical: 12,
                                     height: 30,
                                     justifyContent: 'center',
-
-
-
                                     // paddingRight: 30, // to ensure the text is never behind the icon
                                 }}>
                                     <RNPickerSelect

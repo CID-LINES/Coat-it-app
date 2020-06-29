@@ -134,7 +134,6 @@ export default class SignUp extends Component {
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
                 <StatusBar barStyle="light-content" />
-
                 <View style={{ flex: 1, }}>
                     <View style={{
                         alignSelf: 'center',
@@ -232,8 +231,7 @@ export default class SignUp extends Component {
                                         width: 25
                                     }}
                                         source={require('../assets/user.png')}
-                                        resizeMode='cover'
-                                    >
+                                        resizeMode='cover'>
                                     </Image>
                                     <TextInput style={{
                                         height: 40,
@@ -246,7 +244,7 @@ export default class SignUp extends Component {
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.firstname}
-                                        onChangeText={(value) => { this.setState({ firstname: value }) }}
+                                        onChangeText={(value) => {this.setState({ firstname: value }) }}
                                         keyboardType='ascii-capable'
                                         placeholder='Enter your first name'
                                         placeholderTextColor='#C0C0C0'>
@@ -257,7 +255,6 @@ export default class SignUp extends Component {
                                     width: '80%',
                                     backgroundColor: '#C0C0C0'
                                 }}>
-
                                 </View> */}
                                 <Text style={{
                                     width: '80%',

@@ -13,7 +13,6 @@ export default class ChangePassword extends Component {
             email: '',
             Oldpassword: '',
             NewPassword: '',
-
             shift: false,
             user_id: ''
         }
@@ -78,7 +77,6 @@ export default class ChangePassword extends Component {
                 //nsole.log(data)
             })
     }
-
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -130,11 +128,9 @@ export default class ChangePassword extends Component {
                     </View>
                     <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
-                    >
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}>
                         <ScrollView style={{ flex: 1 }}>
                             <View style={{ flex: 1 }}>
-
                                 <View style={{
                                     height: Dimensions.get('window').height /3.8,
                                     width: 250,
@@ -158,8 +154,6 @@ export default class ChangePassword extends Component {
                                     marginTop: 30,
                                     alignItems: 'center'
                                 }}>
-
-
                                     <Text style={{
                                         width: '75%',
                                         marginTop: 10, 
@@ -181,7 +175,7 @@ export default class ChangePassword extends Component {
                                     ></Image>
                                     <TextInput style={{
                                         height: 40,
-                                         width: '75%',
+                                        width: '75%',
                                         marginTop: 2,
                                         // borderColor: 'gray',
                                         // borderWidth: 1,
@@ -225,7 +219,8 @@ export default class ChangePassword extends Component {
                                         width: '75%',
                                         marginTop: 2,
                                         // borderColor: 'gray', borderWidth: 1,
-                                        borderRadius: 10, padding: 5,
+                                        borderRadius: 10,
+                                         padding: 5,
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.NewPassword}
@@ -240,11 +235,10 @@ export default class ChangePassword extends Component {
                                         height: 1, width: '80%',
                                         backgroundColor: '#C0C0C0'
                                     }}></View> */}
-
                                 </View>
-
                                 <TouchableOpacity style={{
-                                    height: 50, width: '60%',
+                                    height: 50,
+                                    width: '60%',
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 20,
                                     alignSelf: 'center',
@@ -252,7 +246,8 @@ export default class ChangePassword extends Component {
                                     // shadowOpacity: 0.5,
                                     // shadowRadius: 1,
                                     // shadowOffset: { width: 2, height: 1 },
-                                    borderRadius: 10, alignItems: 'center',
+                                    borderRadius: 10, 
+                                    alignItems: 'center',
                                     justifyContent: 'center'
                                 }}
                                     onPress={() => {
@@ -260,15 +255,11 @@ export default class ChangePassword extends Component {
                                     }}>
                                     <Text style={{
                                         fontSize: 20,
-
                                         fontFamily: 'EurostileBold',
                                         color: 'black'
                                     }}>Submit</Text>
-
                                 </TouchableOpacity>
-
                             </View>
-
                         </ScrollView>
                     </KeyboardAvoidingView>
                     {this.state.isLoading &&
@@ -276,14 +267,15 @@ export default class ChangePassword extends Component {
                             position: 'absolute',
                             backgroundColor: '#000000aa',
                             top: 0,
-                            bottom: 0, left: 0, right: 0,
+                            bottom: 0,
+                            left: 0, 
+                            right: 0,
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}>
                             <ActivityIndicator
                                 animating={this.state.isLoading}
                                 size='large'
-
                                 color={APP_YELLOW}
                             ></ActivityIndicator>
 

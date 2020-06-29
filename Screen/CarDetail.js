@@ -417,7 +417,6 @@ export default class CarDetail extends Component {
                                             label: 'Manufacture Year',
                                             color: 'gray'
                                         }}
-
                                         items={this.state.DATA}
                                         onValueChange={(value) => {
                                             this.setState({
@@ -468,7 +467,6 @@ export default class CarDetail extends Component {
                             <TouchableOpacity style={{
                                 height: 50,
                                 width: '60%',
-
                                 alignSelf: 'center',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -481,7 +479,6 @@ export default class CarDetail extends Component {
                                     this.props.navigation.navigate('Home')
                                 }}>
                                 <Text style={{
-                                   
                                     color: APP_YELLOW,
                                     fontFamily:'EurostileBold',
                                     fontSize: 18

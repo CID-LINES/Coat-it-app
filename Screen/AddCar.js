@@ -75,8 +75,6 @@ export default class AddCar extends Component {
         }
     }
 
-              
-
     chooseFile = () => {
         var options = {
 
@@ -108,8 +106,6 @@ export default class AddCar extends Component {
                 this.setState({
                     filePath: source,
                 });
-
-
                 // You can also display the image using data:
                 // let source = { uri: 'data:image/jpeg;base64,' + response.data };
             }
@@ -216,7 +212,6 @@ export default class AddCar extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
     render() {
         return (
@@ -235,14 +230,15 @@ export default class AddCar extends Component {
                         flexDirection: 'row',
                         alignSelf: 'center',
                         alignItems:'center',
-                        marginTop:Platform.OS==='ios'?25:7
+                        marginTop: Platform.OS==='ios'?25:7
                     }}>
                         <TouchableOpacity style={{
                             height: 35,
                             width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            position: 'absolute', left: 5
+                            position: 'absolute', 
+                            left: 5
 
                         }}
                             onPress={() => {
@@ -251,18 +247,14 @@ export default class AddCar extends Component {
                             <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}></Image>
-
                         </TouchableOpacity>
-
                         <View style={{
                             height: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
-
                         }}>
                             <Text style={{
                                 fontSize: 18, 
-                               
                                 fontFamily:'EurostileBold',
                                 color: APP_YELLOW
                             }}>Add Car</Text>
@@ -291,7 +283,6 @@ export default class AddCar extends Component {
                                       flex:1, 
                                     width: '100%',
                                      borderRadius: 10 }}
-                                    
                                         resizeMode='cover'
                                         source={this.state.filePath == '' ?
                                             require('../assets/placeholder.jpg') : this.state.filePath}>
@@ -312,7 +303,6 @@ export default class AddCar extends Component {
                                   marginLeft:10,
                                   width:30,
                                   tintColor:'black'}}
-                                  
                                   source={require('../assets/camera.png')}></Image>
                               </View>
                             </View>
@@ -350,7 +340,7 @@ export default class AddCar extends Component {
                                     padding: 5,
                                     color:'#C0C0C0',
                                     alignSelf: 'center'
-                                }}
+                                }}aq            
                                 placeholderTextColor='#C0C0C0'
                                     value={this.state.model_name}
                                     keyboardType='ascii-capable'
@@ -412,13 +402,10 @@ export default class AddCar extends Component {
                                 fontSize: 16,
                                 width:'80%',
                                 alignSelf:'center',
-                         padding:5,
+                                padding:5,
                                 // paddingVertical: 12,
                                 height: 40,
                                 justifyContent: 'center',
-                             
-                                
-                              
                                 // paddingRight: 30, // to ensure the text is never behind the icon
                             }}>
                                 <RNPickerSelect
@@ -450,7 +437,6 @@ export default class AddCar extends Component {
                                 }}></View> */}
 
                             </View>
-
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 marginTop: 20, alignSelf: 'center', 

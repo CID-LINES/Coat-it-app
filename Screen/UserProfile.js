@@ -107,7 +107,8 @@ export default class UserProfile extends Component {
                             </Text>
                         </View>
                         <TouchableOpacity style={{
-                            height: 35, width: 35,
+                            height: 35, 
+                            width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
                             position: 'absolute',
@@ -315,11 +316,7 @@ export default class UserProfile extends Component {
                                         </View>
                                     </View>
                                 </View>
-                                
-
                             </View>
-
-
                             <View style={{ marginTop: 10 }}>
                                 <TouchableOpacity style={{
                                     height: 40,
