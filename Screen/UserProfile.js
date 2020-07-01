@@ -48,7 +48,6 @@ export default class UserProfile extends Component {
             isLoading: true
         })
 
-
         fetch('http://3.137.41.50/coatit/public/api/userProfile/' + this.state.user_id,
             {
                 method: 'GET',
@@ -114,7 +113,6 @@ export default class UserProfile extends Component {
                             position: 'absolute',
                             right: 13,
                             top:3
-
                         }}
                             onPress={() => {
                                 this.props.navigation.navigate('Settings')
@@ -131,7 +129,6 @@ export default class UserProfile extends Component {
                     </View>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
-
                             <View style={{
                                 height: Dimensions.get('window').height / 4,
                                 marginTop: 5,

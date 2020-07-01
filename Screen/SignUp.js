@@ -53,7 +53,6 @@ export default class SignUp extends Component {
         });
     };
 
-
     componentDidMount() {
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
@@ -110,8 +109,7 @@ export default class SignUp extends Component {
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
                     //this.props.navigation.replace('CarDetail')
-                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
-
+                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })],0)
                 }
                 alert(responseJson.response.message)
                 this.setState({
@@ -151,8 +149,7 @@ export default class SignUp extends Component {
                     </View>
                     <KeyboardAvoidingView style={{flex: 1}}
                         behavior="padding" enabled={Platform.OS === 'ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}
-                    >
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                         <ScrollView style={{flex: 1}}>
                             <View style={{
                                 height: Dimensions.get('window').height / 3.5,

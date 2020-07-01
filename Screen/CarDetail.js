@@ -70,7 +70,7 @@ export default class CarDetail extends Component {
             Vehicleno: '',
             manufacture_year: '',
             user_id: '',
-            DATA:[]
+            DATA: []
         }
     }
 
@@ -120,18 +120,18 @@ export default class CarDetail extends Component {
         this.get('user_id')
         this.manufactureyear()
     }
-    manufactureyear=()=>{
-        var allyear=[]
+    manufactureyear = () => {
+        var allyear = []
         //alert(JSON.stringify(year))
-        for(var i=year;i>=1945;i--){
+        for (var i = year; i >= 1945; i--) {
             allyear.push({
-                label: i+'',
-                value: i+''
-                })
+                label: i + '',
+                value: i + ''
+            })
         }
-       
+
         this.setState({
-            DATA:allyear
+            DATA: allyear
         })
     }
 
@@ -165,13 +165,13 @@ export default class CarDetail extends Component {
             isLoading: true
         })
         let body = new FormData();
-        if(this.state.filePath.uri){
-        var photo = {
-            uri: this.state.filePath.uri,
-            type: 'image/jpeg',
-            name: 'photo.jpg',
-        };
-    }
+        if (this.state.filePath.uri) {
+            var photo = {
+                uri: this.state.filePath.uri,
+                type: 'image/jpeg',
+                name: 'photo.jpg',
+            };
+        }
         // alert(this.state.brewery_id)
         body.append('image', photo);
         body.append('brand_name', this.state.Companyname)
@@ -199,8 +199,8 @@ export default class CarDetail extends Component {
                     // this.save('car_id',responseJson.response.carDetails.id +'')
                     alert('The details of the car has been saved')
                 }
-              
-                else{
+
+                else {
                     alert(responseJson.response.message)
                 }
                 this.setState({
@@ -222,17 +222,17 @@ export default class CarDetail extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-                 <ImageBackground style={{ flex: 1 ,}}
-                 resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
                 <View style={{
                     height: 40, width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignItems:'center',
+                    alignItems: 'center',
                     alignSelf: 'center',
-                    marginTop:Platform.OS==='ios'?25:7
-                  
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
+
                 }}>
                     {/* <TouchableOpacity style={{
                         height: 35,
@@ -249,7 +249,6 @@ export default class CarDetail extends Component {
                         <Image style={{ height: 25, width: 25, tintColor: APP_YELLOW }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
-
                     </TouchableOpacity> */}
                     <View style={{
                         height: 35,
@@ -258,29 +257,28 @@ export default class CarDetail extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, 
+                            fontSize: 18,
                             color: APP_YELLOW,
-                            fontFamily:'EurostileBold'
+                            fontFamily: 'EurostileBold'
                         }}>Car Detail</Text>
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
-                    >
+                    behavior="padding" enabled={Platform.OS === 'ios'}
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}
+                >
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: Dimensions.get('window').height/3.5,
+                                height: Dimensions.get('window').height / 3.5,
                                 width: '100%',
                                 justifyContent: 'center',
                                 alignItems: 'center'
                                 // backgroundColor:'pink'
                             }}>
                                 <TouchableOpacity style={{
-                                  flex:1,
+                                    flex: 1,
                                     width: '95%',
-
                                     borderRadius: 10,
                                     alignSelf: 'center',
                                     justifyContent: 'center',
@@ -289,52 +287,59 @@ export default class CarDetail extends Component {
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
-                                    <Image style={{ 
-                                         flex:1, 
-                                    width: '100%' }}
+                                    <Image style={{
+                                        flex: 1,
+                                        width: '100%'
+                                    }}
                                         resizeMode='cover'
                                         source={cache = "force-cache",
                                             this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}>
-
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{
-                                    height: 40, 
+                                    height: 40,
                                     //width: 40,
-                                    alignItems: 'center', 
+                                    alignItems: 'center',
                                     justifyContent: 'center',
-                                    position: 'absolute', 
-                                    flexDirection:'row',
+                                    position: 'absolute',
+                                    flexDirection: 'row',
                                     bottom: 5,
                                     right: 18
                                 }}>
                                     <Text style={{
-                                       fontFamily:'EurostileBold'
+                                        fontFamily: 'EurostileBold'
                                     }}>Upload car picture here</Text>
                                     <Image style={{
-                                        height: 30, width: 30,
+                                        height: 30,
+                                        width: 30,
                                         tintColor: 'black',
-                                        marginLeft:10
+                                        marginLeft: 10
                                     }}
-
                                         source={require('../assets/camera.png')}></Image>
                                 </View>
                             </View>
-                            <View style={{ width: '100%', marginTop: 10 }}>
-                                <Text style={{ marginLeft: 35, 
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold' }}>Brand/Company Name</Text>
+                            <View style={{
+                                width: '100%',
+                                marginTop: 10
+                            }}>
+                                <Text style={{
+                                    marginLeft: 35,
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold'
+                                }}>
+                                    Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40, width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'#C0C0C0'
+                                    color: '#C0C0C0'
                                 }}
                                     placeholderTextColor='#C0C0C0'
                                     value={this.state.Companyname}
                                     keyboardType='ascii-capable'
                                     onChangeText={(value) => this.setState({ Companyname: value })}
-                                    placeholder='Name'></TextInput>
+                                    placeholder='Name'>
+                                </TextInput>
                                 {/* <View style={{
                                     height: 1, width: '80%',
                                     alignSelf: 'center',
@@ -343,16 +348,17 @@ export default class CarDetail extends Component {
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 20,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold'
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold'
                                 }}>Model Name</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
+                                    height: 40,
+                                    width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'#C0C0C0'
+                                    color: '#C0C0C0'
                                 }}
-                                placeholderTextColor='#C0C0C0'
+                                    placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
                                     value={this.state.Modelname}
                                     onChangeText={(value) => this.setState({ Modelname: value })}
@@ -365,35 +371,36 @@ export default class CarDetail extends Component {
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
                                 <Text style={{
-                                    marginLeft: 35, 
-                                   
-                                    fontFamily:'EurostileBold',
-                                    color:'#C0C0C0',
+                                    marginLeft: 35,
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0',
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
-                                    height: 40, width: '80%',
+                                    height: 40, 
+                                    width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'#C0C0C0'
+                                    color: '#C0C0C0'
                                 }}
-                                placeholderTextColor='#C0C0C0'
+                                    placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
-                                    placeholder='Vehicle No.'></TextInput>
+                                    placeholder='Vehicle No.'>
+                                    </TextInput>
                                 {/* <View style={{
-                                    height: 1, width: '80%',
+                                    height: 1, 
+                                    width: '80%',
                                     alignSelf: 'center',
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 20,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Year of Manufacture</Text>
-
                                 <View style={{
                                     marginTop: 5,
                                     fontSize: 16,
@@ -426,22 +433,6 @@ export default class CarDetail extends Component {
                                         value={this.state.manufacture_year}
                                     />
                                 </View>
-                                {/* <TextInput style={{
-                                    height: 40, width: '80%',
-                                    padding: 5,
-                                    alignSelf: 'center'
-                                }}
-                                    placeholderTextColor='gray'
-                                    keyboardType='ascii-capable'
-                                    value={this.state.yearofmanufacture}
-                                    onChangeText={(value) => this.setState({ yearofmanufacture: value })}
-                                    placeholder='Manufacture year'></TextInput> */}
-                                {/* <View style={{
-                                    height: 1, width: '80%',
-                                    alignSelf: 'center',
-                                    backgroundColor: '#C0C0C0'
-                                }}></View> */}
-
                             </View>
                             <TouchableOpacity style={{
                                 height: 50,
@@ -458,9 +449,9 @@ export default class CarDetail extends Component {
                                     this.CarDetail()
                                 }}>
                                 <Text style={{
-                                    
+
                                     color: 'black',
-                                    fontFamily:'EurostileBold',
+                                    fontFamily: 'EurostileBold',
                                     fontSize: 18
                                 }}>Submit</Text>
                             </TouchableOpacity>
@@ -480,7 +471,7 @@ export default class CarDetail extends Component {
                                 }}>
                                 <Text style={{
                                     color: APP_YELLOW,
-                                    fontFamily:'EurostileBold',
+                                    fontFamily: 'EurostileBold',
                                     fontSize: 18
                                 }}>Skip</Text>
                             </TouchableOpacity>
@@ -492,20 +483,21 @@ export default class CarDetail extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
                         ></ActivityIndicator>
 
                     </View>
                 }
-                </ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
@@ -518,9 +510,8 @@ export default class CarDetail extends Component {
             alert('Please enter the vehicle number')
         } else if (this.state.manufacture_year == '') {
             alert('Please enter the manufacture date')
-        } else if(this.state.filePath == ''){
+        } else if (this.state.filePath == '') {
             alert('Image must be required')
-
         }
         else {
             this.carDetailApi()

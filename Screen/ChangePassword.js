@@ -90,7 +90,7 @@ export default class ChangePassword extends Component {
                         flexDirection: 'row',
                         alignSelf: 'center',
                         alignItems:'center',
-                        marginTop:Platform.OS==='ios'?25:7
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
                     }}>
                         <TouchableOpacity style={{
                             height: 35,
@@ -99,7 +99,6 @@ export default class ChangePassword extends Component {
                             justifyContent: 'center',
                             position: 'absolute',
                             left: 5
-
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
@@ -107,10 +106,9 @@ export default class ChangePassword extends Component {
                             <Image style={{ height: 20, 
                             width: 20, 
                             tintColor: APP_YELLOW }}
-                                resizeMode='contain'
-                                source={require('../assets/back.png')}>
-                                </Image>
-
+                            resizeMode='contain'
+                            source={require('../assets/back.png')}>
+                            </Image>
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
@@ -148,7 +146,6 @@ export default class ChangePassword extends Component {
                                         source={require('../assets/logo.png')}>
                                     </Image>
                                 </View>
-
                                 <View style={{
                                     width: '100%',
                                     marginTop: 30,
@@ -220,15 +217,16 @@ export default class ChangePassword extends Component {
                                         marginTop: 2,
                                         // borderColor: 'gray', borderWidth: 1,
                                         borderRadius: 10,
-                                         padding: 5,
+                                        padding: 5,
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.NewPassword}
-                                        onChangeText={(value) => this.setState({ NewPassword: value })}
+                                        onChangeText={(value) => this.setState({ NewPassword: value})}
                                         placeholder=' New Password'
                                         keyboardType='ascii-capable'
                                         secureTextEntry={true}
-                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                        placeholderTextColor='#C0C0C0'>
+                                        </TextInput>
                                         </View>
 
                                     {/* <View style={{
@@ -242,10 +240,6 @@ export default class ChangePassword extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 20,
                                     alignSelf: 'center',
-                                    // shadowColor: 'gray',
-                                    // shadowOpacity: 0.5,
-                                    // shadowRadius: 1,
-                                    // shadowOffset: { width: 2, height: 1 },
                                     borderRadius: 10, 
                                     alignItems: 'center',
                                     justifyContent: 'center'

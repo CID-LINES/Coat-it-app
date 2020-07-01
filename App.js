@@ -32,13 +32,14 @@ import Settings from './Screen/Settings'
 import ServiceDetail from './Screen/ServiceDetail'
 import DetailerList from './Screen/DetailerList';
 import ChangePassword from './Screen/ChangePassword';
-import DetailerLocation from './Screen/DetailerLocation';
+import ProductDetail from './Screen/ProductDetail';
 import NotificationDetail from './Screen/NotificationDetail';
 import EditCarDetail from './Screen/EditCarDetail'
 import Payment from './Screen/Payment'
 import PurchaseDetail from './Screen/PurchaseDetail'
 import ForgetPassword from './Screen/ForgetPassword'
 import EditProfile from './Screen/EditProfile'
+import DetailerProduct from './Screen/DetailerProduct'
 
 
 
@@ -79,7 +80,17 @@ const Tabnavigation =createBottomTabNavigator({
         </Image>
       )
     }},
- 
+    DetailerProduct:{screen: DetailerProduct,
+      navigationOptions: {
+        tabBarLabel: 'Products',
+        tabBarIcon: ({ tintColor }) => (
+          <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+            source={require('./assets/product.png')}
+            resizeMode={"contain"}>
+  
+          </Image>
+        )
+      }},
 
   
 },{
@@ -108,7 +119,7 @@ const Tabnavigation =createBottomTabNavigator({
    ServiceDetail:{screen :ServiceDetail},
    DetailerList:{screen:DetailerList},
   ChangePassword :{screen :ChangePassword},
-  DetailerLocation :{screen:DetailerLocation},
+  ProductDetail :{screen:ProductDetail},
   NotificationDetail:{screen :NotificationDetail},
   EditCarDetail:{screen :EditCarDetail},
   Payment:{screen :Payment},
