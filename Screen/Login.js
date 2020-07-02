@@ -268,7 +268,8 @@ export default class Login extends Component {
 
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{
-                                        height: 50, width: '40%',
+                                        height: 50, 
+                                        width: '40%',
                                         backgroundColor: APP_YELLOW,
                                         marginTop: 15, 
                                         alignSelf: 'center',

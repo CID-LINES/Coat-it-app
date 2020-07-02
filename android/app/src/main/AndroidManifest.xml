@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.kenotekcarapp">
+  package="com.KenotekCoatIT">
 
     <permission
         android:name="${applicationId}.permission.C2D_MESSAGE"
@@ -21,8 +21,7 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher"
       android:allowBackup="false"
-      android:theme="@style/AppTheme"
-        >
+      android:theme="@style/AppTheme">
         <receiver android:name="io.invertase.firebase.notifications.RNFirebaseNotificationReceiver"/>
         <receiver
             android:enabled="true"

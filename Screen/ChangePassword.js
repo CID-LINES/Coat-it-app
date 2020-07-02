@@ -39,7 +39,6 @@ export default class ChangePassword extends Component {
 
         try {
             await AsyncStorage.setItem(key, value);
-
             //alert(JSON.stringify(value))
         } catch (error) {
             //   console.log("Error saving data" + error);

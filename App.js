@@ -69,6 +69,18 @@ const Tabnavigation =createBottomTabNavigator({
       </Image>
     )
   }},
+  DetailerProduct:{screen: DetailerProduct,
+    navigationOptions: {
+      tabBarLabel: 'Products',
+      tabBarIcon: ({ tintColor }) => (
+        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+          source={require('./assets/product.png')}
+          resizeMode={"contain"}>
+
+        </Image>
+      )
+    }},
+
   Profile:{screen: UserProfile,
     navigationOptions: {
       tabBarLabel: 'User Profile',
@@ -80,18 +92,7 @@ const Tabnavigation =createBottomTabNavigator({
         </Image>
       )
     }},
-    DetailerProduct:{screen: DetailerProduct,
-      navigationOptions: {
-        tabBarLabel: 'Products',
-        tabBarIcon: ({ tintColor }) => (
-          <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
-            source={require('./assets/product.png')}
-            resizeMode={"contain"}>
-  
-          </Image>
-        )
-      }},
-
+   
   
 },{
   tabBarOptions: {

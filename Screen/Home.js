@@ -8,31 +8,12 @@ import firebase from 'react-native-firebase'
 
 
 
-const DATA = [
-    {
-        title: 'Plan 1',
-        description: 'This plan for 1 year membership'
-    }, {
-        title: 'Plan 2',
-        description: 'This plan for 2 year membership'
-    },
-    {
-        title: 'Plan 3',
-        description: 'This plan for 3 year membership'
-    }, {
-        title: 'Plan 4',
-        description: 'This plan for 4 year membership'
-    },
-
-]
-
-
 export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
             data: '',
-            isFetching: false
+            isFetching: false,
         }
 
     }
@@ -155,7 +136,7 @@ export default class Home extends Component {
             });
     }
     onRefresh = () => {
-        this.setState({ isFetching: true }, function () { this.PlanApi() });
+        this.setState({ isFetching: true }, function () { this.PlanApi()});
     }
     render() {
         

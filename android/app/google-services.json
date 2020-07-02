@@ -1,42 +1,35 @@
 {
   "project_info": {
-    "project_number": "897331415812",
-    "firebase_url": "https://kenotekcarapp-1584936903801.firebaseio.com",
-    "project_id": "kenotekcarapp-1584936903801",
-    "storage_bucket": "kenotekcarapp-1584936903801.appspot.com"
+    "project_number": "405924185458",
+    "firebase_url": "https://kenotekcoatit-b817a.firebaseio.com",
+    "project_id": "kenotekcoatit-b817a",
+    "storage_bucket": "kenotekcoatit-b817a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:897331415812:android:ef959fc28aa8494ec25e51",
+        "mobilesdk_app_id": "1:405924185458:android:7f1fc234cdf54dc043c9eb",
         "android_client_info": {
-          "package_name": "com.kenotekcarapp"
+          "package_name": "com.KenotekCoatIT"
         }
       },
       "oauth_client": [
         {
-          "client_id": "897331415812-29meeptqjshr11kom4as8m7mkgtd1hi5.apps.googleusercontent.com",
+          "client_id": "405924185458-v9f01evh45bo3tfgc6dksorbih99moua.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBi-ifHjdcLRWGaPwUfR2T8q1RJQFhmJco"
+          "current_key": "AIzaSyC9zgw3xQ3AGHPhtnahkPFmwP9YwozPjUU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "897331415812-29meeptqjshr11kom4as8m7mkgtd1hi5.apps.googleusercontent.com",
+              "client_id": "405924185458-v9f01evh45bo3tfgc6dksorbih99moua.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "897331415812-lf1su9n4d9oc626iu15diltpcgdrck24.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "aditinet.uk"
-              }
             }
           ]
         }

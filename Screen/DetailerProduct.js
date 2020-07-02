@@ -168,25 +168,7 @@ export default class MyCars extends Component {
                                 this.MyCars(item, index)
                             )}>
                         </FlatList>
-                        <TouchableOpacity style={{
-                            height: 60, width: 60,
-                            borderRadius: 30,
-                            backgroundColor: APP_YELLOW,
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            position: 'absolute',
-                            alignContent: 'flex-end',
-                            right: 20,
-                            bottom: 40,
-                        }}
-                            onPress={() => {
-                                this.props.navigation.navigate('AddCar')
-                            }
-                            }>
-                            <Image style={{ height: 40, width: 40,
-                            tintColor:'black' }}
-                                source={require('../assets/plus-icon.png')}></Image>
-                        </TouchableOpacity>
+                     
                     </View>
                 {this.state.isLoading &&
                     <View style={{

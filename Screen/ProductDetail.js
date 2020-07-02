@@ -8,7 +8,7 @@ export default class NotificationDetail extends Component {
         this.state = {
             data: props.navigation.state.params.data
         }
-        console.log(JSON.stringify(this.state.data))
+
     }
     render() {
         return (

@@ -1,4 +1,4 @@
-com.kenotekcarapp
+com.KenotekCoatIT
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1375,8 +1375,10 @@ drawable assets_pencil
 drawable assets_phone
 drawable assets_placeholder
 drawable assets_plusicon
+drawable assets_product
 drawable assets_profileicon
 drawable assets_serviceicon
+drawable assets_settings
 drawable assets_user
 drawable avd_hide_password
 drawable avd_show_password
