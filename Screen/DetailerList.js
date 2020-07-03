@@ -32,7 +32,7 @@ export default class DetailerList extends Component {
     load = () => {
         this.get('user_id')
     }
-
+   
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -47,7 +47,7 @@ export default class DetailerList extends Component {
         } catch (error) {
         }
     }
-    DetailerListApi = () => {
+    DetailerListApi = (index) => {
         this.setState({
             isLoading: true
         })
@@ -64,6 +64,7 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
+                   
                     this.setState({
                         DATA: responseJson.response.data
                     })

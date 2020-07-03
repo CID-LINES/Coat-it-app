@@ -32,7 +32,7 @@ export default class Notification extends Component {
     NotificationApi = () => {
         this.setState({
             isLoading: true
-            // isFetching:true
+          
         })
 
         fetch('http://3.137.41.50/coatit/public/api/notification_list',

@@ -6,19 +6,19 @@ import { CallGetApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
 import ImageLoad from 'react-native-image-placeholder';
 
-const DATA = [
-    {
-        title: 'Swift',
+// const DATA = [
+//     {
+//         title: 'Swift',
         
       
-    }, {
-        title: 'Swift',
+//     }, {
+//         title: 'Swift',
         
-    }, {
-        title: 'Swift',
+//     }, {
+//         title: 'Swift',
        
-    }
-]
+//     }
+// ]
 
 export default class MyCars extends Component {
     constructor(props) {
@@ -26,8 +26,8 @@ export default class MyCars extends Component {
         this.state = {
             access_token: '',
             car: '',
-            user_id: '',
-
+            DATA:[],
+           user_id:'',
             id: '',
             isFetching:false
 
@@ -48,12 +48,12 @@ export default class MyCars extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            // alert(value)
+            //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
-                }, () => {
-                    // this.MycarApi()
+                },()=>{
+                    this.ProductApi()
                 })
             }
         } catch (error) {
@@ -63,48 +63,48 @@ export default class MyCars extends Component {
 
 
 
-    // MycarApi = () => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
+    ProductApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        fetch('http://3.137.41.50/coatit/public/api/product_list/'+''+this.state.user_id,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+                    this.setState({
+                        DATA: responseJson.response.products,
+                    })
+                }
+                else
+                {
+                    alert(responseJson.response.message)
+                }
+                this.setState({
+                    isLoading: false,
+                    isFetching: false
+                })
 
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
 
-    //     fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id+'',
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson.response))
-    //             if (responseJson.response.status == true) {
-    //                 // this.save('car_id',responseJson.response.carDetails.id +'' )
-    //                 this.setState({
-    //                     car: responseJson.response.carDetails,
-    //                 })
+    }
 
-    //             }
-    //             this.setState({
-    //                 isLoading: false,
-    //                 isFetching:false
-    //             })
-
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
-
-    // onRefresh=()=> {
-    //     this.setState({ isFetching: true }, function() { this.MycarApi() });    
-    //  }
-
+    onRefresh=()=> {
+        this.setState({ isFetching: true }, function() { this.ProductApi() });    
+     }
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
@@ -149,7 +149,7 @@ export default class MyCars extends Component {
                                 fontSize: 18, 
                                 fontFamily:'EurostileBold',
                                 color: APP_YELLOW
-                            }}>My Cars</Text>
+                            }}>Products</Text>
                         </View>
                     </View>
 
@@ -163,7 +163,7 @@ export default class MyCars extends Component {
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                             </RefreshControl>}
-                            data={DATA}
+                            data={this.state.DATA}
                             renderItem={({ item, index }) => (
                                 this.MyCars(item, index)
                             )}>
@@ -243,13 +243,13 @@ export default class MyCars extends Component {
                        fontFamily:'EurostileBold',
                        color:'#C0C0C0'
                         }}>
-                            MX 413
+                           {item.name}
                         </Text>
                         <Text style={{ 
                             marginTop: 10,
                             fontSize:17,
                             color:'#C0C0C0',
-                            fontFamily:'EurostileBold', }}>This is good product for car</Text>
+                        fontFamily:'EurostileBold', }}>{item.description}</Text>
                         {/* <TouchableOpacity style={{
                             height: 30,
                             width: 30,
