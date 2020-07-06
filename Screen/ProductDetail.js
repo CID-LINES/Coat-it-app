@@ -8,7 +8,6 @@ export default class NotificationDetail extends Component {
         this.state = {
             data: props.navigation.state.params.data
         }
-
     }
     render() {
         return (
@@ -22,23 +21,26 @@ export default class NotificationDetail extends Component {
                         flexDirection: 'row',
                         alignSelf: 'center',
                         alignItems: 'center', 
-                        marginTop:Platform.OS==='ios'?25:7
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
                     }}>
                         <TouchableOpacity style={{
-                            height: 35, width: 35,
+                            height: 35, 
+                            width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
                             position: 'absolute', 
                             left: 5
-
                         }}
                             onPress={() => {
                                 this.props.navigation.goBack()
                             }}>
-                            <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
-                                resizeMode='contain'
-                                source={require('../assets/back.png')}></Image>
-
+                            <Image style={{ 
+                             height: 20,
+                             width: 20, 
+                             tintColor: APP_YELLOW}}
+                             resizeMode='contain'
+                             source={require('../assets/back.png')}>
+                            </Image>
                         </TouchableOpacity>
                         <View style={{
                             height: 35,
@@ -48,8 +50,9 @@ export default class NotificationDetail extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 18,
-                                color: APP_YELLOW, fontFamily: 'EurostileBold',
-                            }}>Notifications</Text>
+                                color: APP_YELLOW, 
+                                fontFamily: 'EurostileBold',
+                            }}>Product Detail</Text>
                         </View>
                     </View>
 
@@ -66,7 +69,6 @@ export default class NotificationDetail extends Component {
                                 width: '95%',
                                 borderRadius: 10,
                                 alignSelf: 'center',
-
                                 justifyContent: 'center',
                                 overflow: 'hidden'
                             }}
