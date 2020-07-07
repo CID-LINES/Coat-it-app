@@ -120,7 +120,7 @@ export default class MyCars extends Component {
                         alignSelf: 'center',
                         marginTop:Platform.OS ==='ios'?25:7
                     }}>
-                        <TouchableOpacity style={{
+                        {/* <TouchableOpacity style={{
                             height: 35, 
                             width: 35,
                             alignItems: 'center',
@@ -138,7 +138,7 @@ export default class MyCars extends Component {
                                 source={require('../assets/back.png')}>
                                 </Image>
 
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                         <View style={{
                             height: 35,
                             alignItems: 'center',

@@ -123,7 +123,8 @@ export default class ServiceDeatil extends Component {
                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', left: 5
+                        position: 'absolute', 
+                        left: 5
 
                     }}
                         onPress={() => {
