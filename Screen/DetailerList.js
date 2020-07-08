@@ -4,17 +4,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import moment from 'moment';
-// const DATA = [
-//     {
-//         title: 'Current Orders',
-//         // data: ['Pizza', 'Burger', 'Risotto'],
-//     },
-//     {
-//         title: 'Past Orders',
 
-//     },
-
-// ];
 export default class DetailerList extends Component {
     constructor(props) {
         super(props)
@@ -64,7 +54,6 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
-                   
                     this.setState({
                         DATA: responseJson.response.data
                     })
@@ -99,7 +88,6 @@ export default class DetailerList extends Component {
                     width: '95%',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    //backgroundColor:'pink',
                     flexDirection: 'row',
                     alignSelf: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
@@ -123,7 +111,6 @@ export default class DetailerList extends Component {
                             resizeMode='contain'
                             source={require('../assets/back.png')}>
                         </Image>
-
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
@@ -139,7 +126,8 @@ export default class DetailerList extends Component {
                 </View>
                 {this.state.DATA.length == 0 || this.state.DATA == null ?
                     <View style={{
-                        width: '95%', flex: 1,
+                        width: '95%', 
+                        flex: 1,
                         alignSelf: 'center',
                         justifyContent: "center",
                         alignItems: 'center'
@@ -155,7 +143,6 @@ export default class DetailerList extends Component {
                         </Text>
                     </View> :
                     <View style={{ flex: 1 }}>
-
                         <FlatList style={{
                             marginTop: 10,
                             marginBottom: 20
@@ -232,11 +219,7 @@ export default class DetailerList extends Component {
                 marginBottom: 5,
                 width: '95%',
                 borderRadius: 10,
-                // flexDirection: 'row',
-                // borderColor: APP_YELLOW,
-                // borderWidth: 2,
                 alignSelf: 'center',
-                // backgroundColor: 'pink',
                 overflow: 'hidden'
             }}
                 onPress={() => {
@@ -271,9 +254,7 @@ export default class DetailerList extends Component {
                     </ImageLoad>
                 </View>
                 <View style={{
-                    //marginLeft: 15,
                     marginTop: 5,
-                    // backgroundColor:"pink",
                     width: '100%'
                 }}>
                     <View style={{

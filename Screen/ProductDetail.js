@@ -112,23 +112,6 @@ export default class NotificationDetail extends Component {
                             {this.state.data.description}
                         </Text>
                     </View>
-                    {/* <TouchableOpacity style={{
-                        height:40,
-                        width:'50%',
-                        alignSelf:'center',
-                        alignItems:'center',
-                        justifyContent:'center',
-                        marginTop:20,
-                        borderRadius:20,
-                        backgroundColor:APP_BLUE}}
-                        onPress={() =>{
-                            this.props.navigation.navigate('DetailerList')
-                        }}>
-                            <Text style={{fontSize:18,fontWeight:'800',
-
-                        color:'white'}}>Buy</Text></TouchableOpacity>
-                      */}
-
                 </View>
 
                 {
@@ -138,20 +121,20 @@ export default class NotificationDetail extends Component {
                         backgroundColor: '#000000aa',
                         //backgroundColor:'black',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }} onPress={() => {
                         this.setState({
-
                             isShow: false
                         })
                     }}>
                         <View style={{
                             height: Dimensions.get('window').height / 2,
                             width: '100%'
-                        }}
-                        >
+                        }}>
                             <ImageLoad style={{ flex: 1, width: '100%' }}
                                 resizeMode='stretch'
                                 source={{

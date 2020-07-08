@@ -64,7 +64,6 @@ export default class Login extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-
                         this.save('access_token', data.data.response.access_token)
                         this.save('user_id', data.data.response.id + '')
                         // this.props.navigation.push('Home')
@@ -159,8 +158,6 @@ export default class Login extends Component {
                                         height: 40, 
                                         width: '80%',
                                         marginTop: 2,
-                                        // borderColor: 'gray',
-                                        // borderWidth: 1,
                                         borderRadius: 10,
                                         padding: 5,
                                         color: '#C0C0C0'

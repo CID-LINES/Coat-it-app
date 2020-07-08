@@ -11,7 +11,6 @@ export default class ServiceDeatil extends Component {
             serviceplan: '',
             car: props.navigation.state.params.car,
             cardetail: "",
-
             detailer: props.navigation.state.params.detailer,
         }
         //console.log(JSON.stringify(this.state.car))
@@ -23,9 +22,7 @@ export default class ServiceDeatil extends Component {
     PlanApi = () => {
         this.setState({
             isLoading: true
-
         })
-
         fetch('http://3.137.41.50/coatit/public/api/plan/display/' + this.state.data,
             {
                 method: 'GET',
@@ -33,7 +30,6 @@ export default class ServiceDeatil extends Component {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
 
-                    //  'Content-type':'multipart/form-data'
                 }
             })
             .then((response) => response.json())
@@ -42,15 +38,12 @@ export default class ServiceDeatil extends Component {
                 if (responseJson.response.status == true) {
                     this.setState({
                         serviceplan: responseJson.response.data,
-
                     })
-
                 }
                 this.setState({
                     isLoading: false,
                     isFetching: false
                 })
-
             })
             .catch((error) => {
                 console.error(error);
@@ -58,13 +51,11 @@ export default class ServiceDeatil extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
 
     CarDetailApi = (car_name, index) => {
         this.setState({
             isLoading: true
-
         })
 
         fetch('http://3.137.41.50/coatit/public/api/cardetail/' + this.state.car,
@@ -73,8 +64,6 @@ export default class ServiceDeatil extends Component {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
-
-                    //  'Content-type':'multipart/form-data'
                 }
             })
             .then((response) => response.json())
@@ -93,7 +82,6 @@ export default class ServiceDeatil extends Component {
                     isLoading: false,
                     isFetching: false
                 })
-
             })
             .catch((error) => {
                 console.error(error);
@@ -115,17 +103,16 @@ export default class ServiceDeatil extends Component {
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    alignSelf: 'center', 
-                    marginTop:Platform.OS==='ios'?25:7
+                    alignSelf: 'center',
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
                     <TouchableOpacity style={{
                         // height: 35,
                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', 
+                        position: 'absolute',
                         left: 5
-
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
@@ -137,7 +124,6 @@ export default class ServiceDeatil extends Component {
                         }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
-
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         // height: 40, 
@@ -145,17 +131,14 @@ export default class ServiceDeatil extends Component {
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
-
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
                         <Text style={{
                             fontSize: 18,
-
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
-
                         }}
                             numberOfLines={0}>{this.state.serviceplan.name}</Text>
                     </TouchableOpacity>
@@ -163,8 +146,6 @@ export default class ServiceDeatil extends Component {
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{ flex: 1, }}
                     >
-                     
-
                         <View style={{
                             height: Dimensions.get('window').height / 3,
                             marginTop: 10,
@@ -198,10 +179,8 @@ export default class ServiceDeatil extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 17,
-
                                 fontFamily: 'EurostileBold',
                                 color: '#C0C0C0'
-
                             }}>
                                 {this.state.serviceplan.title}</Text>
                             <Text style={{
@@ -211,23 +190,19 @@ export default class ServiceDeatil extends Component {
                                 textAlign: 'justify',
                                 color: '#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-
                             }}
                                 numberOfLines={0}>
-
                                 {this.state.serviceplan.description}
-
                             </Text>
                         </View>
-
                         <TouchableOpacity style={{
-                            height: 45, width: '60%',
+                            height: 45,
+                            width: '60%',
                             alignSelf: 'center',
                             alignItems: 'center',
                             justifyContent: 'center',
                             marginTop: 20,
                             borderRadius: 10,
-
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
@@ -236,12 +211,13 @@ export default class ServiceDeatil extends Component {
                             }}>
                             <Text style={{
                                 fontSize: 20,
-
                                 fontFamily: 'EurostileBold',
                                 color: 'black'
-                            }}>View Car</Text></TouchableOpacity>
+                            }}>View Car</Text>
+                        </TouchableOpacity>
                         <TouchableOpacity style={{
-                            height: 45, width: '60%',
+                            height: 45,
+                            width: '60%',
                             alignSelf: 'center',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -254,17 +230,14 @@ export default class ServiceDeatil extends Component {
                                 this.setState({
                                     isHide: true
                                 })
-
                             }}>
                             <Text style={{
                                 fontSize: 20,
-
                                 fontFamily: 'EurostileBold',
                                 color: 'black'
-                            }}>View Detailer</Text></TouchableOpacity>
-
+                            }}>View Detailer</Text>
+                        </TouchableOpacity>
                     </View>
-
                 </ScrollView>
 
                 {this.state.isHide &&
@@ -272,7 +245,9 @@ export default class ServiceDeatil extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}
@@ -280,8 +255,7 @@ export default class ServiceDeatil extends Component {
                             this.setState({
                                 isHide: false
                             })
-                        }}
-                    >
+                        }}>
                         <TouchableOpacity style={{
                             height: Dimensions.get('window').height / 2.5,
                             width: '90%',
@@ -289,7 +263,6 @@ export default class ServiceDeatil extends Component {
                             overflow: 'hidden',
                             // borderColor: APP_YELLOW,
                             // borderWidth: 2
-
                         }}
                             onPress={() => {
                                 this.setState({
@@ -303,7 +276,7 @@ export default class ServiceDeatil extends Component {
                                     height: Dimensions.get('window').height / 3,
                                     width: '100%'
                                 }}
-                                resizeMode='stretch'
+                                    resizeMode='stretch'
                                     source={{ uri: this.state.detailer.avatar }}>
                                 </ImageLoad>
                                 <View style={{
@@ -321,7 +294,6 @@ export default class ServiceDeatil extends Component {
                                     }}>
                                         <Text style={{
                                             fontSize: 18,
-
                                             color: APP_YELLOW,
                                             fontFamily: 'EurostileBold'
                                         }}>Name</Text>
@@ -343,7 +315,9 @@ export default class ServiceDeatil extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}
@@ -351,10 +325,9 @@ export default class ServiceDeatil extends Component {
                             this.setState({
                                 isShow: false
                             })
-                        }}
-                    >
+                        }}>
                         <TouchableOpacity style={{
-                            height: Dimensions.get('window').height/2,
+                            height: Dimensions.get('window').height / 2,
                             width: '90%',
                             borderRadius: 10,
                             overflow: 'hidden',
@@ -373,7 +346,7 @@ export default class ServiceDeatil extends Component {
                                     height: Dimensions.get('window').height / 3,
                                     width: '100%'
                                 }}
-                                resizeMode='stretch'
+                                    resizeMode='stretch'
                                     source={{ uri: this.state.cardetail.image }}>
                                 </ImageLoad>
                                 <View style={{
@@ -390,47 +363,48 @@ export default class ServiceDeatil extends Component {
                                     }}>
                                         <Text style={{
                                             fontSize: 18,
-
                                             color: APP_YELLOW,
                                             fontFamily: 'EurostileBold'
                                         }}>Car name</Text>
                                         <Text style={{
-                                            fontSize: 17, marginLeft: 80,
+                                            fontSize: 17, 
+                                            marginLeft: 80,
                                             fontFamily: 'EurostileBold',
                                             color: '#C0C0C0'
                                         }}>{this.state.cardetail.brand_name}</Text>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
-                                        alignSelf: 'center', marginTop: 5,
+                                        alignSelf: 'center', 
+                                        marginTop: 5,
                                         width: '95%'
                                     }}>
                                         <Text style={{
                                             fontSize: 18,
-
                                             color: APP_YELLOW,
                                             fontFamily: 'EurostileBold'
                                         }}>Model name</Text>
                                         <Text style={{
-                                            fontSize: 17, marginLeft: 60,
+                                            fontSize: 17, 
+                                            marginLeft: 60,
                                             fontFamily: 'EurostileBold',
                                             color: '#C0C0C0'
                                         }}>{this.state.cardetail.model_name}</Text>
                                     </View>
                                     <View style={{
                                         flexDirection: 'row',
-                                        alignSelf: 'center', marginTop: 5,
+                                        alignSelf: 'center', 
+                                        marginTop: 5,
                                         width: '95%'
                                     }}>
                                         <Text style={{
                                             fontSize: 18,
-
                                             color: APP_YELLOW,
                                             fontFamily: 'EurostileBold',
-
                                         }}>Vehicle no.</Text>
                                         <Text style={{
-                                            fontSize: 17, marginLeft: 73,
+                                            fontSize: 17, 
+                                            marginLeft: 73,
                                             fontFamily: 'EurostileBold',
                                             color: '#C0C0C0'
                                         }}
@@ -441,7 +415,8 @@ export default class ServiceDeatil extends Component {
                                     <View style={{
                                         flexDirection: 'row',
                                         marginBottom: 5,
-                                        alignSelf: 'center', marginTop: 5
+                                        alignSelf: 'center',
+                                        marginTop: 5
                                         , width: '95%'
                                     }}>
                                         <Text style={{

@@ -23,9 +23,6 @@ export default class SignUp extends Component {
     chooseFile = () => {
         var options = {
             title: 'Select Image',
-            // customButtons: [
-            //     { name: 'customOptionKey', title: 'Choose Photo from Custom Option' },
-            // ],
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -67,7 +64,7 @@ export default class SignUp extends Component {
 
             //alert(JSON.stringify(value))
         } catch (error) {
-            //   console.log("Error saving data" + error);
+            //   c`onsole.log("Error saving data" + error);
         }
     }
 
@@ -162,19 +159,17 @@ export default class SignUp extends Component {
                                     flex: 1,
                                     width: '95%',
                                     borderRadius: 60,
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    alignSelf: 'center',
+                                    justifyContent:'center',
+                                    alignItems:'center',
+                                    alignSelf:'center',
                                 }}
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
                                     <Image style={{
                                         flex: 1,
-                                        width: '95%',
+                                        width:'95%',
                                         borderRadius: 10,
-                                        // maxHeight:100
-                                        //alignSelf: 'center', 
                                     }}
                                         resizeMode='cover' 
                                         source={this.state.filePath == '' ?
@@ -184,7 +179,7 @@ export default class SignUp extends Component {
                                 </TouchableOpacity>
                                 <View style={{
                                     height: 40,
-                                    width: '60%',
+                                    width:'60%',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     position: 'absolute',
@@ -192,7 +187,7 @@ export default class SignUp extends Component {
                                     flexDirection: 'row',
                                     right: 28
                                 }}>
-                                    <Text style={{ fontFamily: 'EurostileBold' }}>
+                                    <Text style={{fontFamily: 'EurostileBold' }}>
                                         Upload profile picture here
                                         </Text>
                                     <Image style={{
@@ -214,8 +209,7 @@ export default class SignUp extends Component {
                                     width: '80%',
                                     color: '#C0C0C0',
                                     fontFamily: 'EurostileBold'
-                                }}>
-                                    First name
+                                }}>First name
                                      </Text>
                                 <View style={{
                                     flexDirection: 'row',
@@ -234,8 +228,6 @@ export default class SignUp extends Component {
                                         height: 40,
                                         width: '75%',
                                         marginTop: 2,
-                                        //borderColor: 'gray',
-                                        //borderWidth: 1,
                                         borderRadius: 10,
                                         padding: 5,
                                         color: '#C0C0C0'
@@ -270,8 +262,7 @@ export default class SignUp extends Component {
                                         width: 25
                                     }}
                                         source={require('../assets/user.png')}
-                                        resizeMode='cover'
-                                    >
+                                        resizeMode='cover'>
                                     </Image>
                                     <TextInput style={{
                                         height: 40,
@@ -289,8 +280,8 @@ export default class SignUp extends Component {
                                     </TextInput>
                                 </View>
                                 {/* <View style={{
-                                    height: 1,
-                                    width: '80%', 
+                                    height:1,
+                                    width:'80%', 
                                     backgroundColor:'#C0C0C0'
                                 }}>
                                 </View> */}
@@ -317,8 +308,6 @@ export default class SignUp extends Component {
                                         height: 40,
                                         width: '75%',
                                         marginTop: 2,
-                                        // borderColor: 'gray',
-                                        // borderWidth: 1,
                                         borderRadius: 10, 
                                         padding: 5,
                                         color: '#C0C0C0'
@@ -360,10 +349,8 @@ export default class SignUp extends Component {
                                         height: 40,
                                         width: '75%',
                                         marginTop: 2,
-                                        // borderColor: 'gray',
-                                        // borderWidth: 1,
                                         borderRadius: 10,
-                                         padding: 5,
+                                        padding: 5,
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.phone}
@@ -378,7 +365,6 @@ export default class SignUp extends Component {
                                     width: '80%', 
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
-
                                 <Text style={{
                                     width: '80%',
                                     marginTop: 10,
@@ -494,7 +480,9 @@ export default class SignUp extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>

@@ -62,7 +62,6 @@ export default class Notification extends Component {
             .catch((error) => {
                 console.error(error);
             });
-
     }
 
     onRefresh = () => {
@@ -79,9 +78,11 @@ export default class Notification extends Component {
                     <View style={{ flex: 1 }}>
                         <View style={{
                             alignSelf: 'center',
-                            alignItems: 'center', justifyContent: 'center',
-                            height: 45, width: '100%',
-                            marginTop:Platform.OS==='ios'?25:7
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            height: 45,
+                            width: '100%',
+                            marginTop:Platform.OS==='ios'? 25 : 7
                         }}>
                             <Text style={{
                                 fontSize: 20,
@@ -107,14 +108,15 @@ export default class Notification extends Component {
                             position: 'absolute',
                             backgroundColor: '#000000aa',
                             top: 0,
-                            bottom: 0, left: 0, right: 0,
+                            bottom: 0, 
+                            left: 0, 
+                            right: 0,
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}>
                             <ActivityIndicator
                                 animating={this.state.isLoading}
                                 size='large'
-
                                 color={APP_YELLOW}
                             ></ActivityIndicator>
 
@@ -159,15 +161,11 @@ export default class Notification extends Component {
         return (
             <View>
                 <TouchableOpacity style={{
-                    width: '95%',
+                    width: '98%',
                     alignSelf: 'center',
-                    // borderColor: APP_YELLOW,
-                    // borderWidth: 2,
                     marginBottom: 10,
                     flexDirection: 'row',
-                    // alignItems:'center',
                     overflow: 'hidden'
-                    // justifyContent:'center'
                 }}
                     onPress={() => {
                         this.props.navigation.navigate('NotificationDetail',{
@@ -209,9 +207,7 @@ export default class Notification extends Component {
 
                         }}>
                             <View style={{
-                               
                                 width: Dimensions.get('window').width /2,
-
                             }}>
                                 <Text style={{
                                     fontSize: 17,
@@ -258,8 +254,6 @@ export default class Notification extends Component {
                     backgroundColor: APP_YELLOW
                 }}></View> */}
             </View>
-
-
         )
 
     }
