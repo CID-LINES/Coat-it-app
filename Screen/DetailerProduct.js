@@ -18,7 +18,6 @@ export default class MyCars extends Component {
             user_id: '',
             id: '',
             isFetching: false
-
         }
     }
 
@@ -28,7 +27,6 @@ export default class MyCars extends Component {
     }
     load = () => {
         this.get('user_id')
-
     }
 
     async get(key) {
@@ -46,8 +44,6 @@ export default class MyCars extends Component {
 
         }
     }
-
-
 
     ProductApi = () => {
         this.setState({
@@ -76,7 +72,6 @@ export default class MyCars extends Component {
                     isLoading: false,
                     isFetching: false
                 })
-
             })
             .catch((error) => {
                 console.error(error);
@@ -84,7 +79,6 @@ export default class MyCars extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
 
     onRefresh = () => {
@@ -122,17 +116,16 @@ export default class MyCars extends Component {
                                 resizeMode='contain'
                                 source={require('../assets/back.png')}>
                                 </Image>
-
                         </TouchableOpacity> */}
                     <View style={{
                         height: 35,
-                        alignItems: 'center',
+                        alignItems:'center',
                         justifyContent: 'center',
 
                     }}>
                         <Text style={{
                             fontSize: 18,
-                            fontFamily: 'EurostileBold',
+                            fontFamily:'EurostileBold',
                             color: APP_YELLOW
                         }}>Products</Text>
                     </View>
@@ -151,7 +144,7 @@ export default class MyCars extends Component {
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
                         data={this.state.DATA}
-                        renderItem={({ item, index }) => (
+                        renderItem={({item, index}) => (
                             this.MyCars(item, index)
                         )}>
                     </FlatList>
@@ -205,9 +198,7 @@ export default class MyCars extends Component {
                     </ImageLoad>
                     <View style={{
                         marginLeft: 5,
-                        marginTop: 10,
-                        // alignItems:'center',
-                        // justifyContent:'center'
+                        marginTop: 10
                     }}>
                         {/* <Text style={{
                             fontSize: 17,
@@ -217,7 +208,6 @@ export default class MyCars extends Component {
                         </Text> */}
                         <Text style={{
                             fontSize: 18,
-                            //    marginTop:10,
                             fontFamily: 'EurostileBold',
                             color: '#C0C0C0'
                         }}>

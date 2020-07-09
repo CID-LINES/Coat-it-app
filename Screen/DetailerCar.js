@@ -13,7 +13,6 @@ export default class ServiceDeatil extends Component {
             cardetail: "",
             detailer: props.navigation.state.params.detailer,
         }
-        //console.log(JSON.stringify(this.state.car))
     }
 
     componentDidMount() {
@@ -29,7 +28,6 @@ export default class ServiceDeatil extends Component {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
-
                 }
             })
             .then((response) => response.json())
@@ -53,7 +51,7 @@ export default class ServiceDeatil extends Component {
             });
     }
 
-    CarDetailApi = (car_name, index) => {
+            CarDetailApi = (car_name, index) => {
         this.setState({
             isLoading: true
         })
@@ -89,7 +87,6 @@ export default class ServiceDeatil extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
 
     render() {
@@ -123,10 +120,10 @@ export default class ServiceDeatil extends Component {
                             tintColor: APP_YELLOW
                         }}
                             resizeMode='contain'
-                            source={require('../assets/back.png')}></Image>
+                            source={require('../assets/back.png')}>
+                            </Image>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
-                        // height: 40, 
                         width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -140,19 +137,18 @@ export default class ServiceDeatil extends Component {
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
                         }}
-                            numberOfLines={0}>{this.state.serviceplan.name}</Text>
+                            numberOfLines={0}>{this.state.serviceplan.name}
+                            </Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
-                    <View style={{ flex: 1, }}
-                    >
+                    <View style={{ flex: 1 }}>
                         <View style={{
                             height: Dimensions.get('window').height / 3,
                             marginTop: 10,
                             width: '100%',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                            // backgroundColor:'pink'
+                            justifyContent:'center',
+                            alignItems:'center'
                         }}>
                             <TouchableOpacity style={{
                                 flex: 1,
@@ -207,7 +203,6 @@ export default class ServiceDeatil extends Component {
                         }}
                             onPress={() => {
                                 this.CarDetailApi()
-
                             }}>
                             <Text style={{
                                 fontSize: 20,

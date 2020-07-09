@@ -5,15 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
 import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
-const DATA = [
-    {
-        title: 'first'
-    }, {
-        title: 'first'
-    }, {
-        title: 'first'
-    }
-]
+
 
 
 export default class Notification extends Component {
@@ -82,7 +74,7 @@ export default class Notification extends Component {
                             justifyContent: 'center',
                             height: 45,
                             width: '100%',
-                            marginTop:Platform.OS==='ios'? 25 : 7
+                            marginTop: Platform.OS === 'ios'? 25 : 7
                         }}>
                             <Text style={{
                                 fontSize: 20,
@@ -90,7 +82,7 @@ export default class Notification extends Component {
                                 color: APP_YELLOW
                             }}>Notifications</Text>
                         </View>
-                        <FlatList style={{ marginTop: 5 }}
+                        <FlatList style={{marginTop: 5}}
                             refreshControl={<RefreshControl
                                 tintColor={APP_YELLOW}
                                 colors={["#D65050","#D65050"]}
@@ -101,18 +93,17 @@ export default class Notification extends Component {
                             renderItem={({ item }) => (
                                 this.Notification(item)
                             )}></FlatList>
-
                     </View>
                     {this.state.isLoading &&
                         <View style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
+                            position:'absolute',
+                            backgroundColor:'#000000aa',
                             top: 0,
                             bottom: 0, 
                             left: 0, 
                             right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            alignItems:'center',
+                            justifyContent:'center'
                         }}>
                             <ActivityIndicator
                                 animating={this.state.isLoading}
@@ -122,36 +113,6 @@ export default class Notification extends Component {
 
                         </View>
                     }
-                    {/* {
-                    this.state.isShow &&
-                    <TouchableOpacity style={{
-                        position: 'absolute',
-                        backgroundColor: '#000000aa',
-                        //backgroundColor:'black',
-                        top: 0,
-                        bottom: 0, left: 0, right: 0,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }} onPress={() => {
-                        this.setState({
-                            previewurl:null,
-                            isShow: false
-                        })
-                    }}>
-                        <View style={{
-                            height: 400,
-                            width: '100%'
-                        }}
-                        >
-                            <ImageLoad style={{ flex: 1, width: '100%' }}
-                                resizeMode=
-                                'cover'
-                                source={{ uri 
-                                :this.state.previewurl }}></ImageLoad>
-               </View>
-
-            </TouchableOpacity>
-        } */}
                 </ImageBackground>
           
         );
@@ -179,10 +140,7 @@ export default class Notification extends Component {
                         width: 60,
                         marginLeft: 5,
                         borderRadius: 5,
-                        overflow: "hidden",
-                        // borderColor: APP_YELLOW,
-                        // borderWidth: 1,
-                        //marginBottom: 5
+                        overflow: "hidden"
                     }}
                         onPress={() => {
                             // this.setState({

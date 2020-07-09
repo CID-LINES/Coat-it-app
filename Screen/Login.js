@@ -246,10 +246,6 @@ export default class Login extends Component {
                                         backgroundColor: APP_YELLOW,
                                         marginTop: 15, 
                                         alignSelf: 'center',
-                                        // shadowColor: 'gray',
-                                        // shadowOpacity: 0.5,
-                                        // shadowRadius: 1,
-                                        // shadowOffset: { width: 2, height: 1 },
                                         borderRadius: 10, 
                                         alignItems: 'center',
                                         justifyContent: 'center'
@@ -270,10 +266,6 @@ export default class Login extends Component {
                                         backgroundColor: APP_YELLOW,
                                         marginTop: 15, 
                                         alignSelf: 'center',
-                                        // shadowColor: 'gray',
-                                        // shadowOpacity: 0.5,
-                                        // shadowRadius: 1,
-                                        // shadowOffset: { width: 2, height: 1 },
                                         borderRadius: 10,
                                         alignItems: 'center',
                                         justifyContent: 'center'

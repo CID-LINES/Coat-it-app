@@ -52,16 +52,13 @@ export default class ServiceDeatil extends Component {
                     alignSelf: 'center',
                     alignItems: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
-
                 }}>
                     <TouchableOpacity style={{
-                        //  height: 35, 
                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
                         left: 5
-
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
@@ -74,28 +71,26 @@ export default class ServiceDeatil extends Component {
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{
-                        //height: 35, 
+                    <TouchableOpacity style={{ 
                         width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
-
-                    }} onPress={() => {
+                    }} 
+                    onPress={() => {
                         this.props.navigation.goBack()
                     }}>
                         <Text style={{
                             fontSize: 18,
                             color: APP_YELLOW,
-                            fontFamily: 'EurostileBold',
-
+                            fontFamily: 'EurostileBold'
                         }}
                             numberOfLines={0}>{this.state.data.name}</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
                     <View style={{
-                        flex: 1,
+                        flex: 1
                     }}>
                         <View style={{
                             height: Dimensions.get('window').height / 3,

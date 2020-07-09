@@ -44,6 +44,16 @@ export default class Settings extends Component {
             }
         });
     };
+    async save(key, value) {
+
+        try {
+            await AsyncStorage.setItem(key, value);
+
+            //alert(JSON.stringify(value))
+        } catch (error) {
+            //   console.log("Error saving data" + error);
+        }
+    }
 
 
     render() {
@@ -64,9 +74,9 @@ export default class Settings extends Component {
                     <TouchableOpacity style={{
                         height: 35,
                         width: 35,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'absolute',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        position:'absolute',
                         left: 5
                     }}
                         onPress={() => {
@@ -84,15 +94,14 @@ export default class Settings extends Component {
                         height: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-
                     }}>
                         <Text style={{
                             fontSize: 20,
-                            color: APP_YELLOW, fontFamily: 'EurostileBold',
+                            color: APP_YELLOW, 
+                            fontFamily: 'EurostileBold',
                         }}>Settings</Text>
                     </View>
                 </View>
-
                 <TouchableOpacity style={{
                     height: 40,
                     width: '60%',

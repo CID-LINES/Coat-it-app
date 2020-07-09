@@ -16,7 +16,8 @@ export default class NotificationDetail extends Component {
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 45, width: '95%',
+                    height: 45,
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
                     alignSelf: 'center',
@@ -47,7 +48,6 @@ export default class NotificationDetail extends Component {
                         height: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-
                     }}>
                         <Text style={{
                             fontSize: 18,
