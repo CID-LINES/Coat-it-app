@@ -317,7 +317,6 @@ export default class SignUp extends Component {
                                         keyboardType='ascii-capable'
                                         placeholder='Enter your email'
                                         placeholderTextColor='#C0C0C0'>
-
                                     </TextInput>
                                 </View>
                                 {/* <View style={{

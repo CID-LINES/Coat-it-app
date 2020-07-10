@@ -1,16 +1,9 @@
-// // /**
-// //  * Sample React Native App
-// //  * https://github.com/facebook/react-native
-// //  *
-// //  * @format
-// //  * @flow
-// //  */
+
 
 
 import {  createAppContainer,createSwitchNavigator } from "react-navigation"; 
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
-//import {} from 'rea'
 
 
 import React from 'react';

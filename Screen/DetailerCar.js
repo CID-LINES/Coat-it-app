@@ -265,7 +265,7 @@ export default class ServiceDeatil extends Component {
                                 })
                             }}>
                             <ImageBackground style={{ flex: 1 }}
-                                resizeMode='stretch'
+                                resizeMode='cover'
                                 source={require('../assets/bg.png')}>
                                 <ImageLoad style={{
                                     height: Dimensions.get('window').height / 3,
@@ -335,7 +335,7 @@ export default class ServiceDeatil extends Component {
                                 })
                             }}>
                             <ImageBackground style={{ flex: 1 }}
-                                resizeMode='stretch'
+                                resizeMode='cover'
                                 source={require('../assets/bg.png')}>
                                 <ImageLoad style={{
                                     height: Dimensions.get('window').height / 3,

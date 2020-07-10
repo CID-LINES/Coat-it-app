@@ -42,18 +42,19 @@ export default class ServiceDeatil extends Component {
 
                     }}>
                         <Text style={{
-                            fontSize: 18, fontWeight: '700',
+                            fontSize: 18, 
+                            fontWeight: '700',
                             color: APP_BLUE
                         }}>Sevice Detail</Text>
                     </View>
                 </View>
 
-                <View style={{ flex: 1 }}
-                >
+                <View style={{ flex: 1 }}>
 
                     <View style={{
                         height: 250,
-                        width: '100%', justifyContent: 'center',
+                        width: '100%', 
+                        justifyContent: 'center',
                         // backgroundColor:'pink'
                     }}>
                         <TouchableOpacity style={{

@@ -34,7 +34,7 @@ export default class UserProfile extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                    this.userDetaildApi()
+                    this.UserDetailerApi()
                 })
             }
         } catch (error) {
@@ -43,7 +43,7 @@ export default class UserProfile extends Component {
     }
 
 
-    userDetaildApi = () => {
+    UserDetailerApi = () => {
         this.setState({
             isLoading: true
         })
@@ -54,7 +54,6 @@ export default class UserProfile extends Component {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
-
                     //  'Content-type':'multipart/form-data'
                 }
             })
@@ -78,8 +77,7 @@ export default class UserProfile extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
-    }
+}
 
     render() {
         return (
@@ -106,13 +104,13 @@ export default class UserProfile extends Component {
                             </Text>
                         </View>
                         <TouchableOpacity style={{
-                            height: 35, 
+                            height: 35,
                             width: 35,
                             alignItems: 'center',
                             justifyContent: 'center',
                             position: 'absolute',
                             right: 13,
-                            top:3
+                            top: 3
                         }}
                             onPress={() => {
                                 this.props.navigation.navigate('Settings')
@@ -124,7 +122,7 @@ export default class UserProfile extends Component {
                             }}
                                 resizeMode='contain'
                                 source={require('../assets/settings.png')}>
-                                </Image>
+                            </Image>
                         </TouchableOpacity>
                     </View>
                     <ScrollView style={{ flex: 1 }}>
@@ -156,24 +154,21 @@ export default class UserProfile extends Component {
                                                 { uri: this.state.data.avatar }
                                             }></ImageLoad>
                                     </TouchableOpacity>
-                                   
                                 </View>
                                 <TouchableOpacity style={{
                                     height: 40,
-                                    width:40,
+                                    width: 40,
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    //position: 'absolute',
-                                   marginLeft:Dimensions.get('window').fontScale*125,
-                                   marginTop:Dimensions.get('window').fontScale*-50,
-                                    alignSelf:'center',
+                                    marginLeft: Dimensions.get('window').fontScale * 125,
+                                    marginTop: Dimensions.get('window').fontScale * -50,
+                                    alignSelf: 'center',
                                 }}
-                                onPress={() => {
-                                    this.props.navigation.navigate('EditProfile', {
-                                        data: this.state.data
-                                    })
-                                }}>
-                                   
+                                    onPress={() => {
+                                        this.props.navigation.navigate('EditProfile', {
+                                            data: this.state.data
+                                        })
+                                    }}>
                                     <Image style={{
                                         height: 35,
                                         width: 35,
@@ -181,21 +176,19 @@ export default class UserProfile extends Component {
                                         tintColor: APP_YELLOW
                                     }}
                                         source={require('../assets/service-icon.png')}>
-                                        </Image>
+                                    </Image>
                                 </TouchableOpacity>
                             </View>
                             <View style={{
                                 width: "90%",
                                 justifyContent: 'center',
                                 alignSelf: 'center',
-                                 marginTop: 10,
-                                 alignItems:'center',
-                                borderRadius: 10,
-
-                            }}>
+                                marginTop: 10,
+                                alignItems: 'center',
+                                borderRadius: 10}}>
                                 <View style={{
                                     alignItems: 'flex-start',
-                                    marginLeft: Dimensions.get('window').fontScale*40
+                                    marginLeft: Dimensions.get('window').fontScale * 40
                                 }}>
                                     <View style={{
                                         flexDirection: 'row',
@@ -383,8 +376,8 @@ export default class UserProfile extends Component {
                         backgroundColor: '#000000aa',
                         //backgroundColor:'black',
                         top: 0,
-                        bottom: 0, 
-                        left: 0, 
+                        bottom: 0,
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -394,7 +387,7 @@ export default class UserProfile extends Component {
                         })
                     }}>
                         <View style={{
-                            height:Dimensions.get('window').height/2,
+                            height: Dimensions.get('window').height / 2,
                             width: '100%'
                         }}>
                             <ImageLoad style={{
@@ -405,7 +398,7 @@ export default class UserProfile extends Component {
                                 source={this.state.data.avatar == null ?
                                     require('../assets/placeholder.jpg')
                                     : { uri: this.state.data.avatar }}>
-                                    </ImageLoad>
+                            </ImageLoad>
                         </View>
                     </TouchableOpacity>
                 }

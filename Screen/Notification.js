@@ -14,17 +14,18 @@ export default class Notification extends Component {
         this.state = {
             data: [],
             isFetching: false,
-            previewurl: null
+            previewurl: null,
+           
         }
     }
 
     async componentDidMount() {
         this.NotificationApi()
     }
+
     NotificationApi = () => {
         this.setState({
-            isLoading: true
-          
+            isLoading: true  
         })
 
         fetch('http://3.137.41.50/coatit/public/api/notification_list',
@@ -39,7 +40,6 @@ export default class Notification extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson.response))
                 if (responseJson.response.status == true) {
-                    // this.save('car_id',responseJson.response.carDetails.id +'' )
                     this.setState({
                         data: responseJson.response.notifcations,
                     })
@@ -83,7 +83,7 @@ export default class Notification extends Component {
                             }}>Notifications</Text>
                         </View>
                         <FlatList style={{marginTop: 5}}
-                            refreshControl={<RefreshControl
+                                refreshControl={<RefreshControl
                                 tintColor={APP_YELLOW}
                                 colors={["#D65050","#D65050"]}
                                 refreshing={this.state.isFetching}
@@ -92,7 +92,8 @@ export default class Notification extends Component {
                             data={this.state.data}
                             renderItem={({ item }) => (
                                 this.Notification(item)
-                            )}></FlatList>
+                            )}>
+                            </FlatList>
                     </View>
                     {this.state.isLoading &&
                         <View style={{

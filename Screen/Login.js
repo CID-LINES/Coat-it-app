@@ -23,7 +23,8 @@ export default class Login extends Component {
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
-                this.props.navigation.push('Home')
+                // this.props.navigation.push('Home')
+                this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
             }
         })  
     }
@@ -58,7 +59,7 @@ export default class Login extends Component {
                 'email': this.state.email,
                 'password': this.state.Password,
                 'device_token':fcmToken+'',
-                'device_type':Platform.OS=='android'?'a':'i'
+                'device_type':Platform.OS == 'android'?'a':'i'
             },
             (data) => {
                 console.log(JSON.stringify(data))
@@ -83,8 +84,6 @@ export default class Login extends Component {
                 //nsole.log(data)
             })
     }
-
-  
 
     render() {
         return (

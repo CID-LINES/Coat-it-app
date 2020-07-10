@@ -126,7 +126,8 @@ export default class NotificationDetail extends Component {
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
-                    }} onPress={() => {
+                    }} 
+                    onPress={() => {
                         this.setState({
                             isShow: false
                         })
