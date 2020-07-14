@@ -28,7 +28,7 @@ import ChangePassword from './Screen/ChangePassword';
 import ProductDetail from './Screen/ProductDetail';
 import NotificationDetail from './Screen/NotificationDetail';
 import EditCarDetail from './Screen/EditCarDetail'
-import Payment from './Screen/Payment'
+import AddDetailer from './Screen/AddDetailer'
 import PurchaseDetail from './Screen/PurchaseDetail'
 import ForgetPassword from './Screen/ForgetPassword'
 import EditProfile from './Screen/EditProfile'
@@ -37,28 +37,34 @@ import DetailerProduct from './Screen/DetailerProduct'
 
 
 
-
 const Tabnavigation =createBottomTabNavigator({
   Services: {screen: Home,
     navigationOptions: {
-      tabBarLabel: 'Service',
+      tabBarLabel: 'Services',
       tabBarIcon: ({ tintColor }) => (
-        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+        <Image style={{ width: 30,
+           height: 30, 
+           tintColor:tintColor,
+           marginTop:10,
+           marginBottom:10}}
           source={require('./assets/service-icon.png')}
           resizeMode={"contain"}>
-
         </Image>
       )
     }
   },
+
   Notification:{screen: Notification,
     navigationOptions: {
     tabBarLabel: 'Notification',
     tabBarIcon: ({ tintColor }) => (
-      <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+      <Image style={{ width: 30, 
+        height: 30, 
+        tintColor:tintColor,
+        marginTop:10,
+        marginBottom:10}}
         source={require('./assets/notification-icon.png')}
         resizeMode={"contain"}>
-
       </Image>
     )
   }},
@@ -66,7 +72,10 @@ const Tabnavigation =createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Products',
       tabBarIcon: ({ tintColor }) => (
-        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+        <Image style={{ width: 30, 
+          height: 30, tintColor:tintColor,
+          marginTop:10,
+          marginBottom:10}}
           source={require('./assets/product.png')}
           resizeMode={"contain"}>
 
@@ -78,7 +87,11 @@ const Tabnavigation =createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'User Profile',
       tabBarIcon: ({ tintColor }) => (
-        <Image style={{ width: 30, height: 30, tintColor:tintColor,marginTop:10,marginBottom:5}}
+        <Image style={{ width: 30, 
+          height: 30,
+          tintColor:tintColor,
+          marginTop:10,
+          marginBottom:10}}
           source={require('./assets/profile-icon.png')}
           resizeMode={"contain"}>
 
@@ -86,16 +99,14 @@ const Tabnavigation =createBottomTabNavigator({
       )
     }},
    
-  
 },{
   tabBarOptions: {
     showIcon: true,
     inactiveTintColor:'white',
     activeTintColor: 'black',
-
-    style: {height:45,
-
-      // justifyContent:'center',
+    labelStyle:{fontSize:15,
+      fontFamily: 'EurostileBold'},
+    style: {height:52,
       backgroundColor: APP_YELLOW,
     }
   }
@@ -116,10 +127,10 @@ const Tabnavigation =createBottomTabNavigator({
   ProductDetail :{screen:ProductDetail},
   NotificationDetail:{screen :NotificationDetail},
   EditCarDetail:{screen :EditCarDetail},
-  Payment:{screen :Payment},
   PurchaseDetail:{screen:PurchaseDetail},
   ForgetPassword:{screen:ForgetPassword},
-  EditProfile:{screen:EditProfile}
+  EditProfile:{screen:EditProfile},
+  AddDetailer:{screen:AddDetailer}
     
   },
     {

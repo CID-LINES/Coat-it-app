@@ -31,47 +31,79 @@ export default class DetailerList extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                    this.DetailerListApi()
+                    //this.DetailerListApi()
                 })
             }
         } catch (error) {
         }
     }
-    DetailerListApi = (index) => {
-        this.setState({
-            isLoading: true
-        })
+    // DetailerListApi = (index) => {
+    //     this.setState({
+    //         isLoading: true
+    //     })
 
-        fetch('http://3.137.41.50/coatit/public/api/detailer_list/' + "" + this.state.user_id,
-            {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(JSON.stringify(responseJson))
-                if (responseJson.response.status == true) {
-                    this.setState({
-                        DATA: responseJson.response.data
-                    })
-                }
-                this.setState({
-                    isLoading: false,
-                    isFetching: false
-                })
+    //     fetch('http://3.137.41.50/coatit/public/api/detailer_list/' + "" + this.state.user_id,
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             }
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(JSON.stringify(responseJson))
+    //             if (responseJson.response.status == true) {
+    //                 this.setState({
+    //                     DATA: responseJson.response.data
+    //                 })
+    //             }
+    //             this.setState({
+    //                 isLoading: false,
+    //                 isFetching: false
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
+    // }
+    // DetailerListApi = (index) => {
+    //     this.setState({
+    //         isLoading: true
+    //     })
 
-            })
-            .catch((error) => {
-                console.error(error);
-                //  alert(error)
-                //  callback({ data: error });
-                //callback({error: true, data: error});
-            });
+    //     fetch('http://3.137.41.50/coatit/public/api/detailer_list',
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             }
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(JSON.stringify(responseJson))
+    //             if (responseJson.response.status == true) {
+    //                 this.setState({
+    //                     DATA: responseJson.response.data
+    //                 })
+    //             }
+    //             this.setState({
+    //                 isLoading: false,
+    //                 isFetching: false
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
 
-    }
+    // }
 
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.DetailerListApi() })
@@ -158,6 +190,28 @@ export default class DetailerList extends Component {
                                 this.DetailerList(item, index)
                             )}></FlatList>
                     </View>}
+                    <TouchableOpacity style={{
+                        height: 60, 
+                        width: 60,
+                        borderRadius: 30,
+                        backgroundColor: APP_YELLOW,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute',
+                        alignContent: 'flex-end',
+                        right: 20,
+                        bottom: 20,
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('AddDetailer')
+                        }}>
+                        <Image style={{
+                            height: 40,
+                            width: 40,
+                            tintColor: 'black'
+                        }}
+                            source={require('../assets/plus-icon.png')}></Image>
+                    </TouchableOpacity>
                 {/* </ScrollView> */}
 
                 {this.state.isLoading &&

@@ -58,13 +58,14 @@ export default class NotificationDetail extends Component {
                             height: Dimensions.get('window').height / 2.5,
                             width: '100%',
                             justifyContent: 'center',
-                            alignItems: 'center',marginTop:10
+                            alignItems: 'center',
+                            marginTop:10
                             // backgroundColor:'pink'
                         }}>
                             <TouchableOpacity style={{
                                 flex: 1,
                                 width: '95%',
-                                borderRadius: 10,
+                                //borderRadius: 10,
                                 alignSelf: 'center',
 
                                 justifyContent: 'center',
@@ -81,7 +82,6 @@ export default class NotificationDetail extends Component {
                                 }}
                                  resizeMode='cover'
                                     source={
-                                      
                                         { uri: this.state.data.image }}></ImageLoad>
                             </TouchableOpacity>
                         </View>
@@ -97,7 +97,7 @@ export default class NotificationDetail extends Component {
                                 color:'#C0C0C0',
                                 fontFamily: 'EurostileBold',
                             }}>
-                                {this.state.data.title}</Text>
+                                {this.state.data.title.toUpperCase()}</Text>
                             <Text style={{
                                 fontSize: 20,
                                 marginTop: 10,

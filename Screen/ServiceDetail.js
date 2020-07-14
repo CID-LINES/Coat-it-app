@@ -85,7 +85,7 @@ export default class ServiceDeatil extends Component {
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold'
                         }}
-                            numberOfLines={0}>{this.state.data.name}</Text>
+                            numberOfLines={0}>{this.state.data.name.toUpperCase()}</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={{ flex: 1 }}>
@@ -101,7 +101,7 @@ export default class ServiceDeatil extends Component {
                             <TouchableOpacity style={{
                                 flex: 1,
                                 width: '95%',
-                                borderRadius: 10,
+                                //borderRadius: 10,
                                 alignSelf: 'center',
                                 justifyContent: 'center',
                                 overflow: 'hidden'

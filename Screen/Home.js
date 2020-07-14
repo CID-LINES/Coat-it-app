@@ -14,9 +14,13 @@ export default class Home extends Component {
         this.state = {
             data: '',
             isFetching: false,
+            text:[]
         }
 
     }
+
+
+    
     async componentDidMount() {
         this.get('user_id')
         this.checkPermission();
@@ -72,8 +76,8 @@ export default class Home extends Component {
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
-   const { title, body } = notificationOpen.notification;
-      this.navigate(title,body)
+        const { title, body } = notificationOpen.notification;
+        this.navigate(title,body)
         }
       }
     
@@ -97,6 +101,12 @@ export default class Home extends Component {
         }
     }
 
+    // convertTextToUpperCase = () => {
+    //     var text = this.state.data;
+    //     var uppercasetext = text.toUpperCase();//To convert Upper Case
+    //     this.setState({ data: uppercasetext });
+    //   };
+    
 
     PlanApi = () => {
         this.setState({
@@ -111,7 +121,6 @@ export default class Home extends Component {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
 
-                    //  'Content-type':'multipart/form-data'
                 }
             })
             .then((response) => response.json())
@@ -121,7 +130,14 @@ export default class Home extends Component {
                     this.setState({
                         data: responseJson.response.data
                     })
-                    // alert('helo')
+                //   var text = []
+                //     responseJson.response.data.map((item)=>{
+                //         var _text = item.name.toUpperCase();
+                //         this.setState({
+                //             text: _text
+                //         })
+                //     })
+                    
                 }
                 this.setState({
                      isLoading: false,
@@ -208,7 +224,7 @@ export default class Home extends Component {
                 alignSelf: 'center',
                 // borderColor: APP_YELLOW,
                 // borderWidth: 3,
-                borderRadius: 10,
+                //borderRadius: 10,
                 marginBottom: 10,
                 overflow: 'hidden'
             }} onPress={() => {
@@ -239,7 +255,7 @@ export default class Home extends Component {
                         fontFamily: 'EurostileBold',
                         color: '#C0C0C0'
                     }}
-                    >{item.name}</Text>
+                    >{item.name.toUpperCase()}</Text>
                     <Text style={{
                         fontSize: 16,
                         color: '#C0C0C0',

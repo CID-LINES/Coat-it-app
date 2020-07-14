@@ -26,9 +26,8 @@ export default class MyCars extends Component {
             access_token: '',
             car: '',
             user_id: '',
-
             id: '',
-            isFetching:false
+            isFetching: false
 
         }
     }
@@ -66,9 +65,7 @@ export default class MyCars extends Component {
         this.setState({
             isLoading: true
         })
-
-
-        fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id+'',
+        fetch('http://3.137.41.50/coatit/public/api/cardetails/' + this.state.user_id + '',
             {
                 method: 'GET',
                 headers: {
@@ -84,11 +81,10 @@ export default class MyCars extends Component {
                     this.setState({
                         car: responseJson.response.carDetails,
                     })
-
                 }
                 this.setState({
                     isLoading: false,
-                    isFetching:false
+                    isFetching: false
                 })
 
             })
@@ -101,12 +97,12 @@ export default class MyCars extends Component {
 
     }
 
-    DeletecarApi = (id,index) => {
+    DeletecarApi = (id, index) => {
         this.setState({
             isLoading: true
         })
-     
-        fetch('http://3.137.41.50/coatit/public/api/delete_car/' + ""+id,
+
+        fetch('http://3.137.41.50/coatit/public/api/delete_car/' + "" + id,
             {
                 method: 'DELETE',
                 headers: {
@@ -132,102 +128,109 @@ export default class MyCars extends Component {
             })
             .catch((error) => {
                 console.error(error);
- 
+
             });
-}
-    onRefresh=()=> {
-        this.setState({ isFetching: true }, function() { this.MycarApi() });    
-     }
+    }
+    onRefresh = () => {
+        this.setState({ isFetching: true }, function () { this.MycarApi() });
+    }
 
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
-                 <ImageBackground style={{ flex: 1 ,}}
-                 resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
-                    <View style={{
-                        height: 45, 
-                        width: '95%',
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
+                <View style={{
+                    height: 45,
+                    width: '95%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    alignSelf: 'center',
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
+                }}>
+                    <TouchableOpacity style={{
+                        height: 35,
+                        width: 35,
+                        alignItems: 'center',
                         justifyContent: 'center',
-                        alignItems:'center',
-                        flexDirection: 'row',
-                        alignSelf: 'center',
-                        marginTop:Platform.OS ==='ios'?25:7
-                    }}>
-                        <TouchableOpacity style={{
-                            height: 35, 
-                            width: 35,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            position: 'absolute',
-                            left: 5
-                        }}
-                            onPress={() => {
-                                this.props.navigation.goBack()
-                            }}>
-                            <Image style={{ height: 20, 
-                            width: 20, 
-                            tintColor: APP_YELLOW }}
-                                resizeMode='contain'
-                                source={require('../assets/back.png')}>
-                                </Image>
-
-                        </TouchableOpacity>
-                        <View style={{
-                            height: 35,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-
+                        position: 'absolute',
+                        left: 5
+                    }}
+                        onPress={() => {
+                            this.props.navigation.goBack()
                         }}>
-                            <Text style={{
-                                fontSize: 18, 
-                                fontFamily:'EurostileBold',
-                                color: APP_YELLOW
-                            }}>My Cars</Text>
-                        </View>
-                    </View>
+                        <Image style={{
+                            height: 20,
+                            width: 20,
+                            tintColor: APP_YELLOW
+                        }}
+                            resizeMode='contain'
+                            source={require('../assets/back.png')}>
+                        </Image>
+                    </TouchableOpacity>
+                    <View style={{
+                        height: 35,
+                        alignItems:'center',
+                        justifyContent:'center',
 
-                    <View style={{ flex: 1 }}>
-                        <FlatList style={{ flex: 1, 
+                    }}>
+                        <Text style={{
+                            fontSize: 18,
+                            fontFamily: 'EurostileBold',
+                            color: APP_YELLOW
+                        }}>My Cars</Text>
+                    </View>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <FlatList style={{
+                        flex: 1,
                         marginTop: 10,
-                        marginBottom:20}}
-                          refreshControl={<RefreshControl 
+                        marginBottom: 20
+                    }}
+                            refreshControl={<RefreshControl
                             tintColor={APP_YELLOW}
-                            colors={["#D65050","#D65050"]}
+                            colors={["#D65050", "#D65050"]}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
-                            </RefreshControl>}
-                            data={this.state.car}
-                            renderItem={({ item, index }) => (
-                                this.MyCars(item, index)
-                            )}>
-                        </FlatList>
-                        <TouchableOpacity style={{
-                            height: 60, width: 60,
-                            borderRadius: 30,
-                            backgroundColor: APP_YELLOW,
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            position: 'absolute',
-                            alignContent: 'flex-end',
-                            right: 20,
-                            bottom: 40,
+                        </RefreshControl>}
+                        data={this.state.car}
+                        renderItem={({ item, index }) => (
+                            this.MyCars(item, index)
+                        )}>
+                    </FlatList>
+                    <TouchableOpacity style={{
+                        height: 60, 
+                        width: 60,
+                        borderRadius: 30,
+                        backgroundColor: APP_YELLOW,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute',
+                        alignContent: 'flex-end',
+                        right: 20,
+                        bottom: 40,
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('AddCar')
+                        }}>
+                        <Image style={{
+                            height: 40,
+                            width: 40,
+                            tintColor: 'black'
                         }}
-                            onPress={() => {
-                                this.props.navigation.navigate('AddCar')
-                            }
-                            }>
-                            <Image style={{ height: 40, width: 40,
-                            tintColor:'black' }}
-                                source={require('../assets/plus-icon.png')}></Image>
-                        </TouchableOpacity>
-                    </View>
+                            source={require('../assets/plus-icon.png')}></Image>
+                    </TouchableOpacity>
+                </View>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0,
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
@@ -239,49 +242,42 @@ export default class MyCars extends Component {
 
                     </View>
                 }
-</ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
     MyCars = (item, index) => {
-      
-
         return (
             <TouchableOpacity style={{
-               // height: 120,
+                // height: 120,
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10, 
-                // borderColor: APP_YELLOW, borderWidth: 3,
+                //borderRadius: 10,
                 alignSelf: 'center',
-                // backgroundColor: 'pink',
                 overflow: 'hidden'
             }}
                 onPress={() => {
-
                     this.props.navigation.navigate('EditCarDetail', {
                         data: item
                     })
-                }}
-            >
+                }}>
                 <View style={{ flexDirection: 'column' }}>
-                   
                     <ImageLoad style={{
-                        height: Dimensions.get('window').height/4,
+                        height: Dimensions.get('window').height / 4,
                         width: '100%',
                     }}
                         resizeMode='cover'
                         source={item.image == null || item.image == 0 ?
-                            require('../assets/placeholder.jpg'):
+                            require('../assets/placeholder.jpg') :
                             { uri: item.image }}>
                     </ImageLoad>
-                    <View style={{ 
-                        marginLeft:5, 
-                        marginTop:10,
+                    <View style={{
+                        marginLeft: 5,
+                        marginTop: 10,
                         // alignItems:'center',
                         // justifyContent:'center'
-                        }}>
+                    }}>
                         {/* <Text style={{
                             fontSize: 17,
                             fontWeight: '700'
@@ -290,23 +286,22 @@ export default class MyCars extends Component {
                         </Text> */}
                         <Text style={{
                             fontSize: 18,
-                    //    marginTop:10,
-                    
-                       fontFamily:'EurostileBold',
-                       color:'#C0C0C0'
+                            fontFamily: 'EurostileBold',
+                            color: '#C0C0C0'
                         }}>
                             {item.vehicle_no}
                         </Text>
-                        <Text style={{ 
+                        <Text style={{
                             marginTop: 10,
-                            fontSize:17,
-                            color:'#C0C0C0',
-                            fontFamily:'EurostileBold', }}>{item.manufacture_year}</Text>
+                            fontSize: 17,
+                            color: '#C0C0C0',
+                            fontFamily: 'EurostileBold',
+                        }}>{item.manufacture_year}</Text>
                         <TouchableOpacity style={{
                             height: 30,
                             width: 30,
-                            marginTop:10,
-                            marginBottom:5,
+                            marginTop: 10,
+                            marginBottom: 5,
                             alignItems: 'center',
                             justifyContent: 'center',
                         }}
@@ -337,7 +332,6 @@ export default class MyCars extends Component {
 
                     </View>
                 </View>
-
             </TouchableOpacity>
         )
     }

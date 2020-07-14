@@ -77,7 +77,7 @@ export default class UserProfile extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-}
+    }
 
     render() {
         return (
@@ -147,7 +147,10 @@ export default class UserProfile extends Component {
                                             isShow: true
                                         })
                                     }}>
-                                        <ImageLoad style={{ height: 150, width: 150 }}
+                                        <ImageLoad style={{
+                                            height: 150,
+                                            width: 150
+                                        }}
                                             resizeMode='cover'
                                             source={this.state.data.avatar == null ?
                                                 require('../assets/placeholder.jpg') :
@@ -185,7 +188,8 @@ export default class UserProfile extends Component {
                                 alignSelf: 'center',
                                 marginTop: 10,
                                 alignItems: 'center',
-                                borderRadius: 10}}>
+                                borderRadius: 10
+                            }}>
                                 <View style={{
                                     alignItems: 'flex-start',
                                     marginLeft: Dimensions.get('window').fontScale * 40
@@ -227,7 +231,6 @@ export default class UserProfile extends Component {
                                     <View style={{
                                         flexDirection: 'row',
                                         marginTop: 10,
-
                                         // width:'60%',
                                         // justifyContent:'space-between'
                                     }}>
@@ -239,7 +242,8 @@ export default class UserProfile extends Component {
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
-                                                fontSize: 17, color: APP_YELLOW
+                                                fontSize: 17, 
+                                                color: APP_YELLOW
                                             }}>Name </Text>
                                             <Text style={{
                                                 color: '#C0C0C0',
@@ -268,7 +272,6 @@ export default class UserProfile extends Component {
                                                 fontSize: 17, color: APP_YELLOW
                                             }}>Email </Text>
                                             <Text style={{
-
                                                 fontSize: 16,
                                                 marginRight: 15,
                                                 color: '#C0C0C0',
@@ -292,10 +295,10 @@ export default class UserProfile extends Component {
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
-                                                fontSize: 17, color: APP_YELLOW
+                                                fontSize: 17, 
+                                                color: APP_YELLOW
                                             }}>Phone no </Text>
                                             <Text style={{
-
                                                 // marginRight: 15,
                                                 fontSize: 16,
                                                 color: '#C0C0C0',

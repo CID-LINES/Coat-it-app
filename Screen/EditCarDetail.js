@@ -72,7 +72,7 @@ export default class EditCarDetail extends Component {
             vehicle_no: props.navigation.state.params.data.vehicle_no,
             manufacture_year: props.navigation.state.params.data.manufacture_year,
             data: props.navigation.state.params.data,
-            DATA:[]
+            DATA: []
         }
         //  console.log(JSON.stringify(this.state.data))
     }
@@ -81,7 +81,6 @@ export default class EditCarDetail extends Component {
     chooseFile = () => {
         var options = {
             title: 'Select Image',
-
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -108,21 +107,21 @@ export default class EditCarDetail extends Component {
             }
         });
     };
-    componentDidMount(){
+    componentDidMount() {
         this.manufactureyear()
     }
 
-    manufactureyear=()=>{
-        var allyear=[]
+    manufactureyear = () => {
+        var allyear = []
         //alert(JSON.stringify(year))
-        for(var i=year;i>=1945;i--){
+        for (var i = year; i >= 1945; i--) {
             allyear.push({
-                label: i+'',
-                value: i+''
-                })
+                label: i + '',
+                value: i + ''
+            })
         }
         this.setState({
-            DATA:allyear
+            DATA: allyear
         })
     }
 
@@ -183,16 +182,17 @@ export default class EditCarDetail extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
-                 <ImageBackground style={{ flex: 1 ,}}
-                 resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 45, width: '95%',
+                    height: 45,
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignItems:'center',
+                    alignItems: 'center',
                     alignSelf: 'center',
-                    marginTop:Platform.OS==='ios'?25:7
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
                     <TouchableOpacity style={{
                         height: 35,
@@ -205,38 +205,42 @@ export default class EditCarDetail extends Component {
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 20, width: 20, tintColor: APP_YELLOW }}
+                        <Image style={{
+                            height: 20,
+                            width: 20,
+                            tintColor: APP_YELLOW
+                        }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
-                        alignItems: 'center', 
-                        justifyContent: 'center'}}>
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
                         <Text style={{
                             fontSize: 18,
-                            color: APP_YELLOW, 
-                            fontFamily:'EurostileBold'
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
                         }}>Car Detail</Text>
                     </View>
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
-                    >
+                    behavior="padding" enabled={Platform.OS === 'ios'}
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
                                 height: Dimensions.get('window').height / 3.5,
                                 width: '100%',
                                 justifyContent: 'center',
-                             marginTop:10
+                                marginTop: 10
                             }}>
                                 <TouchableOpacity style={{
                                     flex: 1,
                                     width: '95%',
                                     // backgroundColor: 'gray',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignSelf: 'center',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -246,42 +250,47 @@ export default class EditCarDetail extends Component {
                                         this.chooseFile()
                                     }}>
                                     <ImageLoad style={{
-                                        flex: 1, 
+                                        flex: 1,
                                         width: '100%',
-                                        borderRadius: 10
+                                        
                                     }}
                                         resizeMode='stretch'
                                         source={{ uri: this.state.filePath }}>
                                     </ImageLoad>
                                 </TouchableOpacity>
                                 <View style={{
-                                    height: 40, 
-                                    flexDirection:'row',
-                                    alignItems: 'center', 
+                                    height: 40,
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
                                     justifyContent: 'center',
-                                    position: 'absolute', 
+                                    position: 'absolute',
                                     bottom: 5,
                                     right: 18
                                 }}>
-                                    <Text style={{ fontFamily:'EurostileBold'}}>Upload car picture here</Text>
-                                    <Image style={{marginLeft:10,
-                                        height: 30, width: 30,
+                                    <Text style={{ fontFamily: 'EurostileBold' }}>Upload car picture here</Text>
+                                    <Image style={{
+                                        marginLeft: 10,
+                                        height: 30, 
+                                        width: 30,
                                         tintColor: 'black'
                                     }}
                                         source={require('../assets/camera.png')}></Image>
                                 </View>
                             </View>
-                            <View style={{ width: '100%', marginTop: 20 }}>
+                            <View style={{
+                                width: '100%',
+                                marginTop: 20
+                            }}>
                                 <Text style={{
                                     marginLeft: 35,
-                                    fontFamily:'EurostileBold', 
-                                   color:'#C0C0C0'
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0'
                                 }}>Brand/Company Name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     padding: 5,
-                                    color:'#C0C0C0',
+                                    color: '#C0C0C0',
                                     alignSelf: 'center'
                                 }}
                                     placeholderTextColor='#C0C0C0'
@@ -298,15 +307,15 @@ export default class EditCarDetail extends Component {
                                 <Text style={{
                                     marginLeft: 35,
                                     marginTop: 10,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Model Name</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
-                                    color:'#C0C0C0'
+                                    color: '#C0C0C0'
                                 }}
                                     placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
@@ -320,17 +329,17 @@ export default class EditCarDetail extends Component {
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
                                 <Text style={{
-                                    marginLeft: 35, 
-                                    marginTop: 10, 
-                                    fontFamily:'EurostileBold',
-                                    color:'#C0C0C0'
+                                    marginLeft: 35,
+                                    marginTop: 10,
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0'
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
                                     height: 40,
                                     width: '80%',
                                     padding: 5,
                                     alignSelf: 'center'
-                                    ,color:'#C0C0C0'
+                                    , color: '#C0C0C0'
                                 }}
                                     placeholderTextColor='#C0C0C0'
                                     keyboardType='ascii-capable'
@@ -344,10 +353,10 @@ export default class EditCarDetail extends Component {
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
                                 <Text style={{
-                                    marginLeft: 35,                       
+                                    marginLeft: 35,
                                     marginTop: 10,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Year of Manufacture</Text>
                                 {/* <TextInput style={{
                                     height: 40, width: '80%',
@@ -372,7 +381,7 @@ export default class EditCarDetail extends Component {
                                     // paddingRight: 30, // to ensure the text is never behind the icon
                                 }}>
                                     <RNPickerSelect
-                                        style={{                                            
+                                        style={{
                                             ...pickerSelectStyles,
                                             iconContainer: {
                                                 top: 10,
@@ -381,8 +390,8 @@ export default class EditCarDetail extends Component {
                                         }}
                                         placeholder={{
                                             label: 'Manufacture Year',
-                                           color:'gray',
-                                          
+                                            color: 'gray',
+
                                         }}
                                         items={this.state.DATA}
                                         onValueChange={(value) => {
@@ -402,23 +411,22 @@ export default class EditCarDetail extends Component {
                             </View>
                             <TouchableOpacity style={{
                                 height: 50,
-                                 width: '60%',
-                                marginTop: 20, 
-                                alignSelf: 'center', 
+                                width: '60%',
+                                marginTop: 20,
+                                alignSelf: 'center',
                                 alignItems: 'center',
-                                justifyContent: 'center', 
+                                justifyContent: 'center',
                                 marginBottom: 10,
-                                backgroundColor: APP_YELLOW, 
+                                backgroundColor: APP_YELLOW,
                                 borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.EditCarDetail()
                                 }}>
                                 <Text style={{
-                                   
                                     color: 'black',
                                     fontSize: 18,
-                                    fontFamily:'EurostileBold',
+                                    fontFamily: 'EurostileBold',
                                 }}>Submit</Text>
                             </TouchableOpacity>
                         </View>
@@ -441,7 +449,7 @@ export default class EditCarDetail extends Component {
 
                     </View>
                 }
-                </ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
@@ -477,12 +485,12 @@ const pickerSelectStyles = StyleSheet.create({
         // fontSize: 16,
         // paddingHorizontal: 10,
         // paddingVertical: 8,
-        padding:2,
+        padding: 2,
         borderWidth: 1,
         borderColor: APP_YELLOW,
         borderRadius: 4,
         color: '#C0C0C0',
-       // paddingRight: 30, 
+        // paddingRight: 30, 
         // to ensure the text is never behind the icon
     },
 })

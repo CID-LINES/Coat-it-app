@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ios/Desktop/Work/Coatit 2/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
+            "outputFile": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
             "map": [
                 {
                     "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/res/values-gu/values-gu.xml",
@@ -18,23 +18,6 @@
                         "startOffsets": "105,212,316,423,510,610,730,808,886,977,1069,1164,1258,1359,1452,1547,1641,1732,1823,1902,2008,2109,2206,2315,2415,2525,2685,5557",
                         "endColumns": "106,103,106,86,99,119,77,77,90,91,94,93,100,92,94,93,90,90,78,105,100,96,108,99,109,159,102,79",
                         "endOffsets": "207,311,418,505,605,725,803,881,972,1064,1159,1253,1354,1447,1542,1636,1727,1818,1897,2003,2104,2201,2310,2410,2520,2680,2783,5632"
-                    }
-                },
-                {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/f0f583948b2421917ef6bbd222ec241b/res/values-gu/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "207",
-                        "endColumns": "99",
-                        "endOffsets": "306"
-                    },
-                    "to": {
-                        "startLines": "47",
-                        "startColumns": "4",
-                        "startOffsets": "5453",
-                        "endColumns": "103",
-                        "endOffsets": "5552"
                     }
                 },
                 {
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/2b9aedd991227803c064cc1516753ce2/res/values-gu/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/res/values-gu/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -86,6 +69,23 @@
                         "startOffsets": "5637",
                         "endColumns": "100",
                         "endOffsets": "5733"
+                    }
+                },
+                {
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/7f28867aefc43d815d73e4e04077d117/res/values-gu/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "99",
+                        "endOffsets": "306"
+                    },
+                    "to": {
+                        "startLines": "47",
+                        "startColumns": "4",
+                        "startOffsets": "5453",
+                        "endColumns": "103",
+                        "endOffsets": "5552"
                     }
                 }
             ]

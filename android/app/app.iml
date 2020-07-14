@@ -19,8 +19,8 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/google-services/debug;file://$MODULE_DIR$/build/generated/res/resValues/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/build/generated/res/google-services/debug;file://$MODULE_DIR$/build/generated/res/react/debug;file://$MODULE_DIR$/build/generated/res/rs/debug;file://$MODULE_DIR$/build/generated/res/resValues/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
@@ -173,15 +173,15 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-api:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
-    <orderEntry type="module" module-name="react-native-firebase-android-react-native-firebase" />
-    <orderEntry type="module" module-name="android-react-native-image-picker" />
-    <orderEntry type="module" module-name="react-native-maps-lib-android-react-native-maps" />
-    <orderEntry type="module" module-name="android-react-native-push-notification" />
-    <orderEntry type="module" module-name="masked-view-android-react-native-community_masked-view" />
-    <orderEntry type="module" module-name="react-native-gesture-handler-android-react-native-gesture-handler" />
-    <orderEntry type="module" module-name="react-native-month-year-picker" />
-    <orderEntry type="module" module-name="react-native-reanimated-android-react-native-reanimated" />
-    <orderEntry type="module" module-name="react-native-safe-area-context-android-react-native-safe-area-context" />
-    <orderEntry type="module" module-name="react-native-screens-android-react-native-screens" />
+    <orderEntry type="module" module-name="node_modules-react-native-firebase-android-react-native-firebase" />
+    <orderEntry type="module" module-name="react-native-image-picker-android-react-native-image-picker" />
+    <orderEntry type="module" module-name="react-native-maps-lib-android-react-native-maps~1" />
+    <orderEntry type="module" module-name="react-native-push-notification-android-react-native-push-notification" />
+    <orderEntry type="module" module-name="@react-native-community-masked-view-android-react-native-community_masked-view" />
+    <orderEntry type="module" module-name="node_modules-react-native-gesture-handler-android-react-native-gesture-handler" />
+    <orderEntry type="module" module-name="android-react-native-month-year-picker" />
+    <orderEntry type="module" module-name="node_modules-react-native-reanimated-android-react-native-reanimated" />
+    <orderEntry type="module" module-name="node_modules-react-native-safe-area-context-android-react-native-safe-area-context" />
+    <orderEntry type="module" module-name="node_modules-react-native-screens-android-react-native-screens" />
   </component>
 </module>

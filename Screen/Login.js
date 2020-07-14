@@ -8,7 +8,7 @@ import { NavigationActions } from 'react-navigation';
 export default class Login extends Component {
     constructor(props) {
         super(props)
-       
+
         this.state = {
             isshow: false,
             email: '',
@@ -19,14 +19,14 @@ export default class Login extends Component {
             device_token: ''
         }
     }
-    componentDidMount() {        
+    componentDidMount() {
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
                 // this.props.navigation.push('Home')
                 this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
             }
-        })  
+        })
     }
     async get(key) {
         try {
@@ -42,7 +42,6 @@ export default class Login extends Component {
         }
     }
     async save(key, value) {
-
         try {
             await AsyncStorage.setItem(key, value);
         } catch (error) {
@@ -53,13 +52,13 @@ export default class Login extends Component {
         this.setState({
             isLoading: true
         })
-       
+
         ApiCall('login',
             {
                 'email': this.state.email,
                 'password': this.state.Password,
-                'device_token':fcmToken+'',
-                'device_type':Platform.OS == 'android'?'a':'i'
+                'device_token': fcmToken + '',
+                'device_type': Platform.OS == 'android' ? 'a' : 'i'
             },
             (data) => {
                 console.log(JSON.stringify(data))
@@ -73,7 +72,7 @@ export default class Login extends Component {
                     else {
                         alert(data.data.response.message)
                     }
-                } 
+                }
                 else {
                     alert('Somthing went wrong')
                 }
@@ -88,59 +87,58 @@ export default class Login extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, }}>
-                <ImageBackground style={{ flex: 1, }}
-                    resizeMode='stretch'
-                    source={require('../assets/bg.png')}>
-                    <StatusBar barStyle="light-content" />
-                    <View style={{ flex: 1 }}>
-                        <View style={{
-                            alignSelf: 'center',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: 40, 
-                            width: '100%',
-                            marginTop:Platform.OS==='ios'?25:7
-                        }}>
-                            <Text style={{
-                                fontSize: 20,
-                                fontFamily: 'EurostileBold',
-                                color: APP_YELLOW
-                            }}>Kenotek Coat IT</Text>
-                        </View>
-                        <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}>
-                            <ScrollView style={{ flex: 1 }}>
-                                <View style={{
-                                    height: Dimensions.get('window').height / 3.8,
-                                    width: 250,
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
+                <StatusBar barStyle="light-content" />
+                <View style={{ flex: 1 }}>
+                    <View style={{
+                        alignSelf: 'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 40,
+                        width: '100%',
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
+                    }}>
+                        <Text style={{
+                            fontSize: 20,
+                            fontFamily: 'EurostileBold',
+                            color: APP_YELLOW
+                        }}>Kenotek Coat IT</Text>
+                    </View>
+                    <KeyboardAvoidingView style={{ flex: 1 }}
+                        behavior="padding" enabled={Platform.OS === 'ios'}
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
+                        <ScrollView style={{ flex: 1 }}>
+                            <View style={{
+                                height: Dimensions.get('window').height / 3.8,
+                                width: 250,
+                                alignSelf: 'center',
+                                justifyContent: 'center',
+                                marginTop: 70
+                            }}>
+                                <Image style={{
+                                    flex: 1,
+                                    width: '100%',
                                     alignSelf: 'center',
-                                    justifyContent: 'center',
-                                    marginTop: 70
-                                }}>
-                                    <Image style={{
-                                        flex: 1,
-                                        // height: 250,
-                                        width: '100%',
-                                        alignSelf: 'center',
-                                        marginTop: 20
-                                    }}
-                                        resizeMode='contain'
-                                        source={require('../assets/logo.png')}>
-                                    </Image>
-                                </View>
+                                    marginTop: 20
+                                }}
+                                    resizeMode='contain'
+                                    source={require('../assets/logo.png')}>
+                                </Image>
+                            </View>
+                            <View style={{
+                                width: '100%',
+                                marginTop: 20,
+                                alignItems: 'center'
+                            }}>
+                                <Text style={{
+                                    width: '78%',
+                                    marginTop: 10,
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold'
+                                }}>Email</Text>
                                 <View style={{
-                                    width: '100%', 
-                                    marginTop: 20,
-                                    alignItems: 'center'
-                                }}>
-                                    <Text style={{
-                                        width: '78%',
-                                        marginTop: 10, 
-                                        color: '#C0C0C0',
-                                        fontFamily: 'EurostileBold'
-                                    }}>Email</Text>
-                                    <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -154,7 +152,7 @@ export default class Login extends Component {
                                         resizeMode='cover'>
                                     </Image>
                                     <TextInput style={{
-                                        height: 40, 
+                                        height: 40,
                                         width: '80%',
                                         marginTop: 2,
                                         borderRadius: 10,
@@ -166,22 +164,22 @@ export default class Login extends Component {
                                         placeholder='Enter your email'
                                         keyboardType='ascii-capable'
                                         placeholderTextColor='#C0C0C0'>
-                                        </TextInput>
-                                        </View>
-                                    {/* <View style={{
+                                    </TextInput>
+                                </View>
+                                {/* <View style={{
                                         height: 1,
                                         width: '80%', 
                                         backgroundColor: '#C0C0C0'
                                     }}></View> */}
 
-                                    <Text style={{
-                                        width: '78%',
-                                        marginTop: 10, 
-                                        fontFamily: 'EurostileBold',
-                                        color: '#C0C0C0'
-                                    }}
-                                    >Password</Text>
-                                    <View style={{
+                                <Text style={{
+                                    width: '78%',
+                                    marginTop: 10,
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0'
+                                }}
+                                >Password</Text>
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -208,86 +206,82 @@ export default class Login extends Component {
                                         onChangeText={(value) => this.setState({ Password: value })}
                                         placeholder='Enter your password'
                                         placeholderTextColor='#C0C0C0'></TextInput>
-                                        </View>
-                                    {/* <View style={{
+                                </View>
+                                {/* <View style={{
                                         height: 1,
                                         width: '80%', 
                                         backgroundColor: '#C0C0C0'
                                     }}>
                                     </View> */}
-                                </View>
+                            </View>
+                            <TouchableOpacity style={{
+                                height: 30,
+                                width: '80%',
+                                alignSelf: 'center',
+                                marginTop: 5
+                            }}
+                                onPress={() => {
+                                    this.props.navigation.navigate('ForgetPassword')
+                                }}>
+                                <Text style={{
+                                    alignSelf: 'flex-end',
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontSize: 16
+                                }}>Forget Password</Text>
+                            </TouchableOpacity>
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                marginBottom: 10,
+                                width: '80%',
+                                alignSelf: 'center'
+                            }}>
                                 <TouchableOpacity style={{
-                                    height: 30,
-                                    width: '80%',
+                                    height: 50,
+                                    width: '40%',
+                                    backgroundColor: APP_YELLOW,
+                                    marginTop: 15,
                                     alignSelf: 'center',
-                                    marginTop: 5
+                                    borderRadius: 10,
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
                                 }}
                                     onPress={() => {
-                                       this.props.navigation.navigate('ForgetPassword')
+                                        this.Login()
                                     }}>
                                     <Text style={{
-                                        alignSelf: 'flex-end',
+                                        fontSize: 18,
                                         fontFamily: 'EurostileBold',
-                                        color: '#C0C0C0',
-                                        fontSize: 16
-                                    }}>Forget Password</Text>
+                                        color: 'black'
+                                    }}>Login</Text>
                                 </TouchableOpacity>
-                                <View style={{
-                                    flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    marginBottom: 10,
-                                    width: '80%', 
-                                    alignSelf: 'center'
-                                }}>
-                                    <TouchableOpacity style={{
-                                        height: 50,
-                                        width: '40%',
-                                        backgroundColor: APP_YELLOW,
-                                        marginTop: 15, 
-                                        alignSelf: 'center',
-                                        borderRadius: 10, 
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}
-                                        onPress={() => {
-                                            this.Login()
-                                        }}>
-                                        <Text style={{
-                                            fontSize: 18,
-                                            fontFamily: 'EurostileBold',
-                                            color: 'black'
-                                        }}>Login</Text>
+                                <TouchableOpacity style={{
+                                    height: 50,
+                                    width: '40%',
+                                    backgroundColor: APP_YELLOW,
+                                    marginTop: 15,
+                                    alignSelf: 'center',
+                                    borderRadius: 10,
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                                    onPress={() => {
+                                        // this.props.navigation.navigate('CarDetail')
+                                        this.props.navigation.navigate('Signup')
+                                    }}>
+                                    <Text style={{
+                                        fontSize: 18,
+                                        fontFamily: 'EurostileBold',
+                                        color: 'black'
+                                    }}>Sign up</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </ScrollView>
+                    </KeyboardAvoidingView>
+                </View>
 
-                                    </TouchableOpacity>
-                                    <TouchableOpacity style={{
-                                        height: 50, 
-                                        width: '40%',
-                                        backgroundColor: APP_YELLOW,
-                                        marginTop: 15, 
-                                        alignSelf: 'center',
-                                        borderRadius: 10,
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}
-                                        onPress={() => {
-                                            // this.props.navigation.navigate('CarDetail')
-                                            this.props.navigation.navigate('Signup')
-                                        }}>
-                                        <Text style={{
-                                            fontSize: 18,
-                                            fontFamily: 'EurostileBold',
-                                            color: 'black'
-                                        }}>Sign up</Text>
-
-                                    </TouchableOpacity>
-
-                                </View>
-                            </ScrollView>
-                        </KeyboardAvoidingView>
-                    </View>
-
-
-                    {/* {this.state.isshow &&
+                {/* {this.state.isshow &&
                         <View style={{
                             position: 'absolute', top: 0,
                             bottom: 0, left: 0, right: 0,
@@ -418,28 +412,28 @@ export default class Login extends Component {
                             </View>
 
                         </View>} */}
-                    {
+                {
                     this.state.isLoading &&
-                        <View style={{
-                            position: 'absolute',
-                            backgroundColor: '#000000aa',
-                            top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <ActivityIndicator
-                                animating={this.state.isLoading}
-                                size='large'
-                                color={APP_YELLOW}>
-                            </ActivityIndicator>
-                        </View>
-                        }
-                </ImageBackground>
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0, left: 0, right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+                            color={APP_YELLOW}>
+                        </ActivityIndicator>
+                    </View>
+                }
+            </ImageBackground>
             // </SafeAreaView>
         );
     }
-    Login =  async() => {
+    Login = async () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (this.state.email == '') {
             alert('Please enter the email')
@@ -453,7 +447,7 @@ export default class Login extends Component {
             this.LoginApi(value)
         }
     }
-    
+
 }
 
 

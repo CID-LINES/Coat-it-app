@@ -158,7 +158,7 @@ export default class SignUp extends Component {
                                 <TouchableOpacity style={{
                                     flex: 1,
                                     width: '95%',
-                                    borderRadius: 60,
+                                   
                                     justifyContent:'center',
                                     alignItems:'center',
                                     alignSelf:'center',
@@ -169,12 +169,12 @@ export default class SignUp extends Component {
                                     <Image style={{
                                         flex: 1,
                                         width:'95%',
-                                        borderRadius: 10,
+                                        //borderRadius: 10,
                                     }}
                                         resizeMode='cover' 
                                         source={this.state.filePath == '' ?
-                                            require('../assets/placeholder.jpg') :
-                                            this.state.filePath}>
+                                        require('../assets/placeholder.jpg') :
+                                        this.state.filePath}>
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{
@@ -516,7 +516,6 @@ export default class SignUp extends Component {
             alert('Please enter the phone number')
         } else {
             const value = await AsyncStorage.getItem("fcmToken");
-
             this.SignUp(value)
         }
     }

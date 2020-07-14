@@ -140,7 +140,7 @@ export default class Notification extends Component {
                         height: Dimensions.get('window').height / 12,
                         width: 60,
                         marginLeft: 5,
-                        borderRadius: 5,
+                        //borderRadius: 5,
                         overflow: "hidden"
                     }}
                         onPress={() => {
@@ -175,7 +175,7 @@ export default class Notification extends Component {
                                     color: '#C0C0C0',
                                     fontFamily: 'EurostileBold'
                                 }}>
-                                    {item.title}
+                                    {item.title.toUpperCase()}
                                     </Text>
                             </View>
                             <Text style={{

@@ -188,11 +188,9 @@ export default class Settings extends Component {
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}
-                    >
+                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
-
                             <View style={{
                                 height: Dimensions.get('window').height/3,
                                 marginTop:10,
@@ -202,7 +200,7 @@ export default class Settings extends Component {
                                 <TouchableOpacity style={{
                                     flex:1,
                                     width: '95%',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignSelf: 'center',
                                     overflow: 'hidden'
                                 }}

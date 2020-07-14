@@ -232,7 +232,6 @@ export default class CarDetail extends Component {
                     alignItems: 'center',
                     alignSelf: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
-
                 }}>
                     {/* <TouchableOpacity style={{
                         height: 35,
@@ -265,8 +264,7 @@ export default class CarDetail extends Component {
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
                     behavior="padding" enabled={Platform.OS === 'ios'}
-                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}
-                >
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
@@ -279,7 +277,7 @@ export default class CarDetail extends Component {
                                 <TouchableOpacity style={{
                                     flex: 1,
                                     width: '95%',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignSelf: 'center',
                                     justifyContent: 'center',
                                     overflow: 'hidden'
@@ -293,7 +291,9 @@ export default class CarDetail extends Component {
                                     }}
                                         resizeMode='cover'
                                         source={cache = "force-cache",
-                                            this.state.filePath == '' ? require('../assets/placeholder.jpg') : this.state.filePath}>
+                                        this.state.filePath == '' ?
+                                         require('../assets/placeholder.jpg') : 
+                                         this.state.filePath}>
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{
@@ -377,7 +377,7 @@ export default class CarDetail extends Component {
                                     marginTop: 20
                                 }}>Vehicle No.</Text>
                                 <TextInput style={{
-                                    height: 40, 
+                                    height: 40,
                                     width: '80%',
                                     padding: 5,
                                     alignSelf: 'center',
@@ -388,7 +388,7 @@ export default class CarDetail extends Component {
                                     value={this.state.Vehicleno}
                                     onChangeText={(value) => this.setState({ Vehicleno: value })}
                                     placeholder='Vehicle No.'>
-                                    </TextInput>
+                                </TextInput>
                                 {/* <View style={{
                                     height: 1, 
                                     width: '80%',
@@ -483,8 +483,8 @@ export default class CarDetail extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, 
-                        left: 0, 
+                        bottom: 0,
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
