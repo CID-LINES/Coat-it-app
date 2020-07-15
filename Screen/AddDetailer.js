@@ -67,18 +67,18 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
-                    const detailer = responseJson.response.data
-                    for (var i = 0; i < detailer.length; i++) {
-                        if (this.state.data.includes(responseJson.response.data[i].id)) {
-                            console.log(responseJson.response.data[i].id)
-                            const d = detailer[i]
-                            d.Selected = 0
-                            detailer[i] = d
-                            this.setState({
-                                DATA: detailer
-                            })
-                        }
-                    }
+                    // const detailer = responseJson.response.data
+                    // for (var i = 0; i < detailer.length; i++) {
+                    //     if (this.state.data.includes(responseJson.response.data[i].id)) {
+                    //         console.log(responseJson.response.data[i].id)
+                    //         const d = detailer[i]
+                    //         d.Selected = 0
+                    //         detailer[i] = d
+                    //         this.setState({
+                    //             DATA: detailer
+                    //         })
+                    //     }
+                    // }
                     this.setState({
                         DATA: responseJson.response.data
                     })
