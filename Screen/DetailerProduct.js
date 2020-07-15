@@ -177,7 +177,7 @@ export default class MyCars extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10,
+               // borderRadius: 10,
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
@@ -211,7 +211,7 @@ export default class MyCars extends Component {
                             fontFamily: 'EurostileBold',
                             color: '#C0C0C0'
                         }}>
-                            {item.name}
+                            {item.name.toUpperCase()}
                         </Text>
                         <Text style={{
                             marginTop: 10,
@@ -219,39 +219,7 @@ export default class MyCars extends Component {
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}>{item.description}</Text>
-                        {/* <TouchableOpacity style={{
-                            height: 30,
-                            width: 30,
-                            marginTop:10,
-                            marginBottom:5,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                            onPress={() => {
-                                Alert.alert(
-                                    'Remove item',
-                                    'Are you sure you want to remove this car?',
-                                    [
-                                        {
-                                            text: 'Remove', onPress: () => {
-                                                this.DeletecarApi(item.id, index)
-                                            }
-                                        },
-                                        {
-                                            text: 'Cancel',
-                                            style: 'cancel',
-                                        }],
-                                    { cancelable: false },
-                                );
-                            }} >
-                            <Image style={{
-                                height: 24,
-                                width: 24,
-                                tintColor: 'gray'
-                            }}
-                                source={require('../assets/delete-icon.png')}></Image>
-                        </TouchableOpacity> */}
-
+                    
                     </View>
                 </View>
             </TouchableOpacity>

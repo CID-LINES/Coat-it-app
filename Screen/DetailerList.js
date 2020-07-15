@@ -26,50 +26,51 @@ export default class DetailerList extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            // alert(value)
+             //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
                 }, () => {
-                    //this.DetailerListApi()
+                    this.DetailerListApi()
                 })
             }
         } catch (error) {
         }
     }
-    // DetailerListApi = (index) => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
+    DetailerListApi = () => {
+        this.setState({
+            isLoading: true
+        })
 
-    //     fetch('http://3.137.41.50/coatit/public/api/detailer_list/' + "" + this.state.user_id,
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson))
-    //             if (responseJson.response.status == true) {
-    //                 this.setState({
-    //                     DATA: responseJson.response.data
-    //                 })
-    //             }
-    //             this.setState({
-    //                 isLoading: false,
-    //                 isFetching: false
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
+        fetch('http://3.137.41.50/coatit/public/api/request_accepted/' + this.state.user_id,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) 
+                {
+                    this.setState({
+                        DATA: responseJson.response.details
+                    })
+                }
+                this.setState({
+                    isLoading: false,
+                    isFetching: false
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+    }
     // DetailerListApi = (index) => {
     //     this.setState({
     //         isLoading: true
@@ -156,7 +157,7 @@ export default class DetailerList extends Component {
                         }}>Detailers List</Text>
                     </View>
                 </View>
-                {this.state.DATA.length == 0 || this.state.DATA == null ?
+                {/* {this.state.DATA.length == 0 || this.state.DATA == null ?
                     <View style={{
                         width: '95%', 
                         flex: 1,
@@ -174,7 +175,7 @@ export default class DetailerList extends Component {
                             No detailers found, Please visit your latest detailer to get detailing!
                         </Text>
                     </View> :
-                    <View style={{ flex: 1 }}>
+                    <View style={{ flex: 1 }}> */}
                         <FlatList style={{
                             marginTop: 10,
                             marginBottom: 20
@@ -189,7 +190,7 @@ export default class DetailerList extends Component {
                             renderItem={({ item, index }) => (
                                 this.DetailerList(item, index)
                             )}></FlatList>
-                    </View>}
+                    {/* </View>} */}
                     <TouchableOpacity style={{
                         height: 60, 
                         width: 60,
@@ -203,7 +204,15 @@ export default class DetailerList extends Component {
                         bottom: 20,
                     }}
                         onPress={() => {
-                            this.props.navigation.navigate('AddDetailer')
+                            var Detailer = []
+                            this.state.DATA.map((item) => {
+                                if (item.id!=null) {
+                                    Detailer.push(item.detailer_id)
+                                }
+                            })
+                            this.props.navigation.navigate('AddDetailer',{
+                                data:Detailer
+                            })
                         }}>
                         <Image style={{
                             height: 40,
@@ -272,20 +281,20 @@ export default class DetailerList extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-                borderRadius: 10,
+               
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
-                onPress={() => {
-                    this.props.navigation.push('DetailerCar', {
-                        plan: item.service,
-                        car: item.car_name,
+            onPress={() => {
+                if(item.request_accepted  == 0){
+                    alert('Your request is pending')
+                }
+                else{
+                    this.props.navigation.push('DetailerDetail', {
                         detailer: item
-
                     })
-                }}
-
-            >
+                } 
+            }}>
                 <View style={{
                     height: Dimensions.get('window').height / 4,
                     width: '100%'
@@ -324,51 +333,7 @@ export default class DetailerList extends Component {
                             numberOfLines={2}>
                             {item.first_name}
                         </Text>
-
-                        <TouchableOpacity style={{
-                            flexDirection: 'row'
-                        }}
-                            onPress={() => {
-                                this.props.navigation.push('DetailerCar', {
-                                    plan: item.service,
-                                    car: item.car_name,
-                                    detailer: item
-                                })
-                            }}>
-                            <View style={{}}>
-                                <Text style={{
-                                    color: '#C0C0C0',
-                                    fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-                                    fontSize: 17
-                                }}
-                                    numberOfLines={0}>{item.service}</Text>
-                            </View>
-                            <Image style={{
-                                height: 15,
-                                width: 15,
-                                marginLeft: 10,
-                                tintColor: APP_YELLOW
-                            }}
-                                source={require('../assets/info.png')}
-                                resizeMode='contain'>
-                            </Image>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginTop: 10,
-                    }}>
-                        <Text style={{
-                            fontSize: 17,
-                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-                            color: '#C0C0C0'
-                        }}
-                            numberOfLines={0}>
-                            {item.car_name}
-                        </Text>
-
+                     
                         <Text style={{
                             marginBottom: 5,
                             marginRight: 8,
@@ -376,8 +341,28 @@ export default class DetailerList extends Component {
                             fontSize: 17, color: '#C0C0C0'
                         }}>
                             {moment(item.created_at).format('DD-MM-YYYY')}</Text>
-                        {/* <Text style={{ marginTop: 10 }}>10 km</Text> */}
                     </View>
+                  
+                          {item.request_accepted == 0 ? 
+                        <View style={{
+                            height: 30,
+                            width: '30%',
+                            borderRadius: 5,
+                            marginTop:5,
+                            alignSelf: 'flex-end',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: APP_YELLOW
+                        }}>
+                                  <Text style={{
+                                    color: 'black',
+                                    fontFamily: 'EurostileBold',
+                                }}>Pending</Text>
+                        </View>:<View/>}
+
+                       
+    
+                
 
                 </View>
 

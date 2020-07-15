@@ -69,7 +69,7 @@ export default class NotificationDetail extends Component {
                         <TouchableOpacity style={{
                             flex: 1,
                             width: '95%',
-                            borderRadius: 10,
+                            //borderRadius: 10,
                             alignSelf: 'center',
                             justifyContent: 'center',
                             overflow: 'hidden'
@@ -100,7 +100,7 @@ export default class NotificationDetail extends Component {
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}>
-                            {this.state.data.name}</Text>
+                            {this.state.data.name.toUpperCase()}</Text>
                         <Text style={{
                             fontSize: 20,
                             marginTop: 10,

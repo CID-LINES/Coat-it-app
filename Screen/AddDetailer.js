@@ -4,7 +4,7 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import moment from 'moment';
-
+import { ApiCall, ApiCallWithImage, CallApi } from '../Component/ApiClient'
 export default class DetailerList extends Component {
     constructor(props) {
         super(props)
@@ -13,10 +13,14 @@ export default class DetailerList extends Component {
             DATA: [],
             isFetching: false,
             previewurl: null,
-            request: '0'
+            request: 0,
+            detaier_id:'',
+            data:[]
         }
+       
     }
     componentDidMount() {
+        
         this.load()
         this.props.navigation.addListener('willFocus', this.load)
     }
@@ -38,44 +42,19 @@ export default class DetailerList extends Component {
         } catch (error) {
         }
     }
-    // DetailerListApi = (index) => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
 
-    //     fetch('http://3.137.41.50/coatit/public/api/detailer_list/' + "" + this.state.user_id,
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson))
-    //             if (responseJson.response.status == true) {
-    //                 this.setState({
-    //                     DATA: responseJson.response.data
-    //                 })
-    //             }
-    //             this.setState({
-    //                 isLoading: false,
-    //                 isFetching: false
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
-    DetailerListApi = (index) => {
+  
+    DetailerListApi = () => {
+        if (this.props.navigation.state.params.data != null) {
+            this.setState({
+                data: this.props.navigation.state.params.data
+            })
+        }
         this.setState({
             isLoading: true
         })
-
+         //alert(JSON.stringify(this.state.data))
+       
         fetch('http://3.137.41.50/coatit/public/api/detailer_list',
             {
                 method: 'GET',
@@ -88,6 +67,18 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
+                    const detailer = responseJson.response.data
+                    for (var i = 0; i < detailer.length; i++) {
+                        if (this.state.data.includes(responseJson.response.data[i].id)) {
+                            console.log(responseJson.response.data[i].id)
+                            const d = detailer[i]
+                            d.Selected = 0
+                            detailer[i] = d
+                            this.setState({
+                                DATA: detailer
+                            })
+                        }
+                    }
                     this.setState({
                         DATA: responseJson.response.data
                     })
@@ -103,9 +94,35 @@ export default class DetailerList extends Component {
                 //  callback({ data: error });
                 //callback({error: true, data: error});
             });
-
     }
-
+    
+    RequestApi = (id) => {
+        this.setState({
+            isLoading: true
+        })
+    
+        CallApi('send_Request',
+            {
+                'user_id': '' +this.state.user_id,
+                'detailer_id': id
+            },
+            (data) => {
+                console.log(JSON.stringify(data.data))
+                if (!data.error) {
+                    if (data.data.response.status == true) {
+                       alert(data.data.response.message)
+                    }
+                   
+                } else {
+                    alert('Somthing went wrong')
+                }
+                this.setState({
+                    isLoading: false
+                })
+                // alert(JSON.stringify(data))
+                //nsole.log(data)
+            })
+    }
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.DetailerListApi() })
     }
@@ -256,14 +273,7 @@ export default class DetailerList extends Component {
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
-                onPress={() => {
-                    this.props.navigation.push('DetailerCar', {
-                        plan: item.service,
-                        car: item.car_name,
-                        detailer: item
-
-                    })
-                }}>
+             >
                 <View style={{
                     height: Dimensions.get('window').height / 4,
                     width: '100%'
@@ -312,17 +322,17 @@ export default class DetailerList extends Component {
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
-                               
+                                const DATA = [...this.state.DATA]
+                                const d = DATA[index]
+                                d.Selected = !d.Selected
+                                DATA[index] = d
+                                 this.setState({ DATA: DATA})
+                                this.RequestApi(item.id)
                             }}>
-                            {this.state.request == '0' ?
-                                <Text style={{
+                                  <Text style={{
                                     color: 'black',
                                     fontFamily: 'EurostileBold',
-                                }}>Request</Text> :
-                                <Text style={{
-                                    color: 'black',
-                                    fontFamily: 'EurostileBold',
-                                }}>Request Sent</Text>}
+                                }}>{item.Selected ? 'Request Sent' : 'Request'}</Text>
                         </TouchableOpacity>
 
                         {/* <TouchableOpacity style={{
