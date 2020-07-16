@@ -45,16 +45,9 @@ export default class DetailerList extends Component {
 
   
     DetailerListApi = () => {
-        if (this.props.navigation.state.params.data != null) {
-            this.setState({
-                data: this.props.navigation.state.params.data
-            })
-        }
         this.setState({
             isLoading: true
         })
-         //alert(JSON.stringify(this.state.data))
-       
         fetch('http://3.137.41.50/coatit/public/api/detailer_list',
             {
                 method: 'GET',
@@ -67,18 +60,6 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
-                    // const detailer = responseJson.response.data
-                    // for (var i = 0; i < detailer.length; i++) {
-                    //     if (this.state.data.includes(responseJson.response.data[i].id)) {
-                    //         console.log(responseJson.response.data[i].id)
-                    //         const d = detailer[i]
-                    //         d.Selected = 0
-                    //         detailer[i] = d
-                    //         this.setState({
-                    //             DATA: detailer
-                    //         })
-                    //     }
-                    // }
                     this.setState({
                         DATA: responseJson.response.data
                     })
@@ -107,15 +88,18 @@ export default class DetailerList extends Component {
                 'detailer_id': id
             },
             (data) => {
-                console.log(JSON.stringify(data.data))
+                console.log(JSON.stringify(data.data.response.message))
                 if (!data.error) {
                     if (data.data.response.status == true) {
                        alert(data.data.response.message)
+                    } 
+                    else
+                    {
+                        alert(data.data.response.message)
                     }
                    
-                } else {
-                    alert('Somthing went wrong')
-                }
+                } 
+               
                 this.setState({
                     isLoading: false
                 })
@@ -216,7 +200,9 @@ export default class DetailerList extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
@@ -329,10 +315,15 @@ export default class DetailerList extends Component {
                                  this.setState({ DATA: DATA})
                                 this.RequestApi(item.id)
                             }}>
+                                {item.request_sended == 0 ? 
                                   <Text style={{
                                     color: 'black',
                                     fontFamily: 'EurostileBold',
-                                }}>{item.Selected ? 'Request Sent' : 'Request'}</Text>
+                                }}>{item.Selected ? 'Request Sent': 'Request'}</Text>:
+                                  <Text style={{
+                                    color: 'black',
+                                    fontFamily: 'EurostileBold',
+                                }}>Request Sent</Text>} 
                         </TouchableOpacity>
 
                         {/* <TouchableOpacity style={{
@@ -390,9 +381,6 @@ export default class DetailerList extends Component {
                     </View>
 
                 </View>
-
-
-
             </TouchableOpacity>
 
         )

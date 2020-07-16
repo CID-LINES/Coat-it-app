@@ -7,7 +7,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="520097efec7c25a9" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_R" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -51,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1594638913022" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1594879252966" />
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.6903553" />
@@ -176,5 +176,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="332" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1594879223011">
+      <screen x="0" y="23" width="1366" height="696" />
+    </state>
+    <state x="332" y="213" key="com.intellij.ide.util.TipDialog/0.23.1366.696@0.23.1366.696" timestamp="1594879223011" />
   </component>
 </project>

@@ -32,7 +32,7 @@ import AddDetailer from './Screen/AddDetailer'
 import PurchaseDetail from './Screen/PurchaseDetail'
 import ForgetPassword from './Screen/ForgetPassword'
 import EditProfile from './Screen/EditProfile'
-import DetailerProduct from './Screen/DetailerProduct'
+import ProductList from './Screen/ProductList'
 import DetailerDetail from './Screen/DetailerDetail'
 
 
@@ -69,7 +69,7 @@ const Tabnavigation =createBottomTabNavigator({
       </Image>
     )
   }},
-  DetailerProduct:{screen: DetailerProduct,
+  ProductList:{screen: ProductList,
     navigationOptions: {
       tabBarLabel: 'Products',
       tabBarIcon: ({ tintColor }) => (

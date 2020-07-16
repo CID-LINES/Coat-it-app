@@ -652,8 +652,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Aditinet UK Limited (PZS9WYSGB5)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -701,7 +701,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
+				PROVISIONING_PROFILE_SPECIFIER = "Aditinet 29_05_20";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -712,7 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PZS9WYSGB5;
@@ -759,7 +759,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Aditinet UK";
+				PROVISIONING_PROFILE_SPECIFIER = "Aditinet 29_05_20";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

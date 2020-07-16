@@ -16,7 +16,7 @@ export default class ServiceDeatil extends Component {
             serviceplan: [],
             products: []
         }
-        console.log(this.state.detailer)
+        //console.log(this.state.detailer)
     }
 
     componentDidMount() {
@@ -133,8 +133,7 @@ export default class ServiceDeatil extends Component {
                                 this.setState({
                                     isSelected: '0'
                                 })
-                            }}
-                        >
+                            }}>
                             <Text style={{
                                 marginLeft: 5,
                                 fontFamily: 'EurostileBold',
