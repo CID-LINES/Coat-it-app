@@ -22,11 +22,11 @@ export default class DetailerList extends Component {
     load = () => {
         this.get('user_id')
     }
-   
+
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-             //alert(value)
+            //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -53,8 +53,7 @@ export default class DetailerList extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
-                if (responseJson.response.status == true) 
-                {
+                if (responseJson.response.status == true) {
                     this.setState({
                         DATA: responseJson.response.details
                     })
@@ -151,7 +150,7 @@ export default class DetailerList extends Component {
                         justifyContent: 'center',
                     }}>
                         <Text style={{
-                            fontSize: 18,
+                            fontSize: 18, 
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
                         }}>Detailers List</Text>
@@ -176,51 +175,51 @@ export default class DetailerList extends Component {
                         </Text>
                     </View> :
                     <View style={{ flex: 1 }}> */}
-                        <FlatList style={{
-                            marginTop: 10,
-                            marginBottom: 20
-                        }}
-                            refreshControl={<RefreshControl
-                                tintColor={APP_YELLOW}
-                                colors={["#D65050", "#D65050"]}
-                                refreshing={this.state.isFetching}
-                                onRefresh={this.onRefresh}>
-                            </RefreshControl>}
-                            data={this.state.DATA}
-                            renderItem={({ item, index }) => (
-                                this.DetailerList(item, index)
-                            )}></FlatList>
-                    {/* </View>} */}
-                    <TouchableOpacity style={{
-                        height: 60, 
-                        width: 60,
-                        borderRadius: 30,
-                        backgroundColor: APP_YELLOW,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'absolute',
-                        alignContent: 'flex-end',
-                        right: 20,
-                        bottom: 20,
+                <FlatList style={{
+                    marginTop: 10,
+                    marginBottom: 20
+                }}
+                    refreshControl={<RefreshControl
+                        tintColor={APP_YELLOW}
+                        colors={["#D65050", "#D65050"]}
+                        refreshing={this.state.isFetching}
+                        onRefresh={this.onRefresh}>
+                    </RefreshControl>}
+                    data={this.state.DATA}
+                    renderItem={({ item, index }) => (
+                        this.DetailerList(item, index)
+                    )}></FlatList>
+                {/* </View>} */}
+                <TouchableOpacity style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 30,
+                    backgroundColor: APP_YELLOW,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'absolute',
+                    alignContent: 'flex-end',
+                    right: 20,
+                    bottom: 20,
+                }}
+                    onPress={() => {
+                        var detailer = []
+                        this.state.DATA.map((item) => {
+                            if (item.request_sended != null) {
+                                detailer.push(item.request_sended)
+                            }
+                        })
+                        this.props.navigation.navigate('AddDetailer', {
+                            data: detailer
+                        })
+                    }}>
+                    <Image style={{
+                        height: 40,
+                        width: 40,
+                        tintColor: 'black'
                     }}
-                        onPress={() => {
-                            var detailer = []
-                            this.state.DATA.map((item) => {
-                                if (item.detailer_id!=null) {
-                                    detailer.push(item.detailer_id)
-                                }
-                            })
-                            this.props.navigation.navigate('AddDetailer',{
-                                data:detailer
-                            })
-                        }}>
-                        <Image style={{
-                            height: 40,
-                            width: 40,
-                            tintColor: 'black'
-                        }}
-                            source={require('../assets/plus-icon.png')}></Image>
-                    </TouchableOpacity>
+                        source={require('../assets/plus-icon.png')}></Image>
+                </TouchableOpacity>
                 {/* </ScrollView> */}
 
                 {this.state.isLoading &&
@@ -228,7 +227,9 @@ export default class DetailerList extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
@@ -281,20 +282,20 @@ export default class DetailerList extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-               
+
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
-            onPress={() => {
-                if(item.request_accepted  == 0){
-                    alert('Your request is pending')
-                }
-                else{
-                    this.props.navigation.push('DetailerDetail', {
-                        detailer: item
-                    })
-                } 
-            }}>
+                onPress={() => {
+                    if (item.request_accepted == 0) {
+                        alert('Your request is pending')
+                    }
+                    else {
+                        this.props.navigation.push('DetailerDetail', {
+                            detailer: item
+                        })
+                    }
+                }}>
                 <View style={{
                     height: Dimensions.get('window').height / 4,
                     width: '100%'
@@ -333,7 +334,7 @@ export default class DetailerList extends Component {
                             numberOfLines={2}>
                             {item.first_name}
                         </Text>
-                     
+
                         <Text style={{
                             marginBottom: 5,
                             marginRight: 8,
@@ -342,32 +343,24 @@ export default class DetailerList extends Component {
                         }}>
                             {moment(item.created_at).format('DD-MM-YYYY')}</Text>
                     </View>
-                  
-                          {item.request_accepted == 0 ? 
+
+                    {item.request_accepted == 0 ?
                         <View style={{
                             height: 30,
                             width: '30%',
                             borderRadius: 5,
-                            marginTop:5,
+                            marginTop: 5,
                             alignSelf: 'flex-end',
                             alignItems: 'center',
                             justifyContent: 'center',
                             backgroundColor: APP_YELLOW
                         }}>
-                                  <Text style={{
-                                    color: 'black',
-                                    fontFamily: 'EurostileBold',
-                                }}>Pending</Text>
-                        </View>:<View/>}
-
-                       
-    
-                
-
+                            <Text style={{
+                                color: 'black',
+                                fontFamily: 'EurostileBold',
+                            }}>Pending</Text>
+                        </View> : <View />}
                 </View>
-
-
-
             </TouchableOpacity>
 
         )

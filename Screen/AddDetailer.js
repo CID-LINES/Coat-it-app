@@ -45,6 +45,7 @@ export default class DetailerList extends Component {
 
   
     DetailerListApi = () => {
+       
         this.setState({
             isLoading: true
         })
@@ -60,6 +61,7 @@ export default class DetailerList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
+                    
                     this.setState({
                         DATA: responseJson.response.data
                     })
@@ -88,7 +90,7 @@ export default class DetailerList extends Component {
                 'detailer_id': id
             },
             (data) => {
-                console.log(JSON.stringify(data.data.response.message))
+                //console.log(JSON.stringify(data.data.response.message))
                 if (!data.error) {
                     if (data.data.response.status == true) {
                        alert(data.data.response.message)
@@ -97,9 +99,8 @@ export default class DetailerList extends Component {
                     {
                         alert(data.data.response.message)
                     }
-                   
-                } 
-               
+  
+                }
                 this.setState({
                     isLoading: false
                 })
