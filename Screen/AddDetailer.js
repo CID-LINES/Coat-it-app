@@ -5,7 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import moment from 'moment';
 import { ApiCall, ApiCallWithImage, CallApi } from '../Component/ApiClient'
-export default class DetailerList extends Component {
+export default class AddDetailer extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,7 +17,6 @@ export default class DetailerList extends Component {
             detaier_id:'',
             data:[]
         }
-       
     }
     componentDidMount() {
         
@@ -45,7 +44,12 @@ export default class DetailerList extends Component {
 
   
     DetailerListApi = () => {
-       
+       if(this.props.navigation.state.params.data !=null){
+           this.setState({
+               data:this.props.navigation.state.params.data
+           })
+           //alert(JSON.stringify(this.state.data))
+       }
         this.setState({
             isLoading: true
         })
@@ -60,7 +64,19 @@ export default class DetailerList extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
-                if (responseJson.response.status == true) {
+                if (responseJson.response.status == true) {  
+                    const _detailer = responseJson.response.data
+                    for (var i = 0; i < _detailer.length; i++) {
+                        if (this.state.data.includes(responseJson.response.data[i].id)) {
+                            console.log(responseJson.response.data[i].id)
+                            const d = _detailer[i]
+                            d.Selected = true
+                            _detailer[i] = d
+                            this.setState({
+                                DATA: _detailer
+                            })
+                        }
+                    }
                     
                     this.setState({
                         DATA: responseJson.response.data
@@ -309,22 +325,23 @@ export default class DetailerList extends Component {
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
-                                const DATA = [...this.state.DATA]
+                                var DATA = [...this.state.DATA]
                                 const d = DATA[index]
                                 d.Selected = !d.Selected
                                 DATA[index] = d
                                  this.setState({ DATA: DATA})
                                 this.RequestApi(item.id)
                             }}>
-                                {item.request_sended == 0 ? 
+                                {/* {item.request_sended == 0 ?  */}
                                   <Text style={{
                                     color: 'black',
                                     fontFamily: 'EurostileBold',
-                                }}>{item.Selected ? 'Request Sent': 'Request'}</Text>:
+                                }}>{item.Selected ? 'Request Sent': 'Request'}</Text>
+                                {/* :
                                   <Text style={{
                                     color: 'black',
                                     fontFamily: 'EurostileBold',
-                                }}>Request Sent</Text>} 
+                                }}>Request Sent</Text>}  */}
                         </TouchableOpacity>
 
                         {/* <TouchableOpacity style={{

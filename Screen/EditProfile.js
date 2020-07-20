@@ -5,7 +5,7 @@ import ImagePicker from 'react-native-image-picker';
 import { NavigationActions, StackActions } from 'react-navigation';
 import ImageLoad from 'react-native-image-placeholder';
 
-export default class Settings extends Component {
+export default class EditProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {

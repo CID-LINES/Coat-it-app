@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 
-export default class ServiceDeatil extends Component {
+export default class PurchaseDetail extends Component {
     constructor(props) {
         super(props)
         this.state={

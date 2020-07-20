@@ -19,8 +19,6 @@ export default class Home extends Component {
 
     }
 
-
-    
     async componentDidMount() {
         this.get('user_id')
         this.checkPermission();
@@ -60,7 +58,6 @@ export default class Home extends Component {
       }
     
       async createNotificationListeners() {
-    
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
           const { title, body } = notification;
@@ -137,7 +134,6 @@ export default class Home extends Component {
                 //             text: _text
                 //         })
                 //     })
-                    
                 }
                 this.setState({
                      isLoading: false,
@@ -206,8 +202,7 @@ export default class Home extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-                            color={APP_YELLOW}
-                        >
+                            color={APP_YELLOW}>
                         </ActivityIndicator>
                     </View>
                 }
@@ -222,8 +217,6 @@ export default class Home extends Component {
             <TouchableOpacity style={{
                 width: '95%',
                 alignSelf: 'center',
-                // borderColor: APP_YELLOW,
-                // borderWidth: 3,
                 //borderRadius: 10,
                 marginBottom: 10,
                 overflow: 'hidden'

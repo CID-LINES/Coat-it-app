@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
-export default class ServiceDeatil extends Component {
+
+
+export default class DetailerCar extends Component {
     constructor(props) {
         super(props)
         this.state = {

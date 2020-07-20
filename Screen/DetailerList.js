@@ -206,9 +206,10 @@ export default class DetailerList extends Component {
                         var detailer = []
                         this.state.DATA.map((item) => {
                             if (item.request_sended != null) {
-                                detailer.push(item.request_sended)
+                                detailer.push(item.id)
                             }
                         })
+                      
                         this.props.navigation.navigate('AddDetailer', {
                             data: detailer
                         })

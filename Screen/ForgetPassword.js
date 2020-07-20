@@ -5,7 +5,7 @@ import { ApiCall, CallApi } from '../Component/ApiClient';
 
 
 
-export default class ChangePassword extends Component {
+export default class ForgetPassword extends Component {
     constructor(props) {
         super(props)
         this.state = {

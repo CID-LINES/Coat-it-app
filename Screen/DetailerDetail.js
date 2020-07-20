@@ -6,7 +6,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 
 
-export default class ServiceDeatil extends Component {
+export default class DetailerDeatil extends Component {
     constructor(props) {
         super(props)
         this.state = {

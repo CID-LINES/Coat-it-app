@@ -8,7 +8,7 @@ import ImageLoad from 'react-native-image-placeholder';
 
 
 
-export default class MyCars extends Component {
+export default class ProductList extends Component {
     constructor(props) {
         super(props)
         this.state = {

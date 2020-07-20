@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ImageBackground, Platform } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
-export default class NotificationDetail extends Component {
+
+export default class ProductDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
