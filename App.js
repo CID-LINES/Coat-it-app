@@ -35,9 +35,6 @@ import EditProfile from './Screen/EditProfile'
 import ProductList from './Screen/ProductList'
 import DetailerDetail from './Screen/DetailerDetail'
 
-
-
-
 const Tabnavigation =createBottomTabNavigator({
   Services: {screen: Home,
     navigationOptions: {

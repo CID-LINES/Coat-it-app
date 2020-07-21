@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Alert, RefreshControl, Dimensions, ImageBackground } from 'react-native';
+import {
+    Text,
+    View, SafeAreaView, Image, TextInput, ScrollView,
+    TouchableOpacity, KeyboardAvoidingView, AsyncStorage,
+    ActivityIndicator, Alert, RefreshControl, Dimensions,
+    ImageBackground,
+    SectionList
+} from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi } from '../Component/ApiClient';
@@ -15,6 +22,15 @@ export default class ProductList extends Component {
             access_token: '',
             car: '',
             DATA: [],
+            orders: [{
+                title: 'Captain America',
+                data: []
+            },
+            // {
+            //     title: "Rahul",
+            //     data: []
+            //   },
+            ],
             user_id: '',
             id: '',
             isFetching: false
@@ -44,12 +60,55 @@ export default class ProductList extends Component {
 
         }
     }
+    // DetailerListApi = (index) => {
+    //     this.setState({
+    //         isLoading: true
+    //     })
 
+    //     fetch('http://3.137.41.50/coatit/public/api/request_accepted/' + this.state.user_id,
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             }
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(JSON.stringify(responseJson))
+    //             if (responseJson.response.status == true) {
+    //                 var orders = this.state.orders
+    //                 var _order = []
+    //                 responseJson.response.details.map((item)=>{
+    //                     if(item.first_name != null){
+    //                         _order.push(item.first_name)
+    //                     }
+    //                 })
+
+    //                  orders[0].title= _order.join(',')
+    //                        this.setState({
+    //                         orders: orders
+    //                        })
+
+
+    //             }
+    //             this.setState({
+    //                 isLoading: false,
+    //                 isFetching: false
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
+    // }
     ProductApi = () => {
         this.setState({
             isLoading: true
         })
-        fetch('http://3.137.41.50/coatit/public/api/product_list/' + '' + this.state.user_id,
+        fetch('http://3.137.41.50/coatit/public/api/products_list/' + '' + this.state.user_id,
             {
                 method: 'GET',
                 headers: {
@@ -61,8 +120,10 @@ export default class ProductList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
+                    var orders = this.state.orders
+                    orders[0].data = responseJson.response.products
                     this.setState({
-                        DATA: responseJson.response.products,
+                        orders: orders
                     })
                 }
                 else {
@@ -99,63 +160,75 @@ export default class ProductList extends Component {
                     alignSelf: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
-                    {/* <TouchableOpacity style={{
-                            height: 35, 
-                            width: 35,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            position: 'absolute',
-                            left: 5
-                        }}
-                            onPress={() => {
-                                this.props.navigation.goBack()
-                            }}>
-                            <Image style={{ height: 20, 
-                            width: 20, 
-                            tintColor: APP_YELLOW }}
-                                resizeMode='contain'
-                                source={require('../assets/back.png')}>
-                                </Image>
-                        </TouchableOpacity> */}
+
                     <View style={{
                         height: 35,
-                        alignItems:'center',
+                        alignItems: 'center',
                         justifyContent: 'center',
-
                     }}>
                         <Text style={{
                             fontSize: 18,
-                            fontFamily:'EurostileBold',
+                            fontFamily: 'EurostileBold',
                             color: APP_YELLOW
                         }}>Products</Text>
                     </View>
                 </View>
-
                 <View style={{ flex: 1 }}>
-                    <FlatList style={{
+                    {/* <FlatList style={{
                         flex: 1,
                         marginTop: 10,
                         marginBottom: 20
                     }}
-                        refreshControl={<RefreshControl
+                            refreshControl={<RefreshControl
                             tintColor={APP_YELLOW}
                             colors={["#D65050", "#D65050"]}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
                         data={this.state.DATA}
-                        renderItem={({item, index}) => (
+                        renderItem={({ item, index }) => (
                             this.MyCars(item, index)
                         )}>
-                    </FlatList>
+                    </FlatList> */}
+
+                    <SectionList 
+                        sections={this.state.orders}
+                        renderItem={({ item, index, section }) =>
+                            this.Products(item, index, section)
+                        }
+                        keyExtractor={(item, index) => item + index}
+                        renderSectionHeader={({ section: { title } }) => (
+                            <View style={{
+                                backgroundColor: 'white',
+                                height: 40
+                            }}>
+                                <View style={{
+                                    height: 40,
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    backgroundColor: APP_YELLOW
+                                }}>
+                                    <Text style={{
+                                        fontSize: 18,
+                                        marginLeft: 10,
+                                        color: 'black',
+                                        fontWeight: 'bold'
+                                    }}>{title}</Text>
+                                </View>
+                            </View>
+                        )}
+                        stickySectionHeadersEnabled={true}>
+                    </SectionList>
+
+
                 </View>
                 {this.state.isLoading &&
                     <View style={{
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, 
-                        left: 0, 
+                        bottom: 0,
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -171,13 +244,12 @@ export default class ProductList extends Component {
             // </SafeAreaView>
         );
     }
-    MyCars = (item, index) => {
+    Products = (item, index) => {
         return (
             <TouchableOpacity style={{
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-               // borderRadius: 10,
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
@@ -200,12 +272,6 @@ export default class ProductList extends Component {
                         marginLeft: 5,
                         marginTop: 10
                     }}>
-                        {/* <Text style={{
-                            fontSize: 17,
-                            fontWeight: '700'
-                        }}>
-                            {item.brand_name} {item.model_name}
-                        </Text> */}
                         <Text style={{
                             fontSize: 18,
                             fontFamily: 'EurostileBold',
@@ -219,7 +285,7 @@ export default class ProductList extends Component {
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}>{item.description}</Text>
-                    
+
                     </View>
                 </View>
             </TouchableOpacity>

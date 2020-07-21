@@ -99,22 +99,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-kenotekcarapp-tvOS.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-kenotekcarapp-tvOSTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-kenotekcarapp.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-kenotekcarappTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -280,11 +265,6 @@
 			<false/>
 		</dict>
 		<key>react-native-maps.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>react-native-month-year-picker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

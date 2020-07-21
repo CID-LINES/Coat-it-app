@@ -158,7 +158,6 @@ export default class SignUp extends Component {
                                 <TouchableOpacity style={{
                                     flex: 1,
                                     width: '95%',
-                                   
                                     justifyContent:'center',
                                     alignItems:'center',
                                     alignSelf:'center',
@@ -169,7 +168,6 @@ export default class SignUp extends Component {
                                     <Image style={{
                                         flex: 1,
                                         width:'95%',
-                                        //borderRadius: 10,
                                     }}
                                         resizeMode='cover' 
                                         source={this.state.filePath == '' ?

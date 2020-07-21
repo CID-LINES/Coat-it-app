@@ -19,6 +19,7 @@ export default class Login extends Component {
             device_token: ''
         }
     }
+    
     componentDidMount() {
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
