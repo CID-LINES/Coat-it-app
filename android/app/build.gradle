@@ -179,6 +179,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-localization')
+    implementation project(':react-native-i18n')
     implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')
     implementation project(':react-native-gesture-handler')

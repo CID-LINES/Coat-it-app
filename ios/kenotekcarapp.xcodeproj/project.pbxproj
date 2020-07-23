@@ -369,7 +369,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = PZS9WYSGB5;
+						DevelopmentTeam = SCLEQ5T4CN;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -591,11 +591,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Aditinet UK Limited (PZS9WYSGB5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = PZS9WYSGB5;
+				DEVELOPMENT_TEAM = SCLEQ5T4CN;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -639,9 +639,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Aditinet 29_05_20";
+				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -655,7 +655,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PZS9WYSGB5;
+				DEVELOPMENT_TEAM = SCLEQ5T4CN;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -698,9 +698,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aditinet.uk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Aditinet 29_05_20";
+				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

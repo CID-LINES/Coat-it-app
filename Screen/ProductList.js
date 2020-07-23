@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
-import { CallGetApi } from '../Component/ApiClient';
+import { CallGetApi, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
 import ImageLoad from 'react-native-image-placeholder';
 
@@ -22,15 +22,7 @@ export default class ProductList extends Component {
             access_token: '',
             car: '',
             DATA: [],
-            orders: [{
-                title: 'Captain America',
-                data: []
-            },
-            // {
-            //     title: "Rahul",
-            //     data: []
-            //   },
-            ],
+            orders: [],
             user_id: '',
             id: '',
             isFetching: false
@@ -60,51 +52,41 @@ export default class ProductList extends Component {
 
         }
     }
-    // DetailerListApi = (index) => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
 
-    //     fetch('http://3.137.41.50/coatit/public/api/request_accepted/' + this.state.user_id,
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson))
-    //             if (responseJson.response.status == true) {
-    //                 var orders = this.state.orders
-    //                 var _order = []
-    //                 responseJson.response.details.map((item)=>{
-    //                     if(item.first_name != null){
-    //                         _order.push(item.first_name)
-    //                     }
-    //                 })
-
-    //                  orders[0].title= _order.join(',')
-    //                        this.setState({
-    //                         orders: orders
-    //                        })
-
-
-    //             }
-    //             this.setState({
-    //                 isLoading: false,
-    //                 isFetching: false
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
+    FavouriteProducts = (id,product_id,Selected) => {
+        var url=''
+        //this.state.orders.map((item)=>{
+           
+                url = Selected == '0'  ? 'remove_favourite' : 'store_favourite_products' 
+            
+        //})
+        console.log(url)
+        CallApi(url,
+        {
+            'user_id': '' + this.state.user_id,
+            'detailer_id': id,
+            'product_id': product_id,
+            // 'Selected': Selected
+           
+        },
+            (data) => {
+                console.log(JSON.stringify(data))
+                if (!data.error) {
+                    if (data.data.response.status == true) {
+                        //this.ProductApi()
+                    }
+                    else 
+                    {
+                        alert(data.data.response.message)
+                    }
+                }
+                else {
+                    alert('Somthing went wrong')
+                }
+            })
+    }
     ProductApi = () => {
+
         this.setState({
             isLoading: true
         })
@@ -120,11 +102,30 @@ export default class ProductList extends Component {
             .then((responseJson) => {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
-                    var orders = this.state.orders
-                    orders[0].data = responseJson.response.products
-                    this.setState({
-                        orders: orders
+                    var mainArr = []
+                    //var title=[]
+                    responseJson.response.data.map((item) => {
+                        // if(item.detailer_name != null){
+                        //     title.push(item.detailer_name)
+                        // }
+                        var product = []
+                        item.detailer_products.map((item) => {
+                            if (item != null) {
+                                product.push(item)
+                            }
+                        })
+                        var a = {
+                            id: item.detailer_id,
+                            detailer_name: item.detailer_name,
+                            data: product
+                        }
+                        mainArr.push(a)
+
                     })
+                    this.setState({
+                        orders: mainArr
+                    })
+                    //console.log(JSON.stringify(mainArr))
                 }
                 else {
                     alert(responseJson.response.message)
@@ -171,35 +172,39 @@ export default class ProductList extends Component {
                             fontFamily: 'EurostileBold',
                             color: APP_YELLOW
                         }}>Products</Text>
+
                     </View>
+                    <TouchableOpacity style={{
+                            height: 35,
+                            width: 35,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            right: 13,
+                            top: 3
+                        }}
+                            onPress={() => {
+                                this.props.navigation.navigate('FavouriteProducts')
+                            }}>
+                            <Image style={{
+                                height: 25,
+                                width: 25,
+                                tintColor: APP_YELLOW
+                            }}
+                                resizeMode='contain'
+                                source={require('../assets/cart.png')}>
+                            </Image>
+                        </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
-                    {/* <FlatList style={{
-                        flex: 1,
-                        marginTop: 10,
-                        marginBottom: 20
-                    }}
-                            refreshControl={<RefreshControl
-                            tintColor={APP_YELLOW}
-                            colors={["#D65050", "#D65050"]}
-                            refreshing={this.state.isFetching}
-                            onRefresh={this.onRefresh}>
-                        </RefreshControl>}
-                        data={this.state.DATA}
-                        renderItem={({ item, index }) => (
-                            this.MyCars(item, index)
-                        )}>
-                    </FlatList> */}
-
-                    <SectionList 
+                    <SectionList
                         sections={this.state.orders}
                         renderItem={({ item, index, section }) =>
                             this.Products(item, index, section)
                         }
                         keyExtractor={(item, index) => item + index}
-                        renderSectionHeader={({ section: { title } }) => (
+                        renderSectionHeader={({ section: { detailer_name } }) => (
                             <View style={{
-                                backgroundColor: 'white',
                                 height: 40
                             }}>
                                 <View style={{
@@ -213,14 +218,12 @@ export default class ProductList extends Component {
                                         marginLeft: 10,
                                         color: 'black',
                                         fontWeight: 'bold'
-                                    }}>{title}</Text>
+                                    }}>{detailer_name}</Text>
                                 </View>
                             </View>
                         )}
                         stickySectionHeadersEnabled={true}>
                     </SectionList>
-
-
                 </View>
                 {this.state.isLoading &&
                     <View style={{
@@ -244,7 +247,7 @@ export default class ProductList extends Component {
             // </SafeAreaView>
         );
     }
-    Products = (item, index) => {
+    Products = (item, index, section) => {
         return (
             <TouchableOpacity style={{
                 marginTop: 5,
@@ -259,15 +262,60 @@ export default class ProductList extends Component {
                     })
                 }}>
                 <View style={{ flexDirection: 'column' }}>
-                    <ImageLoad style={{
-                        height: Dimensions.get('window').height / 4,
-                        width: '100%',
-                    }}
-                        resizeMode='cover'
-                        source={item.image == null || item.image == 0 ?
-                            require('../assets/placeholder.jpg') :
-                            { uri: item.image }}>
-                    </ImageLoad>
+                    <View>
+                        <ImageLoad style={{
+                            height: Dimensions.get('window').height / 4,
+                            width: '100%',
+                        }}
+                            resizeMode='cover'
+                            source={item.image == null || item.image == 0 ?
+                                require('../assets/placeholder.jpg') :
+                                { uri: item.image }}>
+                        </ImageLoad>
+                        <View style={{
+                            height: 30,
+                            width: 30,
+                            position: 'absolute',
+                            bottom: 5, right: 5,
+
+                        }}>
+                            <TouchableOpacity style={{
+                                height: 30,
+                                width: 30,
+                                overflow: 'hidden',
+
+                            }}
+                                onPress={() => {
+                                        var a =this.state.orders.indexOf(section)
+                                        let item = this.state.orders[a]
+                                        if (section.id == item.id) {
+                                            var data = item.data
+                                            var _data = data[index]
+                                            var product_id = _data.product_id
+                                            _data.is_favourite = (_data.is_favourite !=null ) ? (_data.is_favourite == '1'? '0' : '1'):true
+                                            data[index] = _data
+                                            section.data = data
+                                       
+                                            var ad = [...this.state.orders]
+                                            ad[a]= section
+                                            this.setState({
+                                               orders: ad
+                                            })
+
+                                           this.FavouriteProducts(item.id,product_id,
+                                            _data.is_favourite)
+
+                                        }
+                                }}>
+                                <Image style={{
+                                    height: 30, width: 30,
+                                    tintColor: item.is_favourite == '1'  ? 'red' : 'white'
+                                }}
+                                    resizeMode='contain'
+                                    source={require('../assets/heart.png')}></Image>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <View style={{
                         marginLeft: 5,
                         marginTop: 10

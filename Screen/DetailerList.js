@@ -205,13 +205,14 @@ export default class DetailerList extends Component {
                     onPress={() => {
                         var detailer = []
                         this.state.DATA.map((item) => {
-                            if (item.request_sended != null) {
+                            if (item.id!= null) {
                                 detailer.push(item.id)
                             }
                         })
                       
                         this.props.navigation.navigate('AddDetailer', {
-                            data: detailer
+                            data: detailer,
+                            
                         })
                     }}>
                     <Image style={{

@@ -77,7 +77,6 @@ export default class AddDetailer extends Component {
                             })
                         }
                     }
-                    
                     this.setState({
                         DATA: responseJson.response.data
                     })
@@ -109,7 +108,7 @@ export default class AddDetailer extends Component {
                 //console.log(JSON.stringify(data.data.response.message))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                       alert(data.data.response.message)
+                       alert("Request sent successfully")
                     } 
                     else
                     {
@@ -315,6 +314,7 @@ export default class AddDetailer extends Component {
                             numberOfLines={2}>
                             {item.first_name}
                         </Text>
+                        
                         <TouchableOpacity style={{
                             height: 30,
                             width: '30%',
@@ -325,24 +325,41 @@ export default class AddDetailer extends Component {
                             backgroundColor: APP_YELLOW
                         }}
                             onPress={() => {
+                                    if(!item.Selected){
                                 var DATA = [...this.state.DATA]
                                 const d = DATA[index]
                                 d.Selected = !d.Selected
                                 DATA[index] = d
                                  this.setState({ DATA: DATA})
                                 this.RequestApi(item.id)
+                                    }
                             }}>
-                                {/* {item.request_sended == 0 ?  */}
+                              
                                   <Text style={{
                                     color: 'black',
                                     fontFamily: 'EurostileBold',
-                                }}>{item.Selected ? 'Request Sent': 'Request'}</Text>
-                                {/* :
-                                  <Text style={{
-                                    color: 'black',
-                                    fontFamily: 'EurostileBold',
-                                }}>Request Sent</Text>}  */}
+                                }}>
+                                    {item.Selected ? 'Request Sent': 'Request'}
+                                    </Text>
+                            
                         </TouchableOpacity>
+
+                        {/* <View style={{
+                            height: 30,
+                            width: '30%',
+                            borderRadius: 5,
+                            alignSelf: 'flex-end',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: APP_YELLOW
+                        }}>
+                              
+                                  <Text style={{
+                                    color: 'black',
+                                    fontFamily: 'EurostileBold',
+                                }}>'Request Sent'</Text>
+                            
+                        </View> */}
 
                         {/* <TouchableOpacity style={{
                             flexDirection: 'row'

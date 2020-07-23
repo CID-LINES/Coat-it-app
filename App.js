@@ -34,6 +34,9 @@ import ForgetPassword from './Screen/ForgetPassword'
 import EditProfile from './Screen/EditProfile'
 import ProductList from './Screen/ProductList'
 import DetailerDetail from './Screen/DetailerDetail'
+import FavouriteProducts from './Screen/FavouriteProducts'
+  // import Welcome from './Screen/Welcome'
+// import {strinngs} from './Screen/Localization'
 
 const Tabnavigation =createBottomTabNavigator({
   Services: {screen: Home,
@@ -111,6 +114,7 @@ const Tabnavigation =createBottomTabNavigator({
 
 })
   const LoginNavigator = createStackNavigator({
+      //  Welcome :{screen:Welcome},
     Login:{screen :Login },
     Signup: { screen: Signup },
     CarDetail : {screen : CarDetail},
@@ -129,7 +133,8 @@ const Tabnavigation =createBottomTabNavigator({
   ForgetPassword:{screen:ForgetPassword},
   EditProfile:{screen:EditProfile},
   AddDetailer:{screen:AddDetailer},
-  DetailerDetail: {screen:DetailerDetail}
+  DetailerDetail: {screen:DetailerDetail},
+  FavouriteProducts:{screen:FavouriteProducts}
     
   },
     {

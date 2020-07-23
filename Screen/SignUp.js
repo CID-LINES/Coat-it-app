@@ -4,6 +4,7 @@ import { APP_BLUE, APP_YELLOW } from '../Component/colors'
 import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
 import { NavigationActions } from 'react-navigation';
+import { strings } from './Localization';
 
 export default class SignUp extends Component {
     constructor() {
@@ -105,10 +106,10 @@ export default class SignUp extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
-                    //this.props.navigation.replace('CarDetail')
+
                     this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })],0)
                 }
-                alert(responseJson.response.message)
+
                 this.setState({
                     isLoading: false
 
@@ -187,6 +188,7 @@ export default class SignUp extends Component {
                                 }}>
                                     <Text style={{fontFamily: 'EurostileBold' }}>
                                         Upload profile picture here
+                                        
                                         </Text>
                                     <Image style={{
                                         height: 30,

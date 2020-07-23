@@ -5,6 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
 import firebase from 'react-native-firebase'
+import { strings } from './Localization';
 
 
 
@@ -171,7 +172,7 @@ export default class Home extends Component {
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
                         }}>
-                            Service Plan
+                            Services
                             </Text>
                     </View>
                     <FlatList style={{ marginTop: 5 }}
@@ -260,7 +261,7 @@ export default class Home extends Component {
                 </View>
                 <TouchableOpacity style={{
                     height: 30,
-                    width: '30%',
+                   // width: '30%',
                     marginTop: 5,
                     borderRadius: 5,
                     marginBottom: 10,
@@ -277,6 +278,7 @@ export default class Home extends Component {
                     }}>
                     <Text style={{
                         color: 'black',
+                        marginLeft:5,marginRight:5,
                          fontFamily: 'EurostileBold',
                     }}>View details</Text>
                 </TouchableOpacity>

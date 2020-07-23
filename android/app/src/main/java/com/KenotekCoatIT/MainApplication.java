@@ -5,6 +5,8 @@ import android.content.Context;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -38,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
                     // Packages that cannot be autolinked yet can be added manually here, for example:
                     // packages.add(new MyReactNativePackage());
                     new ReactNativePushNotificationPackage();
+                    new RNI18nPackage();
                     packages.add(new RNFirebaseMessagingPackage()); // add this line
                     packages.add(new RNFirebaseNotificationsPackage()); // add this line
 

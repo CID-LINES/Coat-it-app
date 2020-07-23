@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacit
 import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
+import {strings} from './Localization'
 // import { notifications } from "react-native-firebase-push-notifications"
 
 export default class Login extends Component {
@@ -20,6 +21,19 @@ export default class Login extends Component {
         }
     }
     
+
+
+    // _onSetLanguageToItalian() {
+    //     if(strings.setLanguage('it')=='it'){
+    //         strings.setLanguage('it');
+    //         this.setState({});
+    //     }
+    //     else if(strings.setLanguage == 'en'){
+    //         strings.setLanguage('en');
+    //         this.setState({});
+    //     }
+        
+    //   }
     componentDidMount() {
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
@@ -86,6 +100,7 @@ export default class Login extends Component {
     }
 
     render() {
+       
         return (
             // <SafeAreaView style={{ flex: 1, }}>
             <ImageBackground style={{ flex: 1, }}
@@ -179,7 +194,7 @@ export default class Login extends Component {
                                     fontFamily: 'EurostileBold',
                                     color: '#C0C0C0'
                                 }}
-                                >Password</Text>
+                            >Password</Text>
                                 <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
@@ -249,7 +264,8 @@ export default class Login extends Component {
                                     justifyContent: 'center'
                                 }}
                                     onPress={() => {
-                                        this.Login()
+                                         this.Login()
+                                       // this._onSetLanguageToItalian()
                                     }}>
                                     <Text style={{
                                         fontSize: 18,
