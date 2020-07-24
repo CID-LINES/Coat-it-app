@@ -91,9 +91,8 @@ export default class Home extends Component {
 
     }
 
-
-
     onRefresh = () => {
+
         this.setState({ isFetching: true }, function () { this.ProductApi() });
     }
 
@@ -142,7 +141,7 @@ export default class Home extends Component {
                             fontSize: 20,
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
-                        }}>Products</Text>
+                        }}>Favourite Products</Text>
                     </View>
                 </View>
 
@@ -157,9 +156,7 @@ export default class Home extends Component {
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
-                        data={this.state.DATA
-
-                        }
+                        data={this.state.DATA}
                         renderItem={({ item, index }) =>
                             (
                                 this.Products(item, index)
@@ -200,8 +197,7 @@ export default class Home extends Component {
                 //borderRadius: 10,
                 alignSelf: 'center',
                 overflow: 'hidden'
-            }}
-            >
+            }}>
                 <View style={{ flexDirection: 'column' }}>
                     <View>
 

@@ -5,14 +5,14 @@ import {
     TouchableOpacity, KeyboardAvoidingView, AsyncStorage,
     ActivityIndicator, Alert, RefreshControl, Dimensions,
     ImageBackground,
-    SectionList
+    SectionList,
+    StatusBar
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { CallGetApi, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
 import ImageLoad from 'react-native-image-placeholder';
-
 
 
 export default class ProductList extends Component {
@@ -49,34 +49,30 @@ export default class ProductList extends Component {
                 })
             }
         } catch (error) {
-
         }
     }
 
-    FavouriteProducts = (id,product_id,Selected) => {
-        var url=''
+    FavouriteProducts = (id, product_id, Selected) => {
+        var url = ''
         //this.state.orders.map((item)=>{
-           
-                url = Selected == '0'  ? 'remove_favourite' : 'store_favourite_products' 
-            
+
+        url = Selected == '0' ? 'remove_favourite' : 'store_favourite_products'
+
         //})
         console.log(url)
         CallApi(url,
-        {
-            'user_id': '' + this.state.user_id,
-            'detailer_id': id,
-            'product_id': product_id,
-            // 'Selected': Selected
-           
-        },
+            {
+                'user_id': '' + this.state.user_id,
+                'detailer_id': id,
+                'product_id': product_id,
+            },
             (data) => {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
                         //this.ProductApi()
                     }
-                    else 
-                    {
+                    else {
                         alert(data.data.response.message)
                     }
                 }
@@ -152,6 +148,7 @@ export default class ProductList extends Component {
             <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
+                <StatusBar barStyle="light-content" />
                 <View style={{
                     height: 45,
                     width: '95%',
@@ -175,29 +172,34 @@ export default class ProductList extends Component {
 
                     </View>
                     <TouchableOpacity style={{
-                            height: 35,
-                            width: 35,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            position: 'absolute',
-                            right: 13,
-                            top: 3
+                        height: 35,
+                        width: 35,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute',
+                        right: 13,
+                        top: 3
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('FavouriteProducts')
+                        }}>
+                        <Image style={{
+                            height: 25,
+                            width: 25,
+                            tintColor: APP_YELLOW
                         }}
-                            onPress={() => {
-                                this.props.navigation.navigate('FavouriteProducts')
-                            }}>
-                            <Image style={{
-                                height: 25,
-                                width: 25,
-                                tintColor: APP_YELLOW
-                            }}
-                                resizeMode='contain'
-                                source={require('../assets/cart.png')}>
-                            </Image>
-                        </TouchableOpacity>
+                            resizeMode='contain'
+                            source={require('../assets/cart.png')}>
+                        </Image>
+                    </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <SectionList
+                    <SectionList refreshControl={<RefreshControl 
+                        tintColor={APP_YELLOW}
+                        colors={["#D65050", "#D65050"]}
+                        refreshing={this.state.isFetching}
+                        onRefresh={this.onRefresh}>
+                    </RefreshControl>}
                         sections={this.state.orders}
                         renderItem={({ item, index, section }) =>
                             this.Products(item, index, section)
@@ -276,40 +278,39 @@ export default class ProductList extends Component {
                             height: 30,
                             width: 30,
                             position: 'absolute',
-                            bottom: 5, right: 5,
+                            bottom: 5,
+                            right: 5,
 
                         }}>
                             <TouchableOpacity style={{
                                 height: 30,
                                 width: 30,
                                 overflow: 'hidden',
-
                             }}
                                 onPress={() => {
-                                        var a =this.state.orders.indexOf(section)
-                                        let item = this.state.orders[a]
-                                        if (section.id == item.id) {
-                                            var data = item.data
-                                            var _data = data[index]
-                                            var product_id = _data.product_id
-                                            _data.is_favourite = (_data.is_favourite !=null ) ? (_data.is_favourite == '1'? '0' : '1'):true
-                                            data[index] = _data
-                                            section.data = data
-                                       
-                                            var ad = [...this.state.orders]
-                                            ad[a]= section
-                                            this.setState({
-                                               orders: ad
-                                            })
+                                    var a = this.state.orders.indexOf(section)
+                                    let item = this.state.orders[a]
+                                    if (section.id == item.id) {
+                                        var data = item.data
+                                        var _data = data[index]
+                                        var product_id = _data.product_id
+                                        _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
+                                        data[index] = _data
+                                        section.data = data
+                                        var ad = [...this.state.orders]
+                                        ad[a] = section
+                                        this.setState({
+                                            orders: ad
+                                        })
 
-                                           this.FavouriteProducts(item.id,product_id,
+                                        this.FavouriteProducts(item.id, product_id,
                                             _data.is_favourite)
 
-                                        }
+                                    }
                                 }}>
                                 <Image style={{
                                     height: 30, width: 30,
-                                    tintColor: item.is_favourite == '1'  ? 'red' : 'white'
+                                    tintColor: item.is_favourite == '1' ? 'red' : 'white'
                                 }}
                                     resizeMode='contain'
                                     source={require('../assets/heart.png')}></Image>

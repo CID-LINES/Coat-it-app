@@ -59,7 +59,7 @@ pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
 pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
-pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+#pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
 pod 'ReactNativeLocalization', :path => '../node_modules/react-native-localization'
 

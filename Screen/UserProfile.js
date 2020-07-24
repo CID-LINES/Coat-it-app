@@ -266,7 +266,8 @@ export default class UserProfile extends Component {
                                             width: 25
                                         }}
                                             source={require('../assets/email.png')}></Image> */}
-                                        <View style={{ marginLeft: 10 }}>
+                                        <View style={{ marginLeft: 10,
+                                            width:'55%' }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17, color: APP_YELLOW

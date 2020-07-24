@@ -13,6 +13,12 @@ INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidMa
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:1:1-73:12
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:1:1-73:12
 MERGED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:1:1-73:12
+MERGED from [:react-native-localization] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-localization/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:@react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-maps] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8505783811d389f089afcde362eabcb7/AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/55979a9896b8c3f871a80cbaaa673241/AndroidManifest.xml:2:1-9:12
@@ -27,13 +33,11 @@ MERGED from [com.google.android.gms:play-services-base:17.2.1] /Users/ios/.gradl
 MERGED from [:react-native-firebase] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-21:12
 MERGED from [:react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-month-year-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-month-year-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ed1d04dafc225e257c3ff456e2f0e2cd/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/7ba8028931889f58ea7a83baba58e2c3/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] /Users/ios/.gradle/caches/transforms-2/files-2.1/825989e207948e49b9df27b5de3f0da0/AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.firebase:firebase-installations:16.3.2] /Users/ios/.gradle/caches/transforms-2/files-2.1/c449891b2d866e8871187b1c54678db0/AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87803fd899d463f1b9d7bcc8d708e90a/AndroidManifest.xml:15:1-39:12
@@ -50,26 +54,24 @@ MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] /User
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/78d73ddbc1d94205b5c2efa9d2294104/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:17.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a524d22e9843bb44472ed12db546b9b9/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/4cf40ae0be550c811000766a90dd6ef9/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/dcfcf6c724b312de49110e50139c9cbb/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/c90534def77385ea799047e3910ebc70/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/93c40154ad7e36cebf4f294f0ecc3d42/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7e5d2fa7d5a58aa54673cd95b2490032/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1f9e97a8c8345f629f473fb9f1e12348/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd7125e22d4930897de3b73ec3109379/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/579bf528e7d80b19f6bb0db653c280d7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1e754aa60a24bf3455d6fed57110eec8/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/c63bed87f5d5aecb5dec9e1f95da3911/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a8be4d28d3afb3c6c0e6f6ac4f688ce2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd3d260ea92ff12fe4be478ee577d709/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/335286fc60d22e679dc7064e9d0db68f/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/6524284dcc51482edee35d788c02d681/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/347689d3c4e35030ddda17030db5b571/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/72d7eda11f17a4d809960afab8133411/AndroidManifest.xml:17:1-27:12
@@ -94,14 +96,14 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/ios
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/b44ea392a9c8c986b7bce54803baf2eb/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/b213bd31847c727fdaf6a9cbd15c6939/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/91a4e60af88aa0e6339c42c6d0889625/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/30d35158b3fca8e190a6bf32bee46286/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e7364c19043bbe0cb1f342baa6300075/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/2038abddd17a07858223e7507b27b562/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/cdb5a2ad4bf65f3fbcdf1944795e17a4/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/67236531ccd68be7706659648fee3134/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/099c68b6708712d836fd9111b51c2935/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -201,6 +203,8 @@ MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/coat-it-app/nod
 MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ed1d04dafc225e257c3ff456e2f0e2cd/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ed1d04dafc225e257c3ff456e2f0e2cd/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] /Users/ios/.gradle/caches/transforms-2/files-2.1/825989e207948e49b9df27b5de3f0da0/AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] /Users/ios/.gradle/caches/transforms-2/files-2.1/825989e207948e49b9df27b5de3f0da0/AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-installations:16.3.2] /Users/ios/.gradle/caches/transforms-2/files-2.1/c449891b2d866e8871187b1c54678db0/AndroidManifest.xml:13:5-21:19
@@ -227,8 +231,6 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/78d73ddbc1d94205b5c2efa9d2294104/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:22:5-20
 MERGED from [androidx.core:core:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/72d7eda11f17a4d809960afab8133411/AndroidManifest.xml:24:5-25:19
@@ -361,6 +363,18 @@ uses-sdk
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-localization] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-localization/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-localization] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-localization/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:@react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:@react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8505783811d389f089afcde362eabcb7/AndroidManifest.xml:20:5-44
@@ -389,20 +403,16 @@ MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/coat-it-app/nod
 MERGED from [:react-native-image-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] /Users/ios/Desktop/Work/coat-it-app/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-month-year-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-month-year-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-month-year-picker] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-month-year-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-safe-area-context] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /Users/ios/Desktop/Work/coat-it-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ed1d04dafc225e257c3ff456e2f0e2cd/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/ios/.gradle/caches/transforms-2/files-2.1/ed1d04dafc225e257c3ff456e2f0e2cd/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/7ba8028931889f58ea7a83baba58e2c3/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/ios/.gradle/caches/transforms-2/files-2.1/7ba8028931889f58ea7a83baba58e2c3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] /Users/ios/.gradle/caches/transforms-2/files-2.1/825989e207948e49b9df27b5de3f0da0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] /Users/ios/.gradle/caches/transforms-2/files-2.1/825989e207948e49b9df27b5de3f0da0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-installations:16.3.2] /Users/ios/.gradle/caches/transforms-2/files-2.1/c449891b2d866e8871187b1c54678db0/AndroidManifest.xml:6:5-8:41
@@ -435,10 +445,6 @@ MERGED from [com.google.android.gms:play-services-basement:17.2.1] /Users/ios/.g
 MERGED from [com.google.android.gms:play-services-basement:17.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a524d22e9843bb44472ed12db546b9b9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a524d22e9843bb44472ed12db546b9b9/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/4cf40ae0be550c811000766a90dd6ef9/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/4cf40ae0be550c811000766a90dd6ef9/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/ios/.gradle/caches/transforms-2/files-2.1/dcfcf6c724b312de49110e50139c9cbb/AndroidManifest.xml:20:5-22:41
@@ -449,32 +455,32 @@ MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ios/.gra
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/93c40154ad7e36cebf4f294f0ecc3d42/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7e5d2fa7d5a58aa54673cd95b2490032/AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/7e5d2fa7d5a58aa54673cd95b2490032/AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1f9e97a8c8345f629f473fb9f1e12348/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1f9e97a8c8345f629f473fb9f1e12348/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd7125e22d4930897de3b73ec3109379/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd7125e22d4930897de3b73ec3109379/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/579bf528e7d80b19f6bb0db653c280d7/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/579bf528e7d80b19f6bb0db653c280d7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/94f0582a929f4a7d1bc20b9526486b40/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1e754aa60a24bf3455d6fed57110eec8/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/1e754aa60a24bf3455d6fed57110eec8/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/c63bed87f5d5aecb5dec9e1f95da3911/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/c63bed87f5d5aecb5dec9e1f95da3911/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a8be4d28d3afb3c6c0e6f6ac4f688ce2/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a8be4d28d3afb3c6c0e6f6ac4f688ce2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e8fb803b9df6cbf2767f82fc146a3aad/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd3d260ea92ff12fe4be478ee577d709/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/dd3d260ea92ff12fe4be478ee577d709/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/a12e038159e0c2678aefdf8d3831e842/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/335286fc60d22e679dc7064e9d0db68f/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/335286fc60d22e679dc7064e9d0db68f/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/6524284dcc51482edee35d788c02d681/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/6524284dcc51482edee35d788c02d681/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/50ba949aabd796a9390f87edf50133b5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/347689d3c4e35030ddda17030db5b571/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/347689d3c4e35030ddda17030db5b571/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/AndroidManifest.xml:20:5-22:41
@@ -523,12 +529,6 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ios/.gradle/caches
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/b213bd31847c727fdaf6a9cbd15c6939/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/91a4e60af88aa0e6339c42c6d0889625/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/91a4e60af88aa0e6339c42c6d0889625/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/30d35158b3fca8e190a6bf32bee46286/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/30d35158b3fca8e190a6bf32bee46286/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e7364c19043bbe0cb1f342baa6300075/AndroidManifest.xml:20:5-22:41
@@ -539,6 +539,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/ios/.gradl
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/cdb5a2ad4bf65f3fbcdf1944795e17a4/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/67236531ccd68be7706659648fee3134/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/67236531ccd68be7706659648fee3134/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/8924707720b0f89a048ddda6da8f6f5e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/972f22f934027be09f117cb19eac96cf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/e5cc3898e1d97a06685780e2e283fba6/AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/099c68b6708712d836fd9111b51c2935/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/ios/.gradle/caches/transforms-2/files-2.1/099c68b6708712d836fd9111b51c2935/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/debug/AndroidManifest.xml

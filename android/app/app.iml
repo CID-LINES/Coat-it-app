@@ -173,9 +173,9 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-api:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
-    <orderEntry type="module" module-name="react-native-i18n" />
     <orderEntry type="module" module-name="node_modules-react-native-firebase-android-react-native-firebase" />
     <orderEntry type="module" module-name="react-native-image-picker-android-react-native-image-picker" />
+    <orderEntry type="module" module-name="react-native-localization" />
     <orderEntry type="module" module-name="node_modules-react-native-screens-android-react-native-screens" />
     <orderEntry type="module" module-name="node_modules-react-native-reanimated-android-react-native-reanimated" />
     <orderEntry type="module" module-name="node_modules-react-native-gesture-handler-android-react-native-gesture-handler" />

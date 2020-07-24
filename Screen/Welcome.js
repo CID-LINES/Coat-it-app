@@ -104,6 +104,8 @@ export default class Home extends Component {
 
                             }}
                                 onPress={() => {
+                                    
+                                    
                                     this.setState({
                                         isShow: true
                                     })
@@ -130,7 +132,8 @@ export default class Home extends Component {
                                     if (this.state.title == '') {
                                         strings.setLanguage('en')
                                         this.props.navigation.navigate('Login')
-                                    } else {
+                                    } 
+                                    else {
                                         this.props.navigation.navigate('Login')
                                     }
 

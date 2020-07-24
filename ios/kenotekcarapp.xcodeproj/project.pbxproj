@@ -642,6 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
 				PRODUCT_NAME = "kenotek Coat IT";
 				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -701,6 +702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
 				PRODUCT_NAME = "kenotek Coat IT";
 				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

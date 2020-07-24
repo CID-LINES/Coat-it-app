@@ -112,7 +112,6 @@ export default class SignUp extends Component {
 
                 this.setState({
                     isLoading: false
-
                 })
             })
             .catch((error) => {

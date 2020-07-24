@@ -22,6 +22,8 @@ import io.invertase.firebase.RNFirebasePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-image-picker
 import com.imagepicker.ImagePickerPackage;
+// react-native-localization
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
 // react-native-month-year-picker
@@ -83,6 +85,7 @@ public class PackageList {
       new RNFirebasePackage(),
       new RNGestureHandlerPackage(),
       new ImagePickerPackage(),
+      new ReactNativeLocalizationPackage(),
       new MapsPackage(),
       new RNMonthPickerPackage(),
       new ReactNativePushNotificationPackage(),

@@ -1363,9 +1363,11 @@ drawable assets_bg
 drawable assets_camera
 drawable assets_caricon
 drawable assets_carlogo
+drawable assets_cart
 drawable assets_deleteicon
 drawable assets_editdetail
 drawable assets_email
+drawable assets_heart
 drawable assets_id
 drawable assets_info
 drawable assets_lock
