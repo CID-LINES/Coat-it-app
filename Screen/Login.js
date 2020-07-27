@@ -22,18 +22,6 @@ export default class Login extends Component {
     }
     
 
-
-    // _onSetLanguageToItalian() {
-    //     if(strings.setLanguage('it')=='it'){
-    //         strings.setLanguage('it');
-    //         this.setState({});
-    //     }
-    //     else if(strings.setLanguage == 'en'){
-    //         strings.setLanguage('en');
-    //         this.setState({});
-    //     }
-        
-    //   }
     componentDidMount() {
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
@@ -193,8 +181,7 @@ export default class Login extends Component {
                                     marginTop: 10,
                                     fontFamily: 'EurostileBold',
                                     color: '#C0C0C0'
-                                }}
-                            >Password</Text>
+                                }}>Password</Text>
                                 <View style={{
                                     flexDirection: 'row',
                                     width: '80%',

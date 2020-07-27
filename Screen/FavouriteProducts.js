@@ -21,7 +21,6 @@ export default class Home extends Component {
             plan: '',
             previewurl: null,
 
-
         }
     }
 
@@ -92,7 +91,6 @@ export default class Home extends Component {
     }
 
     onRefresh = () => {
-
         this.setState({ isFetching: true }, function () { this.ProductApi() });
     }
 
@@ -148,9 +146,7 @@ export default class Home extends Component {
 
                 <View style={{ flex: 1 }}>
                     <FlatList style={{ marginTop: 10 }}
-                        refreshControl={<RefreshControl style={{
-
-                        }}
+                        refreshControl={<RefreshControl
                             tintColor={APP_YELLOW}
                             colors={["#D65050", "#D65050"]}
                             refreshing={this.state.isFetching}
@@ -190,13 +186,18 @@ export default class Home extends Component {
 
     Products = (item, index) => {
         return (
-            <View style={{
+            <TouchableOpacity style={{
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
                 //borderRadius: 10,
                 alignSelf: 'center',
                 overflow: 'hidden'
+            }}
+            onPress={()=>{
+                this.props.navigation.navigate('ProductDetail', {
+                    data: item
+                })
             }}>
                 <View style={{ flexDirection: 'column' }}>
                     <View>
@@ -237,7 +238,7 @@ export default class Home extends Component {
                     </View>
                 </View>
 
-            </View>
+            </TouchableOpacity>
         )
     }
 }

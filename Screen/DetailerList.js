@@ -37,6 +37,7 @@ export default class DetailerList extends Component {
         } catch (error) {
         }
     }
+
     DetailerListApi = () => {
         this.setState({
             isLoading: true
@@ -70,11 +71,11 @@ export default class DetailerList extends Component {
                 //callback({error: true, data: error});
             });
     }
+    
     // DetailerListApi = (index) => {
     //     this.setState({
     //         isLoading: true
     //     })
-
     //     fetch('http://3.137.41.50/coatit/public/api/detailer_list',
     //         {
     //             method: 'GET',
@@ -102,7 +103,6 @@ export default class DetailerList extends Component {
     //             //  callback({ data: error });
     //             //callback({error: true, data: error});
     //         });
-
     // }
 
     onRefresh = () => {
@@ -114,7 +114,6 @@ export default class DetailerList extends Component {
             <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
-
                 <View style={{
                     height: 45,
                     width: '95%',
@@ -124,7 +123,7 @@ export default class DetailerList extends Component {
                     alignSelf: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity style = {{
                         height: 25,
                         width: 25,
                         alignItems: 'center',
@@ -179,7 +178,7 @@ export default class DetailerList extends Component {
                     marginTop: 10,
                     marginBottom: 20
                 }}
-                    refreshControl={<RefreshControl
+                    refreshControl= {<RefreshControl
                         tintColor={APP_YELLOW}
                         colors={["#D65050", "#D65050"]}
                         refreshing={this.state.isFetching}
@@ -209,10 +208,8 @@ export default class DetailerList extends Component {
                                 detailer.push(item.id)
                             }
                         })
-                      
                         this.props.navigation.navigate('AddDetailer', {
                             data: detailer,
-                            
                         })
                     }}>
                     <Image style={{
@@ -284,7 +281,6 @@ export default class DetailerList extends Component {
                 marginTop: 5,
                 marginBottom: 5,
                 width: '95%',
-
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}

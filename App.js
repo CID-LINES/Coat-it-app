@@ -135,7 +135,7 @@ const Tabnavigation =createBottomTabNavigator({
   AddDetailer:{screen:AddDetailer},
   DetailerDetail: {screen:DetailerDetail},
   FavouriteProducts:{screen:FavouriteProducts}
-    
+
   },
     {
       defaultNavigationOptions: {

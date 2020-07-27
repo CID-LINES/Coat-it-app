@@ -129,7 +129,6 @@ export default class EditProfile extends Component {
                 }
                 this.setState({
                     isLoading: false
-
                 })
             })
             .catch((error) => {
@@ -142,63 +141,63 @@ export default class EditProfile extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
-                 <ImageBackground style={{ flex: 1 ,}}
-                 resizeMode='stretch'
-                        source={require('../assets/bg.png')}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
                 <View style={{
-                    height: 45, width: '95%',
+                    height: 45, 
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignItems:'center',
+                    alignItems: 'center',
                     alignSelf: 'center',
-                    marginTop:Platform.OS==='ios'?25:7
+                    marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
                     <TouchableOpacity style={{
-                        height: 35, 
+                        height: 35,
                         width: 35,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'absolute', left: 5
-
+                        position: 'absolute', 
+                        left: 5
                     }}
                         onPress={() => {
                             this.props.navigation.goBack()
                         }}>
-                        <Image style={{ height: 20, 
-                        width: 20, 
-                        tintColor: APP_YELLOW }}
+                        <Image style={{
+                            height: 20,
+                            width: 20,
+                            tintColor: APP_YELLOW
+                        }}
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
-
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
-                        alignItems: 'center', 
+                        alignItems: 'center',
                         justifyContent: 'center',
-
                     }}>
                         <Text style={{
-                            fontSize: 18, 
-                            fontFamily:'EurostileBold',
+                            fontSize: 18,
+                            fontFamily: 'EurostileBold',
                             color: APP_YELLOW
                         }}>Edit Profile
                         </Text>
                     </View>
-
                 </View>
                 <KeyboardAvoidingView style={{ flex: 1 }}
-                        behavior="padding" enabled={Platform.OS==='ios'}
-                        keyboardVerticalOffset={Platform.OS == 'ios' ? 0: 0}>
+                    behavior="padding" enabled={Platform.OS === 'ios'}
+                    keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
                     <ScrollView style={{ flex: 1 }}>
                         <View style={{ flex: 1 }}>
                             <View style={{
-                                height: Dimensions.get('window').height/3,
-                                marginTop:10,
-                                width: '100%', 
+                                height: Dimensions.get('window').height / 3,
+                                marginTop: 10,
+                                width: '100%',
                                 justifyContent: 'center'
                             }}>
                                 <TouchableOpacity style={{
-                                    flex:1,
+                                    flex: 1,
                                     width: '95%',
                                     //borderRadius: 10,
                                     alignSelf: 'center',
@@ -209,44 +208,44 @@ export default class EditProfile extends Component {
                                     }}>
 
                                     <ImageLoad style={{
-                                       // height: 130,
-                                        flex:1,
-                                        
+                                        // height: 130,
+                                        flex: 1,
                                     }}
                                         resizeMethod='resize'
-                                        source={
-                                          
-                                            { uri: this.state.filePath }}>
-
+                                        source={{ uri: this.state.filePath }}>
                                     </ImageLoad>
                                 </TouchableOpacity>
-                             
-                                     <View style={{
-                                    height:40,width:'60%',
-                                    flexDirection:'row',
-                              alignItems:'center',
-                              justifyContent:'center',
-                              position:'absolute',
-                              bottom:5,
-                              right:18}}>
-                                  <Text style={{ fontFamily:'EurostileBold'}}>Upload profile picture here</Text>
-                                  <Image style={{height:30,width:30,
-                                  marginLeft:10,
-                                  tintColor:'black'
-                                }}      
-                                  source={require('../assets/camera.png')}></Image>
-                              </View>
-                                
+
+                                <View style={{
+                                    height: 40,
+                                    width: '60%',
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    position: 'absolute',
+                                    bottom: 5,
+                                    right: 18
+                                }}>
+                                    <Text style={{ fontFamily: 'EurostileBold' }}>Upload profile picture here</Text>
+                                    <Image style={{
+                                        height: 30, width: 30,
+                                        marginLeft: 10,
+                                        tintColor: 'black'
+                                    }}
+                                        source={require('../assets/camera.png')}></Image>
+                                </View>
                             </View>
                             <View style={{
                                 width: '100%',
                                 marginTop: 20,
                                 alignItems: 'center'
                             }}>
-                                <Text style={{ width: '78%',
-                                color:'#C0C0C0',
-                                 fontFamily:'EurostileBold' }}>First name</Text>
-                                   <View style={{
+                                <Text style={{
+                                    width: '78%',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold'
+                                }}>First name</Text>
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -259,19 +258,19 @@ export default class EditProfile extends Component {
                                         source={require('../assets/user.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,    
-                                    padding: 5,
-                                    color:'#C0C0C0'
-                                }}
-                                    value={this.state.firstname}
-                                    onChangeText={(value) => { this.setState({ firstname: value }) }}
-                                    keyboardType='ascii-capable'
-                                    placeholder='First Name'
-                                    placeholderTextColor='#C0C0C0'></TextInput>
-                                    </View>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        value={this.state.firstname}
+                                        onChangeText={(value) => { this.setState({ firstname: value }) }}
+                                        keyboardType='ascii-capable'
+                                        placeholder='First Name'
+                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                </View>
                                 {/* <View style={{
                                     height: 1,
                                     width: '80%', backgroundColor: '#C0C0C0'
@@ -279,10 +278,10 @@ export default class EditProfile extends Component {
                                 <Text style={{
                                     width: '78%',
                                     marginTop: 10,
-                                    color:'#C0C0C0',
-                                    fontFamily:'EurostileBold',
+                                    color: '#C0C0C0',
+                                    fontFamily: 'EurostileBold',
                                 }}>Last name</Text>
-                                  <View style={{
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -295,23 +294,23 @@ export default class EditProfile extends Component {
                                         source={require('../assets/user.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                     width: '75%',
-                                    marginTop: 2,
-                                    // borderColor: 'gray',
-                                    // borderWidth: 1,
-                                    // borderRadius: 10,
-                                    padding: 5,
-                                    color:'#C0C0C0'
-                                }}
-                                    keyboardType='ascii-capable'
-                                    value={this.state.lastname}
-                                    onChangeText={(value) => { this.setState({ lastname: value }) }}
-                                    placeholder='Last Name'
-                                    placeholderTextColor='#C0C0C0'>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        // borderColor: 'gray',
+                                        // borderWidth: 1,
+                                        // borderRadius: 10,
+                                        padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        keyboardType='ascii-capable'
+                                        value={this.state.lastname}
+                                        onChangeText={(value) => { this.setState({ lastname: value }) }}
+                                        placeholder='Last Name'
+                                        placeholderTextColor='#C0C0C0'>
 
-                                </TextInput>
+                                    </TextInput>
                                 </View>
                                 {/* <View style={{
                                     height: 1,
@@ -320,11 +319,11 @@ export default class EditProfile extends Component {
 
                                 <Text style={{
                                     width: '78%',
-                                     marginTop: 10,
-                                     fontFamily:'EurostileBold',
-                                     color:'#C0C0C0'
+                                    marginTop: 10,
+                                    fontFamily: 'EurostileBold',
+                                    color: '#C0C0C0'
                                 }}>Phone No.</Text>
-                                  <View style={{
+                                <View style={{
                                     flexDirection: 'row',
                                     width: '80%',
                                     alignItems: "center"
@@ -337,29 +336,27 @@ export default class EditProfile extends Component {
                                         source={require('../assets/phone.png')}
                                         resizeMode='cover'
                                     ></Image>
-                                <TextInput style={{
-                                    height: 40,
-                                    width: '75%',
-                                    marginTop: 2,  
-                                    padding: 5,
-                                    color:'#C0C0C0'
-                                }}
-                                    value={this.state.phone}
-                                    onChangeText={(value) => { this.setState({ phone: value }) }}
-                                    keyboardType='number-pad'
-                                    returnKeyType='done'
-                                    placeholder='Phone no.'
-                                    placeholderTextColor='#C0C0C0'>
+                                    <TextInput style={{
+                                        height: 40,
+                                        width: '75%',
+                                        marginTop: 2,
+                                        padding: 5,
+                                        color: '#C0C0C0'
+                                    }}
+                                        value={this.state.phone}
+                                        onChangeText={(value) => { this.setState({ phone: value }) }}
+                                        keyboardType='number-pad'
+                                        returnKeyType='done'
+                                        placeholder='Phone no.'
+                                        placeholderTextColor='#C0C0C0'>
                                     </TextInput>
-                                    </View>
+                                </View>
                                 {/* <View style={{
                                     height: 1,
                                     width: '80%', 
                                     backgroundColor: '#C0C0C0'
                                 }}></View> */}
-
                             </View>
-
                             <TouchableOpacity style={{
                                 height: 50, width: '60%',
                                 backgroundColor: APP_YELLOW,
@@ -375,8 +372,8 @@ export default class EditProfile extends Component {
 
                                 }}>
                                 <Text style={{
-                                    fontSize: 18, 
-                                    fontFamily:'EurostileBold',
+                                    fontSize: 18,
+                                    fontFamily: 'EurostileBold',
                                     color: 'black'
                                 }}>Submit</Text>
                             </TouchableOpacity>
@@ -402,7 +399,7 @@ export default class EditProfile extends Component {
 
                     </View>
                 }
-                </ImageBackground>
+            </ImageBackground>
             // </SafeAreaView>
 
         );

@@ -70,7 +70,7 @@ export default class ProductList extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                        //this.ProductApi()
+                     
                     }
                     else {
                         alert(data.data.response.message)
