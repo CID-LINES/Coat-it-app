@@ -45,7 +45,6 @@ export default class Settings extends Component {
         });
     };
     async save(key, value) {
-
         try {
             await AsyncStorage.setItem(key, value);
 
@@ -121,6 +120,27 @@ export default class Settings extends Component {
                         fontFamily: 'EurostileBold',
                     }}>Change Password</Text>
                 </TouchableOpacity>
+
+                {/* <TouchableOpacity style={{
+                    height: 40,
+                    width: '60%',
+                    marginTop: 10,
+                    alignItems: "center",
+                    justifyContent: 'center',
+                    borderRadius: 10, 
+                    alignSelf: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    onPress={() => {
+                        this.props.navigation.navigate('Welcome')
+                    }}>
+                    <Text style={{
+                        fontSize: 18,
+                        color: 'black',
+                        fontFamily: 'EurostileBold',
+                    }}>Change Language</Text>
+                </TouchableOpacity> */}
+                
                 <TouchableOpacity style={{
                     height: 40, 
                     width: '60%',
@@ -161,11 +181,11 @@ export default class Settings extends Component {
                                 }],
                             { cancelable: false },
                         );
-                    }}
-                >
+                    }}>
                     <Text style={{
                         fontSize: 18,
-                        color: 'black', fontFamily: 'EurostileBold',
+                        color: 'black', 
+                        fontFamily: 'EurostileBold',
                     }}>Logout</Text>
                 </TouchableOpacity>
                
@@ -174,16 +194,18 @@ export default class Settings extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, left: 0, right: 0,
+                        bottom: 0, 
+                        left: 0, 
+                        right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-
                             color={APP_YELLOW}
-                        ></ActivityIndicator>
+                        >
+                        </ActivityIndicator>
 
                     </View>
                 }

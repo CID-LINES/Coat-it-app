@@ -15,10 +15,12 @@ export default class PurchaseDetail extends Component {
             <SafeAreaView style={{ flex: 1 }}>
 
                 <View style={{
-                    height: 40, width: '95%',
+                    height: 40,
+                    width: '95%',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    alignSelf: 'center', marginTop: 10
+                    alignSelf: 'center', 
+                    marginTop: 10
                 }}>
                     <TouchableOpacity style={{
                         height: 35, width: 35,

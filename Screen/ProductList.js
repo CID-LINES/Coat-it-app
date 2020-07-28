@@ -54,11 +54,7 @@ export default class ProductList extends Component {
 
     FavouriteProducts = (id, product_id, Selected) => {
         var url = ''
-        //this.state.orders.map((item)=>{
-
         url = Selected == '0' ? 'remove_favourite' : 'store_favourite_products'
-
-        //})
         console.log(url)
         CallApi(url,
             {
@@ -70,7 +66,7 @@ export default class ProductList extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                     
+
                     }
                     else {
                         alert(data.data.response.message)
@@ -194,7 +190,7 @@ export default class ProductList extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <SectionList refreshControl={<RefreshControl 
+                    <SectionList refreshControl={<RefreshControl
                         tintColor={APP_YELLOW}
                         colors={["#D65050", "#D65050"]}
                         refreshing={this.state.isFetching}
@@ -305,11 +301,11 @@ export default class ProductList extends Component {
 
                                         this.FavouriteProducts(item.id, product_id,
                                             _data.is_favourite)
-
                                     }
                                 }}>
                                 <Image style={{
-                                    height: 30, width: 30,
+                                    height: 30,
+                                    width: 30,
                                     tintColor: item.is_favourite == '1' ? 'red' : 'white'
                                 }}
                                     resizeMode='contain'

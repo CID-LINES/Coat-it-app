@@ -31,8 +31,8 @@ export default class EditProfile extends Component {
                 skipBackup: true,
                 path: 'images',
             },
-            maxWidth: 300,
-            maxHeight: 300,
+            maxWidth: 500,
+            maxHeight: 500,
             quality: 0.5
         };
         ImagePicker.showImagePicker(options, response => {

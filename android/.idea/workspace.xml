@@ -3,12 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e245a2ce-9c33-4786-9e05-7c8179ac7f03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Screen/DetailerList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/DetailerList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/AddCar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/AddCar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/CarDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/CarDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/EditCarDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/EditCarDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Screen/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/EditProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Screen/FavouriteProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/FavouriteProducts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Screen/Localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/Localization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Screen/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Screen/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/ProductList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/PurchaseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/PurchaseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/Settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/Welcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -22,6 +28,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/arm64-v8a/libhermes-executor-debug.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/arm64-v8a/libhermes-executor-release.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/arm64-v8a/libhermes-inspector.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/armeabi-v7a/libhermes-executor-debug.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/armeabi-v7a/libhermes-executor-release.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/armeabi-v7a/libhermes-inspector.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libhermes-executor-debug.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libhermes-executor-release.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libhermes-inspector.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86_64/libhermes-executor-debug.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86_64/libhermes-executor-release.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86_64/libhermes-inspector.so" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/kenotekcarapp.xcworkspace/xcuserdata/ios.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/kenotekcarapp.xcworkspace/xcuserdata/ios.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
@@ -31,7 +49,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_R" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="520097efec7c25a9" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -219,9 +237,9 @@
       <screen x="0" y="23" width="1366" height="696" />
     </state>
     <state width="1324" height="170" key="GridCell.Tab.0.right/0.23.1366.696@0.23.1366.696" timestamp="1595850893154" />
-    <state x="332" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1595850643885">
+    <state x="332" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1595932969883">
       <screen x="0" y="23" width="1366" height="696" />
     </state>
-    <state x="332" y="213" key="com.intellij.ide.util.TipDialog/0.23.1366.696@0.23.1366.696" timestamp="1595850643885" />
+    <state x="332" y="213" key="com.intellij.ide.util.TipDialog/0.23.1366.696@0.23.1366.696" timestamp="1595932969883" />
   </component>
 </project>

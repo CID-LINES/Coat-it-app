@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground, RefreshControl } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground, RefreshControl, StatusBar } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
@@ -158,6 +158,9 @@ export default class Home extends Component {
             <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
+                     <StatusBar barStyle="light-content"
+              
+                />
                 <View style={{ flex: 1 }}>
                     <View style={{
                         height: 40,

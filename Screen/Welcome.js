@@ -64,12 +64,7 @@ export default class Home extends Component {
                             Kenotek Coat-IT
                             </Text>
                     </View>
-                    <TouchableOpacity style={{ flex: 1 }}
-                        onPress={() => {
-                            this.setState({
-                                isShow: false
-                            })
-                        }}>
+                   
                         <View style={{
                             height: Dimensions.get('window').height / 3,
                             width: 250,
@@ -94,7 +89,6 @@ export default class Home extends Component {
                             justifyContent: 'center',
                             marginTop: 10
                         }}>
-
                             <TouchableOpacity style={{
                                 height: 40,
                                 width: '50%',
@@ -104,10 +98,9 @@ export default class Home extends Component {
 
                             }}
                                 onPress={() => {
-                                    
-                                    
+                                    var data = this.state.isShow == false ? true : false
                                     this.setState({
-                                        isShow: true
+                                        isShow: data
                                     })
                                 }}>
                                 <Text style={{
@@ -152,7 +145,7 @@ export default class Home extends Component {
                                 )}>
                             </FlatList>
                         }
-                    </TouchableOpacity>
+                    
                 </View>
 
 

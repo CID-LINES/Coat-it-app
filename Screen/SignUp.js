@@ -28,8 +28,8 @@ export default class SignUp extends Component {
                 skipBackup: true,
                 path: 'images',
             },
-            maxWidth: 300,
-            maxHeight: 300,
+            maxWidth: 500,
+            maxHeight: 500,
             quality: 0.5
         };
         ImagePicker.showImagePicker(options, response => {
@@ -65,7 +65,7 @@ export default class SignUp extends Component {
 
             //alert(JSON.stringify(value))
         } catch (error) {
-            //   c`onsole.log("Error saving data" + error);
+            // console.log("Error saving data" + error);
         }
     }
 
@@ -106,10 +106,8 @@ export default class SignUp extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
-
                     this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })],0)
                 }
-
                 this.setState({
                     isLoading: false
                 })

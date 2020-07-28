@@ -94,7 +94,7 @@ export default class Login extends Component {
             <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
-                <StatusBar barStyle="light-content" />
+                <StatusBar barStyle="light-content"/>
                 <View style={{ flex: 1 }}>
                     <View style={{
                         alignSelf: 'center',
@@ -208,7 +208,8 @@ export default class Login extends Component {
                                         keyboardType='ascii-capable'
                                         onChangeText={(value) => this.setState({ Password: value })}
                                         placeholder='Enter your password'
-                                        placeholderTextColor='#C0C0C0'></TextInput>
+                                        placeholderTextColor='#C0C0C0'>
+                                        </TextInput>
                                 </View>
                                 {/* <View style={{
                                         height: 1,
@@ -285,137 +286,6 @@ export default class Login extends Component {
                     </KeyboardAvoidingView>
                 </View>
 
-                {/* {this.state.isshow &&
-                        <View style={{
-                            position: 'absolute', top: 0,
-                            bottom: 0, left: 0, right: 0,
-                            justifyContent: 'center',
-                            backgroundColor: '#00000055'
-                        }}>
-                            <View style={{
-                                height: 200,
-                                width: '90%',
-                                // borderColor: APP_YELLOW,
-                                // borderWidth: 3,
-                                alignSelf: 'center',
-                                borderRadius: 10,
-                                justifyContent: 'center',
-                                backgroundColor: 'white',
-                                // shadowColor: 'black',
-                                // shadowOpacity: 1, shadowRadius: 1,
-                                // shadowOffset: { width: 2, height: 1 },
-                                overflow: 'hidden'
-
-                            }}>
-                                <ImageBackground style={{ flex: 1 }}
-                                    resizeMode='stretch'
-                                    source={require('../assets/bg.png')}>
-                                    <View style={{
-                                        width: '100%',
-                                        marginTop: 10,
-                                        alignItems: 'center'
-                                    }}>
-
-                                        <Text style={{
-                                            width: '80%', marginTop: 10,
-                                            color: '#C0C0C0',
-                                            fontFamily: 'EurostileBold',
-                                        }}>Email</Text>
-                                        <View style={{
-                                    flexDirection: 'row',
-                                    width: '80%',
-                                    alignItems: "center"
-                                }}>
-                                    <Image style={{
-                                        height: 25,
-                                        tintColor: APP_YELLOW,
-                                        width: 25
-                                    }}
-                                        source={require('../assets/email.png')}
-                                        resizeMode='cover'
-                                    ></Image>
-                                        <TextInput style={{
-                                            height: 40, 
-                                            width: '75%',
-
-                                            marginTop: 2,
-                                            // borderColor: 'gray',
-                                            // borderWidth: 1,
-                                            borderRadius: 10,
-                                            padding: 5, color: '#C0C0C0'
-                                        }}
-                                            value={this.state.femail}
-                                            onChangeText={(value) => this.setState({ femail: value })}
-                                            keyboardType='ascii-capable'
-                                            placeholder='Enter your email'
-                                            placeholderTextColor='#C0C0C0'>
-                                        </TextInput>
-                                        </View>
-                                        <View style={{
-                                            height: 1, width: '80%',
-                                            backgroundColor: '#C0C0C0'
-                                        }}></View>
-                                        <View style={{
-                                            flexDirection: 'row',
-                                            width: '80%',
-                                            justifyContent: 'space-between',
-                                            marginTop: 10
-                                        }}>
-
-                                            <TouchableOpacity style={{
-                                                height: 40,
-                                                width: 80,
-                                                backgroundColor: APP_YELLOW,
-                                                borderRadius: 10,
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                shadowColor: 'gray',
-                                                // shadowOpacity: 1, 
-                                                // shadowRadius: 1,
-                                                // shadowOffset: { width: 2, height: 1 }
-                                            }}
-                                                onPress={() => {
-                                                    this.forget()
-                                                }}
-                                            >
-                                                <Text style={{
-                                                    fontWeight: '800',
-                                                    fontSize:17,
-                                                    fontFamily: 'EurostileBold',
-                                                    color: 'black'
-                                                }}>Ok</Text>
-                                            </TouchableOpacity>
-
-                                            <TouchableOpacity style={{
-                                                height: 40,
-                                                width: 100,
-                                                backgroundColor: APP_YELLOW,
-                                                borderRadius: 10,
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                // shadowColor: 'gray',
-                                                // shadowOpacity: 1, shadowRadius: 1,
-                                                // shadowOffset: { width: 2, height: 1 }
-                                            }}
-                                                onPress={() => {
-                                                    this.setState({
-                                                        isshow: !this.state.isshow
-                                                    })
-                                                }}>
-                                                <Text style={{
-                                                    fontWeight: '800',
-                                                    fontSize:17,
-                                                     color: 'black',
-                                                    fontFamily: 'EurostileBold',
-                                                }}>Cancel</Text>
-                                            </TouchableOpacity>
-                                        </View>
-
-                                    </View>
-                                </ImageBackground>
-                            </View>
-
-                        </View>} */}
                 {
                     this.state.isLoading &&
                     <View style={{

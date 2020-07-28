@@ -4,6 +4,7 @@ import { APP_BLUE, APP_LIGHT, APP_YELLOW } from '../Component/colors'
 import { StackActions, NavigationActions } from 'react-navigation';
 import { CallGetApi } from '../Component/ApiClient';
 import ImageLoad from 'react-native-image-placeholder';
+import { strings } from './Localization';
 //import { Platform } from 'react-native';
 //import Share from 'react-native-share';
 
@@ -101,6 +102,7 @@ export default class UserProfile extends Component {
                                 fontFamily: 'EurostileBold',
                             }}>
                                 User Profile
+                                {/* {strings.userpr} */}
                             </Text>
                         </View>
                         <TouchableOpacity style={{
@@ -215,7 +217,10 @@ export default class UserProfile extends Component {
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17,
                                                 color: APP_YELLOW
-                                            }}>Customer id </Text>
+                                            }}>
+                                                Customer id
+                                                {/* {strings.cusId} */}
+                                             </Text>
                                             <Text style={{
                                                 fontSize: 16,
                                                 marginTop: 5,
@@ -244,7 +249,10 @@ export default class UserProfile extends Component {
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17, 
                                                 color: APP_YELLOW
-                                            }}>Name </Text>
+                                            }}>
+                                                Name 
+                                                {/* {strings.name} */}
+                                                </Text>
                                             <Text style={{
                                                 color: '#C0C0C0',
                                                 fontSize: 17,
@@ -271,7 +279,10 @@ export default class UserProfile extends Component {
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17, color: APP_YELLOW
-                                            }}>Email </Text>
+                                            }}>
+                                                Email
+                                                {/* {strings.email} */}
+                                                 </Text>
                                             <Text style={{
                                                 fontSize: 16,
                                                 marginRight: 15,
@@ -298,7 +309,10 @@ export default class UserProfile extends Component {
                                                 fontFamily: 'EurostileBold',
                                                 fontSize: 17, 
                                                 color: APP_YELLOW
-                                            }}>Phone no </Text>
+                                            }}>
+                                                Phone no 
+                                                {/* {strings.pn} */}
+                                            </Text>
                                             <Text style={{
                                                 // marginRight: 15,
                                                 fontSize: 16,
@@ -328,7 +342,10 @@ export default class UserProfile extends Component {
                                     <Text style={{
                                         fontSize: 18,
                                         color: 'black', fontFamily: 'EurostileBold',
-                                    }}>My Detailer</Text>
+                                    }}>
+                                        My Detailer
+                                        {/* {strings.mydetailer} */}
+                                    </Text>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity style={{
@@ -346,7 +363,10 @@ export default class UserProfile extends Component {
                                         fontSize: 18,
                                         fontFamily: 'EurostileBold',
                                         color: 'black'
-                                    }}>My Cars</Text>
+                                    }}>
+                                        My Cars
+                                        {/* {strings.mycars} */}
+                                    </Text>
                                 </TouchableOpacity>
                                 {/* <TouchableOpacity style={{
                                     height: 40, width: '60%',

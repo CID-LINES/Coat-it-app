@@ -87,8 +87,8 @@ export default class CarDetail extends Component {
                 quality: 20
 
             },
-            maxWidth: 300,
-            maxHeight: 300,
+            maxWidth: 500,
+            maxHeight: 500,
             quality: 0.5
         };
 

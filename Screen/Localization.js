@@ -8,8 +8,13 @@ export let strings = new LocalizedStrings({
     
     //Language english
     en: {
-        how: "Login",
+        login: "Login",
         sign: "Sign up",
+        entrfn:'Enter your first name',
+        entrln:'Enter your last name',
+        entremail:'Enter your email',
+        entrpn:'Enter your phone no.',
+        entrpass:'Enter your password',
         email: "Email",
         password: "Password",
         fp: 'Forget Password',
@@ -29,6 +34,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Product Detail',
         fprod:'Favourite Products',
         userpr:'User Profile',
+        editprofile:'Edit Profile',
         cusId:'Customer id',
         name:'Name',
         mydetailer:'My Detailers',
@@ -40,13 +46,19 @@ export let strings = new LocalizedStrings({
         changepassword:'Change Password',
         oldpassword:'Old Password',
         newpassword:'New Password',
+        entroldpass:'',
         logout:'Logout'
     },
 
     // Language German
     de: {
-        how: "s'identifier",
+        login: "s'identifier",
         sign: "s'inscrire",
+        entrfn:'Geben Sie Ihren Vornamen ein',
+        entrln:'Geben Sie Ihren Nachnamen ein',
+        entremail:'Geben sie ihre E-Mail Adresse ein',
+        entrpn:'Geben Sie Ihre Telefonnummer ein.',
+        entrpass:'Geben Sie Ihr Passwort ein',
         email: "Email",
         password: "Passwort",
         fp: 'Passwort vergessen',
@@ -66,6 +78,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Produktdetail',
         fprod:'Lieblingsprodukte',
         userpr:'Benutzerprofil',
+        editprofile:'Profil bearbeiten',
         cusId:'Kundennummer',
         name:'Name',
         mydetailer:'Meine Detailer',
@@ -77,14 +90,20 @@ export let strings = new LocalizedStrings({
         changepassword:'ändere das Passwort',
         oldpassword:'Altes Passwort',
         newpassword:'Neues Kennwort',
+        entroldpass:'',
         logout:'Ausloggen'
 
     },
 
     // Language French
     fr: {
-        how: "accesso",
+        login: "accesso",
         sign: "Iscriviti",
+        entrfn:'Entrez votre prénom',
+        entrln:'entrez votre nom de famille',
+        entremail:'Entrer votre Email',
+        entrpn:'Entrez votre numéro de téléphone.',
+        entrpass:'Tapez votre mot de passe',
         email: "Email",
         password: "mot de passe",
         fp: 'mot de passe oublié',
@@ -104,6 +123,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Les détails du produit',
         fprod:'Produits préférés',
         userpr:'Profil de l utilisateur',
+        editprofile:'Editer le profil',
         cusId:'N ° de client',
         name:'Nom',
         mydetailer:'Mes détaillants',
@@ -115,14 +135,20 @@ export let strings = new LocalizedStrings({
         changepassword:'changer le mot de passe',
         oldpassword:'ancien mot de passe',
         newpassword:'nouveau mot de passe',
+        entroldpass:'',
         logout:'Se déconnecter',
 
     },
 
     // Language Dutch
     nl: {
-        how: "Log in",
+        login: "Log in",
         sign: "inschrijven",
+        entrfn:'Vul uw voornaam in',
+        entrln:'voer uw achternaam in',
+        entremail:'Voer uw e-mailadres in',
+        entrpn:'Voer uw telefoonnummer in.',
+        entrpass:'Voer uw wachtwoord in',
         email: "E-mail",
         password: "Wachtwoord",
         fp: 'wachtwoord vergeten',
@@ -142,6 +168,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Product detail',
         fprod:'Favoriete producten',
         userpr:'Gebruikersprofiel',
+        editprofile:'Bewerk profiel',
         cusId:'Klanten ID',
         name:'Naam',
         mydetailer:'Mijn detailers',
@@ -153,14 +180,20 @@ export let strings = new LocalizedStrings({
         changepassword:'wachtwoord wijzigen',
         oldpassword:'Oud Wachtwoord',
         newpassword:'nieuw paswoord',
+        entroldpass:'',
         logout:'Uitloggen',
         
     },
 
      // Language Poland
     pl: {
-        how: "Zaloguj sie",
+        login: "Zaloguj sie",
         sign: "Zapisz się",
+        entrfn:'Wpisz swoje imię',
+        entrln:'wprowadź swoje nazwisko',
+        entremail:'Wprowadź swój email',
+        entrpn:'Wprowadź numer telefonu',
+        entrpass:'Wprowadź hasło',
         email: "E-mail",
         password: "Hasło",
         fp: 'zapomnij hasło',
@@ -180,6 +213,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Szczegóły produktu',
         fprod:'Ulubione produkty',
         userpr:'Profil użytkownika',
+        editprofile:'Edytuj profil',
         cusId:'Identyfikator klienta',
         name:'Imię',
         mydetailer:'Moi Detailerzy',
@@ -191,13 +225,19 @@ export let strings = new LocalizedStrings({
         changepassword:'Zmień hasło',
         oldpassword:'Stare hasło',
         newpassword:'nowe hasło',
+        entroldpass:'',
         logout:'Wyloguj'
     },
 
      // Language Russian
     cs: {
-        how: "Авторизоваться",
+        login: "Авторизоваться",
         sign: "зарегистрироваться",
+        entrfn:'Введите свое имя',
+        entrln:'введите свою фамилию',
+        entremail:'Введите адрес электронной почты',
+        entrpn:'Введите номер телефона',
+        entrpass:'Введите ваш пароль',
         email: "Эл. адрес",
         password: "пароль",
         fp: 'забыть пароль',
@@ -217,6 +257,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Информация о продукте',
         fprod:'Любимые продукты',
         userpr:'Профиль пользователя',
+        editprofile:'Редактировать профиль',
         cusId:'Пользовательский ИД',
         name:'название',
         mydetailer:'Мои подробности',
@@ -228,13 +269,19 @@ export let strings = new LocalizedStrings({
         changepassword:'сменить пароль',
         oldpassword:'Прежний пароль',
         newpassword:'Новый пароль',
+        entroldpass:'',
         logout:'Выйти'
     },
 
     //   Language Spanish
     es: {
-        how: "Iniciar sesión",
+        login: "Iniciar sesión",
         sign: "Regístrate",
+        entrfn:'ponga su primer nombre',
+        entrln:'ingresa tu apellido',
+        entremail:'Introduce tu correo electrónico',
+        entrpn:'Ingrese su número de teléfono.',
+        entrpass:'Ingresa tu contraseña',
         email: "correo electrónico",
         password: "Contraseña",
         fp: 'contraseña olvidada',
@@ -254,6 +301,7 @@ export let strings = new LocalizedStrings({
         prodDe:'Detalle del producto',
         fprod:'Productos favoritos',
         userpr:'Perfil del usuario',
+        editprofile:'Editar perfil',
         cusId:'Identificación del cliente',
         name:'Nombre',
         mydetailer:'Mis detailers',
