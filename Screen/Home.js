@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground, RefreshControl, StatusBar } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions, ActivityIndicator, AsyncStorage, ImageBackground, RefreshControl, StatusBar, Alert } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
@@ -62,26 +62,38 @@ export default class Home extends Component {
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
           const { title, body } = notification;
-         
+          this.showAlert(title,body)
         });
     
         // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
           const { title, body } = notificationOpen.notification;
-            this.navigate(title,body)
+            // this.navigate(title,body)
+            this.showAlert(title,body)
         });
     
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
         const { title, body } = notificationOpen.notification;
-        this.navigate(title,body)
+        // this.navigate(title,body)
+        this.showAlert(title,body)
         }
       }
     
     navigate=(title,body)=>{
         this.props.navigation.navigate('Notification')
     }
+    showAlert(title, body) {
+        Alert.alert(
+          title, body,
+          [
+              { text: 'OK', onPress: () => console.log('OK Pressed') },
+          ],
+          { cancelable: false },
+        );
+      }
+      
 
     async get(key) {
         try {
@@ -99,12 +111,6 @@ export default class Home extends Component {
         }
     }
 
-    // convertTextToUpperCase = () => {
-    //     var text = this.state.data;
-    //     var uppercasetext = text.toUpperCase();//To convert Upper Case
-    //     this.setState({ data: uppercasetext });
-    //   };
-    
 
     PlanApi = () => {
         this.setState({

@@ -212,7 +212,7 @@ export default class Login extends Component {
                                         </TextInput>
                                 </View>
                                 {/* <View style={{
-                                        height: 1,
+                                        height: 1,                 
                                         width: '80%', 
                                         backgroundColor: '#C0C0C0'
                                     }}>

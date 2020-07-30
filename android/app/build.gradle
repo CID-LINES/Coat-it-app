@@ -188,7 +188,9 @@ dependencies {
 
     implementation "com.google.android.gms:play-services-base:17.2.1"
     implementation "com.google.firebase:firebase-core:16.0.8"
-    implementation project(':react-native-firebase')
+    implementation (project(':react-native-firebase')){
+        transitive = false
+    }
     implementation project(':react-native-maps')
     implementation project(':react-native-image-picker')
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -197,6 +199,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.2.0'
     implementation project(':react-native-push-notification')
 
+//    implementation(project(':react-native-firebase')) {
+//        transitive = false
+//    }
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

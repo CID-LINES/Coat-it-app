@@ -89,7 +89,7 @@ export default class SignUp extends Component {
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
         body.append('device_token', fcmToken + ''),
-        body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
+            body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
             {
@@ -106,7 +106,7 @@ export default class SignUp extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
-                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })],0)
+                    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
                 }
                 this.setState({
                     isLoading: false
@@ -142,10 +142,10 @@ export default class SignUp extends Component {
                             fontFamily: 'EurostileBold'
                         }}>Kenotek Coat IT</Text>
                     </View>
-                    <KeyboardAvoidingView style={{flex: 1}}
+                    <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior="padding" enabled={Platform.OS === 'ios'}
                         keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 0}>
-                        <ScrollView style={{flex: 1}}>
+                        <ScrollView style={{ flex: 1 }}>
                             <View style={{
                                 height: Dimensions.get('window').height / 3.5,
                                 width: '100%',
@@ -156,26 +156,26 @@ export default class SignUp extends Component {
                                 <TouchableOpacity style={{
                                     flex: 1,
                                     width: '95%',
-                                    justifyContent:'center',
-                                    alignItems:'center',
-                                    alignSelf:'center',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    alignSelf: 'center',
                                 }}
                                     onPress={() => {
                                         this.chooseFile()
                                     }}>
                                     <Image style={{
                                         flex: 1,
-                                        width:'95%',
+                                        width: '95%',
                                     }}
-                                        resizeMode='cover' 
+                                        resizeMode='cover'
                                         source={this.state.filePath == '' ?
-                                        require('../assets/placeholder.jpg') :
-                                        this.state.filePath}>
+                                            require('../assets/placeholder.jpg') :
+                                            this.state.filePath}>
                                     </Image>
                                 </TouchableOpacity>
                                 <View style={{
                                     height: 40,
-                                    width:'60%',
+                                    width: '60%',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     position: 'absolute',
@@ -183,9 +183,8 @@ export default class SignUp extends Component {
                                     flexDirection: 'row',
                                     right: 28
                                 }}>
-                                    <Text style={{fontFamily: 'EurostileBold' }}>
+                                    <Text style={{ fontFamily: 'EurostileBold' }}>
                                         Upload profile picture here
-                                        
                                         </Text>
                                     <Image style={{
                                         height: 30,
@@ -194,7 +193,7 @@ export default class SignUp extends Component {
                                         tintColor: 'black'
                                     }}
                                         source={require('../assets/camera.png')}>
-                                        </Image>
+                                    </Image>
                                 </View>
                             </View>
                             <View style={{
@@ -230,7 +229,7 @@ export default class SignUp extends Component {
                                         color: '#C0C0C0'
                                     }}
                                         value={this.state.firstname}
-                                        onChangeText={(value) => {this.setState({ firstname: value }) }}
+                                        onChangeText={(value) => { this.setState({ firstname: value }) }}
                                         keyboardType='ascii-capable'
                                         placeholder='Enter your first name'
                                         placeholderTextColor='#C0C0C0'>
@@ -271,7 +270,7 @@ export default class SignUp extends Component {
                                     }}
                                         keyboardType='ascii-capable'
                                         value={this.state.lastname}
-                                        onChangeText={(value) => { this.setState({lastname: value}) }}
+                                        onChangeText={(value) => { this.setState({ lastname: value }) }}
                                         placeholder='Enter your last name'
                                         placeholderTextColor='#C0C0C0'>
                                     </TextInput>
@@ -300,12 +299,13 @@ export default class SignUp extends Component {
                                     }}
                                         source={require('../assets/email.png')}
                                         resizeMode='cover'
-                                    ></Image>
+                                    >
+                                    </Image>
                                     <TextInput style={{
                                         height: 40,
                                         width: '75%',
                                         marginTop: 2,
-                                        borderRadius: 10, 
+                                        borderRadius: 10,
                                         padding: 5,
                                         color: '#C0C0C0'
                                     }}
@@ -323,7 +323,7 @@ export default class SignUp extends Component {
                                 }}></View> */}
 
                                 <Text style={{
-                                    width: '80%', 
+                                    width: '80%',
                                     marginTop: 10,
                                     color: '#C0C0C0',
                                     fontFamily: 'EurostileBold',
@@ -405,13 +405,12 @@ export default class SignUp extends Component {
                             </View>
 
                             <TouchableOpacity style={{
-                                height: 50, 
+                                height: 50,
                                 width: '60%',
                                 backgroundColor: APP_YELLOW,
                                 marginTop: 20,
                                 alignSelf: 'center',
                                 borderRadius: 10,
-                                // marginBottom:10,
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}
@@ -477,7 +476,7 @@ export default class SignUp extends Component {
                         backgroundColor: '#000000aa',
                         top: 0,
                         bottom: 0,
-                        left: 0, 
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
