@@ -52,6 +52,8 @@ export default class SignUp extends Component {
     };
 
     componentDidMount() {
+        this.checkPermission()
+        this.createNotificationListeners()
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
                 this.props.navigation.push('Home')
@@ -59,7 +61,69 @@ export default class SignUp extends Component {
         })
     }
 
-    async save(key, value) {
+    async checkPermission() {
+        const enabled = await firebase.messaging().hasPermission();
+        // If Premission granted proceed towards token fetch
+        if (enabled) {
+            this.getToken();
+        } 
+        else {
+            // If permission hasn’t been granted to our app, request user in requestPermission method. 
+            this.requestPermission();
+        }
+    }
+
+
+    async getToken() {
+        let fcmToken = await AsyncStorage.getItem('fcmToken');
+        if (!fcmToken) {
+            fcmToken = await firebase.messaging().getToken();
+            if (fcmToken) {
+                // user has a device token
+                await AsyncStorage.setItem('fcmToken', fcmToken);
+
+            }
+        }
+    }
+
+    async requestPermission() {
+        try {
+            await firebase.messaging().requestPermission();
+            // User has authorised
+            this.getToken();
+        } catch (error) {
+            // User has rejected permissions
+            console.log('permission rejected');
+        }
+    }
+    async createNotificationListeners() {
+
+        // this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification) => {
+        //     // Process your notification as required
+        //     // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
+        //      alert(JSON.stringify(notification))
+        //   });
+        // This listener triggered when notification has been received in foreground
+        this.notificationListener = firebase.notifications().onNotification((notification) => {
+            const { title, body } = notification;
+           // this.navigate(title, body)
+        });
+
+        // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
+        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+            const { title, body } = notificationOpen.notification;
+            //this.navigate(title, body)
+
+        });
+
+        // This listener triggered when app is closed and we click,tapped and opened notification 
+        const notificationOpen = await firebase.notifications().getInitialNotification();
+        if (notificationOpen) {
+            const { title, body } = notificationOpen.notification;
+            //this.navigate(title, body)
+        }
+    }
+    async save(key, value) {  
         try {
             await AsyncStorage.setItem(key, value);
 
@@ -89,7 +153,7 @@ export default class SignUp extends Component {
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
         body.append('device_token', fcmToken + ''),
-            body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
+        body.append('device_type', Platform.OS == 'android' ? 'a' : 'i')
 
         fetch('http://3.137.41.50/coatit/public/api/auth/signup',
             {
@@ -200,7 +264,7 @@ export default class SignUp extends Component {
                                 width: '100%',
                                 marginTop: 20,
                                 alignItems: 'center'
-                            }}>
+                            }}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
                                 <Text style={{
                                     width: '80%',
                                     color: '#C0C0C0',
@@ -487,7 +551,7 @@ export default class SignUp extends Component {
 
                             color={APP_YELLOW}
                         ></ActivityIndicator>
-
+                            
                     </View>
                 }
             </ImageBackground>

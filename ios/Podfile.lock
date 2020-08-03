@@ -317,7 +317,7 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.2.0):
+  - RNCPushNotificationIOS (1.4.0):
     - React
   - RNFirebase (5.6.0):
     - Firebase/Core
@@ -521,13 +521,13 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   ReactNativeLocalization: 9abfb1717d6c6f2e3a4e444c4402d52acbf784cc
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
-  RNCPushNotificationIOS: 9aa40ed0ff0e53f8ecf3baaaa7e5ccbaa5ba3894
+  RNCPushNotificationIOS: f4a1a20fe1d70bbb1fab6abf86ffec2996012b12
   RNFirebase: 37daa9a346d070f9f6ee1f3b4aaf4c8e3b1d5d1c
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 444aa7b70de15b10310ed67a7f7bb1c46574a84a
+PODFILE CHECKSUM: b1e4447e2bbd81be5fc2da4a5d3dda4231ae483a
 
 COCOAPODS: 1.8.4

@@ -39,9 +39,9 @@
 		8151C631242A0AEE00299D7B /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C630242A0AEE00299D7B /* libRNReanimated.a */; };
 		8151C633242A0AEE00299D7B /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C632242A0AEE00299D7B /* libRNScreens.a */; };
 		8151C635242A0AEE00299D7B /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151C634242A0AEE00299D7B /* libYoga.a */; };
-		8161B0262473C88800852B28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8161B0252473C88800852B28 /* GoogleService-Info.plist */; };
 		8161B0282473CDD400852B28 /* libRNCPushNotificationIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8161B0272473CDD400852B28 /* libRNCPushNotificationIOS.a */; };
 		8169A8DA2429F42400B2F9AA /* libreact-native-maps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8169A8D92429F42400B2F9AA /* libreact-native-maps.a */; };
+		81B7859124D44D77001494A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81B7859024D44D77001494A6 /* GoogleService-Info.plist */; };
 		B9365C05DEF14209BBE97608 /* EurostileBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C8535AA8AB64D948604E903 /* EurostileBold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -101,11 +101,11 @@
 		8151C630242A0AEE00299D7B /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReanimated.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8151C632242A0AEE00299D7B /* libRNScreens.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8151C634242A0AEE00299D7B /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8161B0252473C88800852B28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8161B0272473CDD400852B28 /* libRNCPushNotificationIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNCPushNotificationIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8161B0292473D1B500852B28 /* kenotekcarapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = kenotekcarapp.entitlements; path = kenotekcarapp/kenotekcarapp.entitlements; sourceTree = "<group>"; };
 		8169A8D72429F41B00B2F9AA /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8169A8D92429F42400B2F9AA /* libreact-native-maps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-maps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B7859024D44D77001494A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C8535AA8AB64D948604E903 /* EurostileBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EurostileBold.ttf; path = ../assets/fonts/EurostileBold.ttf; sourceTree = "<group>"; };
 		A76697DBC48447179FDB2065 /* EuroStyle Normal.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "EuroStyle Normal.ttf"; path = "../assets/fonts/EuroStyle Normal.ttf"; sourceTree = "<group>"; };
 		AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,8 +191,8 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				81B7859024D44D77001494A6 /* GoogleService-Info.plist */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				8161B0252473C88800852B28 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -369,7 +369,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = SCLEQ5T4CN;
+						DevelopmentTeam = C9S8P8BPDP;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -417,8 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				81B7859124D44D77001494A6 /* GoogleService-Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				8161B0262473C88800852B28 /* GoogleService-Info.plist in Resources */,
 				B9365C05DEF14209BBE97608 /* EurostileBold.ttf in Resources */,
 				2CF9625A6EDA4BDAB7C68DC0 /* EurostileExtended.ttf in Resources */,
 				7C1DA04FF01646EF836153F9 /* EurostileOblique.ttf in Resources */,
@@ -590,12 +590,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
+				CODE_SIGN_IDENTITY = "Apple Development: Codetribe Solutions (NLWJ844Y7D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Codetribe Solutions (NLWJ844Y7D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = SCLEQ5T4CN;
+				DEVELOPMENT_TEAM = C9S8P8BPDP;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -639,9 +639,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenotek.user;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
+				PROVISIONING_PROFILE_SPECIFIER = "kenotek user app 31/07/20";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -653,10 +653,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Codetribe Solutions (WTNGTJQV8A)";
+				CODE_SIGN_IDENTITY = "Apple Development: Codetribe Solutions (NLWJ844Y7D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SCLEQ5T4CN;
+				DEVELOPMENT_TEAM = C9S8P8BPDP;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -699,9 +699,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlight.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenotek.user;
 				PRODUCT_NAME = "kenotek Coat IT";
-				PROVISIONING_PROFILE_SPECIFIER = "Spotlight dev profile";
+				PROVISIONING_PROFILE_SPECIFIER = "kenotek user app 31/07/20";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

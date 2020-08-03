@@ -6,8 +6,7 @@ import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
 import firebase from 'react-native-firebase'
 import { strings } from './Localization';
-
-
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 export default class Home extends Component {
     constructor(props) {
@@ -62,22 +61,22 @@ export default class Home extends Component {
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
           const { title, body } = notification;
-          this.showAlert(title,body)
+          //this.showAlert(title,body)
         });
     
         // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
           const { title, body } = notificationOpen.notification;
-            // this.navigate(title,body)
-            this.showAlert(title,body)
+             this.navigate(title,body)
+            
         });
     
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
         const { title, body } = notificationOpen.notification;
-        // this.navigate(title,body)
-        this.showAlert(title,body)
+         this.navigate(title,body)
+        
         }
       }
     

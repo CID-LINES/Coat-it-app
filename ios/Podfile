@@ -35,9 +35,11 @@ target 'kenotekcarapp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 # pod 'GoogleMaps'
-# pod 'Google-Maps-iOS-Utils' ,:git => 'https://github.com/googlemaps/google-maps-ios-utils'
+# pod 'Google-Maps-iOS-Utils' ,:git =>'https://github.com/googlemaps/google-maps-ios-utils'
+# add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
-
+# add pods for any other desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
   # pod 'react-native-firebase-push-notifications', :path => '../node_modules/react-native-firebase-push-notifications'

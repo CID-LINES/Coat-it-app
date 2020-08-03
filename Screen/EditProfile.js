@@ -256,8 +256,8 @@ export default class EditProfile extends Component {
                                         width: 25
                                     }}
                                         source={require('../assets/user.png')}
-                                        resizeMode='cover'
-                                    ></Image>
+                                        resizeMode='cover'>
+                                    </Image>
                                     <TextInput style={{
                                         height: 40,
                                         width: '75%',

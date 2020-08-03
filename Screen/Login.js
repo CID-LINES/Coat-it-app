@@ -4,12 +4,13 @@ import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
 import {strings} from './Localization'
-// import { notifications } from "react-native-firebase-push-notifications"
+import firebase from 'react-native-firebase';
+import PushNotification from 'react-native-push-notification';
+
 
 export default class Login extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             isshow: false,
             email: '',
@@ -17,12 +18,14 @@ export default class Login extends Component {
             femail: '',
             shift: false,
             user_id: '',
-            device_token: ''
+            fcm: ''
         }
     }
     
 
     componentDidMount() {
+        this.createNotificationListeners()
+        this.checkPermission()
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
             if (item != null && item != '') {
@@ -31,6 +34,45 @@ export default class Login extends Component {
             }
         })
     }
+
+    async checkPermission() {
+        const enabled = await firebase.messaging().hasPermission();
+        // If Premission granted proceed towards token fetch
+        if (enabled) {
+            this.getToken();
+        } 
+        else {
+            // If permission hasn’t been granted to our app, request user in requestPermission method. 
+            this.requestPermission();
+        }
+    }
+
+
+    async getToken() {
+        let fcmToken = await AsyncStorage.getItem('fcmToken');
+        if (!fcmToken) {
+            fcmToken = await firebase.messaging().getToken();
+            if (fcmToken) {
+                // user has a device token
+                await AsyncStorage.setItem('fcmToken', fcmToken);
+
+            }
+        }
+    }
+    
+
+    async requestPermission() {
+        try {
+            await firebase.messaging().requestPermission();
+            // User has authorised
+            this.getToken();
+        } catch (error) {
+            // User has rejected permissions
+            console.log('permission rejected');
+        }
+    }
+
+
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -51,6 +93,40 @@ export default class Login extends Component {
             //   console.log("Error saving data" + error);
         }
     }
+
+
+    
+    async createNotificationListeners() {
+
+        // this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification) => {
+        //     // Process your notification as required
+        //     // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
+        //      alert(JSON.stringify(notification))
+        //   });
+        // This listener triggered when notification has been received in foreground
+        this.notificationListener = firebase.notifications().onNotification((notification) => {
+            const { title, body } = notification;
+           // this.navigate(title, body)
+        });
+
+        // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
+        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+            const { title, body } = notificationOpen.notification;
+            //this.navigate(title, body)
+
+        });
+
+        // This listener triggered when app is closed and we click,tapped and opened notification 
+        const notificationOpen = await firebase.notifications().getInitialNotification();
+        if (notificationOpen) {
+            const { title, body } = notificationOpen.notification;
+            //this.navigate(title, body)
+        }
+    }
+
+    // navigate = (title, body) => {
+    //     this.props.navigation.navigate('Notification')
+    // }
     LoginApi = (fcmToken) => {
         this.setState({
             isLoading: true
@@ -60,7 +136,7 @@ export default class Login extends Component {
             {
                 'email': this.state.email,
                 'password': this.state.Password,
-                'device_token': fcmToken + '',
+                'device_token':fcmToken,
                 'device_type': Platform.OS == 'android' ? 'a' : 'i'
             },
             (data) => {
