@@ -149,6 +149,7 @@ export default class Login extends Component {
                         this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
                     }
                     else {
+                        
                         alert(data.data.response.message)
                     }
                 }

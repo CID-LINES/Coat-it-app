@@ -44,7 +44,7 @@ export default class Home extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                    this.ProductApi()
+                    this.FavouriteProductApi()
                 })
             }
         } catch (error) {
@@ -52,7 +52,7 @@ export default class Home extends Component {
         }
     }
 
-    ProductApi = () => {
+    FavouriteProductApi = () => {
         this.setState({
             isLoading: true
         })

@@ -25,6 +25,11 @@ export default class Home extends Component {
         // Register all listener for notification 
         this.createNotificationListeners();
     }
+
+    // componentWillUnmount() {
+    //     this.notificationListener;
+    //     this.notificationOpenedListener;
+    //   }
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
         // If Premission granted proceed towards token fetch
@@ -83,15 +88,15 @@ export default class Home extends Component {
     navigate=(title,body)=>{
         this.props.navigation.navigate('Notification')
     }
-    showAlert(title, body) {
-        Alert.alert(
-          title, body,
-          [
-              { text: 'OK', onPress: () => console.log('OK Pressed') },
-          ],
-          { cancelable: false },
-        );
-      }
+    // showAlert(title, body) {
+    //     Alert.alert(
+    //       title, body,
+    //       [
+    //           { text: 'OK', onPress: () => console.log('OK Pressed') },
+    //       ],
+    //       { cancelable: false },
+    //     );
+    //   }
       
 
     async get(key) {
@@ -133,13 +138,7 @@ export default class Home extends Component {
                     this.setState({
                         data: responseJson.response.data
                     })
-                //   var text = []
-                //     responseJson.response.data.map((item)=>{
-                //         var _text = item.name.toUpperCase();
-                //         this.setState({
-                //             text: _text
-                //         })
-                //     })
+               
                 }
                 this.setState({
                      isLoading: false,
@@ -163,9 +162,7 @@ export default class Home extends Component {
             <ImageBackground style={{ flex: 1, }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}>
-                     <StatusBar barStyle="light-content"
-              
-                />
+                     <StatusBar barStyle="light-content" />
                 <View style={{ flex: 1 }}>
                     <View style={{
                         height: 40,
