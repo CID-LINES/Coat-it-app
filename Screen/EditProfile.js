@@ -124,7 +124,7 @@ export default class EditProfile extends Component {
                     this.props.navigation.dispatch(
                         NavigationActions.navigate({ routeName: "Home" })
                     );
-                    alert('Update profile successful')
+                    alert('Update profile successfully')
 
                 }
                 this.setState({

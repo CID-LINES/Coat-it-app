@@ -1,4 +1,4 @@
-#Tue Aug 04 16:31:29 IST 2020
+#Wed Aug 05 11:13:20 IST 2020
 base.0=/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

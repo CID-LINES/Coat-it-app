@@ -170,6 +170,7 @@ export default class SignUp extends Component {
                 console.log(responseJson.response)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
+                    this.save('customer_id', data.data.response.customer_id +'')
                     this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
                 }
                 this.setState({

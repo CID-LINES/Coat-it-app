@@ -364,7 +364,30 @@ export default class DetailerList extends Component {
                                 color: 'black',
                                 fontFamily: 'EurostileBold',
                             }}>Pending</Text>
-                        </View> : <View />}
+                        </View> : 
+                        <TouchableOpacity style={{
+                            height: 30,
+                            width: '80%',
+                            borderRadius: 5,
+                            marginTop: 8,
+                            marginLeft:15,
+                            //alignSelf: 'flex-end',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: APP_YELLOW
+                        }}
+                        onPress={()=>{
+                            this.props.navigation.navigate('PurchaseDetail',{
+                                detailer: item.detailer_id   
+                                })
+
+                           
+                        }}>
+                            <Text style={{
+                                color: 'black',
+                                fontFamily: 'EurostileBold',
+                            }}>Purchased Services and Products</Text>
+                        </TouchableOpacity>}
                 </View>
             </TouchableOpacity>
 

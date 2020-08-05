@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, Platform, ActivityIndicator, StatusBar, Dimensions, DeviceEventEmitter, PushNotificationIOS, ImageBackground } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, 
+    TouchableOpacity, KeyboardAvoidingView, AsyncStorage,
+     Platform, ActivityIndicator, StatusBar, Dimensions, 
+    ImageBackground } from 'react-native';
 import { APP_YELLOW, APP_BLUE } from '../Component/colors';
 import { ApiCall, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
@@ -97,12 +100,6 @@ export default class Login extends Component {
 
     
     async createNotificationListeners() {
-
-        // this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification) => {
-        //     // Process your notification as required
-        //     // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
-        //      alert(JSON.stringify(notification))
-        //   });
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
             const { title, body } = notification;
@@ -123,10 +120,6 @@ export default class Login extends Component {
             //this.navigate(title, body)
         }
     }
-
-    // navigate = (title, body) => {
-    //     this.props.navigation.navigate('Notification')
-    // }
     LoginApi = (fcmToken) => {
         this.setState({
             isLoading: true
@@ -143,7 +136,7 @@ export default class Login extends Component {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                        this.save('access_token', data.data.response.access_token)
+                        this.save('customer_id', data.data.response.customer_id +'')
                         this.save('user_id', data.data.response.id + '')
                         // this.props.navigation.push('Home')
                         this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Home' })], 0)
@@ -308,7 +301,7 @@ export default class Login extends Component {
                                     alignSelf: 'flex-end',
                                     fontFamily: 'EurostileBold',
                                     color: '#C0C0C0',
-                                    fontSize: 16
+                                     fontSize: 16
                                 }}>Forget Password</Text>
                             </TouchableOpacity>
                             <View style={{
