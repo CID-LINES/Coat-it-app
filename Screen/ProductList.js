@@ -6,7 +6,8 @@ import {
     ActivityIndicator, Alert, RefreshControl, Dimensions,
     ImageBackground,
     SectionList,
-    StatusBar
+    StatusBar,
+    Linking
 } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
@@ -78,7 +79,6 @@ export default class ProductList extends Component {
             })
     }
     ProductApi = () => {
-
         this.setState({
             isLoading: true
         })
@@ -167,7 +167,7 @@ export default class ProductList extends Component {
                         }}>Products</Text>
 
                     </View>
-                    <TouchableOpacity style={{
+                    {/* <TouchableOpacity style={{
                         height: 35,
                         width: 35,
                         alignItems: 'center',
@@ -187,7 +187,7 @@ export default class ProductList extends Component {
                             resizeMode='contain'
                             source={require('../assets/cart.png')}>
                         </Image>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
                 <View style={{ flex: 1 }}>
                     <SectionList refreshControl={<RefreshControl
@@ -255,9 +255,24 @@ export default class ProductList extends Component {
                 overflow: 'hidden'
             }}
                 onPress={() => {
-                    this.props.navigation.navigate('ProductDetail', {
-                        data: item
-                    })
+                    var a = this.state.orders.indexOf(section)
+                                    let item = this.state.orders[a]
+                                    if (section.id == item.id) {
+                                        var data = item.data
+                                        var _data = data[index]
+                                        var product_id = _data.product_id
+                                        _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
+                                        data[index] = _data
+                                        section.data = data
+                                        var ad = [...this.state.orders]
+                                        ad[a] = section
+                                        this.setState({
+                                            orders: ad
+                                        })
+
+                                        this.FavouriteProducts(item.id, product_id,
+                                            _data.is_favourite)
+                                    }
                 }}>
                 <View style={{ flexDirection: 'column' }}>
                     <View>
@@ -278,39 +293,40 @@ export default class ProductList extends Component {
                             right: 5,
 
                         }}>
-                            <TouchableOpacity style={{
+                            <View style={{
                                 height: 30,
                                 width: 30,
                                 overflow: 'hidden',
                             }}
-                                onPress={() => {
-                                    var a = this.state.orders.indexOf(section)
-                                    let item = this.state.orders[a]
-                                    if (section.id == item.id) {
-                                        var data = item.data
-                                        var _data = data[index]
-                                        var product_id = _data.product_id
-                                        _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
-                                        data[index] = _data
-                                        section.data = data
-                                        var ad = [...this.state.orders]
-                                        ad[a] = section
-                                        this.setState({
-                                            orders: ad
-                                        })
+                                // onPress={() => {
+                                //     var a = this.state.orders.indexOf(section)
+                                //     let item = this.state.orders[a]
+                                //     if (section.id == item.id) {
+                                //         var data = item.data
+                                //         var _data = data[index]
+                                //         var product_id = _data.product_id
+                                //         _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
+                                //         data[index] = _data
+                                //         section.data = data
+                                //         var ad = [...this.state.orders]
+                                //         ad[a] = section
+                                //         this.setState({
+                                //             orders: ad
+                                //         })
 
-                                        this.FavouriteProducts(item.id, product_id,
-                                            _data.is_favourite)
-                                    }
-                                }}>
+                                //         this.FavouriteProducts(item.id, product_id,
+                                //             _data.is_favourite)
+                                //     }
+                                // }}
+                                >
                                 <Image style={{
                                     height: 30,
                                     width: 30,
-                                    tintColor: item.is_favourite == '1' ? 'red' : 'white'
+                                    tintColor: item.is_favourite == '1' ? 'red' : '#C0C0C0'
                                 }}
                                     resizeMode='contain'
                                     source={require('../assets/heart.png')}></Image>
-                            </TouchableOpacity>
+                            </View>
                         </View>
                     </View>
                     <View style={{
@@ -328,10 +344,42 @@ export default class ProductList extends Component {
                             marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
+                          
                             fontFamily: 'EurostileBold',
-                        }}>{item.description}</Text>
+                        }}
+                        numberOfLines={2}>{item.description}</Text>
+                        <Text style={{
+                            fontSize: 17,
+                            marginTop: 5,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
+                        }}
+                            onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
+                        </Text>
 
                     </View>
+                    <TouchableOpacity style={{
+                    height: 30,
+                    width: '30%',
+                    marginTop:item.video_link == null ? 0 :5,
+                    borderRadius: 5,
+                    marginBottom: 10,
+                    alignSelf: 'flex-end',
+                    marginRight: 10,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    onPress={() => {
+                        this.props.navigation.navigate('ProductDetail', {
+                            data: item
+                        })
+                    }}>
+                    <Text style={{
+                        color: 'black',
+                        fontFamily: 'EurostileBold',
+                    }}>View details</Text>
+                </TouchableOpacity>
                 </View>
             </TouchableOpacity>
         )

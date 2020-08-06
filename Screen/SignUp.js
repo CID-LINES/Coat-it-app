@@ -5,6 +5,7 @@ import { ApiCall, ApiCallWithImage } from '../Component/ApiClient'
 import ImagePicker from 'react-native-image-picker';
 import { NavigationActions } from 'react-navigation';
 import { strings } from './Localization';
+import firebase from 'react-native-firebase';
 
 export default class SignUp extends Component {
     constructor() {
@@ -27,14 +28,17 @@ export default class SignUp extends Component {
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
+                
             },
             maxWidth: 500,
             maxHeight: 500,
-            quality: 0.5
+            quality: 0.5,
+            allowsEditing:true,
         };
+     
         ImagePicker.showImagePicker(options, response => {
+            
             console.log('Response = ', response);
-
             if (response.didCancel) {
                 console.log('User cancelled image picker');
             } else if (response.error) {
@@ -167,10 +171,10 @@ export default class SignUp extends Component {
             })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson.response)
+                console.log(responseJson)
                 if (responseJson.response.Status == true) {
                     this.save('user_id', responseJson.response.id + '')
-                    this.save('customer_id', data.data.response.customer_id +'')
+                    this.save('customer_id', responseJson.response.details.customer_id + '')
                     this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
                 }
                 this.setState({
@@ -178,7 +182,7 @@ export default class SignUp extends Component {
                 })
             })
             .catch((error) => {
-                console.error(message);
+                console.error(error);
                 //  alert(error)
                 //  callback({ data: error });
                 //callback({error: true, data: error});

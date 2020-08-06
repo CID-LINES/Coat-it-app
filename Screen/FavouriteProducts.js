@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, Alert, AsyncStorage, ActivityIndicator, StatusBar, RefreshControl, Dimensions, Platform, ImageBackground, } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, SectionList, Alert, AsyncStorage, ActivityIndicator, StatusBar, RefreshControl, Dimensions, Platform, ImageBackground, Linking, } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import moment from 'moment';
@@ -194,11 +194,11 @@ export default class Home extends Component {
                 alignSelf: 'center',
                 overflow: 'hidden'
             }}
-            onPress={()=>{
-                this.props.navigation.navigate('ProductDetail', {
-                    data: item
-                })
-            }}>
+                onPress={() => {
+                    this.props.navigation.navigate('ProductDetail', {
+                        data: item
+                    })
+                }}>
                 <View style={{ flexDirection: 'column' }}>
                     <View>
 
@@ -234,7 +234,14 @@ export default class Home extends Component {
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}>{item.description}</Text>
-
+                        <Text style={{
+                            fontSize: 17,
+                            marginTop: 5,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
+                        }}
+                            onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
+                        </Text>
                     </View>
                 </View>
 

@@ -47,7 +47,8 @@ export default class CarDetail extends Component {
             },
             maxWidth: 500,
             maxHeight: 500,
-            quality: 0.5
+            quality: 0.5,
+            allowsEditing:true,
         };
 
         ImagePicker.showImagePicker(options, response => {

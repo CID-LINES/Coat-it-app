@@ -179,7 +179,7 @@ export default class Notification extends Component {
                                     </Text>
                             </View>
                             <Text style={{
-                                fontSize: 17,
+                                fontSize: 15,
                                 fontFamily: 'EurostileBold'
                                 , marginLeft: 5,
                                 color:'#C0C0C0',
@@ -201,7 +201,7 @@ export default class Notification extends Component {
                                 textAlign: 'justify'
 
                             }}
-                                numberOfLines={0}>
+                                numberOfLines={2}>
                                 {item.description}
                             </Text>
                         </View>

@@ -71,39 +71,7 @@ export default class DetailerList extends Component {
                 //callback({error: true, data: error});
             });
     }
-    
-    // DetailerListApi = (index) => {
-    //     this.setState({
-    //         isLoading: true
-    //     })
-    //     fetch('http://3.137.41.50/coatit/public/api/detailer_list',
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             }
-    //         })
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             console.log(JSON.stringify(responseJson))
-    //             if (responseJson.response.status == true) {
-    //                 this.setState({
-    //                     DATA: responseJson.response.data
-    //                 })
-    //             }
-    //             this.setState({
-    //                 isLoading: false,
-    //                 isFetching: false
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             //  alert(error)
-    //             //  callback({ data: error });
-    //             //callback({error: true, data: error});
-    //         });
-    // }
+
 
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.DetailerListApi() })
@@ -123,7 +91,7 @@ export default class DetailerList extends Component {
                     alignSelf: 'center',
                     marginTop: Platform.OS === 'ios' ? 25 : 7
                 }}>
-                    <TouchableOpacity style = {{
+                    <TouchableOpacity style={{
                         height: 25,
                         width: 25,
                         alignItems: 'center',
@@ -149,7 +117,7 @@ export default class DetailerList extends Component {
                         justifyContent: 'center',
                     }}>
                         <Text style={{
-                            fontSize: 18, 
+                            fontSize: 18,
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
                         }}>Detailers List</Text>
@@ -178,7 +146,7 @@ export default class DetailerList extends Component {
                     marginTop: 10,
                     marginBottom: 20
                 }}
-                    refreshControl= {<RefreshControl
+                    refreshControl={<RefreshControl
                         tintColor={APP_YELLOW}
                         colors={["#D65050", "#D65050"]}
                         refreshing={this.state.isFetching}
@@ -204,7 +172,7 @@ export default class DetailerList extends Component {
                     onPress={() => {
                         var detailer = []
                         this.state.DATA.map((item) => {
-                            if (item.id!= null) {
+                            if (item.id != null) {
                                 detailer.push(item.id)
                             }
                         })
@@ -226,8 +194,8 @@ export default class DetailerList extends Component {
                         position: 'absolute',
                         backgroundColor: '#000000aa',
                         top: 0,
-                        bottom: 0, 
-                        left: 0, 
+                        bottom: 0,
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -283,7 +251,7 @@ export default class DetailerList extends Component {
                 width: '95%',
                 alignSelf: 'center',
                 overflow: 'hidden',
-                flexDirection:'row'
+                flexDirection: 'row'
             }}
                 onPress={() => {
                     if (item.request_accepted == 0) {
@@ -296,57 +264,57 @@ export default class DetailerList extends Component {
                     }
                 }}>
                 <View style={{
+                    height: 70,
+                    marginTop: 10,
+                    width: 70,
+                    marginLeft: 5,
+                    overflow: 'hidden',
+                    borderRadius: 35
+                }}>
+                    <ImageLoad style={{
                         height: 70,
-                        marginTop: 10,
                         width: 70,
-                        marginLeft: 5,
-                        overflow: 'hidden',
-                        borderRadius: 35
-                    }}>
-                        <ImageLoad style={{
-                            height: 70,
-                            width: 70,
-                        }}
-                            resizeMode='cover'
-                            source={item.avatar == null ?
-                                require('../assets/placeholder.jpg') :
-                                { uri: item.avatar }}>
-                        </ImageLoad>
-                    </View>
-               
+                    }}
+                        resizeMode='cover'
+                        source={item.avatar == null ?
+                            require('../assets/placeholder.jpg') :
+                            { uri: item.avatar }}>
+                    </ImageLoad>
+                </View>
+
+                <View style={{
+                    width: '83%',
+                    //   marginLeft:20,
+                }}>
                     <View style={{
-                        width: '83%',
-                        //   marginLeft:20,
+                        //height:40,
+                        marginTop: 10,
+                        marginLeft: 10,
+                        flexDirection: 'row',
+
+                        width: '90%'
                     }}>
-                        <View style={{
-                            //height:40,
-                            marginTop: 10,
-                            marginLeft: 10,
-                            flexDirection: 'row',
+                        <Text style={{
+                            fontSize: 20,
+                            //width:'55%',
+                            fontFamily: 'EurostileBold',
 
-                            width: '90%'
+                            color: APP_YELLOW
+                        }}
+                            numberOfLines={0}>
+                            {item.first_name}</Text>
+                        {/* <Text style={{
+                            marginTop: 5,
+                            position: 'absolute',
+                            right: 0,
+                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                            fontSize: 17,
+                            marginBottom: 5,
+                            color: '#C0C0C0',
+
                         }}>
-                            <Text style={{
-                                fontSize: 20,
-                                //width:'55%',
-                                fontFamily: 'EurostileBold',
-
-                                color: APP_YELLOW
-                            }}
-                                numberOfLines={0}>
-                                {item.first_name}</Text>
-                            <Text style={{
-                                marginTop: 5,
-                                position: 'absolute',
-                                right: 0,
-                                fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-                                fontSize: 17,
-                                marginBottom: 5,
-                                color: '#C0C0C0',
-
-                            }}>
-                                {moment(item.created_at).format('DD-MM-YYYY')}</Text>
-                        </View>
+                            {moment(item.created_at).format('DD-MM-YYYY')}</Text> */}
+                    </View>
 
                     {item.request_accepted == 0 ?
                         <View style={{
@@ -354,7 +322,7 @@ export default class DetailerList extends Component {
                             width: '30%',
                             borderRadius: 5,
                             marginTop: 8,
-                            marginLeft:15,
+                            marginLeft: 15,
                             //alignSelf: 'flex-end',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -364,29 +332,29 @@ export default class DetailerList extends Component {
                                 color: 'black',
                                 fontFamily: 'EurostileBold',
                             }}>Pending</Text>
-                        </View> : 
+                        </View> :
                         <TouchableOpacity style={{
                             height: 30,
-                            width: '80%',
+                            width: '40%',
                             borderRadius: 5,
                             marginTop: 8,
-                            marginLeft:15,
+                            marginLeft: 30,
                             //alignSelf: 'flex-end',
                             alignItems: 'center',
                             justifyContent: 'center',
                             backgroundColor: APP_YELLOW
                         }}
-                        onPress={()=>{
-                            this.props.navigation.navigate('PurchaseDetail',{
-                                detailer: item.detailer_id   
+                            onPress={() => {
+                                this.props.navigation.navigate('PurchaseDetail', {
+                                    detailer: item.detailer_id
                                 })
 
-                           
-                        }}>
+
+                            }}>
                             <Text style={{
                                 color: 'black',
                                 fontFamily: 'EurostileBold',
-                            }}>Purchased Services and Products</Text>
+                            }}>Purchased</Text>
                         </TouchableOpacity>}
                 </View>
             </TouchableOpacity>

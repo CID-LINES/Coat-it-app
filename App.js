@@ -54,21 +54,6 @@ const Tabnavigation =createBottomTabNavigator({
       )
     }
   },
-
-  Notification:{screen: Notification,
-    navigationOptions: {
-    tabBarLabel: 'Notification',
-    tabBarIcon: ({ tintColor }) => (
-      <Image style={{ width: 30, 
-        height: 30, 
-        tintColor:tintColor,
-        marginTop:10,
-        marginBottom:10}}
-        source={require('./assets/notification-icon.png')}
-        resizeMode={"contain"}>
-      </Image>
-    )
-  }},
   ProductList:{screen: ProductList,
     navigationOptions: {
       tabBarLabel: 'Products',
@@ -83,6 +68,21 @@ const Tabnavigation =createBottomTabNavigator({
         </Image>
       )
     }},
+  Notification:{screen: Notification,
+    navigationOptions: {
+    tabBarLabel: 'Notification',
+    tabBarIcon: ({ tintColor }) => (
+      <Image style={{ width: 30, 
+        height: 30, 
+        tintColor:tintColor,
+        marginTop:10,
+        marginBottom:10}}
+        source={require('./assets/notification-icon.png')}
+        resizeMode={"contain"}>
+      </Image>
+    )
+  }},
+
 
   Profile:{screen: UserProfile,
     navigationOptions: {

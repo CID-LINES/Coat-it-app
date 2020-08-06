@@ -418,7 +418,7 @@ export default class UserProfile extends Component {
                                 flex: 1,
                                 width: '100%'
                             }}
-                                resizeMode='stretch'
+                                resizeMode='cover'
                                 source={this.state.data.avatar == null ?
                                     require('../assets/placeholder.jpg')
                                     : { uri: this.state.data.avatar }}>

@@ -71,15 +71,15 @@ export default class ServiceDeatil extends Component {
                             resizeMode='contain'
                             source={require('../assets/back.png')}></Image>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ 
+                    <TouchableOpacity style={{
                         width: '80%',
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginLeft: 15
-                    }} 
-                    onPress={() => {
-                        this.props.navigation.goBack()
-                    }}>
+                    }}
+                        onPress={() => {
+                            this.props.navigation.goBack()
+                        }}>
                         <Text style={{
                             fontSize: 18,
                             color: APP_YELLOW,
@@ -132,7 +132,8 @@ export default class ServiceDeatil extends Component {
                                 fontSize: 20,
                                 color: '#C0C0C0',
                                 textAlign: 'justify',
-                                fontFamily: 'EurostileBold'}}>
+                                fontFamily: 'EurostileBold'
+                            }}>
                                 {this.state.data.title}</Text>
                             <Text style={{
                                 fontSize: 18,
@@ -192,10 +193,9 @@ export default class ServiceDeatil extends Component {
                         >
                             <ImageLoad style={{ flex: 1 }}
                                 resizeMode=
-                                'stretch'
+                                'cover'
                                 source={{
-                                    uri
-                                        : this.state.data.image
+                                    uri: this.state.data.image
                                 }}></ImageLoad>
                         </View>
 

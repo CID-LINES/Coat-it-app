@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e245a2ce-9c33-4786-9e05-7c8179ac7f03" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Screen/AddCar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/AddCar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/CarDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/CarDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/DetailerDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/DetailerDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/DetailerList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/DetailerList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/EditCarDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/EditCarDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/EditProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/FavouriteProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/FavouriteProducts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/ProductDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/ProductList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/PurchaseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/PurchaseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/ServiceDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/ServiceDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Screen/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,16 +26,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/5EzsBJ414x4DfY95bGCLQbNAby4=" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/5EzsBJ414x4DfY95bGCLQbNAby4=" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/processDebugResources/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/processDebugResources/out/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.android.bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/kenotekcarapp.xcworkspace/xcuserdata/ios.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/kenotekcarapp.xcworkspace/xcuserdata/ios.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="520097efec7c25a9" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_R" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -68,7 +81,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1596526452388" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1596691263777" />
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.6903553" />

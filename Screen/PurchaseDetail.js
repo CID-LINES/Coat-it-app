@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground, RefreshControl } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground, RefreshControl, Linking } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
 import { FlatList } from 'react-native-gesture-handler';
-import { CallApi,ApiCallWithImage } from '../Component/ApiClient';
-
+import { CallApi, ApiCallWithImage } from '../Component/ApiClient';
+import moment from 'moment';
 
 
 export default class DetailerDeatil extends Component {
@@ -12,7 +12,8 @@ export default class DetailerDeatil extends Component {
         super(props)
         this.state = {
             customer_id: '',
-            isSelected: '0',
+            isSelected: 0,
+            isSelected1: 0,
             detailer: props.navigation.state.params.detailer,
             serviceplan: [],
             products: []
@@ -20,48 +21,48 @@ export default class DetailerDeatil extends Component {
         //console.log(this.state.detailer)
     }
 
-    componentDidMount(){
-    //     this.load()
-    //     this.props.navigation.addListener('willFocus', this.load)
-    // }
-    // load = () => {
-    
+    componentDidMount() {
+        //     this.load()
+        //     this.props.navigation.addListener('willFocus', this.load)
+        // }
+        // load = () => {
+
         this.getcustomer('customer_id')
-         
+
     }
-        async getcustomer(key) {
-            try {
-                const value = await AsyncStorage.getItem(key);
-                //alert(value)
-                if (value != null && value != '') {
-                    this.setState({
-                        customer_id: value
-                    }, () => {
-                        this.ServiceProductsApi()
-                    })
-                }
-            } catch (error) {
-    
+    async getcustomer(key) {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            //alert(value)
+            if (value != null && value != '') {
+                this.setState({
+                    customer_id: value
+                }, () => {
+                    this.ServiceProductsApi()
+                })
             }
+        } catch (error) {
+
         }
-    
-        ServiceProductsApi = () => {
-            this.setState({
-                isLoading: true
-            })
-           ApiCallWithImage('product_and_service',
+    }
+
+    ServiceProductsApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        CallApi('product_and_service',
             {
-                'detailer_id': '' +this.state.detailer,
+                'detailer_id': '' + this.state.detailer,
                 'customer_id': '' + this.state.customer_id,
             },
             (data) => {
                 console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                       this.setState({
-                           serviceplan:data.data.response.services,
-                           products:data.data.response.products
-                       })
+                        this.setState({
+                            serviceplan: data.data.response.services,
+                            products: data.data.response.products
+                        })
                     }
                     else {
                         alert(data.data.response.message)
@@ -71,12 +72,12 @@ export default class DetailerDeatil extends Component {
                 }
                 this.setState({
                     isLoading: false,
-                    isFetching:false
+                    isFetching: false
                 })
                 // alert(JSON.stringify(data))
                 //nsole.log(data)
             })
-        }
+    }
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.ServiceProductsApi() });
     }
@@ -146,11 +147,11 @@ export default class DetailerDeatil extends Component {
                             height: 30,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: this.state.isSelected == '0' ? APP_YELLOW : 'white'
+                            backgroundColor: this.state.isSelected == 0 ? APP_YELLOW : 'white'
                         }}
                             onPress={() => {
                                 this.setState({
-                                    isSelected: '0'
+                                    isSelected: 0
                                 })
                             }}>
                             <Text style={{
@@ -163,11 +164,11 @@ export default class DetailerDeatil extends Component {
                             height: 30,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: this.state.isSelected == '0' ? 'white' : APP_YELLOW
+                            backgroundColor: this.state.isSelected == 0 ? 'white' : APP_YELLOW
                         }}
                             onPress={() => {
                                 this.setState({
-                                    isSelected: '1'
+                                    isSelected: 1
                                 })
                             }}>
                             <Text style={{
@@ -175,68 +176,14 @@ export default class DetailerDeatil extends Component {
                                 marginLeft: 5, fontFamily: 'EurostileBold',
                             }}>Products</Text>
                         </TouchableOpacity>
+
                     </View>
 
                 </View>
-                {/* <ScrollView style={{ flex: 1 }}> */}
+
                 <View style={{ flex: 1 }}>
-                    {/* <View style={{
-                            height: Dimensions.get('window').height / 3,
-                            marginTop: 10,
-                            width: '100%',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <TouchableOpacity style={{
-                                flex: 1,
-                                width: '95%',
-                                //borderRadius: 10,
-                                alignSelf: 'center',
-                                justifyContent: 'center',
-                                overflow: 'hidden'
-                            }}>
-                                <ImageLoad style={{ flex: 1 }}
-                                    resizeMode='stretch'
-                                    source={this.state.detailer.avatar == null ?
-                                        require('../assets/placeholder.jpg') :
-                                        { uri: this.state.detailer.avatar }
-                                    }>
-                                </ImageLoad>
-                            </TouchableOpacity>
-                        </View> */}
-                    {/* <View style={{
-                            marginLeft: 10,
-                            marginRight: 10,
-                            marginTop: 5,
-                            width: '90%',
-                            alignSelf: 'center',
-                        }}>
-                            
-                            <Text style={{
-                                fontSize: 20,
-                                fontFamily: 'EurostileBold',
-                                color: '#C0C0C0'
-                            }}>
-                               Services</Text>:   <Text style={{
-                                fontSize: 17,
-                                fontFamily: 'EurostileBold',
-                                color: APP_YELLOW
-                            }}>
-                               Services</Text>}
-                               {this.state.serviceplan == '1' ?
-                            <Text style={{
-                                fontSize: 17,
-                                fontFamily: 'EurostileBold',
-                                color: '#C0C0C0'
-                            }}>
-                               Products</Text>:<Text style={{
-                                fontSize: 17,
-                                fontFamily: 'EurostileBold',
-                                color: '#C0C0C0'
-                            }}>
-                               Products</Text>}
-                        </View> */}
-                    {this.state.isSelected == '0' &&
+
+                    {this.state.isSelected == 0 &&
                         <View>
                             <Text style={{
                                 marginTop: 5,
@@ -245,23 +192,43 @@ export default class DetailerDeatil extends Component {
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
                             }}>Services</Text>
-                            <FlatList style={{
-                                marginTop: 5,
-                                marginBottom: 20
-                            }}
-                                refreshControl={<RefreshControl
-                                    tintColor={APP_YELLOW}
-                                    colors={["#D65050", "#D65050"]}
-                                    refreshing={this.state.isFetching}
-                                    onRefresh={this.onRefresh}>
-                                </RefreshControl>}
-                                data={this.state.serviceplan}
-                                renderItem={({ item, index }) => (
-                                    this.Service(item, index)
-                                )}
-                            ></FlatList>
+
+                            {this.state.serviceplan.length == 0 || this.state.serviceplan == null ?
+                                <View style={{
+                                    width: '95%',
+                                    height: '100%',
+                                    alignSelf: 'center',
+                                    justifyContent: "center",
+                                    alignItems: 'center'
+                                }}>
+                                    <Text style={{
+                                        fontSize: 22,
+
+                                        color: '#C0C0C0',
+                                        textAlign: 'center',
+                                        fontFamily: 'EurostileBold'
+                                    }}
+                                        numberOfLines={0}>
+                                        No services found, Please visit your latest detailer to get detailing!
+                        </Text>
+                                </View> :
+                                <FlatList style={{
+                                    marginTop: 5,
+                                    marginBottom: 20
+                                }}
+                                    refreshControl={<RefreshControl
+                                        tintColor={APP_YELLOW}
+                                        colors={["#D65050", "#D65050"]}
+                                        refreshing={this.state.isFetching}
+                                        onRefresh={this.onRefresh}>
+                                    </RefreshControl>}
+                                    data={this.state.serviceplan}
+                                    renderItem={({ item, index }) => (
+                                        this.Service(item, index)
+                                    )}
+                                ></FlatList>}
                         </View>}
-                    {this.state.isSelected == '1' &&
+                    {this.state.isSelected == 1 &&
                         <View>
                             <Text style={{
                                 marginTop: 5,
@@ -270,21 +237,41 @@ export default class DetailerDeatil extends Component {
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
                             }}>Products</Text>
-                            <FlatList style={{
-                                // marginTop: 5,
-                                marginBottom: 20
-                            }}
-                                refreshControl={<RefreshControl
-                                    tintColor={APP_YELLOW}
-                                    colors={["#D65050", "#D65050"]}
-                                    refreshing={this.state.isFetching}
-                                    onRefresh={this.onRefresh}>
-                                </RefreshControl>}
-                                data={this.state.products}
-                                renderItem={({ item, index }) => (
-                                    this.Products(item, index)
-                                )}
-                            ></FlatList>
+                            {this.state.products.length == 0 || this.state.products == null ?
+                                <View style={{
+                                    width: '95%',
+                                    height: '100%',
+                                    alignSelf: 'center',
+                                    justifyContent: "center",
+                                    alignItems: 'center'
+                                }}>
+                                    <Text style={{
+                                        fontSize: 22,
+                                        color: '#C0C0C0',
+                                        textAlign: 'center',
+                                        fontFamily: 'EurostileBold'
+                                    }}
+                                        numberOfLines={0}>
+                                        No products found, Please visit your latest detailer to get detailing!
+                        </Text>
+                                </View> :
+
+                                <FlatList style={{
+                                    // marginTop: 5,
+                                    marginBottom: 20
+                                }}
+                                    refreshControl={<RefreshControl
+                                        tintColor={APP_YELLOW}
+                                        colors={["#D65050", "#D65050"]}
+                                        refreshing={this.state.isFetching}
+                                        onRefresh={this.onRefresh}>
+                                    </RefreshControl>}
+                                    data={this.state.products}
+                                    renderItem={({ item, index }) => (
+                                        this.Products(item, index)
+                                    )}
+                                ></FlatList>
+                            }
                         </View>}
 
                 </View>
@@ -345,12 +332,42 @@ export default class DetailerDeatil extends Component {
                     marginTop: 10,
                     marginLeft: 10,
                 }}>
-                    <Text style={{
+
+                    {/* <Text style={{
                         fontSize: 17,
                         fontFamily: 'EurostileBold',
                         color: '#C0C0C0'
                     }}
-                    >{item.name.toUpperCase()}</Text>
+                    >{item.name.toUpperCase()}</Text> */}
+                      <View style={{
+                        //height:40,
+                        marginTop: 10,
+                        
+                        flexDirection: 'row',
+
+                        width: '100%'
+                    }}>
+                        <Text style={{
+                            fontSize: 20,
+                            //width:'55%',
+                            fontFamily: 'EurostileBold',
+
+                            color: APP_YELLOW
+                        }}
+                            numberOfLines={0}>
+                            {item.name.toUpperCase()}</Text>
+                        <Text style={{
+                            marginTop: 5,
+                            position: 'absolute',
+                            right: 0,
+                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                            fontSize: 17,
+                            marginBottom: 5,
+                            color: '#C0C0C0',
+
+                        }}>
+                            {moment(item.created_at).format('DD-MM-YYYY')}</Text>
+                    </View>
                     <Text style={{
                         fontSize: 16,
                         color: '#C0C0C0',
@@ -380,7 +397,7 @@ export default class DetailerDeatil extends Component {
                     <Text style={{
                         color: 'black',
                         fontFamily: 'EurostileBold',
-                    }}>View details</Text>
+                    }}>Service details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>
         )
@@ -414,27 +431,73 @@ export default class DetailerDeatil extends Component {
                         marginLeft: 5,
                         marginTop: 10
                     }}>
-                        {/* <Text style={{
-                            fontSize: 17,
-                            fontWeight: '700'
-                        }}>
-                            {item.brand_name} {item.model_name}
-                        </Text> */}
+                        <View style={{
+                        //height:40,
+                        marginTop: 10,
+                      
+                        flexDirection: 'row',
+
+                       
+                    }}>
                         <Text style={{
                             fontSize: 18,
+                            width:'55%',
                             fontFamily: 'EurostileBold',
                             color: '#C0C0C0'
                         }}>
                             {item.name.toUpperCase()}
                         </Text>
                         <Text style={{
+                            marginTop: 5,
+                            position: 'absolute',
+                            right: 0,
+                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                            fontSize: 17,
+                            marginBottom: 5,
+                            color: '#C0C0C0',
+
+                        }}>
+                            {moment(item.created_at).format('DD-MM-YYYY')}</Text>
+                    </View>
+                        <Text style={{
                             marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
-                        }}>{item.description}</Text>
+                        }}
+                        numberOfLines={2}>{item.description}</Text>
+                        <Text style={{
+                            fontSize: 17,
+                            marginTop: 5,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
+                        }}
+                            onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
+                        </Text>
                     </View>
                 </View>
+                <TouchableOpacity style={{
+                    height: 30,
+                    width: '30%',
+                    marginTop:item.video_link == null ? 0 :5,
+                    borderRadius: 5,
+                    marginBottom: 10,
+                    alignSelf: 'flex-end',
+                    marginRight: 10,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    onPress={() => {
+                        this.props.navigation.navigate('ProductDetail', {
+                            data: item
+                        })
+                    }}>
+                    <Text style={{
+                        color: 'black',
+                        fontFamily: 'EurostileBold',
+                    }}>Product details</Text>
+                </TouchableOpacity>
             </TouchableOpacity>
         )
     }

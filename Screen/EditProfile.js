@@ -33,7 +33,8 @@ export default class EditProfile extends Component {
             },
             maxWidth: 500,
             maxHeight: 500,
-            quality: 0.5
+            quality: 0.5,
+            allowsEditing:true,
         };
         ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
@@ -211,7 +212,7 @@ export default class EditProfile extends Component {
                                         // height: 130,
                                         flex: 1,
                                     }}
-                                        resizeMethod='resize'
+                                        resizeMode='cover'
                                         source={{ uri: this.state.filePath }}>
                                     </ImageLoad>
                                 </TouchableOpacity>

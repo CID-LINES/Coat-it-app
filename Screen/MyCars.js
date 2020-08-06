@@ -172,8 +172,8 @@ export default class MyCars extends Component {
                     </TouchableOpacity>
                     <View style={{
                         height: 35,
-                        alignItems:'center',
-                        justifyContent:'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
 
                     }}>
                         <Text style={{
@@ -189,7 +189,7 @@ export default class MyCars extends Component {
                         marginTop: 10,
                         marginBottom: 20
                     }}
-                            refreshControl={<RefreshControl
+                        refreshControl={<RefreshControl
                             tintColor={APP_YELLOW}
                             colors={["#D65050", "#D65050"]}
                             refreshing={this.state.isFetching}
@@ -201,7 +201,7 @@ export default class MyCars extends Component {
                         )}>
                     </FlatList>
                     <TouchableOpacity style={{
-                        height: 60, 
+                        height: 60,
                         width: 60,
                         borderRadius: 30,
                         backgroundColor: APP_YELLOW,
@@ -229,7 +229,7 @@ export default class MyCars extends Component {
                         backgroundColor: '#000000aa',
                         top: 0,
                         bottom: 0,
-                        left: 0, 
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -278,30 +278,50 @@ export default class MyCars extends Component {
                         // alignItems:'center',
                         // justifyContent:'center'
                     }}>
-                        {/* <Text style={{
-                            fontSize: 17,
-                            fontWeight: '700'
-                        }}>
-                            {item.brand_name} {item.model_name}
-                        </Text> */}
-                        <Text style={{
-                            fontSize: 18,
-                            fontFamily: 'EurostileBold',
-                            color: '#C0C0C0'
-                        }}>
-                            {item.vehicle_no}
-                        </Text>
-                        <Text style={{
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{
+                                fontSize: 17,
+                                fontWeight: '700',
+                                fontFamily: 'EurostileBold',
+                                color: '#C0C0C0'
+                            }}>
+                                {item.brand_name}
+                            </Text>
+                            <Text style={{
+                                fontSize: 18,
+                                position: 'absolute',
+                                right: 5,
+                                fontFamily: 'EurostileBold',
+                                color: '#C0C0C0'
+                            }}>
+                                {item.model_name}
+                            </Text>
+
+                        </View>
+                        <View style={{
+                            flexDirection: 'row',
                             marginTop: 10,
-                            fontSize: 17,
-                            color: '#C0C0C0',
-                            fontFamily: 'EurostileBold',
-                        }}>{item.manufacture_year}</Text>
+                        }}>
+                            <Text style={{
+                                fontSize: 18,
+                                fontFamily: 'EurostileBold',
+                                color: '#C0C0C0'
+                            }}>
+                                {item.vehicle_no}
+                            </Text>
+                            <Text style={{
+
+                                fontSize: 17,
+                                color: '#C0C0C0',
+                                position: 'absolute',
+                                right: 5,
+                                fontFamily: 'EurostileBold',
+                            }}>{item.manufacture_year}</Text>
+                        </View>
                         <TouchableOpacity style={{
-                            height: 30,
-                            width: 30,
-                            marginTop: 10,
-                            marginBottom: 5,
+                            height: 25,
+                            width: 25,
+                            marginTop: 5,
                             alignItems: 'center',
                             justifyContent: 'center',
                         }}
@@ -325,11 +345,10 @@ export default class MyCars extends Component {
                             <Image style={{
                                 height: 24,
                                 width: 24,
-                                tintColor: 'gray'
+                                tintColor: '#C0C0C0'
                             }}
                                 source={require('../assets/delete-icon.png')}></Image>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </TouchableOpacity>

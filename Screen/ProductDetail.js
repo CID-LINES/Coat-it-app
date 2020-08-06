@@ -7,7 +7,8 @@ export default class ProductDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: props.navigation.state.params.data
+            data: props.navigation.state.params.data,
+           
         }
     }
     render() {
@@ -138,7 +139,7 @@ export default class ProductDetail extends Component {
                             width: '100%'
                         }}>
                             <ImageLoad style={{ flex: 1, width: '100%' }}
-                                resizeMode='stretch'
+                                resizeMode='cover'
                                 source={{
                                     uri
                                         : this.state.data.image

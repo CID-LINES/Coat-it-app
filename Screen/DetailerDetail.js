@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground, RefreshControl } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, AsyncStorage, ActivityIndicator, Dimensions, ImageBackground, RefreshControl, Linking } from 'react-native';
 import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import ImageLoad from 'react-native-image-placeholder';
 import { FlatList } from 'react-native-gesture-handler';
@@ -413,9 +413,41 @@ export default class DetailerDeatil extends Component {
                             fontSize: 17,
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
-                        }}>{item.description}</Text>
+                        }}
+                        numberOfLines={2}>{item.description}</Text>
+                        <Text style={{
+                            fontSize: 17,
+                            marginTop: 5,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold'
+                        }} 
+                            onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
+                        </Text>
+                        <TouchableOpacity style={{
+                    height: 30,
+                    width: '30%',
+                    marginTop: 5,
+                    borderRadius: 5,
+                    marginBottom: 10,
+                    alignSelf: 'flex-end',
+                    marginRight: 10,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: APP_YELLOW
+                }}
+                    onPress={() => {
+                        this.props.navigation.navigate('ProductDetail', {
+                            data: item
+                        })
+                    }}>
+                    <Text style={{
+                        color: 'black',
+                        fontFamily: 'EurostileBold',
+                    }}>View details</Text>
+                </TouchableOpacity>
                     </View>
                 </View>
+                
             </TouchableOpacity>
         )
     }
