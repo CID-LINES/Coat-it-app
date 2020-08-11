@@ -106,13 +106,14 @@ export default class ProductList extends Component {
                                 product.push(item)
                             }
                         })
-                        var a = {
-                            id: item.detailer_id,
-                            detailer_name: item.detailer_name,
-                            data: product
-                        }
-                        mainArr.push(a)
-
+                            var a = {
+                                id: item.detailer_id,
+                                detailer_name: item.detailer_name,
+                                data: product
+                            }
+                            mainArr.push(a)
+                    
+                        
                     })
                     this.setState({
                         orders: mainArr
@@ -360,6 +361,7 @@ export default class ProductList extends Component {
                         }}>
                             {item.name.toUpperCase()}
                         </Text>
+                        
                         <Text style={{
                             marginTop: 10,
                             fontSize: 17,

@@ -184,6 +184,24 @@ export default class MyCars extends Component {
                     </View>
                 </View>
                 <View style={{ flex: 1 }}>
+                {this.state.car.length == null || this.state.car == 0 ?
+                     <View style={{
+                        width: '95%',
+                        height: '100%',
+                        alignSelf: 'center',
+                        justifyContent: "center",
+                        alignItems: 'center'
+                    }}>
+                        <Text style={{
+                            fontSize: 22,
+                            color: '#C0C0C0',
+                            textAlign: 'center',
+                            fontFamily: 'EurostileBold'
+                        }}
+                            numberOfLines={0}>
+                           No car available. Please use Add (+) option to add car.
+            </Text>
+                    </View> :
                     <FlatList style={{
                         flex: 1,
                         marginTop: 10,
@@ -199,7 +217,7 @@ export default class MyCars extends Component {
                         renderItem={({ item, index }) => (
                             this.MyCars(item, index)
                         )}>
-                    </FlatList>
+                    </FlatList>}
                     <TouchableOpacity style={{
                         height: 60,
                         width: 60,

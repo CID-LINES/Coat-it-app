@@ -14,22 +14,24 @@ export default class Home extends Component {
         this.state = {
             data: '',
             isFetching: false,
-            text:[]
+            text:[],
+            fcmToken:''
         }
 
     }
 
     async componentDidMount() {
+        
         this.get('user_id')
         this.checkPermission();
-        // Register all listener for notification 
         this.createNotificationListeners();
     }
 
-    // componentWillUnmount() {
-    //     this.notificationListener;
-    //     this.notificationOpenedListener;
-    //   }
+    componentWillUnmount() {
+        this.notificationListener();
+        this.notificationOpenedListener();
+      }
+    
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
         // If Premission granted proceed towards token fetch
@@ -66,14 +68,15 @@ export default class Home extends Component {
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
           const { title, body } = notification;
-          //this.showAlert(title,body)
+          this.navigate(title,body)
+     
         });
     
         // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
           const { title, body } = notificationOpen.notification;
              this.navigate(title,body)
-            
+          
         });
     
         // This listener triggered when app is closed and we click,tapped and opened notification 

@@ -37,7 +37,10 @@ export default class Login extends Component {
             }
         })
     }
-
+    componentWillUnmount() {
+        this.notificationListener();
+        this.notificationOpenedListener();
+      }
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
         // If Premission granted proceed towards token fetch

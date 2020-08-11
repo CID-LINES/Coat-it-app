@@ -64,6 +64,10 @@ export default class SignUp extends Component {
             }
         })
     }
+    componentWillUnmount() {
+        this.notificationListener();
+        this.notificationOpenedListener();
+      }
 
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
@@ -111,6 +115,8 @@ export default class SignUp extends Component {
         this.notificationListener = firebase.notifications().onNotification((notification) => {
             const { title, body } = notification;
            // this.navigate(title, body)
+
+          
         });
 
         // This listener triggered when app is in backgound and we click, tapped and opened notifiaction

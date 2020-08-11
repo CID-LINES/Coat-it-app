@@ -15,7 +15,7 @@ export default class Notification extends Component {
             data: [],
             isFetching: false,
             previewurl: null,
-           
+
         }
     }
 
@@ -25,7 +25,7 @@ export default class Notification extends Component {
 
     NotificationApi = () => {
         this.setState({
-            isLoading: true  
+            isLoading: true
         })
 
         fetch('http://3.137.41.50/coatit/public/api/notification_list',
@@ -46,8 +46,8 @@ export default class Notification extends Component {
 
                 }
                 this.setState({
-                     isLoading: false,
-                     isFetching: false
+                    isLoading: false,
+                    isFetching: false
                 })
 
             })
@@ -57,35 +57,53 @@ export default class Notification extends Component {
     }
 
     onRefresh = () => {
-        this.setState({ isFetching: true }, function () {this.NotificationApi()});
+        this.setState({ isFetching: true }, function () { this.NotificationApi() });
     }
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-                <ImageBackground style={{ flex: 1, }}
-                    resizeMode='stretch'
-                    source={require('../assets/bg.png')}>
-                    <View style={{ flex: 1 }}>
+            <ImageBackground style={{ flex: 1, }}
+                resizeMode='stretch'
+                source={require('../assets/bg.png')}>
+                <View style={{ flex: 1 }}>
+                    <View style={{
+                        alignSelf: 'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 45,
+                        width: '100%',
+                        marginTop: Platform.OS === 'ios' ? 25 : 7
+                    }}>
+                        <Text style={{
+                            fontSize: 20,
+                            fontFamily: 'EurostileBold',
+                            color: APP_YELLOW
+                        }}>Notifications</Text>
+                    </View>
+                    {this.state.data.length == 0 || this.state.data == null ?
                         <View style={{
+                            width: '95%',
+                            height: '100%',
                             alignSelf: 'center',
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            height: 45,
-                            width: '100%',
-                            marginTop: Platform.OS === 'ios'? 25 : 7
+                            justifyContent: "center",
+                            alignItems: 'center'
                         }}>
                             <Text style={{
-                                fontSize: 20,
-                                fontFamily: 'EurostileBold',
-                                color: APP_YELLOW
-                            }}>Notifications</Text>
-                        </View>
-                        <FlatList style={{marginTop: 5}}
-                                refreshControl={<RefreshControl
+                                fontSize: 22,
+                                color: '#C0C0C0',
+                                textAlign: 'center',
+                                fontFamily: 'EurostileBold'
+                            }}
+                                numberOfLines={0}>
+                                No notification available.
+                    </Text>
+                        </View> :
+                        <FlatList style={{ marginTop: 5 }}
+                            refreshControl={<RefreshControl
                                 tintColor={APP_YELLOW}
-                                colors={["#D65050","#D65050"]}
+                                colors={["#D65050", "#D65050"]}
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
@@ -93,29 +111,29 @@ export default class Notification extends Component {
                             renderItem={({ item }) => (
                                 this.Notification(item)
                             )}>
-                            </FlatList>
-                    </View>
-                    {this.state.isLoading &&
-                        <View style={{
-                            position:'absolute',
-                            backgroundColor:'#000000aa',
-                            top: 0,
-                            bottom: 0, 
-                            left: 0, 
-                            right: 0,
-                            alignItems:'center',
-                            justifyContent:'center'
-                        }}>
-                            <ActivityIndicator
-                                animating={this.state.isLoading}
-                                size='large'
-                                color={APP_YELLOW}
-                            ></ActivityIndicator>
+                        </FlatList>}
+                </View>
+                {this.state.isLoading &&
+                    <View style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <ActivityIndicator
+                            animating={this.state.isLoading}
+                            size='large'
+                            color={APP_YELLOW}
+                        ></ActivityIndicator>
 
-                        </View>
-                    }
-                </ImageBackground>
-          
+                    </View>
+                }
+            </ImageBackground>
+
         );
     }
 
@@ -130,7 +148,7 @@ export default class Notification extends Component {
                     overflow: 'hidden'
                 }}
                     onPress={() => {
-                        this.props.navigation.navigate('NotificationDetail',{
+                        this.props.navigation.navigate('NotificationDetail', {
                             data: item
                         })
                     }}>
@@ -166,23 +184,23 @@ export default class Notification extends Component {
 
                         }}>
                             <View style={{
-                                width: Dimensions.get('window').width /2,
+                                width: Dimensions.get('window').width / 2,
                             }}>
                                 <Text style={{
                                     fontSize: 17,
                                     textAlign: 'justify',
-                                    marginLeft:10,
+                                    marginLeft: 10,
                                     color: APP_YELLOW,
                                     fontFamily: 'EurostileBold'
                                 }}>
                                     {item.title.toUpperCase()}
-                                    </Text>
+                                </Text>
                             </View>
                             <Text style={{
                                 fontSize: 15,
                                 fontFamily: 'EurostileBold'
                                 , marginLeft: 5,
-                                color:'#C0C0C0',
+                                color: '#C0C0C0',
                                 marginRight: 5
                             }}>
                                 {moment.utc(item.created_at).local().format('hh:mm a')}
@@ -196,7 +214,7 @@ export default class Notification extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 20,
-                                color:'#C0C0C0',
+                                color: '#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                                 textAlign: 'justify'
 
