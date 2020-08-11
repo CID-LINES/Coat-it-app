@@ -126,13 +126,13 @@ export default class CarDetail extends Component {
             isLoading: true
         })
         let body = new FormData();
-        if (this.state.filePath.uri) {
+        // if (this.state.filePath.uri) {
             var photo = {
                 uri: this.state.filePath.uri,
                 type: 'image/jpeg',
                 name: 'photo.jpg',
             };
-        }
+       // }
         // alert(this.state.brewery_id)
         body.append('image', photo);
         body.append('brand_name', this.state.Companyname)
@@ -176,9 +176,6 @@ export default class CarDetail extends Component {
                 //callback({error: true, data: error});
             });
     }
-
-
-
 
     render() {
         return (
@@ -405,7 +402,7 @@ export default class CarDetail extends Component {
                                 justifyContent: 'center',
                                 marginBottom: 10,
                                 backgroundColor: APP_YELLOW,
-                                borderRadius: 10
+                                //borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.CarDetail()

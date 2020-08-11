@@ -363,7 +363,7 @@ export default class EditProfile extends Component {
                                 backgroundColor: APP_YELLOW,
                                 marginTop: 20,
                                 alignSelf: 'center',
-                                borderRadius: 10,
+                                //borderRadius: 10,
                                 // marginBottom:10,
                                 alignItems: 'center',
                                 justifyContent: 'center'

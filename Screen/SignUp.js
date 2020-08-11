@@ -176,6 +176,8 @@ export default class SignUp extends Component {
                     this.save('user_id', responseJson.response.id + '')
                     this.save('customer_id', responseJson.response.details.customer_id + '')
                     this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CarDetail' })], 0)
+                }else{
+                    alert(responseJson.response.message)
                 }
                 this.setState({
                     isLoading: false
@@ -192,9 +194,10 @@ export default class SignUp extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1,}}>
-            <ImageBackground style={{ flex: 1, }}
+            <ImageBackground style={{ flex: 1,backgroundColor:"black" }}
                 resizeMode='stretch'
-                source={require('../assets/bg.png')}>
+                //source={require('../assets/bg.png')}
+                >
                 <StatusBar barStyle="light-content" />
                 <View style={{ flex: 1, }}>
                     <View style={{
@@ -479,7 +482,7 @@ export default class SignUp extends Component {
                                 backgroundColor: APP_YELLOW,
                                 marginTop: 20,
                                 alignSelf: 'center',
-                                borderRadius: 10,
+                                //borderRadius: 10,
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}

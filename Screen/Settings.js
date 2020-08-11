@@ -107,7 +107,7 @@ export default class Settings extends Component {
                     marginTop: 20,
                     alignItems: "center",
                     justifyContent: 'center',
-                    borderRadius: 10, 
+                    //borderRadius: 10, 
                     alignSelf: 'center',
                     backgroundColor: APP_YELLOW
                 }}
@@ -148,7 +148,7 @@ export default class Settings extends Component {
                     marginBottom: 10,
                     alignItems: "center", 
                     justifyContent: 'center',
-                    borderRadius: 10, 
+                    //borderRadius: 10, 
                     alignSelf: 'center',
                     backgroundColor: APP_YELLOW
                 }}

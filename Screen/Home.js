@@ -159,9 +159,10 @@ export default class Home extends Component {
         
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-            <ImageBackground style={{ flex: 1, }}
+            <ImageBackground style={{ flex: 1 }}
                 resizeMode='stretch'
-                source={require('../assets/bg.png')}>
+                source={require('../assets/bg.png')}
+                >
                      <StatusBar barStyle="light-content" />
                 <View style={{ flex: 1 }}>
                     <View style={{
@@ -268,7 +269,7 @@ export default class Home extends Component {
                     height: 30,
                    // width: '30%',
                     marginTop: 5,
-                    borderRadius: 5,
+                    //borderRadius: 5,
                     marginBottom: 10,
                     alignSelf: 'flex-end',
                     marginRight: 10,
@@ -283,7 +284,8 @@ export default class Home extends Component {
                     }}>
                     <Text style={{
                         color: 'black',
-                        marginLeft:5,marginRight:5,
+                        marginLeft:5,
+                        marginRight:5,
                          fontFamily: 'EurostileBold',
                     }}>View details</Text>
                 </TouchableOpacity>

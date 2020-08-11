@@ -239,7 +239,7 @@ export default class ChangePassword extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 20,
                                     alignSelf: 'center',
-                                    borderRadius: 10, 
+                                    //borderRadius: 10, 
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}

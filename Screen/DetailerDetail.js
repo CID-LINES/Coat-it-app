@@ -20,8 +20,50 @@ export default class DetailerDeatil extends Component {
     }
 
     componentDidMount() {
+        if(this.state.detailer.request_accepted == '1')
+        {
+this.ServiceApi()
+        }
         this.PlanApi()
     }
+
+    ServiceApi = () => {
+        this.setState({
+             isLoading: true
+            // isFetching:true
+        })
+
+        fetch('http://3.137.41.50/coatit/public/api/plan/display',
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+                    this.setState({
+                        serviceplan: responseJson.response.data
+                    })
+               
+                }
+                this.setState({
+                     isLoading: false,
+                     isFetching: false
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
+    }
+
     PlanApi = () => {
         this.setState({
             isLoading: true
@@ -39,7 +81,7 @@ export default class DetailerDeatil extends Component {
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
                     this.setState({
-                        serviceplan: responseJson.response.services,
+                        // serviceplan: responseJson.response.services,
                         products: responseJson.response.products
                     })
                 }
@@ -219,13 +261,13 @@ export default class DetailerDeatil extends Component {
                         </View> */}
                     {this.state.isSelected == '0' &&
                         <View>
-                            <Text style={{
+                            {/* <Text style={{
                                 marginTop: 5,
                                 width: '95%', alignSelf: 'center',
                                 fontSize: 20,
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
-                            }}>Services</Text>
+                            }}>Services</Text> */}
                             <FlatList style={{
                                 marginTop: 5,
                                 marginBottom: 20
@@ -244,13 +286,31 @@ export default class DetailerDeatil extends Component {
                         </View>}
                     {this.state.isSelected == '1' &&
                         <View>
-                            <Text style={{
+                            {/* <Text style={{
                                 marginTop: 5,
                                 width: '95%', alignSelf: 'center',
                                 fontSize: 20,
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
-                            }}>Products</Text>
+                            }}>Products</Text> */}
+                            {this.state.products.length == null || this.state.products == 0 ? 
+                              <View style={{
+                                width: '95%',
+                                height: '100%',
+                                alignSelf: 'center',
+                                justifyContent: "center",
+                                alignItems: 'center'
+                            }}>
+                                <Text style={{
+                                    fontSize: 22,
+                                    color: '#C0C0C0',
+                                    textAlign: 'center',
+                                    fontFamily: 'EurostileBold'
+                                }}
+                                    numberOfLines={0}>
+                                    No products added by detailer.
+                    </Text>
+                            </View>:
                             <FlatList style={{
                                 // marginTop: 5,
                                 marginBottom: 20
@@ -265,7 +325,7 @@ export default class DetailerDeatil extends Component {
                                 renderItem={({ item, index }) => (
                                     this.Products(item, index)
                                 )}
-                            ></FlatList>
+                            ></FlatList>}
                         </View>}
 
                 </View>
@@ -283,8 +343,7 @@ export default class DetailerDeatil extends Component {
                         <ActivityIndicator
                             animating={this.state.isLoading}
                             size='large'
-                            color={APP_YELLOW}
-                        >
+                            color={APP_YELLOW}>
                         </ActivityIndicator>
                     </View>
                 }
@@ -345,7 +404,7 @@ export default class DetailerDeatil extends Component {
                     height: 30,
                     width: '30%',
                     marginTop: 5,
-                    borderRadius: 5,
+                    //borderRadius: 5,
                     marginBottom: 10,
                     alignSelf: 'flex-end',
                     marginRight: 10,
@@ -415,19 +474,21 @@ export default class DetailerDeatil extends Component {
                             fontFamily: 'EurostileBold',
                         }}
                         numberOfLines={2}>{item.description}</Text>
+                       
+                       {item.video_link !=null && item.video_link != "" ?
                         <Text style={{
                             fontSize: 17,
                             marginTop: 5,
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold'
-                        }} 
+                        }}
                             onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
-                        </Text>
+                        </Text>: <Text style={{marginTop:-10}}></Text>}
                         <TouchableOpacity style={{
                     height: 30,
                     width: '30%',
-                    marginTop: 5,
-                    borderRadius: 5,
+                    marginTop:10,
+                    //borderRadius: 5,
                     marginBottom: 10,
                     alignSelf: 'flex-end',
                     marginRight: 10,

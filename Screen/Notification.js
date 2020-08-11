@@ -137,7 +137,7 @@ export default class Notification extends Component {
 
                     <TouchableOpacity style={{
                         marginTop: 5,
-                        height: Dimensions.get('window').height / 12,
+                        height: Dimensions.get('window').height / 10,
                         width: 60,
                         marginLeft: 5,
                         //borderRadius: 5,
@@ -172,7 +172,7 @@ export default class Notification extends Component {
                                     fontSize: 17,
                                     textAlign: 'justify',
                                     marginLeft:10,
-                                    color: '#C0C0C0',
+                                    color: APP_YELLOW,
                                     fontFamily: 'EurostileBold'
                                 }}>
                                     {item.title.toUpperCase()}
@@ -195,7 +195,7 @@ export default class Notification extends Component {
                             marginTop: 10
                         }}>
                             <Text style={{
-                                fontSize: 18,
+                                fontSize: 20,
                                 color:'#C0C0C0',
                                 fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
                                 textAlign: 'justify'

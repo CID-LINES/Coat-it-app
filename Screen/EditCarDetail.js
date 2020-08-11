@@ -419,7 +419,7 @@ export default class EditCarDetail extends Component {
                                 justifyContent: 'center',
                                 marginBottom: 10,
                                 backgroundColor: APP_YELLOW,
-                                borderRadius: 10
+                                //borderRadius: 10
                             }}
                                 onPress={() => {
                                     this.EditCarDetail()

@@ -46,7 +46,7 @@ export default class ProductList extends Component {
                 this.setState({
                     user_id: value
                 }, () => {
-                    this.ProductApi()
+                        this.ProductApi()
                 })
             }
         } catch (error) {
@@ -190,6 +190,25 @@ export default class ProductList extends Component {
                     </TouchableOpacity> */}
                 </View>
                 <View style={{ flex: 1 }}>
+                    {this.state.orders.length == null || this.state.orders == 0 ?
+                     <View style={{
+                        width: '95%',
+                        height: '100%',
+                        alignSelf: 'center',
+                        justifyContent: "center",
+                        alignItems: 'center'
+                    }}>
+                        <Text style={{
+                            fontSize: 22,
+                            color: '#C0C0C0',
+                            textAlign: 'center',
+                            fontFamily: 'EurostileBold'
+                        }}
+                            numberOfLines={0}>
+                            No products found, Please first add the detailer!
+            </Text>
+                    </View> :
+
                     <SectionList refreshControl={<RefreshControl
                         tintColor={APP_YELLOW}
                         colors={["#D65050", "#D65050"]}
@@ -221,7 +240,7 @@ export default class ProductList extends Component {
                             </View>
                         )}
                         stickySectionHeadersEnabled={true}>
-                    </SectionList>
+                    </SectionList>}
                 </View>
                 {this.state.isLoading &&
                     <View style={{
@@ -256,23 +275,24 @@ export default class ProductList extends Component {
             }}
                 onPress={() => {
                     var a = this.state.orders.indexOf(section)
-                                    let item = this.state.orders[a]
-                                    if (section.id == item.id) {
-                                        var data = item.data
-                                        var _data = data[index]
-                                        var product_id = _data.product_id
-                                        _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
-                                        data[index] = _data
-                                        section.data = data
-                                        var ad = [...this.state.orders]
-                                        ad[a] = section
-                                        this.setState({
-                                            orders: ad
-                                        })
+                    let item = this.state.orders[a]
+                    if (section.id == item.id) {
+                        var data = item.data
+                        var _data = data[index]
+                        var product_id = _data.product_id
+                        _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
+                        data[index] = _data
+                        section.data = data
+                        var ad = [...this.state.orders]
+                        ad[a] = section
+                        this.setState({
+                            orders: ad
+                        })
 
-                                        this.FavouriteProducts(item.id, product_id,
-                                            _data.is_favourite)
-                                    }
+                        this.FavouriteProducts(item.id, product_id,
+                            _data.is_favourite)
+                    }
+
                 }}>
                 <View style={{ flexDirection: 'column' }}>
                     <View>
@@ -298,27 +318,27 @@ export default class ProductList extends Component {
                                 width: 30,
                                 overflow: 'hidden',
                             }}
-                                // onPress={() => {
-                                //     var a = this.state.orders.indexOf(section)
-                                //     let item = this.state.orders[a]
-                                //     if (section.id == item.id) {
-                                //         var data = item.data
-                                //         var _data = data[index]
-                                //         var product_id = _data.product_id
-                                //         _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
-                                //         data[index] = _data
-                                //         section.data = data
-                                //         var ad = [...this.state.orders]
-                                //         ad[a] = section
-                                //         this.setState({
-                                //             orders: ad
-                                //         })
+                            // onPress={() => {
+                            //     var a = this.state.orders.indexOf(section)
+                            //     let item = this.state.orders[a]
+                            //     if (section.id == item.id) {
+                            //         var data = item.data
+                            //         var _data = data[index]
+                            //         var product_id = _data.product_id
+                            //         _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
+                            //         data[index] = _data
+                            //         section.data = data
+                            //         var ad = [...this.state.orders]
+                            //         ad[a] = section
+                            //         this.setState({
+                            //             orders: ad
+                            //         })
 
-                                //         this.FavouriteProducts(item.id, product_id,
-                                //             _data.is_favourite)
-                                //     }
-                                // }}
-                                >
+                            //         this.FavouriteProducts(item.id, product_id,
+                            //             _data.is_favourite)
+                            //     }
+                            // }}
+                            >
                                 <Image style={{
                                     height: 30,
                                     width: 30,
@@ -344,10 +364,10 @@ export default class ProductList extends Component {
                             marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
-                          
+
                             fontFamily: 'EurostileBold',
                         }}
-                        numberOfLines={2}>{item.description}</Text>
+                            numberOfLines={2}>{item.description}</Text>
                         <Text style={{
                             fontSize: 17,
                             marginTop: 5,
@@ -359,27 +379,27 @@ export default class ProductList extends Component {
 
                     </View>
                     <TouchableOpacity style={{
-                    height: 30,
-                    width: '30%',
-                    marginTop:item.video_link == null ? 0 :5,
-                    borderRadius: 5,
-                    marginBottom: 10,
-                    alignSelf: 'flex-end',
-                    marginRight: 10,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: APP_YELLOW
-                }}
-                    onPress={() => {
-                        this.props.navigation.navigate('ProductDetail', {
-                            data: item
-                        })
-                    }}>
-                    <Text style={{
-                        color: 'black',
-                        fontFamily: 'EurostileBold',
-                    }}>View details</Text>
-                </TouchableOpacity>
+                        height: 30,
+                        width: '30%',
+                        marginTop: item.video_link == null ? 0 : 5,
+                        //borderRadius: 5,
+                        marginBottom: 10,
+                        alignSelf: 'flex-end',
+                        marginRight: 10,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: APP_YELLOW
+                    }}
+                        onPress={() => {
+                            this.props.navigation.navigate('ProductDetail', {
+                                data: item
+                            })
+                        }}>
+                        <Text style={{
+                            color: 'black',
+                            fontFamily: 'EurostileBold',
+                        }}>View details</Text>
+                    </TouchableOpacity>
                 </View>
             </TouchableOpacity>
         )

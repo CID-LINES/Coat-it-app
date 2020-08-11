@@ -269,7 +269,8 @@ export default class AddDetailer extends Component {
             <TouchableOpacity style={{
                 marginTop: 5,
                 marginBottom: 5,
-                width: '95%',
+                width: '83%',
+              
                 // borderRadius: 10,
                 alignSelf: 'center',
                 overflow: 'hidden'
@@ -278,7 +279,7 @@ export default class AddDetailer extends Component {
 
 
                 <View style={{
-                    width: '100%',
+                    width: '95%',
                     //height:1,
                     flexDirection: 'row'
                 }}>
@@ -302,7 +303,8 @@ export default class AddDetailer extends Component {
                         </ImageLoad>
                     </View>
                     <View style={{
-                        width: '83%',
+                        width: '92%',
+                       
                         //   marginLeft:20,
                     }}>
                         <View style={{
@@ -310,7 +312,6 @@ export default class AddDetailer extends Component {
                             marginTop: 10,
                             marginLeft: 10,
                             flexDirection: 'row',
-
                             width: '90%'
                         }}>
                             <Text style={{
@@ -322,7 +323,7 @@ export default class AddDetailer extends Component {
                             }}
                                 numberOfLines={0}>
                                 {item.first_name}</Text>
-                            <Text style={{
+                            {/* <Text style={{
                                 marginTop: 5,
                                 position: 'absolute',
                                 right: 0,
@@ -331,13 +332,13 @@ export default class AddDetailer extends Component {
                                 marginBottom: 5,
                                 color: '#C0C0C0',
                             }}>
-                                {moment(item.created_at).format('DD-MM-YYYY')}</Text>
+                                {moment(item.created_at).format('DD-MM-YYYY')}</Text> */}
                         </View>
 
                         <TouchableOpacity style={{
                             height: 30,
-                            width: '30%',
-                            borderRadius: 5,
+                            width: item.Selected ? '35%' :'30%',
+                            //borderRadius: 5,
                             marginTop: 8,
                             marginLeft: 15,
                             alignItems: 'center',

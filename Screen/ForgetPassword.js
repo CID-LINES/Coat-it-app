@@ -50,9 +50,10 @@ export default class ForgetPassword extends Component {
     render() {
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-                <ImageBackground style={{ flex: 1, }}
+                <ImageBackground style={{ flex: 1, backgroundColor:'black'}}
                     resizeMode='stretch'
-                    source={require('../assets/bg.png')}>
+                    //source={require('../assets/bg.png')}
+                    >
                     <View style={{
                         height: 45,
                          width: '95%',
@@ -173,11 +174,9 @@ export default class ForgetPassword extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 20,
                                     alignSelf: 'center',
-                                    // shadowColor: 'gray',
-                                    // shadowOpacity: 0.5,
-                                    // shadowRadius: 1,
-                                    // shadowOffset: { width: 2, height: 1 },
-                                    borderRadius: 10, alignItems: 'center',
+                                   
+                                    //borderRadius: 10, 
+                                    alignItems: 'center',
                                     justifyContent: 'center'
                                 }}
                                     onPress={() => {

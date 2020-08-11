@@ -142,20 +142,39 @@ export default class DetailerList extends Component {
                         </Text>
                     </View> :
                     <View style={{ flex: 1 }}> */}
-                <FlatList style={{
-                    marginTop: 10,
-                    marginBottom: 20
-                }}
-                    refreshControl={<RefreshControl
-                        tintColor={APP_YELLOW}
-                        colors={["#D65050", "#D65050"]}
-                        refreshing={this.state.isFetching}
-                        onRefresh={this.onRefresh}>
-                    </RefreshControl>}
-                    data={this.state.DATA}
-                    renderItem={({ item, index }) => (
-                        this.DetailerList(item, index)
-                    )}></FlatList>
+
+                {this.state.DATA.length == 0 || this.state.DATA == null ?
+                    <View style={{
+                        width: '95%',
+                        height: '100%',
+                        alignSelf: 'center',
+                        justifyContent: "center",
+                        alignItems: 'center'
+                    }}>
+                        <Text style={{
+                            fontSize: 22,
+                            color: '#C0C0C0',
+                            textAlign: 'center',
+                            fontFamily: 'EurostileBold'
+                        }}
+                            numberOfLines={0}>
+                            No detailer available. Please use Add (+) option to add new detailer.
+                        </Text>
+                    </View> :
+                    <FlatList style={{
+                        marginTop: 10,
+                        marginBottom: 20
+                    }}
+                        refreshControl={<RefreshControl
+                            tintColor={APP_YELLOW}
+                            colors={["#D65050", "#D65050"]}
+                            refreshing={this.state.isFetching}
+                            onRefresh={this.onRefresh}>
+                        </RefreshControl>}
+                        data={this.state.DATA}
+                        renderItem={({ item, index }) => (
+                            this.DetailerList(item, index)
+                        )}></FlatList>}
                 {/* </View>} */}
                 <TouchableOpacity style={{
                     height: 60,
@@ -248,7 +267,7 @@ export default class DetailerList extends Component {
             <TouchableOpacity style={{
                 marginTop: 5,
                 marginBottom: 5,
-                width: '95%',
+                width: '90%',
                 alignSelf: 'center',
                 overflow: 'hidden',
                 flexDirection: 'row'
@@ -267,7 +286,7 @@ export default class DetailerList extends Component {
                     height: 70,
                     marginTop: 10,
                     width: 70,
-                    marginLeft: 5,
+                    marginLeft: 10,
                     overflow: 'hidden',
                     borderRadius: 35
                 }}>
@@ -283,7 +302,8 @@ export default class DetailerList extends Component {
                 </View>
 
                 <View style={{
-                    width: '83%',
+                    width: '85%',
+
                     //   marginLeft:20,
                 }}>
                     <View style={{
@@ -291,7 +311,6 @@ export default class DetailerList extends Component {
                         marginTop: 10,
                         marginLeft: 10,
                         flexDirection: 'row',
-
                         width: '90%'
                     }}>
                         <Text style={{
@@ -317,17 +336,20 @@ export default class DetailerList extends Component {
                     </View>
 
                     {item.request_accepted == 0 ?
+
+
                         <View style={{
                             height: 30,
-                            width: '30%',
-                            borderRadius: 5,
+                            width: '40%',
+                            //borderRadius: 5,
                             marginTop: 8,
-                            marginLeft: 15,
+                            marginLeft: 30,
                             //alignSelf: 'flex-end',
                             alignItems: 'center',
                             justifyContent: 'center',
                             backgroundColor: APP_YELLOW
                         }}>
+
                             <Text style={{
                                 color: 'black',
                                 fontFamily: 'EurostileBold',
@@ -336,7 +358,7 @@ export default class DetailerList extends Component {
                         <TouchableOpacity style={{
                             height: 30,
                             width: '40%',
-                            borderRadius: 5,
+                            //borderRadius: 5,
                             marginTop: 8,
                             marginLeft: 30,
                             //alignSelf: 'flex-end',
@@ -348,8 +370,6 @@ export default class DetailerList extends Component {
                                 this.props.navigation.navigate('PurchaseDetail', {
                                     detailer: item.detailer_id
                                 })
-
-
                             }}>
                             <Text style={{
                                 color: 'black',

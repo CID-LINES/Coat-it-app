@@ -97,7 +97,7 @@ export default class NotificationDetail extends Component {
                         }}>
                             <Text style={{
                                 fontSize: 17,
-                                color:'#C0C0C0',
+                                color:APP_YELLOW,
                                 fontFamily: 'EurostileBold',
                             }}>
                                 {this.state.data.title.toUpperCase()}</Text>

@@ -16,7 +16,8 @@ export default class DetailerDeatil extends Component {
             isSelected1: 0,
             detailer: props.navigation.state.params.detailer,
             serviceplan: [],
-            products: []
+            products: [],
+            cardetail: ''
         }
         //console.log(this.state.detailer)
     }
@@ -77,6 +78,44 @@ export default class DetailerDeatil extends Component {
                 // alert(JSON.stringify(data))
                 //nsole.log(data)
             })
+    }
+
+    CarDetailApi = (no, index) => {
+        this.setState({
+            isLoading: true
+        })
+
+        fetch('http://3.137.41.50/coatit/public/api/cardetail/' + no,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(JSON.stringify(responseJson))
+                if (responseJson.response.status == true) {
+                    this.setState({
+                        cardetail: responseJson.response.carDetails,
+                        isShow: true
+                    })
+                }
+                else {
+                    alert(responseJson.response.message)
+                }
+                this.setState({
+                    isLoading: false,
+                    isFetching: false
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+                //  alert(error)
+                //  callback({ data: error });
+                //callback({error: true, data: error});
+            });
     }
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.ServiceProductsApi() });
@@ -185,13 +224,13 @@ export default class DetailerDeatil extends Component {
 
                     {this.state.isSelected == 0 &&
                         <View>
-                            <Text style={{
+                            {/* <Text style={{
                                 marginTop: 5,
                                 width: '95%', alignSelf: 'center',
                                 fontSize: 20,
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
-                            }}>Services</Text>
+                            }}>Services</Text> */}
 
                             {this.state.serviceplan.length == 0 || this.state.serviceplan == null ?
                                 <View style={{
@@ -230,13 +269,13 @@ export default class DetailerDeatil extends Component {
                         </View>}
                     {this.state.isSelected == 1 &&
                         <View>
-                            <Text style={{
+                            {/* <Text style={{
                                 marginTop: 5,
                                 width: '95%', alignSelf: 'center',
                                 fontSize: 20,
                                 fontFamily: 'EurostileBold',
                                 color: APP_YELLOW
-                            }}>Products</Text>
+                            }}>Products</Text> */}
                             {this.state.products.length == 0 || this.state.products == null ?
                                 <View style={{
                                     width: '95%',
@@ -295,6 +334,103 @@ export default class DetailerDeatil extends Component {
                     </View>
                 }
 
+                {this.state.isShow &&
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        backgroundColor: '#000000aa',
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} onPress={() => {
+                        this.setState({
+                            isShow: false
+                        })
+                    }}>
+                        
+                            <View style={{
+                                height: Dimensions.get('window').height / 3,
+                                width: '90%',
+
+                            }}>
+                                <Image style={{ flex: 1, width: '100%' }}
+                                    source={this.state.cardetail.image == null ?
+                                        require('../assets/placeholder.jpg') :
+                                        { uri: this.state.cardetail.image }}>
+                                </Image>
+                            </View>
+                            <View style={{
+                                width: '90%',
+                            }}>
+                                <ImageBackground style={{width:'100%'}}
+                        source={require('../assets/bg.png')}>
+                                <View style={{
+                                    width: '60%',
+                                    alignSelf: 'center',
+                                    marginTop: 10,
+                                }}>
+                                    <View style={{ flexDirection: 'row', }}>
+                                        <Text style={{
+                                            fontSize: 17,
+
+                                            fontFamily: 'EurostileBold',
+                                            color: APP_YELLOW
+                                        }}>Car Name</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            //color: '#C0C0C0',
+                                            color: '#C0C0C0',
+                                            left: 120,
+                                            position: 'absolute',
+                                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                                        }}>{this.state.cardetail.brand_name}</Text>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        marginTop: 10,
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontFamily: 'EurostileBold',
+                                            color: APP_YELLOW
+                                        }}
+                                        >Model Name</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            color: '#C0C0C0',
+                                            marginLeft: 10,
+                                            left: 112,
+                                            position: 'absolute',
+                                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                                        }}>{this.state.cardetail.model_name}</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row', 
+                                    marginTop: 10,
+                                     marginBottom: 10 }}>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontFamily: 'EurostileBold',
+                                            color: APP_YELLOW
+                                        }}
+                                        >Vehicle no</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            color: '#C0C0C0',
+
+                                            left: 122,
+                                            position: 'absolute',
+                                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
+                                        }}>{this.state.cardetail.vehicle_no}</Text>
+                                    </View>
+                                </View>
+                                </ImageBackground>
+                            </View>
+                        
+                    </TouchableOpacity>
+                }
+
                 {/* /</ScrollView> */}
             </ImageBackground>
         );
@@ -339,12 +475,10 @@ export default class DetailerDeatil extends Component {
                         color: '#C0C0C0'
                     }}
                     >{item.name.toUpperCase()}</Text> */}
-                      <View style={{
+                    <View style={{
                         //height:40,
                         marginTop: 10,
-                        
                         flexDirection: 'row',
-
                         width: '100%'
                     }}>
                         <Text style={{
@@ -356,17 +490,7 @@ export default class DetailerDeatil extends Component {
                         }}
                             numberOfLines={0}>
                             {item.name.toUpperCase()}</Text>
-                        <Text style={{
-                            marginTop: 5,
-                            position: 'absolute',
-                            right: 0,
-                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-                            fontSize: 17,
-                            marginBottom: 5,
-                            color: '#C0C0C0',
-
-                        }}>
-                            {moment(item.created_at).format('DD-MM-YYYY')}</Text>
+                      
                     </View>
                     <Text style={{
                         fontSize: 16,
@@ -376,13 +500,42 @@ export default class DetailerDeatil extends Component {
                     }}
                     >{item.title}
                     </Text>
+                    <Text style={{
+                        fontSize: 16,
+                        
+                        color: '#C0C0C0',
+                        fontFamily: 'EurostileBold',
+                        marginTop: 10
+                    }}>Purchased date: {item.date_of_service}
+                    </Text>
+                 
                 </View>
+                <View style={{
+                    flexDirection:'row',
+                    marginLeft:9,
+                height:35,
+                marginTop:5
+               // alignItems:'center'
+            }}>
+                <TouchableOpacity onPress={() => {
+                        this.CarDetailApi(item.vehicle_no)
+                    }}>
+                        <Text style={{
+                            fontSize: 16,
+                            color: APP_YELLOW,
+                            fontFamily: 'EurostileBold',
+                            marginTop: 5,
+                        }}>Vehcle no - {item.vehicle_no}
+                        </Text>
+                    </TouchableOpacity>
                 <TouchableOpacity style={{
                     height: 30,
                     width: '30%',
-                    marginTop: 5,
-                    borderRadius: 5,
+                   top:5,
+                    //borderRadius: 5,
                     marginBottom: 10,
+                    position:'absolute',
+                    right:0,
                     alignSelf: 'flex-end',
                     marginRight: 10,
                     alignItems: 'center',
@@ -399,6 +552,7 @@ export default class DetailerDeatil extends Component {
                         fontFamily: 'EurostileBold',
                     }}>Service details</Text>
                 </TouchableOpacity>
+                </View>
             </TouchableOpacity>
         )
     }
@@ -432,40 +586,39 @@ export default class DetailerDeatil extends Component {
                         marginTop: 10
                     }}>
                         <View style={{
-                        //height:40,
-                        marginTop: 10,
-                      
-                        flexDirection: 'row',
+                            //height:40,
+                            marginTop: 10,
 
-                       
-                    }}>
-                        <Text style={{
-                            fontSize: 18,
-                            width:'55%',
-                            fontFamily: 'EurostileBold',
-                            color: '#C0C0C0'
+                            flexDirection: 'row',
+
+
                         }}>
-                            {item.name.toUpperCase()}
-                        </Text>
+                            <Text style={{
+                                fontSize: 18,
+                                //width: '55%',
+                                fontFamily: 'EurostileBold',
+                                color:APP_YELLOW
+                            }}>
+                                {item.name.toUpperCase()}
+                            </Text>
+                          
+                        </View>
                         <Text style={{
                             marginTop: 5,
-                            position: 'absolute',
-                            right: 0,
-                            fontFamily: Platform.OS === 'ios' ? 'EuroStyle' : 'EuroStyle Normal',
-                            fontSize: 17,
-                            marginBottom: 5,
-                            color: '#C0C0C0',
-
-                        }}>
-                            {moment(item.created_at).format('DD-MM-YYYY')}</Text>
-                    </View>
-                        <Text style={{
-                            marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}
-                        numberOfLines={2}>{item.description}</Text>
+                            numberOfLines={2}>{item.description}</Text>
+
+                        <Text style={{
+                            fontSize: 16,
+                            color: '#C0C0C0',
+                            fontFamily: 'EurostileBold',
+                            marginTop: 10
+                        }}>Purchased date: {item.date_of_products}
+                    </Text>
+                      {item.video_link !=null && item.video_link != "" ?
                         <Text style={{
                             fontSize: 17,
                             marginTop: 5,
@@ -473,15 +626,37 @@ export default class DetailerDeatil extends Component {
                             fontFamily: 'EurostileBold'
                         }}
                             onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
-                        </Text>
+                        </Text>: <Text style={{marginTop:-10}}></Text>}
                     </View>
                 </View>
+                <View style={{
+                    flexDirection:'row',
+                    marginLeft:9,
+                    height:30,
+                marginTop:10
+               // alignItems:'center'
+            }}>
+                <TouchableOpacity onPress={() => {
+                       
+                        this.CarDetailApi(item.vehicle_no)
+                    }}>
+                        <Text style={{
+                            fontSize: 16,
+                            color: APP_YELLOW,
+                            
+                            fontFamily: 'EurostileBold',
+                           
+                        }}>Vehcle no - {item.vehicle_no}
+                        </Text>
+                    </TouchableOpacity>
                 <TouchableOpacity style={{
                     height: 30,
                     width: '30%',
-                    marginTop:item.video_link == null ? 0 :5,
-                    borderRadius: 5,
+                    marginTop: 5,
+                    //borderRadius: 5,
                     marginBottom: 10,
+                    position:'absolute',
+                    right:0,
                     alignSelf: 'flex-end',
                     marginRight: 10,
                     alignItems: 'center',
@@ -498,6 +673,7 @@ export default class DetailerDeatil extends Component {
                         fontFamily: 'EurostileBold',
                     }}>Product details</Text>
                 </TouchableOpacity>
+                </View>
             </TouchableOpacity>
         )
     }

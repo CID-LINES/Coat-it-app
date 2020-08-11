@@ -161,9 +161,10 @@ export default class Login extends Component {
        
         return (
             // <SafeAreaView style={{ flex: 1, }}>
-            <ImageBackground style={{ flex: 1, }}
+            <ImageBackground style={{ flex: 1,backgroundColor:'black' }}
                 resizeMode='stretch'
-                source={require('../assets/bg.png')}>
+                //source={require('../assets/bg.png')}
+                >
                 <StatusBar barStyle="light-content"/>
                 <View style={{ flex: 1 }}>
                     <View style={{
@@ -317,7 +318,7 @@ export default class Login extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 15,
                                     alignSelf: 'center',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}
@@ -337,7 +338,7 @@ export default class Login extends Component {
                                     backgroundColor: APP_YELLOW,
                                     marginTop: 15,
                                     alignSelf: 'center',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}

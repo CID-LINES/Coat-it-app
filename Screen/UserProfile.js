@@ -30,7 +30,7 @@ export default class UserProfile extends Component {
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
-            // alert(value)
+             //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
@@ -194,7 +194,7 @@ export default class UserProfile extends Component {
                             }}>
                                 <View style={{
                                     alignItems: 'flex-start',
-                                    marginLeft: Dimensions.get('window').fontScale * 40
+                                    marginLeft: Dimensions.get('window').fontScale * 0
                                 }}>
                                     <View style={{
                                         flexDirection: 'row',
@@ -275,10 +275,11 @@ export default class UserProfile extends Component {
                                         }}
                                             source={require('../assets/email.png')}></Image> */}
                                         <View style={{ marginLeft: 10,
-                                            width:'55%' }}>
+                                          }}>
                                             <Text style={{
                                                 fontFamily: 'EurostileBold',
-                                                fontSize: 17, color: APP_YELLOW
+                                                fontSize: 17, 
+                                                color: APP_YELLOW
                                             }}>
                                                 Email
                                                 {/* {strings.email} */}
@@ -331,7 +332,7 @@ export default class UserProfile extends Component {
                                     width: '60%',
                                     alignItems: "center",
                                     justifyContent: 'center',
-                                    borderRadius: 10,
+                                    //borderRadius: 10,
                                     alignSelf: 'center',
                                     backgroundColor: APP_YELLOW,
 
@@ -341,7 +342,8 @@ export default class UserProfile extends Component {
                                     }}>
                                     <Text style={{
                                         fontSize: 18,
-                                        color: 'black', fontFamily: 'EurostileBold',
+                                        color: 'black', 
+                                        fontFamily: 'EurostileBold',
                                     }}>
                                         My Detailer
                                         {/* {strings.mydetailer} */}
@@ -351,8 +353,10 @@ export default class UserProfile extends Component {
                                 <TouchableOpacity style={{
                                     height: 40, width: '60%',
                                     marginTop: 10,
-                                    alignItems: "center", justifyContent: 'center',
-                                    borderRadius: 10, alignSelf: 'center',
+                                    alignItems: "center", 
+                                    justifyContent: 'center',
+                                   // borderRadius: 10,
+                                     alignSelf: 'center',
                                     backgroundColor: APP_YELLOW,
 
                                 }}
