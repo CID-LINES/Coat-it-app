@@ -188,9 +188,8 @@ dependencies {
 
     implementation "com.google.android.gms:play-services-base:17.2.1"
     implementation "com.google.firebase:firebase-core:16.0.8"
-    implementation (project(':react-native-firebase')){
-        transitive = false
-    }
+    implementation project(':react-native-firebase')
+
     implementation project(':react-native-maps')
     implementation project(':react-native-image-picker')
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -218,5 +217,6 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

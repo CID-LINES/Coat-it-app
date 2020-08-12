@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>405924185458-vsamgjc9pq77b7vajmener0k9ksgmcn4.apps.googleusercontent.com</string>
+	<string>405924185458-45a2upcnrpjidoqo4u41m4srct5lr1ru.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.405924185458-vsamgjc9pq77b7vajmener0k9ksgmcn4</string>
+	<string>com.googleusercontent.apps.405924185458-45a2upcnrpjidoqo4u41m4srct5lr1ru</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBWuFR_BNCFMumj0xypPKNXJnweo8I7rro</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.spotlight.dev</string>
+	<string>com.kenotek.user</string>
 	<key>PROJECT_ID</key>
 	<string>kenotekcoatit-b817a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:405924185458:ios:dccd7f68e8d137ac43c9eb</string>
+	<string>1:405924185458:ios:32d4541318c0e57843c9eb</string>
 	<key>DATABASE_URL</key>
 	<string>https://kenotekcoatit-b817a.firebaseio.com</string>
 </dict>

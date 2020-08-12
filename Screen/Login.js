@@ -327,7 +327,7 @@ export default class Login extends Component {
                                 }}
                                     onPress={() => {
                                          this.Login()
-                                       // this._onSetLanguageToItalian()
+                                    
                                     }}>
                                     <Text style={{
                                         fontSize: 18,

@@ -4,23 +4,79 @@ import { APP_YELLOW, APP_BLUE, } from '../Component/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
 import PushNotification from 'react-native-push-notification';
-import firebase from 'react-native-firebase'
+import firebase, { messaging, notifications } from 'react-native-firebase'
 import { strings } from './Localization';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import { ApiCall, CallApi } from '../Component/ApiClient';
+import { NavigationActions } from 'react-navigation';
 
+
+// let localNotification = PushNotification.localNotification({
+//     title: title,
+//     body: body,
+//     sound: 'default',
+//     silent: false,
+//     category: "SOME_CATEGORY",
+//     userInfo: { }
+// });
+// localNotification
+var date = new Date();
 export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
             data: '',
             isFetching: false,
-            text:[],
-            fcmToken:''
+            text: [],
+            fcmToken: ''
         }
 
     }
+    componentDidMount() {
+        // const channel = new firebase.notifications.Android.Channel(
+        //     'channelId',
+        //     'Channel Name',
+        //     firebase.notifications.Android.Importance.Max
+        // ).setDescription('A natural description of the channel');
+        // firebase.notifications().android.createChannel(channel);
+        
+        // this.unsubscribeFromNotificationListener = firebase.notifications().onNotification((notification) => {
+        //             if (Platform.OS === 'android') {
 
-    async componentDidMount() {
+        //                 const localNotification = new firebase.notifications.Notification({
+        //                     sound: 'default',
+        //                     show_in_foreground: true,
+        //                 })
+        //                     .android.setChannelId(notification.notificationId)
+        //                     .setNotificationId(notification.notificationId)
+        //                     .setTitle(notification.title)
+        //                     .setSubtitle(notification.subtitle)
+        //                     .setBody(notification.body)
+        //                     .setData(notification.data)
+        
+        //                 firebase.notifications()
+        //                     .displayNotification(localNotification)
+        //                     .catch(err => console.error(err));
+                            
+        
+        //             } else if (Platform.OS === 'ios') {
+        
+        //                 const localNotification = new firebase.notifications.Notification()
+        //                     .setNotificationId(notification.notificationId)
+        //                     .setTitle(notification.title)
+        //                     .setSubtitle(notification.subtitle)
+        //                     .setBody(notification.body)
+        //                     .setData(notification.data)
+        //                     .ios.setBadge(notification.ios.badge);
+        
+        //                 firebase.notifications()
+        //                     .displayNotification(localNotification)
+        //                     .catch(err => console.error(err));
+        //             }            
+        // });
+      
+           
+          
         
         this.get('user_id')
         this.checkPermission();
@@ -30,65 +86,104 @@ export default class Home extends Component {
     componentWillUnmount() {
         this.notificationListener();
         this.notificationOpenedListener();
-      }
-    
+    }
+
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
         // If Premission granted proceed towards token fetch
         if (enabled) {
-          this.getToken();
+            this.getToken();
         } else {
-          // If permission hasn’t been granted to our app, request user in requestPermission method. 
-          this.requestPermission();
+            // If permission hasn’t been granted to our app, request user in requestPermission method. 
+            this.requestPermission();
         }
-      }
-      async getToken() {
+    }
+    async getToken() {
         let fcmToken = await AsyncStorage.getItem('fcmToken');
         if (!fcmToken) {
-          fcmToken = await firebase.messaging().getToken();
-          if (fcmToken) {
-            // user has a device token
-            await AsyncStorage.setItem('fcmToken', fcmToken);
-            
-          }
+            fcmToken = await firebase.messaging().getToken();
+            if (fcmToken) {
+                // user has a device token
+                await AsyncStorage.setItem('fcmToken', fcmToken);
+
+            }
         }
-      }
-      async requestPermission() {
+    }
+    async requestPermission() {
         try {
-          await firebase.messaging().requestPermission();
-          // User has authorised
-          this.getToken();
+            await firebase.messaging().requestPermission();
+            // User has authorised
+            this.getToken();
         } catch (error) {
-          // User has rejected permissions
-          console.log('permission rejected');
+            // User has rejected permissions
+            console.log('permission rejected');
         }
-      }
-    
-      async createNotificationListeners() {
+    }
+
+    async createNotificationListeners() {
         // This listener triggered when notification has been received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
-          const { title, body } = notification;
-          this.navigate(title,body)
-     
+            const { title, body } = notification;
+           
+            const localNotification = PushNotification.localNotification({
+                title: title,
+                message: body,
+                soundName: 'default',
+                smallIcon: true,
+                show_in_foreground: true,
+            })
+           return localNotification;
         });
-    
-        // This listener triggered when app is in backgound and we click, tapped and opened notifiaction
+
+        //This listener triggered when app is in backgound and we click, tapped and opened notifiaction
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
-          const { title, body } = notificationOpen.notification;
-             this.navigate(title,body)
-          
+            const {title,body} = notificationOpen.notification;
+            //console.log(title,body)
+            // if(notification.title == 'helo'){
+            //     alert('helo')
+            // }
+           
         });
-    
+
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
-        if (notificationOpen) {
-        const { title, body } = notificationOpen.notification;
-         this.navigate(title,body)
+        if(notificationOpen){
+            const{notification} = notificationOpen;
+            console.log(notification.title)
+            var title = notification.title
+            if (notification.title == title) {
+                alert('helo')
+            }
+        //    PushNotification.configure({
+        //         onNotification:function(notification){
+        //              //console.log(notification.message)
+        //             if(notification.message == 'Accepted your request'){
+        //                 this.props.navigation.reset([NavigationActions.navigate({ routeName: 'DetailerList' })], 0)
+        //             }
+        //         }
+        //    })
         
+            // PushNotification.configure({
+            //     // (required) Called when a remote is received or opened, or local notification is opened
+            //     onNotification: function (notification) {
+            //      if(notification. == "Accepted"){
+            //          alert('helo')
+            //      }else{
+            //          alert('accpted request')
+            //      }
+                // }
+            //})
         }
-      }
-    
-    navigate=(title,body)=>{
+       // }
+        // if (notificationOpen) {
+        //    const {notification} = notificationOpen;
+        //    if(notification.data.project_type === 'Remodel'){
+        //     this.props.navigation.navigate('DetailerList')
+        //    }
+       // }
+    }
+
+    navigate = (title, body) => {
         this.props.navigation.navigate('Notification')
     }
     // showAlert(title, body) {
@@ -100,7 +195,7 @@ export default class Home extends Component {
     //       { cancelable: false },
     //     );
     //   }
-      
+
 
     async get(key) {
         try {
@@ -111,6 +206,7 @@ export default class Home extends Component {
                     user_id: value
                 }, () => {
                     this.PlanApi()
+                    //this.tokenApi()
                 })
             }
         } catch (error) {
@@ -118,10 +214,38 @@ export default class Home extends Component {
         }
     }
 
-
+    tokenApi = () => {
+        this.setState({
+            isLoading: true
+        })
+        CallApi('update_device_token',
+            {
+                'user_id': "" + this.state.user_id,
+                'device_type': Platform.OS == 'android' ? 'a' : 'i',
+                'device_token' : this.state.fcmToken
+            },
+            (data) => {
+                console.log(JSON.stringify(data))
+                if (!data.error) {
+                    if (data.data.response.status == true) {
+                       
+                    }
+                    else {
+                        alert(data.data.response.message)
+                    }
+                } else {
+                    //alert('Somthing went wrong')
+                }
+                this.setState({
+                    isLoading: false
+                })
+                // alert(JSON.stringify(data))
+                //nsole.log(data)
+            })
+    }
     PlanApi = () => {
         this.setState({
-             isLoading: true
+            isLoading: true
             // isFetching:true
         })
 
@@ -136,16 +260,16 @@ export default class Home extends Component {
             })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(JSON.stringify(responseJson))
+                //console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
                     this.setState({
                         data: responseJson.response.data
                     })
-               
+
                 }
                 this.setState({
-                     isLoading: false,
-                     isFetching: false
+                    isLoading: false,
+                    isFetching: false
                 })
             })
             .catch((error) => {
@@ -156,17 +280,17 @@ export default class Home extends Component {
             });
     }
     onRefresh = () => {
-        this.setState({ isFetching: true }, function () { this.PlanApi()});
+        this.setState({ isFetching: true }, function () { this.PlanApi() });
     }
     render() {
-        
+
         return (
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <ImageBackground style={{ flex: 1 }}
                 resizeMode='stretch'
                 source={require('../assets/bg.png')}
-                >
-                     <StatusBar barStyle="light-content" />
+            >
+                <StatusBar barStyle="light-content" />
                 <View style={{ flex: 1 }}>
                     <View style={{
                         height: 40,
@@ -186,8 +310,8 @@ export default class Home extends Component {
                     </View>
                     <FlatList style={{ marginTop: 5 }}
                         refreshControl={<RefreshControl
-                        tintColor={APP_YELLOW}
-                        colors={["#D65050","#D65050"]}
+                            tintColor={APP_YELLOW}
+                            colors={["#D65050", "#D65050"]}
                             refreshing={this.state.isFetching}
                             onRefresh={this.onRefresh}>
                         </RefreshControl>}
@@ -204,7 +328,7 @@ export default class Home extends Component {
                         backgroundColor: '#000000aa',
                         top: 0,
                         bottom: 0,
-                        left: 0, 
+                        left: 0,
                         right: 0,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -270,7 +394,7 @@ export default class Home extends Component {
                 </View>
                 <TouchableOpacity style={{
                     height: 30,
-                   // width: '30%',
+                    // width: '30%',
                     marginTop: 5,
                     //borderRadius: 5,
                     marginBottom: 10,
@@ -287,9 +411,9 @@ export default class Home extends Component {
                     }}>
                     <Text style={{
                         color: 'black',
-                        marginLeft:5,
-                        marginRight:5,
-                         fontFamily: 'EurostileBold',
+                        marginLeft: 5,
+                        marginRight: 5,
+                        fontFamily: 'EurostileBold',
                     }}>View details</Text>
                 </TouchableOpacity>
             </TouchableOpacity>
