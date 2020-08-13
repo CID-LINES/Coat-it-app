@@ -102,7 +102,7 @@ export const ApiCall = (method, parms, callback) => {
          });
  }
  export const  CallApi = (method, parms, callback) => {
-    console.log(parms)
+   //console.log(parms)
      var url = 'http://3.137.41.50/coatit/public/api/' + method;
      fetch(url, {
          method: 'POST',

@@ -1,7 +1,15 @@
-import * as React from 'react';
+const PushNotification = require('react-native-push-notification')
 
-export const navigationRef = React.createRef();
+export function setupPushNotification(handleNotification) {
+  PushNotification.configure({
 
-export function navigate(name, params) {
-  navigationRef.current?.navigate(name, params);
+      onNotification: function(notification) {
+        handleNotification(notification)
+      },
+
+      popInitialNotification: true,
+      requestPermissions: true,
+  })
+
+  return PushNotification;
 }

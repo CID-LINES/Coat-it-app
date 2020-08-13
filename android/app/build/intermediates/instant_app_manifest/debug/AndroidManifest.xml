@@ -96,8 +96,57 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service> <!-- Add this line to enable backgound messaging services -->
-        <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" />
-
+        <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" /> <!-- <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_name" -->
+        <!-- android:value="YOUR NOTIFICATION CHANNEL NAME"/> -->
+        <!-- <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_description" -->
+        <!-- android:value="YOUR NOTIFICATION CHANNEL DESCRIPTION"/> -->
+        <!-- &lt;!&ndash; Change the value to true to enable pop-up for in foreground (remote-only, for local use ignoreInForeground) &ndash;&gt; -->
+        <!-- <meta-data  android:name="com.dieam.reactnativepushnotification.notification_foreground" -->
+        <!-- android:value="false"/> -->
+        <!-- &lt;!&ndash; Change the value to false if you don't want the creation of the default channel &ndash;&gt; -->
+        <!-- <meta-data  android:name="com.dieam.reactnativepushnotification.channel_create_default" -->
+        <!-- android:value="true"/> -->
+        <!-- &lt;!&ndash; Change the resource name to your App's accent color - or any other color you want &ndash;&gt; -->
+        <!-- <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color" -->
+        <!-- android:resource="@color/white"/> -->
+        <!-- <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" /> -->
+        <!-- <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!-- <service -->
+        <!-- android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService" -->
+        <!-- android:exported="false" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!-- <receiver android:name="io.invertase.firebase.notifications.RNFirebaseNotificationReceiver"/> -->
+        <!-- <receiver -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" -->
+        <!-- android:name="io.invertase.firebase.notifications.RNFirebaseNotificationsRebootReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
+        <!-- <action android:name="android.intent.action.QUICKBOOT_POWERON"/> -->
+        <!-- <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!-- <receiver android:name="io.invertase.firebase.notifications.RNFirebaseBackgroundNotificationActionReceiver" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="io.invertase.firebase.notifications.BackgroundAction"/> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!-- <service android:name="io.invertase.firebase.notifications.RNFirebaseBackgroundNotificationActionsService"/> -->
+        <!-- <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" /> -->
+        <!-- <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <activity
             android:name="com.KenotekCoatIT.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"

@@ -9,7 +9,7 @@ import { strings } from './Localization';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { ApiCall, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
-
+import { setupPushNotification } from './root'
 
 // let localNotification = PushNotification.localNotification({
 //     title: title,
@@ -20,7 +20,10 @@ import { NavigationActions } from 'react-navigation';
 //     userInfo: { }
 // });
 // localNotification
-var date = new Date();
+
+
+
+//var date = new Date();
 export default class Home extends Component {
     constructor(props) {
         super(props)
@@ -28,59 +31,36 @@ export default class Home extends Component {
             data: '',
             isFetching: false,
             text: [],
-            fcmToken: ''
+            token: ''
         }
 
     }
     componentDidMount() {
-        // const channel = new firebase.notifications.Android.Channel(
-        //     'channelId',
-        //     'Channel Name',
-        //     firebase.notifications.Android.Importance.Max
-        // ).setDescription('A natural description of the channel');
-        // firebase.notifications().android.createChannel(channel);
-        
-        // this.unsubscribeFromNotificationListener = firebase.notifications().onNotification((notification) => {
-        //             if (Platform.OS === 'android') {
-
-        //                 const localNotification = new firebase.notifications.Notification({
-        //                     sound: 'default',
-        //                     show_in_foreground: true,
-        //                 })
-        //                     .android.setChannelId(notification.notificationId)
-        //                     .setNotificationId(notification.notificationId)
-        //                     .setTitle(notification.title)
-        //                     .setSubtitle(notification.subtitle)
-        //                     .setBody(notification.body)
-        //                     .setData(notification.data)
-        
-        //                 firebase.notifications()
-        //                     .displayNotification(localNotification)
-        //                     .catch(err => console.error(err));
-                            
-        
-        //             } else if (Platform.OS === 'ios') {
-        
-        //                 const localNotification = new firebase.notifications.Notification()
-        //                     .setNotificationId(notification.notificationId)
-        //                     .setTitle(notification.title)
-        //                     .setSubtitle(notification.subtitle)
-        //                     .setBody(notification.body)
-        //                     .setData(notification.data)
-        //                     .ios.setBadge(notification.ios.badge);
-        
-        //                 firebase.notifications()
-        //                     .displayNotification(localNotification)
-        //                     .catch(err => console.error(err));
-        //             }            
-        // });
-      
-           
-          
-        
-        this.get('user_id')
         this.checkPermission();
         this.createNotificationListeners();
+        this.PushNotification = setupPushNotification(this._handleNotificationOpen)
+        this.load()
+        this.props.navigation.addListener('willFocus', this.load)
+    }
+    load = () => {
+        this.get('user_id')
+        
+    }
+
+    _handleNotificationOpen = (body) => {
+         console.log(body)
+        const { navigate } = this.props.navigation
+        if (body.message == 'Accepted your request') {
+            navigate("DetailerList")
+        }
+        else if (body.message == 'Added new products') {
+            navigate("ProductList")
+        }
+        else if (body.message == 'Admin send notification')
+         {
+            navigate('Notification')
+        }
+
     }
 
     componentWillUnmount() {
@@ -120,93 +100,17 @@ export default class Home extends Component {
         }
     }
 
-    async createNotificationListeners() {
-        // This listener triggered when notification has been received in foreground
-        this.notificationListener = firebase.notifications().onNotification((notification) => {
-            const { title, body } = notification;
-           
-            const localNotification = PushNotification.localNotification({
-                title: title,
-                message: body,
-                soundName: 'default',
-                smallIcon: true,
-                show_in_foreground: true,
-            })
-           return localNotification;
-        });
-
-        //This listener triggered when app is in backgound and we click, tapped and opened notifiaction
-        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
-            const {title,body} = notificationOpen.notification;
-            //console.log(title,body)
-            // if(notification.title == 'helo'){
-            //     alert('helo')
-            // }
-           
-        });
-
-        // This listener triggered when app is closed and we click,tapped and opened notification 
-        const notificationOpen = await firebase.notifications().getInitialNotification();
-        if(notificationOpen){
-            const{notification} = notificationOpen;
-            console.log(notification.title)
-            var title = notification.title
-            if (notification.title == title) {
-                alert('helo')
-            }
-        //    PushNotification.configure({
-        //         onNotification:function(notification){
-        //              //console.log(notification.message)
-        //             if(notification.message == 'Accepted your request'){
-        //                 this.props.navigation.reset([NavigationActions.navigate({ routeName: 'DetailerList' })], 0)
-        //             }
-        //         }
-        //    })
-        
-            // PushNotification.configure({
-            //     // (required) Called when a remote is received or opened, or local notification is opened
-            //     onNotification: function (notification) {
-            //      if(notification. == "Accepted"){
-            //          alert('helo')
-            //      }else{
-            //          alert('accpted request')
-            //      }
-                // }
-            //})
-        }
-       // }
-        // if (notificationOpen) {
-        //    const {notification} = notificationOpen;
-        //    if(notification.data.project_type === 'Remodel'){
-        //     this.props.navigation.navigate('DetailerList')
-        //    }
-       // }
-    }
-
-    navigate = (title, body) => {
-        this.props.navigation.navigate('Notification')
-    }
-    // showAlert(title, body) {
-    //     Alert.alert(
-    //       title, body,
-    //       [
-    //           { text: 'OK', onPress: () => console.log('OK Pressed') },
-    //       ],
-    //       { cancelable: false },
-    //     );
-    //   }
-
-
     async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
+            const value2 = await AsyncStorage.getItem("fcmToken");
             //alert(value)
             if (value != null && value != '') {
                 this.setState({
                     user_id: value
                 }, () => {
                     this.PlanApi()
-                    //this.tokenApi()
+                    this.tokenApi(value2)
                 })
             }
         } catch (error) {
@@ -214,7 +118,50 @@ export default class Home extends Component {
         }
     }
 
-    tokenApi = () => {
+
+    async createNotificationListeners() {
+        // This listener triggered when notification has been  received in foreground
+        this.notificationListener = firebase.notifications().onNotification((notification) => {
+            const { title, body } = notification;
+            const localNotification = PushNotification.localNotification({
+                title: title,
+                message: body,
+                soundName: 'default',
+                smallIcon: true,
+                show_in_foreground: true,
+            })
+            return localNotification;
+        });
+
+
+        //This listener triggered when app is in backgound and we click, tapped and opened notifiaction
+        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+            const { data } = notificationOpen.notification;
+            console.log(data)
+            // if(notification.title == 'helo'){
+            //     alert('helo')
+            // }
+
+        });
+        // // // This listener triggered when app is closed and we click,tapped and opened notification 
+        const notificationOpen = await firebase.notifications().getInitialNotification();
+        if (notificationOpen) {
+            const { data } = notificationOpen.notification;
+            const { navigate } = this.props.navigation
+            console.log(data)
+            if (data.type == 'Accepted your request') {
+                navigate('DetailerList')
+            }
+            else if (data.type == 'Added new products') {
+                navigate('ProductList')
+            }
+            else if (data.type == 'Admin send notification') {
+                navigate('Notification')
+            }
+        }
+    }
+
+    tokenApi = (fcmToken) => {
         this.setState({
             isLoading: true
         })
@@ -222,13 +169,13 @@ export default class Home extends Component {
             {
                 'user_id': "" + this.state.user_id,
                 'device_type': Platform.OS == 'android' ? 'a' : 'i',
-                'device_token' : this.state.fcmToken
+                'device_token': fcmToken
             },
             (data) => {
-                console.log(JSON.stringify(data))
+                //console.log(JSON.stringify(data))
                 if (!data.error) {
                     if (data.data.response.status == true) {
-                       
+
                     }
                     else {
                         alert(data.data.response.message)
