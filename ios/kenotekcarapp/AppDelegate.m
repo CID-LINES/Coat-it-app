@@ -14,6 +14,7 @@
 //@import GoogleMaps;
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
+//#import <React/RCTPushNotificationManager.h>
 //@import Firebase;
 @import Firebase;
 #import "RNFirebaseNotifications.h"
@@ -39,9 +40,13 @@
   [self.window makeKeyAndVisible];
 [FIRApp configure];
   [RNFirebaseNotifications configure];
+//  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//  center.delegate = self;
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-  center.delegate = self;
+   center.delegate = self;
+
   return YES;
+  
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
@@ -52,7 +57,10 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
- 
+ -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+ {
+   completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+ }
 // - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
 //   [[RNFirebaseNotifications instance] didReceiveLocalNotification:notification];
 // }
@@ -66,11 +74,11 @@
 //   [[RNFirebaseMessaging instance] didRegisterUserNotificationSettings:notificationSettings];
 // }
 
-
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-{
- completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
-}
+//
+//-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+//{
+// completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+//}
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
  [RNCPushNotificationIOS didRegisterUserNotificationSettings:notificationSettings];

@@ -11,19 +11,6 @@ import { ApiCall, CallApi } from '../Component/ApiClient';
 import { NavigationActions } from 'react-navigation';
 import { setupPushNotification } from './root'
 
-// let localNotification = PushNotification.localNotification({
-//     title: title,
-//     body: body,
-//     sound: 'default',
-//     silent: false,
-//     category: "SOME_CATEGORY",
-//     userInfo: { }
-// });
-// localNotification
-
-
-
-//var date = new Date();
 export default class Home extends Component {
     constructor(props) {
         super(props)
@@ -138,9 +125,6 @@ export default class Home extends Component {
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
             const { data } = notificationOpen.notification;
             console.log(data)
-            // if(notification.title == 'helo'){
-            //     alert('helo')
-            // }
 
         });
         // // // This listener triggered when app is closed and we click,tapped and opened notification 
@@ -178,7 +162,7 @@ export default class Home extends Component {
 
                     }
                     else {
-                        alert(data.data.response.message)
+                        //alert(data.data.response.message)
                     }
                 } else {
                     //alert('Somthing went wrong')
@@ -235,8 +219,7 @@ export default class Home extends Component {
             // <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <ImageBackground style={{ flex: 1 }}
                 resizeMode='stretch'
-                source={require('../assets/bg.png')}
-            >
+                source={require('../assets/bg.png')}>
                 <StatusBar barStyle="light-content" />
                 <View style={{ flex: 1 }}>
                     <View style={{
