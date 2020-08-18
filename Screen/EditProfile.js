@@ -213,7 +213,9 @@ export default class EditProfile extends Component {
                                         flex: 1,
                                     }}
                                         resizeMode='cover'
-                                        source={{ uri: this.state.filePath }}>
+                                        source={this.state.filePath == null ?
+                                            require('../assets/placeholder.jpg'):
+                                            {uri: this.state.filePath }}>
                                     </ImageLoad>
                                 </TouchableOpacity>
 

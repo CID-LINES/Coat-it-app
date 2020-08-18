@@ -266,12 +266,13 @@ export default class CarDetail extends Component {
                                     right: 18
                                 }}>
                                     <Text style={{
-                                        fontFamily: 'EurostileBold'
+                                        fontFamily: 'EurostileBold',
+                                        color:this.state.filePath == ''? 'black' : '#C0C0C0'
                                     }}>Upload car picture here</Text>
                                     <Image style={{
                                         height: 30,
                                         width: 30,
-                                        tintColor: 'black',
+                                        tintColor: this.state.filePath == ''? 'black' : '#C0C0C0',
                                         marginLeft: 10
                                     }}
                                         source={require('../assets/camera.png')}></Image>

@@ -268,12 +268,12 @@ export default class EditCarDetail extends Component {
                                     bottom: 5,
                                     right: 18
                                 }}>
-                                    <Text style={{ fontFamily: 'EurostileBold' }}>Upload car picture here</Text>
+                                    <Text style={{ fontFamily: 'EurostileBold',color:'white' }}>Upload car picture here</Text>
                                     <Image style={{
                                         marginLeft: 10,
                                         height: 30, 
                                         width: 30,
-                                        tintColor: 'black'
+                                        tintColor: 'white'
                                     }}
                                         source={require('../assets/camera.png')}></Image>
                                 </View>

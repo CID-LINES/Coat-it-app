@@ -261,14 +261,15 @@ export default class SignUp extends Component {
                                     flexDirection: 'row',
                                     right: 28
                                 }}>
-                                    <Text style={{ fontFamily: 'EurostileBold' }}>
+                                    <Text style={{ fontFamily: 'EurostileBold',
+                                color:this.state.filePath == ''? 'black' : '#C0C0C0'  }}>
                                         Upload profile picture here
                                         </Text>
                                     <Image style={{
                                         height: 30,
                                         width: 30,
                                         marginLeft: 10,
-                                        tintColor: 'black'
+                                        tintColor: this.state.filePath == ''? 'black' : '#C0C0C0'
                                     }}
                                         source={require('../assets/camera.png')}>
                                     </Image>

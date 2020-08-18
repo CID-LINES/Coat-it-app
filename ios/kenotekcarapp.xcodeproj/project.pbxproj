@@ -59,7 +59,7 @@
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* kenotekcarappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kenotekcarappTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* kenotek Coat IT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kenotek Coat IT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Kenotek Coat 'It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kenotek Coat 'It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = kenotekcarapp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = kenotekcarapp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		8161B0292473D1B500852B28 /* kenotekcarapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = kenotekcarapp.entitlements; path = kenotekcarapp/kenotekcarapp.entitlements; sourceTree = "<group>"; };
 		8169A8D72429F41B00B2F9AA /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8169A8D92429F42400B2F9AA /* libreact-native-maps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-maps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81F75EBC24EA5FB3004FF807 /* kenotek Coat ITRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "kenotek Coat ITRelease.entitlements"; path = "kenotekcarapp/kenotek Coat ITRelease.entitlements"; sourceTree = "<group>"; };
 		9C8535AA8AB64D948604E903 /* EurostileBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EurostileBold.ttf; path = ../assets/fonts/EurostileBold.ttf; sourceTree = "<group>"; };
 		A76697DBC48447179FDB2065 /* EuroStyle Normal.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "EuroStyle Normal.ttf"; path = "../assets/fonts/EuroStyle Normal.ttf"; sourceTree = "<group>"; };
 		AF04297524BFD83C581181E4 /* libPods-kenotekcarappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenotekcarappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +187,7 @@
 		13B07FAE1A68108700A75B9A /* kenotekcarapp */ = {
 			isa = PBXGroup;
 			children = (
+				81F75EBC24EA5FB3004FF807 /* kenotek Coat ITRelease.entitlements */,
 				8161B0292473D1B500852B28 /* kenotekcarapp.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -269,7 +271,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* kenotek Coat IT.app */,
+				13B07F961A680F5B00A75B9A /* Kenotek Coat 'It.app */,
 				2D02E47B1E0B4A5D006451C7 /* kenotekcarapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* kenotekcarapp-tvOSTests.xctest */,
 			);
@@ -319,7 +321,7 @@
 			);
 			name = kenotekcarapp;
 			productName = kenotekcarapp;
-			productReference = 13B07F961A680F5B00A75B9A /* kenotek Coat IT.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Kenotek Coat 'It.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* kenotekcarapp-tvOS */ = {
@@ -640,9 +642,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kenotek.user;
-				PRODUCT_NAME = "kenotek Coat IT";
+				PRODUCT_NAME = "Kenotek Coat 'It";
 				PROVISIONING_PROFILE_SPECIFIER = "kenotek user app 31/07/20";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -652,7 +654,7 @@
 			baseConfigurationReference = 73890F53E127419837A91CBF /* Pods-kenotekcarapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = kenotekcarapp/kenotekcarapp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "kenotekcarapp/kenotek Coat ITRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Codetribe Solutions (NLWJ844Y7D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -700,9 +702,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kenotek.user;
-				PRODUCT_NAME = "kenotek Coat IT";
+				PRODUCT_NAME = "Kenotek Coat 'It";
 				PROVISIONING_PROFILE_SPECIFIER = "kenotek user app 31/07/20";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

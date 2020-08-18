@@ -91,7 +91,7 @@ export default class Home extends Component {
     }
 
     onRefresh = () => {
-        this.setState({ isFetching: true }, function () { this.ProductApi() });
+        this.setState({ isFetching: true }, function () { this.FavouriteProductApi() });
     }
 
     render() {

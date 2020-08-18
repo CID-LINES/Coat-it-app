@@ -34,16 +34,16 @@ export default class Home extends Component {
         
     }
 
-    _handleNotificationOpen = (body) => {
-         console.log(body)
+    _handleNotificationOpen = (data) => {
+         console.log(data)
         const { navigate } = this.props.navigation
-        if (body.message == 'Accepted your request') {
+        if (data.type == 'Accepted your request') {
             navigate("DetailerList")
         }
-        else if (body.message == 'Added new products') {
+        else if (data.type == 'Added new products') {
             navigate("ProductList")
         }
-        else if (body.message == 'Admin send notification')
+        else if (data.type == 'Admin send notification')
          {
             navigate('Notification')
         }
@@ -109,7 +109,7 @@ export default class Home extends Component {
     async createNotificationListeners() {
         // This listener triggered when notification has been  received in foreground
         this.notificationListener = firebase.notifications().onNotification((notification) => {
-            const { title, body } = notification;
+            const { title, body,data } = notification;
             const localNotification = PushNotification.localNotification({
                 title: title,
                 message: body,

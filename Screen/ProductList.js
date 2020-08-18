@@ -168,7 +168,7 @@ export default class ProductList extends Component {
                         }}>Products</Text>
 
                     </View>
-                    {/* <TouchableOpacity style={{
+                    <TouchableOpacity style={{
                         height: 35,
                         width: 35,
                         alignItems: 'center',
@@ -188,7 +188,7 @@ export default class ProductList extends Component {
                             resizeMode='contain'
                             source={require('../assets/cart.png')}>
                         </Image>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
                     {this.state.orders.length == null || this.state.orders == 0 ?
