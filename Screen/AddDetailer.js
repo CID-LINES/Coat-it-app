@@ -53,7 +53,7 @@ export default class AddDetailer extends Component {
         this.setState({
             isLoading: true
         })
-        fetch('http://3.137.41.50/coatit/public/api/detailer_list',
+        fetch('http://18.156.66.145/public/api/detailer_list',
             {
                 method: 'GET',
                 headers: {

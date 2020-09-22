@@ -180,7 +180,7 @@ export default class Home extends Component {
             // isFetching:true
         })
 
-        fetch('http://3.137.41.50/coatit/public/api/plan/display',
+        fetch('http://18.156.66.145/public/api/plan/display',
             {
                 method: 'GET',
                 headers: {

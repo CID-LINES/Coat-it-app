@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-appinvite:17.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b916a6a6554caf024a735b08c7eb4cd/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b916a6a6554caf024a735b08c7eb4cd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b916a6a6554caf024a735b08c7eb4cd/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f242bf09fef5489bfd75c6b1d28b2871/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f242bf09fef5489bfd75c6b1d28b2871/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f242bf09fef5489bfd75c6b1d28b2871/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-appinvite/17.0.0/b6b02427b5466c51d1b8fb957c497a84f5b421/play-services-appinvite-17.0.0-javadoc.jar!/" />

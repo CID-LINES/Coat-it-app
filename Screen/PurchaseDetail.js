@@ -85,7 +85,7 @@ export default class DetailerDeatil extends Component {
             isLoading: true
         })
 
-        fetch('http://3.137.41.50/coatit/public/api/cardetail/' + no,
+        fetch('http://18.156.66.145/public/api/cardetail/' + no,
             {
                 method: 'GET',
                 headers: {
@@ -175,7 +175,7 @@ export default class DetailerDeatil extends Component {
                     </View>
                     <View style={{
                         height: 30,
-                        borderRadius: 5,
+                        //borderRadius: 5,
                         flexDirection: 'row',
                         overflow: 'hidden',
                         position: 'absolute',
@@ -329,8 +329,7 @@ export default class DetailerDeatil extends Component {
                             animating={this.state.isLoading}
                             size='large'
                             color={APP_YELLOW}
-                        >
-                        </ActivityIndicator>
+                        />
                     </View>
                 }
 

@@ -107,7 +107,7 @@ export default class EditProfile extends Component {
         body.append('last_name', this.state.lastname)
         body.append('phone_no', this.state.phone)
 
-        fetch('http://3.137.41.50/coatit/public/api/updateProfile/' + '' + this.state.user_id,
+        fetch('http://18.156.66.145/public/api/updateProfile/' + '' + this.state.user_id,
 
             {
                 method: 'POST',

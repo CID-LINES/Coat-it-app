@@ -56,7 +56,7 @@ export default class Home extends Component {
         this.setState({
             isLoading: true
         })
-        fetch('http://3.137.41.50/coatit/public/api/favourite_productsList/' + '' + this.state.user_id,
+        fetch('http://18.156.66.145/public/api/favourite_productsList/' + '' + this.state.user_id,
             {
                 method: 'GET',
                 headers: {
@@ -222,18 +222,17 @@ export default class Home extends Component {
 
                         <Text style={{
                             fontSize: 18,
-
                             fontFamily: 'EurostileBold',
                             color: '#C0C0C0'
                         }}>
                             {item.name.toUpperCase()}
                         </Text>
-                        <Text style={{
+                        {/* <Text style={{
                             marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
-                        }}>{item.description}</Text>
+                        }}>{item.description}</Text> */}
                         <Text style={{
                             fontSize: 17,
                             marginTop: 5,

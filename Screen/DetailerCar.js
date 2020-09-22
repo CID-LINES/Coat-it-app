@@ -24,7 +24,7 @@ export default class DetailerCar extends Component {
         this.setState({
             isLoading: true
         })
-        fetch('http://3.137.41.50/coatit/public/api/plan/display/' + this.state.data,
+        fetch('http://18.156.66.145/public/api/plan/display/' + this.state.data,
             {
                 method: 'GET',
                 headers: {
@@ -58,7 +58,7 @@ export default class DetailerCar extends Component {
             isLoading: true
         })
 
-        fetch('http://3.137.41.50/coatit/public/api/cardetail/' + this.state.car,
+        fetch('http://18.156.66.145/public/api/cardetail/' + this.state.car,
             {
                 method: 'GET',
                 headers: {

@@ -4,7 +4,7 @@
             "outputFile": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
             "map": [
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/26587f7593164a84fae345c6a479b657/res/values-as/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/21f31c77872d8e1df2ce43c222b39b8d/res/values-as/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -72,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/04844267f06bd37e500bc42dc8c6aad6/res/values-as/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/734b5720acccf0b22c0d206c1bcfc384/res/values-as/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

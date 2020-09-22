@@ -28,7 +28,7 @@ export default class Notification extends Component {
             isLoading: true
         })
 
-        fetch('http://3.137.41.50/coatit/public/api/notification_list',
+        fetch('http://18.156.66.145/public/api/notification_list',
             {
                 method: 'GET',
                 headers: {

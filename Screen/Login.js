@@ -313,6 +313,7 @@ export default class Login extends Component {
                                 justifyContent: 'space-between',
                                 marginBottom: 10,
                                 width: '80%',
+                                marginTop:30,
                                 alignSelf: 'center'
                             }}>
                                 <TouchableOpacity style={{

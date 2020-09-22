@@ -22,53 +22,53 @@ export default class DetailerDeatil extends Component {
     componentDidMount() {
         if(this.state.detailer.request_accepted == '1')
         {
-this.ServiceApi()
+//this.ServiceApi()
         }
         this.PlanApi()
     }
 
-    ServiceApi = () => {
-        this.setState({
-             isLoading: true
-            // isFetching:true
-        })
+    // ServiceApi = () => {
+    //     this.setState({
+    //          isLoading: true
+    //         // isFetching:true
+    //     })
 
-        fetch('http://3.137.41.50/coatit/public/api/plan/display',
-            {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
+    //     fetch('http://18.156.66.145/public/api/plan/display',
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
 
-                }
-            })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(JSON.stringify(responseJson))
-                if (responseJson.response.status == true) {
-                    this.setState({
-                        serviceplan: responseJson.response.data
-                    })
+    //             }
+    //         })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(JSON.stringify(responseJson))
+    //             if (responseJson.response.status == true) {
+    //                 this.setState({
+    //                     serviceplan: responseJson.response.data
+    //                 })
                
-                }
-                this.setState({
-                     isLoading: false,
-                     isFetching: false
-                })
-            })
-            .catch((error) => {
-                console.error(error);
-                //  alert(error)
-                //  callback({ data: error });
-                //callback({error: true, data: error});
-            });
-    }
+    //             }
+    //             this.setState({
+    //                  isLoading: false,
+    //                  isFetching: false
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //             //  alert(error)
+    //             //  callback({ data: error });
+    //             //callback({error: true, data: error});
+    //         });
+    // }
 
     PlanApi = () => {
         this.setState({
             isLoading: true
         })
-        fetch('http://3.137.41.50/coatit/public/api/products/' + this.state.detailer.id,
+        fetch('http://18.156.66.145/public/api/products/' + this.state.detailer.id,
             {
                 method: 'GET',
                 headers: {
@@ -81,7 +81,7 @@ this.ServiceApi()
                 console.log(JSON.stringify(responseJson))
                 if (responseJson.response.status == true) {
                     this.setState({
-                        // serviceplan: responseJson.response.services,
+                        serviceplan: responseJson.response.services,
                         products: responseJson.response.products
                     })
                 }

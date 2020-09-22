@@ -26,7 +26,7 @@
 
 export const ApiCall = (method, parms, callback) => {
     console.log(parms)
-     var url = 'http://3.137.41.50/coatit/public/api/auth/' + method;
+     var url = 'http://18.156.66.145/public/api/auth/' + method;
      fetch(url, {
          method: 'POST',
          headers: {
@@ -52,7 +52,7 @@ export const ApiCall = (method, parms, callback) => {
 
  export const ApiCallWithImage = (method, parms, callback) => {
     console.log(parms)
-     var url = 'http://3.137.41.50/coatit/public/api/detailer/' + method;
+     var url = 'http://18.156.66.145/public/api/detailer/' + method;
      fetch(url, {
          method: 'POST',
          headers: {
@@ -78,7 +78,7 @@ export const ApiCall = (method, parms, callback) => {
 
  
  export const CallGetApi = (method, callback) => {
-     var url = 'http://3.137.41.50/coatit/public/api/' + method;
+     var url = 'http://18.156.66.145/public/api/' + method;
      fetch(url, {
          method: 'GET',
          headers: {
@@ -103,7 +103,7 @@ export const ApiCall = (method, parms, callback) => {
  }
  export const  CallApi = (method, parms, callback) => {
    //console.log(parms)
-     var url = 'http://3.137.41.50/coatit/public/api/' + method;
+     var url = 'http://18.156.66.145/public/api/' + method;
      fetch(url, {
          method: 'POST',
          headers: {
