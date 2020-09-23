@@ -148,7 +148,6 @@ export default class SignUp extends Component {
   async save(key, value) {
     try {
       await AsyncStorage.setItem(key, value);
-
       //alert(JSON.stringify(value))
     } catch (error) {
       // console.log("Error saving data" + error);
@@ -310,8 +309,8 @@ export default class SignUp extends Component {
                       height: 30,
                       width: 30,
                       marginLeft: 10,
-                      tintColor:'white'
-                        //this.state.filePath == "" ? "black" : "#C0C0C0",
+                      tintColor: "white",
+                      //this.state.filePath == "" ? "black" : "#C0C0C0",
                     }}
                     source={require("../assets/camera.png")}
                   />
@@ -367,12 +366,7 @@ export default class SignUp extends Component {
                     placeholderTextColor="#C0C0C0"
                   />
                 </View>
-                {/* <View style={{
-                                    height: 1,
-                                    width: '80%',
-                                    backgroundColor: '#C0C0C0'
-                                }}>
-                                </View> */}
+      
                 <Text
                   style={{
                     width: "80%",
@@ -417,12 +411,7 @@ export default class SignUp extends Component {
                     placeholderTextColor="#C0C0C0"
                   />
                 </View>
-                {/* <View style={{
-                                    height:1,
-                                    width:'80%', 
-                                    backgroundColor:'#C0C0C0'
-                                }}>
-                                </View> */}
+            
                 <Text
                   style={{
                     width: "80%",
@@ -467,11 +456,6 @@ export default class SignUp extends Component {
                     placeholderTextColor="#C0C0C0"
                   />
                 </View>
-                {/* <View style={{
-                                    height: 1,
-                                    width: '80%',
-                                    backgroundColor: '#C0C0C0'
-                                }}></View> */}
 
                 <Text
                   style={{
@@ -518,11 +502,6 @@ export default class SignUp extends Component {
                     placeholderTextColor="#C0C0C0"
                   />
                 </View>
-                {/* <View style={{
-                                    height: 1,
-                                    width: '80%', 
-                                    backgroundColor: '#C0C0C0'
-                                }}></View> */}
                 <Text
                   style={{
                     width: "80%",
@@ -622,12 +601,10 @@ export default class SignUp extends Component {
                   backgroundColor: APP_YELLOW,
                   marginTop: 20,
                   alignSelf: "center",
-                  //borderRadius: 10,
                   alignItems: "center",
                   justifyContent: "center",
                 }}
                 onPress={() => {
-                  //this.props.navigation.navigate('Login')
                   this.signup();
                 }}
               >
@@ -641,28 +618,6 @@ export default class SignUp extends Component {
                   Submit
                 </Text>
               </TouchableOpacity>
-              {/* <TouchableOpacity style={{
-                                height: 50, width: '60%',
-                               // backgroundColor: APP_BLUE,
-                                marginTop: 10,
-                                 alignSelf: 'center',
-                                borderRadius: 10,
-                                marginBottom:10,
-                                borderColor:APP_YELLOW,
-                                borderWidth:2,
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                                onPress={() => {
-                                    this.props.navigation.navigate('Login')
-                               
-                                }}>
-                                <Text style={{
-                                    fontSize: 18, fontWeight: '700',
-                                    color: APP_YELLOW
-                                }}>Login</Text>
-                            </TouchableOpacity> */}
-
               <TouchableOpacity
                 onPress={() => {
                   this.props.navigation.navigate("Login");
@@ -734,6 +689,8 @@ export default class SignUp extends Component {
       alert("Please enter the password");
     } else if (this.state.confirmpassword == "") {
       alert("Please enter the confirm password");
+    } else if (this.state.confirmpassword != this.state.password) {
+      alert("Please enter the correct confirm password");
     } else if (this.state.phone == "") {
       alert("Please enter the phone number");
     } else {

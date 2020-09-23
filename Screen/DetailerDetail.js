@@ -158,7 +158,7 @@ export default class DetailerDeatil extends Component {
                     </View>
                     <View style={{
                         height: 30,
-                        borderRadius: 5,
+                        //borderRadius: 5,
                         flexDirection: 'row',
                         overflow: 'hidden',
                         position: 'absolute',

@@ -210,7 +210,7 @@ export default class ProductList extends Component {
               }}
               resizeMode="contain"
               source={require("../assets/heart.png")}
-            ></Image>
+            />
           </TouchableOpacity>
         </View>
         <View style={{ flex: 1 }}>
@@ -248,10 +248,11 @@ export default class ProductList extends Component {
               }
               sections={this.state.orders}
               renderItem={({ item, index, section }) =>
+             
                 this.Products(item, index, section)
               }
               keyExtractor={(item, index) => item + index}
-              renderSectionHeader={({ section: { detailer_name } }) => (
+              renderSectionHeader={({ section: { detailer_name, index } }) => (
                 <View
                   style={{
                     height: 40,
@@ -264,7 +265,7 @@ export default class ProductList extends Component {
                       justifyContent: "center",
                       backgroundColor: APP_YELLOW,
                     }}
-                  >
+                    >
                     <Text
                       style={{
                         fontSize: 18,
@@ -279,7 +280,7 @@ export default class ProductList extends Component {
                 </View>
               )}
               stickySectionHeadersEnabled={true}
-            ></SectionList>
+            />
           )}
         </View>
         {this.state.isLoading && (
@@ -308,6 +309,7 @@ export default class ProductList extends Component {
   }
   Products = (item, index, section) => {
     return (
+      
       <TouchableOpacity
         style={{
           marginTop: 5,
@@ -341,6 +343,7 @@ export default class ProductList extends Component {
           }
         }}
       >
+       
         <View style={{ flexDirection: "column" }}>
           <View>
             <ImageLoad
@@ -369,33 +372,12 @@ export default class ProductList extends Component {
                   height: 40,
                   width: 40,
                   overflow: "hidden",
-                }}
-                // onPress={() => {
-                //     var a = this.state.orders.indexOf(section)
-                //     let item = this.state.orders[a]
-                //     if (section.id == item.id) {
-                //         var data = item.data
-                //         var _data = data[index]
-                //         var product_id = _data.product_id
-                //         _data.is_favourite = (_data.is_favourite != null) ? (_data.is_favourite == '1' ? '0' : '1') : true
-                //         data[index] = _data
-                //         section.data = data
-                //         var ad = [...this.state.orders]
-                //         ad[a] = section
-                //         this.setState({
-                //             orders: ad
-                //         })
-
-                //         this.FavouriteProducts(item.id, product_id,
-                //             _data.is_favourite)
-                //     }
-                // }}
-              >
+                }}>
                 <Image
                   style={{
                     height: 40,
                     width: 40,
-                    tintColor: item.is_favourite == "1" ? "red" : "gray",
+                    tintColor: item.is_favourite == "1" ? "red" : "white",
                   }}
                   resizeMode="contain"
                   source={require("../assets/heart.png")}

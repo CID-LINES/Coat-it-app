@@ -102,7 +102,7 @@ export const ApiCall = (method, parms, callback) => {
          });
  }
  export const  CallApi = (method, parms, callback) => {
-   //console.log(parms)
+   console.log(parms)
      var url = 'http://18.156.66.145/public/api/' + method;
      fetch(url, {
          method: 'POST',

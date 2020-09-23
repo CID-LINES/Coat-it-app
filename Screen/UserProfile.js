@@ -77,7 +77,6 @@ export default class UserProfile extends Component {
           this.setState({
             data: responseJson.response.userProfile,
           });
-          // alert('helo')
         }
         this.setState({
           isLoading: false,
