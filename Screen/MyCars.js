@@ -381,7 +381,7 @@ export default class MyCars extends Component {
                 style={{
                   fontSize: 17,
                   color: "#C0C0C0",
-                  position: "absolute",
+                   position: "absolute",
                   right: 5,
                   fontFamily: "EurostileBold",
                 }}

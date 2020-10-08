@@ -27,7 +27,7 @@ export default class Login extends Component {
     
 
     componentDidMount() {
-        this.createNotificationListeners()
+        //this.createNotificationListeners()
         this.checkPermission()
         this.get('user_id')
         AsyncStorage.getItem('user_id', (error, item) => {
@@ -38,8 +38,8 @@ export default class Login extends Component {
         })
     }
     componentWillUnmount() {
-        this.notificationListener();
-        this.notificationOpenedListener();
+        this.notificationListener
+        this.notificationOpenedListener
       }
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
@@ -119,8 +119,8 @@ export default class Login extends Component {
         // This listener triggered when app is closed and we click,tapped and opened notification 
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
-            const { title, body } = notificationOpen.notification;
-            //this.navigate(title, body)
+            const { title, body,data } = notificationOpen.notification;
+            console.log(data)
         }
     }
     LoginApi = (fcmToken) => {

@@ -1373,6 +1373,7 @@ drawable assets_id
 drawable assets_info
 drawable assets_lock
 drawable assets_logo
+drawable assets_logout
 drawable assets_notificationicon
 drawable assets_pencil
 drawable assets_phone

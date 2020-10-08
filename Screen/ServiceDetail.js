@@ -57,7 +57,7 @@ export default class ServiceDetail extends Component {
         style={{ flex: 1 }}
         resizeMode="stretch"
         source={require("../assets/bg.png")}
-      >
+            >
         <View
           style={{
             height: 45,

@@ -656,6 +656,10 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/res/color/switch_thumb_material_light.xml"
     },
     {
+        "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_assets_logout.png.flat",
+        "source": "/Users/ios/Desktop/Work/coat-it-app/android/app/src/main/res/drawable-mdpi/assets_logout.png"
+    },
+    {
         "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/debug/anim_fragment_fade_exit.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/dcfcf6c724b312de49110e50139c9cbb/res/anim/fragment_fade_exit.xml"
     },
@@ -1178,6 +1182,10 @@
     {
         "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/aaae6e8537d46e196b09f05d92f2368e/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/debug/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "/Users/ios/Desktop/Work/coat-it-app/android/app/src/main/res/mipmap-ldpi/ic_launcher.png"
     },
     {
         "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/debug/layout-land_mtrl_picker_header_dialog.xml.flat",

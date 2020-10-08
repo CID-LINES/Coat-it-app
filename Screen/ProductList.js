@@ -173,7 +173,7 @@ export default class ProductList extends Component {
         >
           <View
             style={{
-              height: 35,
+             height: 35,
               alignItems: "center",
               justifyContent: "center",
             }}
