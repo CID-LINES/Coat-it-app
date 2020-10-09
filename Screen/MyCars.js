@@ -13,10 +13,11 @@ import {
   Alert,
   RefreshControl,
   Dimensions,
+  FlatList,
   ImageBackground,
 } from "react-native";
 import { APP_YELLOW, APP_BLUE } from "../Component/colors";
-import { FlatList } from "react-native-gesture-handler";
+// import {  } from "react-native-gesture-handler";
 import { CallGetApi } from "../Component/ApiClient";
 import { NavigationActions } from "react-navigation";
 import ImageLoad from "react-native-image-placeholder";

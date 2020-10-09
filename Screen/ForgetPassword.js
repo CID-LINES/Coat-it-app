@@ -28,7 +28,6 @@ export default class ForgetPassword extends Component {
                 if (!data.error) {
                     if (data.data.response.Status == true) {
                         alert('A link with password reset instructions has been sent on entered email address. Please follow the instructions to reset the link')
-                      
                          this.props.navigation.replace('Login') 
                       
                     }

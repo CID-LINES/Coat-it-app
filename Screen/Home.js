@@ -28,6 +28,7 @@ import { ApiCall, CallApi } from "../Component/ApiClient";
 import { NavigationActions } from "react-navigation";
 import { setupPushNotification } from "./root";
 
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -137,7 +138,7 @@ export default class Home extends Component {
           show_in_foreground: true,
         });
         return localNotification;
-      });
+      }); 
 
     //This listener triggered when app is in backgound and we click, tapped and opened notifiaction
     this.notificationOpenedListener = firebase
