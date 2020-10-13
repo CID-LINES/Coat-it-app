@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Oct 08 17:09:24 IST 2020
+#Tue Oct 13 18:12:45 IST 2020
 60.set=NATIVE_RESOURCE
 52.set=DEX
 53.base=/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

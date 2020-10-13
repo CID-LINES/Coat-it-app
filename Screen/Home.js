@@ -58,7 +58,7 @@ export default class Home extends Component {
   };
 
   _handleNotificationOpen = (data) => {
-    console.log(data.message);
+    console.log(data);
     const { navigate } = this.props.navigation;
     if (data.message == "Accepted your request") {
       navigate("DetailerList");

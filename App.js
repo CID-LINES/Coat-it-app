@@ -67,7 +67,7 @@ const Tabnavigation = createBottomTabNavigator(
               marginBottom: 10,
             }}
             source={require("./assets/product.png")}
-            resizeMode={"contain"}
+            resizeMode={"cover"}
           />
         ),
       },

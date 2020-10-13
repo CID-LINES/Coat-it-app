@@ -219,16 +219,18 @@ export default class UserProfile extends Component {
                   width: "90%",
                   justifyContent: "center",
                   alignSelf: "center",
-                  marginTop: 10,
-                  alignItems: "center",
+                  marginTop: 20,
+                  //alignItems: "center",
                   borderRadius: 10,
+                 
+                  //backgroundColor:'white'
                  
                 }}
               >
                 <View
                   style={{
                     alignItems: "flex-start",
-                    marginLeft: 20,
+                    marginLeft: 50,
                   }}
                 >
                   <View

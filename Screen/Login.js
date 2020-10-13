@@ -182,7 +182,7 @@ export default class Login extends Component {
                             fontSize: 20,
                             fontFamily: 'EurostileBold',
                             color: APP_YELLOW
-                        }}>Kenotek Coat IT</Text>
+                        }}>Kenotek Coat 'It</Text>
                     </View>
                     <KeyboardAvoidingView style={{ flex: 1 }}
                         behavior="padding" enabled={Platform.OS === 'ios'}

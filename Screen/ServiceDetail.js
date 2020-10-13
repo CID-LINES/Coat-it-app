@@ -20,7 +20,7 @@ export default class ServiceDetail extends Component {
     super(props);
     this.state = {
       user_id: "",
-      data: props.navigation.state.params.data,
+      data: props.navigation.state.params.plan,
     };
     //alert(JSON.stringify(this.state.data))
   }

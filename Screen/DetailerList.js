@@ -248,7 +248,7 @@ export default class DetailerList extends Component {
             style={{
               height: 35,
               width: 35,
-              tintColor: "black",
+              tintColor: "white",
             }}
             resizeMode="contain"
             source={require("../assets/plus-icon.png")}

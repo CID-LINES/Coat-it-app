@@ -239,8 +239,8 @@ export default class SignUp extends Component {
                 color: APP_YELLOW,
                 fontFamily: "EurostileBold",
               }}
-            >
-              Kenotek Coat IT
+            >Kenotek Coat 'It
+              
             </Text>
           </View>
           <KeyboardAvoidingView
