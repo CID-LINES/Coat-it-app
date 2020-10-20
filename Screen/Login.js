@@ -18,7 +18,7 @@ export default class Login extends Component {
             isshow: false,
             email: '',
             Password: '',
-            femail: '',
+          femail: '',
             shift: false,
             user_id: '',
             fcm: ''
@@ -47,6 +47,8 @@ export default class Login extends Component {
         if (enabled) {
             this.getToken();
         } 
+
+
         else {
             // If permission hasn’t been granted to our app, request user in requestPermission method. 
             this.requestPermission();
@@ -151,7 +153,7 @@ export default class Login extends Component {
                 }
                 else {
                     alert('Somthing went wrong')
-                }
+                }                                                   
                 this.setState({
                     isLoading: false
                 })

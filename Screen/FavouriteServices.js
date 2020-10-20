@@ -226,7 +226,7 @@ export default class FavouriteServices extends Component {
         }}
         onPress={() => {
           this.props.navigation.navigate("ServiceDetail", {
-            data: item,
+            plan: item,
           });
         }}
       >

@@ -155,11 +155,11 @@ export default class Home extends Component {
       const { data } = notificationOpen.notification;
       const { navigate } = this.props.navigation;
       console.log(data);
-      if (data.message == "Accepted your request") {
+      if (data.type == "Accepted your request") {
         navigate("DetailerList");
-      } else if (data.message == "Added new products") {
+      } else if (data.type == "Added new products") {
         navigate("ProductList");
-      } else if (data.message == "Admin send notification") {
+      } else if (data.type == "Admin send notification") {
         navigate("Notification");
       }
     }
@@ -317,7 +317,7 @@ export default class Home extends Component {
 
   onRefresh = () => {
     this.setState({ isFetching: true }, function() {
-      this.PlanApi();
+      this.ServiceApi();
     });
   };
   render() {
@@ -661,7 +661,7 @@ export default class Home extends Component {
             }}
             onPress={() => {
               this.props.navigation.navigate("ServiceDetail", {
-                data: item,
+                plan: item,
               });
             }}
           >
