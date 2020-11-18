@@ -67,6 +67,14 @@ export default class Home extends Component {
     } else if (data.message == "Admin send notification") {
       navigate("Notification");
     }
+    else if(data.message == "Provide a Service to your car")
+    {
+      navigate("Notification")
+    }
+    else if(data.message == "Provide a product to your car")
+    {
+      navigate("Notification")
+    }
   };
 
   componentWillUnmount() {
@@ -161,6 +169,13 @@ export default class Home extends Component {
         navigate("ProductList");
       } else if (data.type == "Admin send notification") {
         navigate("Notification");
+      }
+      else if (data.type == "Provide a Service to your car"){
+        navigate("Notification");
+      }
+      else if(data.type == "Provide a product to your car")
+      {
+        navigate("Notification")
       }
     }
   }

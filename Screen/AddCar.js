@@ -366,7 +366,7 @@ export default class AddCar extends Component {
                     fontFamily: "EurostileBold",
                   }}
                 >
-                  Brand/Company Name
+                  Brand
                 </Text>
                 <TextInput
                   style={{
@@ -380,7 +380,7 @@ export default class AddCar extends Component {
                   value={this.state.brand_name}
                   keyboardType="ascii-capable"
                   onChangeText={(value) => this.setState({ brand_name: value })}
-                  placeholder="Name"
+                  placeholder="Brand"
                 />
                 {/* <View style={{
                                     height: 1,
@@ -396,7 +396,7 @@ export default class AddCar extends Component {
                     color: "#C0C0C0",
                   }}
                 >
-                  Model Name
+                  Model
                 </Text>
                 <TextInput
                   style={{
@@ -410,7 +410,7 @@ export default class AddCar extends Component {
                   value={this.state.model_name}
                   keyboardType="ascii-capable"
                   onChangeText={(value) => this.setState({ model_name: value })}
-                  placeholder="Model Name"
+                  placeholder="Model"
                 />
                 {/* <View style={{
                                     height: 1, width: '80%',
@@ -425,7 +425,7 @@ export default class AddCar extends Component {
                     fontFamily: "EurostileBold",
                   }}
                 >
-                  Vehicle No.
+                 License Plate
                 </Text>
                 <TextInput
                   style={{
@@ -439,7 +439,7 @@ export default class AddCar extends Component {
                   value={this.state.vehicle_no}
                   keyboardType="ascii-capable"
                   onChangeText={(value) => this.setState({ vehicle_no: value })}
-                  placeholder="Vehicle No."
+                  placeholder="License Plate"
                 />
                 {/* <View style={{
                                     height: 1, width: '80%',
@@ -491,7 +491,7 @@ export default class AddCar extends Component {
                       },
                     }}
                     placeholder={{
-                      label: "Manufacture Year",
+                      label: "Year of Manufacture",
                       color: "gray",
                     }}
                     items={this.state.DATA}

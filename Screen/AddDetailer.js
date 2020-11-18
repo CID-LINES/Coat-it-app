@@ -15,7 +15,9 @@ export default class AddDetailer extends Component {
             previewurl: null,
             request: 0,
             detaier_id: '',
-            data: []
+            data: [],
+            searchText: "",
+            filteredData: [],
         }
     }
     componentDidMount() {
@@ -125,6 +127,17 @@ export default class AddDetailer extends Component {
     onRefresh = () => {
         this.setState({ isFetching: true }, function () { this.DetailerListApi() })
     }
+
+
+    search = (searchText) => {
+        this.setState({ searchText: searchText });
+        let filteredData = this.state.DATA.filter(function(item) {
+          return item.first_name.toLowerCase().includes(searchText.toLowerCase());
+        });
+        this.setState({ filteredData: filteredData });
+      };
+    
+     
     render() {
         return (
             // <SafeAreaView style={{ flex: 1 }}>
@@ -173,6 +186,40 @@ export default class AddDetailer extends Component {
                         }}>Detailers List</Text>
                     </View>
                 </View>
+                <View
+          style={{
+            height: 40,
+            width: "80%",
+            borderColor: APP_YELLOW,
+            alignItems: "center",
+            borderWidth: 2,
+            borderRadius: 10,
+            alignSelf: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            style={{
+              height: 20,
+              marginLeft: 10,
+              width: 20,
+            }}
+            resizeMode="contain"
+            source={require("../assets/search-icon.png")}
+          />
+          <TextInput
+            style={{
+              height: 38,
+              width: "86%",
+              marginLeft: 10,
+              color: "#C0C0C0",
+            }}
+            value={this.state.searchText}
+            onChangeText={(searchText) => this.search(searchText)}
+            placeholder="Search"
+            placeholderTextColor="#C0C0C0"
+          />
+        </View>
                 {this.state.DATA.length == 0 || this.state.DATA == null ?
                     <View style={{
                         width: '95%',
@@ -202,7 +249,9 @@ export default class AddDetailer extends Component {
                                 refreshing={this.state.isFetching}
                                 onRefresh={this.onRefresh}>
                             </RefreshControl>}
-                            data={this.state.DATA}
+                            data={ this.state.searchText.length > 0
+                                ? this.state.filteredData
+                                : this.state.DATA}
                             renderItem={({ item, index }) => (
                                 this.DetailerList(item, index)
                             )}></FlatList>

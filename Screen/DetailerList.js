@@ -16,10 +16,11 @@ import {
   Dimensions,
   ImageBackground,
 } from "react-native";
-import { APP_YELLOW, APP_BLUE } from "../Component/colors";
+import { APP_YELLOW, APP_BLUE, APP_LIGHT, APP_GRAY } from "../Component/colors";
 import { FlatList } from "react-native-gesture-handler";
 import ImageLoad from "react-native-image-placeholder";
 import moment from "moment";
+import { ApiCall,CallGetApi } from "../Component/ApiClient";
 
 export default class DetailerList extends Component {
   constructor(props) {
@@ -29,6 +30,8 @@ export default class DetailerList extends Component {
       DATA: [],
       isFetching: false,
       previewurl: null,
+      searchText: "",
+      filteredData: [],
     };
   }
   componentDidMount() {
@@ -97,6 +100,44 @@ export default class DetailerList extends Component {
       this.DetailerListApi();
     });
   };
+
+  search = (searchText) => {
+    this.setState({ searchText: searchText });
+    let filteredData = this.state.DATA.filter(function(item) {
+      return item.first_name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    this.setState({ filteredData: filteredData });
+  };
+
+  // searchDetailerApi = (name) => {
+   
+  //   fetch("http://18.156.66.145/public/api/search_detailer", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //      "name": name,
+  //      "user_id": this.state.user_id +''
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //        console.log("RESULTS HERE:", responseData);
+  //       // if(responseData.status ==true){
+  //       //   console.log("RESULTS HERE:", responseData);
+  //       // }
+  //       // else{
+  //       //   alert(responseData.message)
+  //       // }
+       
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
   render() {
     return (
       // <SafeAreaView style={{ flex: 1 }}>
@@ -157,6 +198,51 @@ export default class DetailerList extends Component {
             </Text>
           </View>
         </View>
+        <View
+          style={{
+            height: 40,
+            width: "80%",
+            borderColor: APP_YELLOW,
+            alignItems: "center",
+            borderWidth: 2,
+            borderRadius: 10,
+            alignSelf: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            style={{
+              height: 20,
+              marginLeft: 10,
+              width: 20,
+            }}
+            resizeMode="contain"
+            source={require("../assets/search-icon.png")}
+          />
+          <TextInput
+            style={{
+              height: 38,
+              width: "86%",
+              marginLeft: 10,
+              color: "#C0C0C0",
+            }}
+            value={this.state.searchText}
+            onChangeText={(searchText) => {
+              this.search(searchText)
+              // this.setState({
+              //   searchText: searchText,
+              // });
+              // if (searchText == null || searchText == "") {
+
+              // } 
+              // else {
+              //   this.searchDetailerApi(searchText);
+              // }
+            }}
+            placeholder="Search"
+            placeholderTextColor="#C0C0C0"
+          />
+        </View>
         {/* {this.state.DATA.length == 0 || this.state.DATA == null ?
                     <View style={{
                         width: '95%', 
@@ -214,7 +300,12 @@ export default class DetailerList extends Component {
                 onRefresh={this.onRefresh}
               />
             }
-            data={this.state.DATA}
+            data={
+              //this.state.DATA
+              this.state.searchText.length > 0
+              ? this.state.filteredData
+              : this.state.DATA
+            }
             renderItem={({ item, index }) => this.DetailerList(item, index)}
           />
         )}

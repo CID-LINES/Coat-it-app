@@ -524,7 +524,7 @@ export default class DetailerDeatil extends Component {
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold',
                             marginTop: 5,
-                        }}>Vehcle no - {item.vehicle_no}
+                        }}>License Plate - {item.vehicle_no}
                         </Text>
                     </TouchableOpacity>
                 <TouchableOpacity style={{
@@ -645,7 +645,7 @@ export default class DetailerDeatil extends Component {
                             
                             fontFamily: 'EurostileBold',
                            
-                        }}>Vehcle no - {item.vehicle_no}
+                        }}>License Plate - {item.vehicle_no}
                         </Text>
                     </TouchableOpacity>
                 <TouchableOpacity style={{

@@ -319,7 +319,7 @@ export default class CarDetail extends Component {
                     fontFamily: "EurostileBold",
                   }}
                 >
-                  Brand/Company Name
+                  Brand
                 </Text>
                 <TextInput
                   style={{
@@ -335,7 +335,7 @@ export default class CarDetail extends Component {
                   onChangeText={(value) =>
                     this.setState({ Companyname: value })
                   }
-                  placeholder="Name"
+                  placeholder="Brand"
                 />
                 {/* <View style={{
                                     height: 1, width: '80%',
@@ -350,7 +350,7 @@ export default class CarDetail extends Component {
                     fontFamily: "EurostileBold",
                   }}
                 >
-                  Model Name
+                  Model
                 </Text>
                 <TextInput
                   style={{
@@ -364,7 +364,7 @@ export default class CarDetail extends Component {
                   keyboardType="ascii-capable"
                   value={this.state.Modelname}
                   onChangeText={(value) => this.setState({ Modelname: value })}
-                  placeholder="Model Name"
+                  placeholder="Model"
                 />
                 {/* <View style={{
                                     height: 1, width: '80%',
@@ -379,7 +379,7 @@ export default class CarDetail extends Component {
                     marginTop: 20,
                   }}
                 >
-                  Vehicle No.
+                  License Plate
                 </Text>
                 <TextInput
                   style={{
@@ -393,7 +393,7 @@ export default class CarDetail extends Component {
                   keyboardType="ascii-capable"
                   value={this.state.Vehicleno}
                   onChangeText={(value) => this.setState({ Vehicleno: value })}
-                  placeholder="Vehicle No."
+                  placeholder="License Plate"
                 />
                 {/* <View style={{
                                     height: 1, 
@@ -433,7 +433,7 @@ export default class CarDetail extends Component {
                       },
                     }}
                     placeholder={{
-                      label: "Manufacture Year",
+                      label: "Year of Manufacture",
                       color: "gray",
                     }}
                     items={this.state.DATA}
