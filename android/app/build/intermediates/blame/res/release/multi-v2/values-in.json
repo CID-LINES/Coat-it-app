@@ -21,24 +21,24 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/res/values-in/values-in.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/550c04036db807230626a3f25a862b52/res/values-in/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "103",
+                        "endOffsets": "310"
                     },
                     "to": {
-                        "startLines": "49",
+                        "startLines": "47",
                         "startColumns": "4",
-                        "startOffsets": "5691",
-                        "endColumns": "100",
-                        "endOffsets": "5787"
+                        "startOffsets": "5499",
+                        "endColumns": "107",
+                        "endOffsets": "5602"
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/21f31c77872d8e1df2ce43c222b39b8d/res/values-in/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/e88f3d2b833abc3d85afbeefcdf54696/res/values-in/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/9a830088f68d7e7df9245c2184846243/res/values-in/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/res/values-in/values-in.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "207",
-                        "endColumns": "103",
-                        "endOffsets": "310"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "47",
+                        "startLines": "49",
                         "startColumns": "4",
-                        "startOffsets": "5499",
-                        "endColumns": "107",
-                        "endOffsets": "5602"
+                        "startOffsets": "5691",
+                        "endColumns": "100",
+                        "endOffsets": "5787"
                     }
                 },
                 {

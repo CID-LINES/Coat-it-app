@@ -314,6 +314,7 @@ export default class MyCars extends Component {
           overflow: "hidden",
         }}
         onPress={() => {
+         
           this.props.navigation.navigate("EditCarDetail", {
             data: item,
           });

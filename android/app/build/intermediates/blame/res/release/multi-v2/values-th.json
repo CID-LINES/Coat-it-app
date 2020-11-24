@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/550c04036db807230626a3f25a862b52/res/values-th/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "103",
+                        "endOffsets": "310"
+                    },
+                    "to": {
+                        "startLines": "47",
+                        "startColumns": "4",
+                        "startOffsets": "5347",
+                        "endColumns": "107",
+                        "endOffsets": "5450"
+                    }
+                },
+                {
                     "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/963771184f7caf41384b50226796db41/res/values-th/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -35,23 +52,6 @@
                         "startOffsets": "2734,2842,3021,3146,3255,3450,3576,3725,4050,4253,4360,4538,4662,4861,5042,5136,5234",
                         "endColumns": "107,178,124,108,194,125,148,136,202,106,177,123,198,180,93,97,112",
                         "endOffsets": "2837,3016,3141,3250,3445,3571,3720,3857,4248,4355,4533,4657,4856,5037,5131,5229,5342"
-                    }
-                },
-                {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/9a830088f68d7e7df9245c2184846243/res/values-th/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "207",
-                        "endColumns": "103",
-                        "endOffsets": "310"
-                    },
-                    "to": {
-                        "startLines": "47",
-                        "startColumns": "4",
-                        "startOffsets": "5347",
-                        "endColumns": "107",
-                        "endOffsets": "5450"
                     }
                 },
                 {
@@ -72,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/21f31c77872d8e1df2ce43c222b39b8d/res/values-th/values.xml",
+                    "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/e88f3d2b833abc3d85afbeefcdf54696/res/values-th/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

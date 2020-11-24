@@ -1374,6 +1374,7 @@ drawable assets_placeholder
 drawable assets_plusicon
 drawable assets_product
 drawable assets_profileicon
+drawable assets_searchicon
 drawable assets_serviceicon
 drawable assets_user
 drawable avd_hide_password
