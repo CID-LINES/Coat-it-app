@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Nov 24 17:56:17 IST 2020
+#Wed Dec 02 16:56:48 IST 2020
 60.set=NATIVE_RESOURCE
 52.set=NATIVE_RESOURCE
 53.base=/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/transforms/stripDebugSymbol/release/0

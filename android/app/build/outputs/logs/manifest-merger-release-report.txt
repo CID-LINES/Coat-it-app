@@ -255,7 +255,7 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ios/.gradle/caches/tra
 	android:theme
 		ADDED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:23:7-38
 	android:usesCleartextTraffic
-		ADDED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:22:9-44
+		ADDED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:22:7-42
 	android:name
 		ADDED from /Users/ios/Desktop/Work/coat-it-app/android/app/src/main/AndroidManifest.xml:17:7-38
 receiver#io.invertase.firebase.notifications.RNFirebaseNotificationReceiver

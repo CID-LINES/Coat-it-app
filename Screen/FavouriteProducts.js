@@ -219,7 +219,7 @@ export default class Home extends Component {
                         marginTop: 10,
 
                     }}>
-
+                        <View style={{flexDirection:'row'}}>
                         <Text style={{
                             fontSize: 18,
                             fontFamily: 'EurostileBold',
@@ -227,20 +227,42 @@ export default class Home extends Component {
                         }}>
                             {item.name.toUpperCase()}
                         </Text>
+                        {item.video_link != null &&
+              item.video_link != "" && (
+                <TouchableOpacity
+                  style={{
+                    height: 25,
+                    width: 60,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                  }}
+                  onPress={() => {
+                    Linking.openURL(item.video_link);
+                  }}
+                >
+                  <Image
+                    style={{ height: 25, width: 60, tintColor: "red" }}
+                    resizeMode='contain'
+                    source={require("../assets/youtube.png")}
+                  />
+                </TouchableOpacity>
+              )}
+                        </View>
                         {/* <Text style={{
                             marginTop: 10,
                             fontSize: 17,
                             color: '#C0C0C0',
                             fontFamily: 'EurostileBold',
                         }}>{item.description}</Text> */}
-                        <Text style={{
+                        {/* <Text style={{
                             fontSize: 17,
                             marginTop: 5,
                             color: APP_YELLOW,
                             fontFamily: 'EurostileBold'
                         }}
                             onPress={() => Linking.openURL(item.video_link)}> {item.video_link}
-                        </Text>
+                        </Text> */}
                     </View>
                 </View>
 

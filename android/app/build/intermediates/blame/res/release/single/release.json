@@ -2332,6 +2332,10 @@
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/f0605f9e0c0d44577acc0228f021d09d/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
+        "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_youtube.png.flat",
+        "source": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/generated/res/react/release/drawable-mdpi/assets_youtube.png"
+    },
+    {
         "merged": "/Users/ios/Desktop/Work/coat-it-app/android/app/build/intermediates/res/merged/release/interpolator_mtrl_linear_out_slow_in.xml.flat",
         "source": "/Users/ios/.gradle/caches/transforms-2/files-2.1/87209f2660376f57161fe5cb5487852c/res/interpolator/mtrl_linear_out_slow_in.xml"
     },

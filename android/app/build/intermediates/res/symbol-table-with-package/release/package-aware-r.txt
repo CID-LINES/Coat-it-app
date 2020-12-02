@@ -1377,6 +1377,7 @@ drawable assets_profileicon
 drawable assets_searchicon
 drawable assets_serviceicon
 drawable assets_user
+drawable assets_youtube
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl

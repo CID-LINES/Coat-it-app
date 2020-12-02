@@ -292,6 +292,7 @@ export default class DetailerList extends Component {
               marginTop: 10,
               marginBottom: 20,
             }}
+            showsVerticalScrollIndicator={false}
             refreshControl={
               <RefreshControl
                 tintColor={APP_YELLOW}

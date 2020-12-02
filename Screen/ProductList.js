@@ -391,6 +391,7 @@ export default class ProductList extends Component {
               marginTop: 10,
             }}
           >
+            <View style={{flexDirection:'row'}}> 
             <Text
               style={{
                 fontSize: 18,
@@ -400,7 +401,27 @@ export default class ProductList extends Component {
             >
               {item.name.toUpperCase()}
             </Text>
-
+            {item.video_link != null && item.video_link != '' &&
+            <TouchableOpacity
+              style={{
+                height: 25,
+                width: 60,
+               
+                alignItems: "center",
+                justifyContent: "center",
+                overflow:'hidden'
+              }}
+              onPress={()=>{
+                Linking.openURL(item.video_link)
+              }}
+            >
+              <Image
+                style={{ height: 25, width: 60 ,tintColor:'red'}}
+                resizeMode='contain'
+                source={require("../assets/youtube.png")}
+              />
+            </TouchableOpacity>}
+            </View>
             <Text
               style={{
                 marginTop: 10,
@@ -413,7 +434,8 @@ export default class ProductList extends Component {
             >
               {item.description}
             </Text>
-            <Text
+          
+            {/* <Text
               style={{
                 fontSize: 17,
                 marginTop: 5,
@@ -424,7 +446,7 @@ export default class ProductList extends Component {
             >
               {" "}
               {item.video_link}
-            </Text>
+            </Text> */}
           </View>
           <TouchableOpacity
             style={{
